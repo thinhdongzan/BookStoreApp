@@ -1,4 +1,4 @@
-package model.com.model;
+package model;
 
 public class Book extends Product {
     private String publisher;

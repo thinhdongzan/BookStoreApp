@@ -1,4 +1,4 @@
-package model.com.model;
+package model;
 
 public class Stationery extends Product {
     private String brand;

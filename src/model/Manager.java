@@ -1,4 +1,4 @@
-package model.com.model;
+package model;
 
 public class Manager extends Employee {
     private String username;
