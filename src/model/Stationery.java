@@ -2,17 +2,22 @@ package model;
 
 public class Stationery extends Product {
     private String brand;
-    private String type;
+    private String stationeryType;
 
-    // Constructor
-    public Stationery(String name, int id, int quantity, float purchasePrice, float sellingPrice, String brand,
-            String type) {
-        super(name, id, quantity, purchasePrice, sellingPrice);
-        this.brand = brand;
-        this.type = type;
+    // Constructor mặc định
+    public Stationery() {
+        super();
     }
 
-    // Getters and Setters
+    // Constructor đầy đủ
+    public Stationery(int id, String name, int quantity, double purchasePrice, double sellingPrice,
+                      String brand, String stationeryType) {
+        super(id, name, quantity, purchasePrice, sellingPrice);
+        this.brand = brand;
+        this.stationeryType = stationeryType;
+    }
+
+    // Getter và Setter cho brand
     public String getBrand() {
         return brand;
     }
@@ -21,18 +26,19 @@ public class Stationery extends Product {
         this.brand = brand;
     }
 
-    public String getType() {
-        return type;
+    // Getter và Setter cho stationeryType
+    public String getStationeryType() {
+        return stationeryType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setStationeryType(String stationeryType) {
+        this.stationeryType = stationeryType;
     }
-
+    
     @Override
     public void displayInfo() {
         super.displayInfo();
         System.out.println("Brand: " + brand);
-        System.out.println("Type: " + type);
+        System.out.println("Stationery Type: " + stationeryType);
     }
 }

@@ -1,18 +1,55 @@
 package model;
 
 public class Customer {
+    private int id;
+    private String username;
+    private String password;
     private String name;
-    private String email;
     private String phoneNumber;
+    private String address;
 
-    // Constructor
-    public Customer(String name, String email, String phoneNumber) {
-        this.name = name;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
+    // Constructor mặc định
+    public Customer() {
     }
 
-    // Getters and Setters
+    // Constructor đầy đủ
+    public Customer(int id, String username, String password, String name, String phoneNumber, String address) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
+    // Getter và Setter cho id
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    // Getter và Setter cho username
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    // Getter và Setter cho password
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    // Getter và Setter cho name
     public String getName() {
         return name;
     }
@@ -21,14 +58,7 @@ public class Customer {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+    // Getter và Setter cho phoneNumber
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -37,12 +67,12 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    // Method to display customer information
-    public void displayInfo() {
-        System.out.println("Customer Name: " + name);
-        System.out.println("Email: " + email);
-        System.out.println("Phone Number: " + phoneNumber);
+    // Getter và Setter cho address
+    public String getAddress() {
+        return address;
     }
 
-    
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

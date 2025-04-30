@@ -1,47 +1,32 @@
 package model;
 
-import java.util.List;
+import java.util.Map;
 
 public class Invoice {
-    private int ID;
-    private Customer customer;
-    private List<Product> products;
-    private boolean isPaid;
+    private Cart cart;
 
-    // Constructor
-    public Invoice(int ID, Customer customer, List<Product> products, boolean isPaid) {
-        this.ID = ID;
-        this.customer = customer;
-        this.products = products;
-        this.isPaid = isPaid;
+    public Invoice(Cart cart) {
+        this.cart = cart;
     }
 
-    // Getters and Setters
-    public int getID() {
-        return ID;
-    }
+    public void generateInvoice() {
+        System.out.println("===== INVOICE =====");
+        System.out.println("Customer: " + cart.getCustomer().getName());
+        System.out.println("Phone: " + cart.getCustomer().getPhoneNumber());
+        System.out.println("Address: " + cart.getCustomer().getAddress());
+        System.out.println("--------------------");
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
+        double total = 0.0;
+        for (Map.Entry<Product, Integer> entry : cart.getItems().entrySet()) {
+            Product product = entry.getKey();
+            int quantity = entry.getValue();
+            double subtotal = product.getSellingPrice() * quantity;
+            total += subtotal;
+            System.out.println(product.getName() + " x " + quantity + " = " + subtotal);
+        }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
-    public boolean isPaid() {
-        return isPaid;
+        System.out.println("--------------------");
+        System.out.println("Total: " + total);
+        System.out.println("====================");
     }
 }

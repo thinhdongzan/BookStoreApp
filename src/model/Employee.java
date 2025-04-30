@@ -1,28 +1,22 @@
 package model;
 
 public class Employee {
-    private String name;
     private int id;
-    private String position;
-    private float salary;
+    private String name;
+    private double salary;
 
-    // Constructor
-    public Employee(String name, int id, String position, float salary) {
-        this.name = name;
+    // Constructor mặc định
+    public Employee() {
+    }
+
+    // Constructor đầy đủ
+    public Employee(int id, String name, double salary) {
         this.id = id;
-        this.position = position;
+        this.name = name;
         this.salary = salary;
     }
 
-    // Getters and Setters
-    public String getName() {
-        return name;
-    }
-
-    private void setName(String name) {
-        this.name = name;
-    }
-
+    // Getter và Setter cho id
     public int getId() {
         return id;
     }
@@ -31,34 +25,21 @@ public class Employee {
         this.id = id;
     }
 
-    public String getPosition() {
-        return position;
+    // Getter và Setter cho name
+    public String getName() {
+        return name;
     }
 
-    private void setPosition(String position) {
-        this.position = position;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public float getSalary() {
+    // Getter và Setter cho salary
+    public double getSalary() {
         return salary;
     }
 
-    private void setSalary(float salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
-    }
-
-    // Method to display employee information
-    public void displayInfo() {
-        System.out.println("Employee Name: " + name);
-        System.out.println("Employee ID: " + id);
-        System.out.println("Position: " + position);
-        System.out.println("Salary: " + salary);
-    }
-
-    // Method to update employee information
-    public void updateInfo(String name, String position, float salary) {
-        setName(name);
-        setPosition(position);
-        setSalary(salary);
     }
 }

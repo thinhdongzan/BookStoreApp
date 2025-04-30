@@ -1,49 +1,53 @@
 package model;
 
 public class Book extends Product {
-    private String author;
     private String publisher;
-    private String ISBN;
+    private String author;
+    private String isbn;
+    
+    
+	public Book() {
+	    super();
+	}
 
-    // Constructor
-    public Book(String name, int id, int quantity, float purchasePrice, float sellingPrice, String author,
-            String publisher, String ISBN) {
-        super(name, id, quantity, purchasePrice, sellingPrice);
-        this.author = author;
-        this.publisher = publisher;
-        this.ISBN = ISBN;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
+	public Book(int id, String name, int quantity, double purchasePrice, double sellingPrice,
+            String publisher, String author, String isbn) {
+    super(id, name, quantity, purchasePrice, sellingPrice);
+    this.publisher = publisher;
+    this.author = author;
+    this.isbn = isbn;
+}
+    
     public String getPublisher() {
-        return publisher;
-    }
+		return publisher;
+	}
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
 
-    public String getISBN() {
-        return ISBN;
-    }
+	public String getAuthor() {
+		return author;
+	}
 
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
-    }
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 
-    @Override
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+	@Override
     public void displayInfo() {
         super.displayInfo();
-        System.out.println("Author: " + author);
         System.out.println("Publisher: " + publisher);
-        System.out.println("ISBN: " + ISBN);
+        System.out.println("Author: " + author);
+        System.out.println("ISBN: " + isbn);
     }
 
 }
