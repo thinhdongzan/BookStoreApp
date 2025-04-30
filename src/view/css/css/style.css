@@ -1,0 +1,78 @@
+/* File style.css */
+.anchor-pane-background1 {
+	-fx-background-color: #607274
+}
+
+.transparent-pane {
+	fx-pref-width: 540;
+	    -fx-pref-height: 330;
+    -fx-background-color: rgba(255, 255, 255, 0.8 ); /* màu đen, độ mờ (100 - 0.05)% */
+    -fx-background-radius: 10; /* bo góc đẹp hơn, tùy bạn */
+}
+
+.White-background {
+	-fx-background-color: rgba(255, 255, 255); /* trong suất background*/
+	-fx-background-radius: 15; /* bo góc đẹp hơn */
+}
+
+.White-background1 {
+	-fx-background-color: rgba(255, 255, 255); /* trong suất background*/
+	-fx-background-radius: 3; /* bo góc đẹp hơn */
+
+}
+
+.transparent-button {
+
+    -fx-background-color: rgba(255, 255, 255, 0); /* trong suất background*/
+	-fx-text-fill: rgba(255, 255, 255, 0); /* trong suất text*/
+
+    -fx-background-radius: 10; /* bo góc đẹp hơn */
+}
+
+.transparent-black {
+	
+	    -fx-background-color: rgba(0, 0, 0, 0.85); /* trắng mờ */
+	    -fx-background-radius: 15; /* bo góc */
+	    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 20, 0.5, 0, 4); /* đổ bóng */
+	    -fx-padding: 20;
+	
+}
+
+
+.anchor-pane-background2 {
+	-fx-background-color: linear-gradient(#d6a2a8	, #eab8c9);
+    -fx-background-radius: 10;
+}
+
+.shadow-effect {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 20, 0.5, 0, 5);
+	-fx-background-color: rgba(255, 255, 255, 0.5); /* màu đen, độ mờ 50% */
+}
+
+.shadow-effect1 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.3, 0, 3);
+}
+
+.transparent-circle {
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-shape: "M 100,0 A 100,100 0 1,0 100,200 A 100,100 0 1,0 100,0 Z"; /* Hình tròn */
+    -fx-min-width: 200px;
+    -fx-min-height: 200px;
+}
+
+.button-style1 {
+  
+    -fx-border-color: black; /* Màu viền đen */
+    -fx-border-width: 2; /* Độ dày viền là 2px */
+    -fx-text-transform: uppercase; /* Chữ in hoa */
+}
+
+	.button-style2 {
+	    -fx-background-color:white; /* Màu nền trắng */
+	    -fx-text-fill: #607274; 
+	    -fx-border-color: #607274	; /* Màu viền đen */
+	    -fx-border-width: 3; 
+	    -fx-text-transform: uppercase; /* Chữ in hoa */
+	}
