@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="642.0" fitWidth="428.0" layoutX="79.0" layoutY="-128.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" rotate="90.0">
          <image>
-            <Image url="@../images/494572789_668974909173979_8637798680603381654_n.png" />
+            <Image url="@../images/Logo/494572789_668974909173979_8637798680603381654_n.png" />
          </image>
       </ImageView>
       <AnchorPane layoutX="31.0" layoutY="31.0" prefHeight="340.0" prefWidth="541.0" styleClass="White-background" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="31.0">
@@ -21,7 +21,7 @@
                <children>
                   <ImageView fitHeight="85.0" fitWidth="97.0" layoutX="23.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect1">
                      <image>
-                        <Image url="@../images/id-card.png" />
+                        <Image url="@../images/Button/id-card.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="26.0" layoutY="129.0" text="Nhân Viên" textFill="WHITE">
@@ -50,7 +50,7 @@
                <children>
                   <ImageView fitHeight="85.0" fitWidth="89.0" layoutX="24.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect1">
                      <image>
-                        <Image url="@../images/shopping-cart%20(1).png" />
+                        <Image url="@../images/Button/shopping-cart%20(1).png" />
                      </image>
                   </ImageView>
                   <Label layoutX="23.0" layoutY="126.0" text="Khách Hàng" textFill="#3e70fa">
