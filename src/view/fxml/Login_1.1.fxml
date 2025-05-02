@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="anchor-pane-background1" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="anchor-pane-background1" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Login_11_Controller">
    <children>
       <AnchorPane layoutX="31.0" layoutY="31.0" prefHeight="340.0" prefWidth="541.0" styleClass="transparent-pane" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="31.0">
          <children>
@@ -29,7 +29,7 @@
                </image>
             </ImageView>
             <Button layoutX="74.0" layoutY="125.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="129.0" styleClass="transparent-button" />
-            <Button layoutX="366.0" layoutY="266.0" mnemonicParsing="false" text="Nhân Viên">
+            <Button layoutX="372.0" layoutY="266.0" mnemonicParsing="false" text="Quản Lý">
                <styleClass>
                   <String fx:value="button-style1" />
                   <String fx:value="shadow-effect1" />
@@ -41,7 +41,7 @@
                   <Image url="@../images/Button/shopping-basket.png" />
                </image>
             </ImageView>
-            <Button layoutX="100.0" layoutY="266.0" mnemonicParsing="false" text="Khách Hàng">
+            <Button fx:id="loginCustomerBtn" layoutX="100.0" layoutY="266.0" mnemonicParsing="false" onAction="#loginCustomer" text="Khách Hàng">
                <styleClass>
                   <String fx:value="shadow-effect1" />
                   <String fx:value="button-style1" />
