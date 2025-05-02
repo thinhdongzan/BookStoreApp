@@ -6,49 +6,68 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="anchor-pane-background1" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Login_11_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="anchor-pane-background1" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="31.0" layoutY="31.0" prefHeight="340.0" prefWidth="541.0" styleClass="transparent-pane" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="31.0">
+      <ImageView fitHeight="642.0" fitWidth="428.0" layoutX="79.0" layoutY="-128.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" rotate="90.0">
+         <image>
+            <Image url="@../images/494572789_668974909173979_8637798680603381654_n.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="31.0" layoutY="31.0" prefHeight="340.0" prefWidth="541.0" styleClass="White-background" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="31.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="153.0" layoutY="25.0" text="HUST Bookstore" AnchorPane.leftAnchor="153.0" AnchorPane.rightAnchor="151.9999999999999" AnchorPane.topAnchor="25.0">
+            <AnchorPane layoutX="319.0" layoutY="121.0" prefHeight="182.0" prefWidth="131.0">
+               <children>
+                  <ImageView fitHeight="85.0" fitWidth="97.0" layoutX="23.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect1">
+                     <image>
+                        <Image url="@../images/id-card.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="26.0" layoutY="129.0" text="Nhân Viên" textFill="WHITE">
+                     <styleClass>
+                        <String fx:value="node-surround-label2" />
+                        <String fx:value="text-font" />
+                     </styleClass>
+                  </Label>
+               </children>
+               <styleClass>
+                  <String fx:value="node-surround-pane2" />
+                  <String fx:value="shadow-effect" />
+               </styleClass>
+            </AnchorPane>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="136.0" layoutY="14.0" prefHeight="45.0" prefWidth="265.0" styleClass="text-font" text="HUST Bookstore" textFill="#3e70fa" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="136.66666666666669" AnchorPane.topAnchor="14.0">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="172.0" layoutY="71.0" text="Đăng nhập với tư cách" AnchorPane.leftAnchor="172.0" AnchorPane.rightAnchor="174.66666666666674" AnchorPane.topAnchor="71.0">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="173.0" layoutY="59.0" styleClass="text-font" text="Đăng nhập với tư cách" textFill="#3e70fa" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="173.66666666666663" AnchorPane.topAnchor="59.0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ImageView fitHeight="120.0" fitWidth="118.0" layoutX="345.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect1">
-               <image>
-                  <Image url="@../images/Button/identity.png" />
-               </image>
-            </ImageView>
-            <Button layoutX="74.0" layoutY="125.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="129.0" styleClass="transparent-button" />
-            <Button fx:id = "loginAdminBtn" layoutX="372.0" layoutY="266.0" mnemonicParsing="false" onAction="#loginAdmin" text="Quản Lý">
+            <AnchorPane layoutX="87.0" layoutY="121.0" prefHeight="182.0" prefWidth="131.0">
+               <children>
+                  <ImageView fitHeight="85.0" fitWidth="89.0" layoutX="24.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect1">
+                     <image>
+                        <Image url="@../images/shopping-cart%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="23.0" layoutY="126.0" text="Khách Hàng" textFill="#3e70fa">
+                     <styleClass>
+                        <String fx:value="node-surround-label1" />
+                        <String fx:value="text-font" />
+                     </styleClass>
+                  </Label>
+               </children>
                <styleClass>
-                  <String fx:value="button-style1" />
-                  <String fx:value="shadow-effect1" />
+                  <String fx:value="shadow-effect" />
+                  <String fx:value="node-surround-pane1" />
                </styleClass>
-            </Button>
-            <Line endX="15.0" endY="170.66668701171875" layoutX="253.0" layoutY="124.0" startX="15.0" startY="-9.333351135253906" strokeWidth="2.0" />
-            <ImageView fitHeight="107.0" fitWidth="104.0" layoutX="90.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect1">
-               <image>
-                  <Image url="@../images/Button/shopping-basket.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="loginCustomerBtn" layoutX="100.0" layoutY="266.0" mnemonicParsing="false" onAction="#loginCustomer" text="Khách Hàng">
-               <styleClass>
-                  <String fx:value="shadow-effect1" />
-                  <String fx:value="button-style1" />
-               </styleClass>
-            </Button>
-            <Button layoutX="339.0" layoutY="130.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="129.0" styleClass="transparent-button" text="Button" />
+            </AnchorPane>
+            <Button layoutX="321.0" layoutY="121.0" mnemonicParsing="false" prefHeight="182.0" prefWidth="131.0" styleClass="transparent-button" />
          </children>
       </AnchorPane>
+      <Button layoutX="-62.0" layoutY="97.0" mnemonicParsing="false" prefHeight="182.0" prefWidth="131.0" styleClass="transparent-button" />
    </children>
 </AnchorPane>
