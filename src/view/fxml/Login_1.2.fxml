@@ -14,17 +14,20 @@
     <children>
 
         <!-- Hình ảnh minh họa bên trái (nếu cần) -->
-        <!--
-        <ImageView AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" fitWidth="200.0" preserveRatio="false">
+       
+        <ImageView AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="75.0" AnchorPane.bottomAnchor="0.0" fitWidth="200.0" preserveRatio="false">
             <image>
-                <Image url="@left-illustration.png" />
+                <Image url="https://lienquan.garena.vn/wp-content/uploads/2024/05/Tulen-1.jpg" />
             </image>
         </ImageView>
-        -->
+       
+        <Button fx:id = "loginAhandleBackBtnActiondminBtn" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBackBtnAction" text="Back">
+        </Button>
 
         <!-- Form login bên phải -->
         <Pane styleClass="pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
+                
                 <Text layoutX="178.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Login">
                     <font>
                         <Font size="18.0" />

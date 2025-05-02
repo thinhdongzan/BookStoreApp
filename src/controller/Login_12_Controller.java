@@ -1,7 +1,11 @@
 package controller;
 
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
@@ -12,6 +16,15 @@ public class Login_12_Controller {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    public void handleBackBtnAction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../view/fxml/Login_1.1.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    
 
     @FXML
     private TextField usernameField;
@@ -42,4 +55,5 @@ public class Login_12_Controller {
             e.printStackTrace();
         }
     }
+
 }

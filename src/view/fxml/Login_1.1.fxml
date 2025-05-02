@@ -29,7 +29,7 @@
                </image>
             </ImageView>
             <Button layoutX="74.0" layoutY="125.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="129.0" styleClass="transparent-button" />
-            <Button layoutX="372.0" layoutY="266.0" mnemonicParsing="false" text="Quản Lý">
+            <Button fx:id = "loginAdminBtn" layoutX="372.0" layoutY="266.0" mnemonicParsing="false" onAction="#loginAdmin" text="Quản Lý">
                <styleClass>
                   <String fx:value="button-style1" />
                   <String fx:value="shadow-effect1" />
