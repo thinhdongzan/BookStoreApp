@@ -1,78 +1,140 @@
-/* File style.css */
-.anchor-pane-background1 {
-	-fx-background-color: #607274
+/* Toàn màn hình */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
 }
 
-.transparent-pane {
-	fx-pref-width: 540;
-	    -fx-pref-height: 330;
-    -fx-background-color: rgba(255, 255, 255, 0.8 ); /* màu đen, độ mờ (100 - 0.05)% */
-    -fx-background-radius: 10; /* bo góc đẹp hơn, tùy bạn */
+/* Khung chứa form (bên phải) */
+.login_pane {
+    -fx-background-color: #f8f8f8;
+    -fx-border-radius: 20px;
+    -fx-border-color: white;
+    -fx-border-style: solid;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-alignment: center;
 }
 
-.White-background {
-	-fx-background-color: rgba(255, 255, 255); /* trong suất background*/
-	-fx-background-radius: 15; /* bo góc đẹp hơn */
+/* Tiêu đề "Login" */
+.login_text {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-fill: #3e70fa;
 }
 
-.White-background1 {
-	-fx-background-color: rgba(255, 255, 255); /* trong suất background*/
-	-fx-background-radius: 3; /* bo góc đẹp hơn */
-
+.signup_text{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-fill: #052675;
 }
 
-.transparent-button {
-
-    -fx-background-color: rgba(255, 255, 255, 0); /* trong suất background*/
-	-fx-text-fill: rgba(255, 255, 255, 0); /* trong suất text*/
-
-    -fx-background-radius: 10; /* bo góc đẹp hơn */
-}
-
-.transparent-black {
-	
-	    -fx-background-color: rgba(0, 0, 0, 0.85); /* trắng mờ */
-	    -fx-background-radius: 15; /* bo góc */
-	    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 20, 0.5, 0, 4); /* đổ bóng */
-	    -fx-padding: 20;
-	
-}
-
-
-.anchor-pane-background2 {
-	-fx-background-color: linear-gradient(#d6a2a8	, #eab8c9);
-    -fx-background-radius: 10;
-}
-
-.shadow-effect {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 20, 0.5, 0, 5);
-	-fx-background-color: rgba(255, 255, 255, 0.5); /* màu đen, độ mờ 50% */
-}
-
-.shadow-effect1 {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.3, 0, 3);
-}
-
-.transparent-circle {
+/* TextFields & PasswordField */
+.text-field, .password-field {
     -fx-background-color: transparent;
-    -fx-border-color: black;
-    -fx-border-width: 2px;
-    -fx-shape: "M 100,0 A 100,100 0 1,0 100,200 A 100,100 0 1,0 100,0 Z"; /* Hình tròn */
-    -fx-min-width: 200px;
-    -fx-min-height: 200px;
+    -fx-text-fill: #3e70fa;
+    -fx-prompt-text-fill: #3e70fa;
+    -fx-font-size: 13px;
+    -fx-padding: 4 0 4 0;
 }
 
-.button-style1 {
-  
-    -fx-border-color: black; /* Màu viền đen */
-    -fx-border-width: 2; /* Độ dày viền là 2px */
-    -fx-text-transform: uppercase; /* Chữ in hoa */
+.text-field-pane, .password-field-pane{
+    -fx-background-color: transparent;
+    -fx-border-color: #3e70fa;
+    -fx-border-radius: 20px;
 }
 
-.button-style2 {
-	-fx-background-color:white; /* Màu nền trắng */
-	-fx-text-fill: #607274; 
-	-fx-border-color: #607274	; /* Màu viền đen */
-	-fx-border-width: 3; 
-	-fx-text-transform: uppercase; /* Chữ in hoa */
+/* Button Login */
+.login_button {
+    -fx-background-color: #3e70fa;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-font-size: 13px;
+}
+
+.login_button:hover {
+    -fx-background-color: #1a2ff2;
+    -fx-cursor: hand;
+}
+
+/* Icon username/password */
+.icon_image-view {
+    -fx-opacity: 0.7;
+}
+
+.pane_cover {
+    -fx-background-color: transparent;
+    -fx-background-radius: 15;
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 4);
+    -fx-border-radius: 20px;
+}
+.sign_up_button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #3e70fa;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-font-size: 13px;
+    -fx-border-color: #3e70fa;
+    -fx-border-width: 1;
+    -fx-border-radius: 20px;
+
+}
+.sign_up_button:hover{
+    -fx-text-fill: #1a2ff2;
+    -fx-border-color: #1a2ff2;
+}
+/* ------------------------------------------------------------ */
+
+.check_box{
+    -fx-background-color: transparent;
+}
+
+.first_name_field, .last_name_field, .signup_user_field, .signup_pass_field{
+    -fx-background-color: transparent;
+    -fx-border-color: #052675;
+    -fx-border-radius: 20px;
+}
+
+.first_name, .last_name, .signup_user, .signup_pass{
+    -fx-text-fill: #052675;
+    -fx-prompt-text-fill: #052675;
+    -fx-font-size: 13px;
+}
+
+.register_button{
+    -fx-background-color: #052675;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-font-size: 13px;
+}
+
+.register_button:hover{
+    -fx-background-color: transparent;
+    -fx-border-color: #052675;
+    -fx-border-radius: 20px;
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+    -fx-text-fill: #052675;
+}
+
+.first_name_field:hover, .last_name_field:hover{
+    -fx-scale-x: 1.011;
+    -fx-scale-y: 1.011;
+} 
+
+.signup_user_field:hover, .signup_pass_field:hover{
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+}
+
+.slogin_button {
+    -fx-background-color: transparent;
+    -fx-text-fill:#052675;
+    -fx-font-size: 10px;
+}
+
+.slogin_button:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
 }
