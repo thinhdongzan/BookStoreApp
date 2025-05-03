@@ -14,7 +14,7 @@ public class Login_11_Controller {
     private Parent root;
 
     public void loginCustomer(ActionEvent event) throws IOException {
-        //Session.userRole = "customer";
+        // Session.userRole = "customer";
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/fxml/Login_1.2.fxml"));
         root = loader.load();
 
@@ -24,17 +24,18 @@ public class Login_11_Controller {
         stage.show();
     }
 
-    public void loginAdmin(ActionEvent event) throws IOException {
-        //Session.userRole = "admin";
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/fxml/Login_Admin.fxml"));
-        Parent root = loader.load();
-    
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    /*
+     * public void loginAdmin(ActionEvent event) throws IOException {
+     * //Session.userRole = "admin";
+     * FXMLLoader loader = new
+     * FXMLLoader(getClass().getResource("../view/fxml/Login_Admin.fxml"));
+     * Parent root = loader.load();
+     * 
+     * Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+     * Scene scene = new Scene(root);
+     * stage.setScene(scene);
+     * stage.show();
+     * }
+     */
 
-   
-    
 }

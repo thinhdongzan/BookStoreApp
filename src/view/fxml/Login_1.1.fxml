@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="anchor-pane-background1" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="anchor-pane-background1" stylesheets="@../css/StyleTungDZ.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Login_11_Controller">
    <children>
-      <ImageView fitHeight="642.0" fitWidth="428.0" layoutX="79.0" layoutY="-128.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" rotate="90.0">
+      <ImageView fitHeight="635.0" fitWidth="428.0" layoutX="72.0" layoutY="-128.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" rotate="90.0">
          <image>
             <Image url="@../images/Logo/494572789_668974909173979_8637798680603381654_n.png" />
          </image>
@@ -60,6 +60,7 @@
                         <String fx:value="text-font" />
                      </styleClass>
                   </Label>
+                  <Button layoutX="5.0" mnemonicParsing="false" onAction="#loginCustomer" prefHeight="182.0" prefWidth="131.0" styleClass="transparent-button" />
                </children>
                <styleClass>
                   <String fx:value="shadow-effect" />
@@ -67,7 +68,7 @@
                </styleClass>
             </AnchorPane>
             <Button layoutX="321.0" layoutY="121.0" mnemonicParsing="false" prefHeight="182.0" prefWidth="131.0" styleClass="transparent-button" stylesheets="@../css/StyleTungDZ.css" />
-            <Button layoutX="88.0" layoutY="121.0" mnemonicParsing="false" prefHeight="182.0" prefWidth="131.0" styleClass="transparent-button" stylesheets="@../css/StyleTungDZ.css" />
+            <Button layoutX="88.0" layoutY="121.0" mnemonicParsing="false" onAction="#loginCustomer" prefHeight="182.0" prefWidth="131.0" styleClass="transparent-button" stylesheets="@../css/StyleTungDZ.css" />
          </children>
          <stylesheets>
             <URL value="@../css/style.css" />
