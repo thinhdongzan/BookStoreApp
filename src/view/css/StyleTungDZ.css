@@ -10,13 +10,18 @@
 }
 
 .transparent-pane {
-    -fx-background-color: rgba(255, 255, 255, 1
-    	
-    ); /* màu đen, độ mờ (100 - 0.05)% */
+    -fx-background-color: rgba(0,0,0,0 ); /* màu đen, độ mờ (100 - 0.05)% */
 }
 
 .White-background {
 	-fx-background-color: rgba(255, 255, 255); /* trong suất background*/
+	-fx-background-radius: 15; /* bo góc đẹp hơn */
+}
+
+.Red-background {
+	-fx-background-color: #FA8072	;
+
+ /* trong suất background*/
 	-fx-background-radius: 15; /* bo góc đẹp hơn */
 }
 
