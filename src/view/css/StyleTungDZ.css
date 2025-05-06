@@ -1,6 +1,7 @@
 /* File style.css */
 .anchor-pane-background1 {
-	-fx-background-color: #607274
+	-fx-background-color: #3E70FA ;
+
 }
 
 .text-font{
@@ -9,10 +10,9 @@
 }
 
 .transparent-pane {
-	fx-pref-width: 540;
-	    -fx-pref-height: 330;
-    -fx-background-color: rgba(255, 255, 255, 0.8 ); /* màu đen, độ mờ (100 - 0.05)% */
-    -fx-background-radius: 10; /* bo góc đẹp hơn, tùy bạn */
+    -fx-background-color: rgba(255, 255, 255, 1
+    	
+    ); /* màu đen, độ mờ (100 - 0.05)% */
 }
 
 .White-background {
@@ -129,3 +129,22 @@
 	    -fx-border-width: 3; 
 	    -fx-text-transform: uppercase; /* Chữ in hoa */
 	}
+	
+.selected {
+  -border-top-left-radius: 12px;
+  -border-bottom-left-radius: 12px;
+  -border-top-right-radius: 0;
+  -border-bottom-right-radius: 0;
+  -fx-background-color: #4F8EF7;
+}
+
+.mouse-moved: hover{
+	-fx-background-color: #4F8EF7;
+	
+}
+
+.selected{
+		-fx-background-color: #4F8EF7;
+	
+}
+
