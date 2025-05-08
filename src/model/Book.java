@@ -1,24 +1,23 @@
 package model;
 
 public class Book extends Product {
-    private String publisher;
-    private String author;
-    private String isbn;
-    
-    
+	private String publisher;
+	private String author;
+	private String isbn;
+
 	public Book() {
-	    super();
+		super();
 	}
 
 	public Book(int id, String name, int quantity, double purchasePrice, double sellingPrice,
-            String publisher, String author, String isbn) {
-    super(id, name, quantity, purchasePrice, sellingPrice);
-    this.publisher = publisher;
-    this.author = author;
-    this.isbn = isbn;
-}
-    
-    public String getPublisher() {
+			String publisher, String author, String isbn) {
+		super(id, name, quantity, purchasePrice, sellingPrice);
+		this.publisher = publisher;
+		this.author = author;
+		this.isbn = isbn;
+	}
+
+	public String getPublisher() {
 		return publisher;
 	}
 
@@ -41,13 +40,5 @@ public class Book extends Product {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-
-	@Override
-    public void displayInfo() {
-        super.displayInfo();
-        System.out.println("Publisher: " + publisher);
-        System.out.println("Author: " + author);
-        System.out.println("ISBN: " + isbn);
-    }
 
 }
