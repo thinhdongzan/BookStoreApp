@@ -106,7 +106,7 @@
             <Image url="@../images/Button/shopping-cart.png" />
          </image>
       </ImageView>
-      <Button layoutX="421.0" layoutY="331.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="166.0" stylesheets="@../css/style.css" text="Button">
+      <Button layoutX="421.0" layoutY="331.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="166.0" stylesheets="@../css/StyleTungDZ.css" text="Button">
          <styleClass>
             <String fx:value="button-style1" />
             <String fx:value="transparent-button" />
@@ -117,6 +117,6 @@
             <Image url="@../images/Button/return.png" />
          </image>
       </ImageView>
-      <Button layoutX="28.0" layoutY="21.0" mnemonicParsing="false" styleClass="transparent-button" stylesheets="@../css/style.css" text="Button" />
+      <Button layoutX="28.0" layoutY="21.0" mnemonicParsing="false" styleClass="transparent-button" stylesheets="@../css/StyleTungDZ.css" text="Button" />
    </children>
 </AnchorPane>

@@ -1,18 +1,12 @@
 package controller;
 
-import java.io.IOException;
-import java.sql.Connection;
-
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -48,7 +42,7 @@ public class Login_12_Controller {
             boolean isValidUser = dao.CustomerDAO.checkLogin(username, password);
 
             if (isValidUser) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/CUS_Menu_1.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Cus_Menu.fxml"));
                 root = loader.load();
 
                 // Get the current stage and set the new scene
@@ -56,6 +50,7 @@ public class Login_12_Controller {
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
+                stage.centerOnScreen();
             } else {
                 PopUpNoti.showAlert("Invalid username or password. Please try again.");
             }

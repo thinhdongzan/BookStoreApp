@@ -7,20 +7,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="160.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="160.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BookController">
    <children>
-      <ImageView fitHeight="220.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bookImage" fitHeight="220.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/Books/61pTzIJ-QML._UF1000,1000_QL80_.jpg" />
+            <Image url="@../images/Books/metamorphosis.jpg" />
          </image>
       </ImageView>
-      <Label text="Metamorphosis">
+      <Label fx:id="bookName" text="Metamorphosis">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label text="Franz Kafka" />
+      <Label fx:id="authorName" text="Franz Kafka" />
       <Label text="14.99 $">
          <font>
             <Font name="System Bold" size="18.0" />
