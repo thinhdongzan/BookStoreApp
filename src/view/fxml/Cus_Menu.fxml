@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/StyleTungDZ.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cus_Menu">
    <left>
@@ -195,10 +196,32 @@
                                     <Button mnemonicParsing="false" text="Fairy Tale" />
                                  </children>
                               </HBox>
-                              <Label text="Best Sellers" />
-                              <ScrollPane hbarPolicy="ALWAYS" prefHeight="235.0" prefWidth="1099.0" vbarPolicy="NEVER">
+                              <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="1093.0" styleClass="best-seller-section">
+                                 <children>
+                                    <TextFlow prefHeight="30.0" prefWidth="200.0" styleClass="White-background" textAlignment="CENTER">
+                                       <children>
+                                          <Label layoutX="51.0" layoutY="11.0" text="B">
+                                             <font>
+                                                <Font name="System Bold Italic" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../images/Button/fire.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label text="ST SELLER">
+                                             <font>
+                                                <Font name="System Bold Italic" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </TextFlow>
+                                 </children>
+                              </HBox>
+                              <ScrollPane hbarPolicy="ALWAYS" prefHeight="235.0" prefWidth="1099.0" styleClass="best-seller-section" vbarPolicy="NEVER">
                                  <content>
-                                    <HBox fx:id="bookBestSellersLayout" prefHeight="203.0" />
+                                    <HBox fx:id="bookBestSellersLayout" prefHeight="203.0" styleClass="viewport" />
                                  </content>
                               </ScrollPane>
                               <Label text="Recommended for you" />
