@@ -23,7 +23,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" stylesheets="@login_screen.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" stylesheets="@../css/login_screen.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <left>
         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="130.0" styleClass="menu_pane" BorderPane.alignment="CENTER">
             <children>
@@ -32,7 +32,7 @@
                <children>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@user-solid.png" />
+                        <Image url="@../images/Logo/user-solid.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="20.0" right="10.0" />
@@ -50,7 +50,7 @@
                     <children>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@bars-solid.png" />
+                                <Image url="@../images/Logo/bars-solid.png" />
                             </image>
                             <HBox.margin>
                                 <Insets left="10.0" right="10.0" top="5.0" />
@@ -63,7 +63,7 @@
                <children>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@chart-pie-solid.png" />
+                        <Image url="@../images/Logo/chart-pie-solid.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" top="5.0" />
@@ -76,7 +76,7 @@
                <children>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@users-solid.png" />
+                        <Image url="@../images/Logo/users-solid.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" top="5.0" />
@@ -89,7 +89,7 @@
                <children>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@credit-card-solid.png" />
+                        <Image url="@../images/Logo/credit-card-solid.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" top="5.0" />
@@ -102,7 +102,7 @@
                <children>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@boxes.png" />
+                        <Image url="@../images/Logo/boxes.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" top="5.0" />
@@ -116,7 +116,7 @@
                <children>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@exit.png" />
+                        <Image url="@../images/Logo/exit.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" top="5.0" />
@@ -129,9 +129,9 @@
         </VBox>
     </left>
    <center>
-      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" BorderPane.alignment="CENTER">
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" stylesheets="@../css/login_screen.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="menu_page" prefHeight="200.0" prefWidth="100.0" styleClass="order-pane" visible="false">
+            <VBox fx:id="menu_page" prefHeight="200.0" prefWidth="100.0" styleClass="order-pane">
                <children>
                   <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="770.0" VBox.vgrow="ALWAYS">
                      <children>
@@ -148,7 +148,7 @@
                               <TextField fx:id="serach_field" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
                               <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
                                  <image>
-                                    <Image url="@magnifying-glass-solid.png" />
+                                    <Image url="@../images/Logo/magnifying-glass-solid.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -163,7 +163,7 @@
                            <children>
                               <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@user-solid.png" />
+                                    <Image url="@../images/Logo/user-solid.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -207,7 +207,7 @@
                                                       <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                                                       <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../../../../../../../order/src/main/resources/com/example/order/users-solid.png" />
+                                                            <Image url="@../images/Logo/users-solid.png" />
                                                          </image>
                                                       </ImageView>
                                                    </children>
@@ -247,7 +247,7 @@
                                                       <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                                                       <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../../../../../../../order/src/main/resources/com/example/order/bill.png" />
+                                                            <Image url="@../images/Logo/bill.png" />
                                                          </image>
                                                       </ImageView>
                                                    </children>
@@ -287,7 +287,7 @@
                                                       <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                                                       <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../../../../../../../order/src/main/resources/com/example/order/order-delivery.png" />
+                                                            <Image url="@../images/Logo/cart-shopping-solid.png" />
                                                          </image>
                                                       </ImageView>
                                                    </children>
@@ -327,7 +327,7 @@
                                                       <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                                                       <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../../../../../../../order/src/main/resources/com/example/order/money.png" />
+                                                            <Image url="@../images/Logo/money.png" />
                                                          </image>
                                                       </ImageView>
                                                    </children>
@@ -416,7 +416,7 @@
                               <TextField fx:id="serach_field1" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
                               <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
                                  <image>
-                                    <Image url="@magnifying-glass-solid.png" />
+                                    <Image url="@../images/Logo/magnifying-glass-solid.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -431,7 +431,7 @@
                            <children>
                               <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@user-solid.png" />
+                                    <Image url="@../images/Logo/user-solid.png" />
                                  </image>
                               </ImageView>
                            </children>
