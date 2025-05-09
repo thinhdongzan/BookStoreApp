@@ -63,6 +63,10 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.3, 0, 3);
 }
 
+.shadow-effect2{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0), 10, 0, 0, 10);
+}
+
 .transparent-circle {
     -fx-background-color: transparent;
     -fx-border-color: black;
@@ -153,5 +157,14 @@
 	
 }
 
+.best-seller-section {
+    -fx-background-color: #ff6666
+    ;  /* đỏ nổi bật */
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+}
 
+.viewport {
+    -fx-background-color: transparent;
+}
 
