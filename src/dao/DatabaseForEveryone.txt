@@ -46,3 +46,10 @@ select * from book;
 drop table book;
 
 insert into book(name, sellingPrice, ImageSrc, author, section) values ('Metamorphosis', 19, '/view/images/Books/metamorphosis.jpg', 'Franz Kafka', 'Best Seller');
+insert into book(name, sellingPrice, ImageSrc, author, section) values ('1984', 20, '/view/images/Books/1984.jpg', 'Geogre Orwell', 'Best Seller');
+insert into book(name, sellingPrice, ImageSrc, author, section) values ('Án Mạng Trên Chuyến Tàu Phương Đông', 25, '/view/images/Books/anmangtrenchuyentautochanhphuongdong.jpg', 'Agatha Christie', 'Best Seller');
+
+insert into book(name, sellingPrice, ImageSrc, author, section) values ('Metamorphosis', 19, '/view/images/Books/metamorphosis.jpg', 'Franz Kafka', 'Recommended For You');
+
+delete from book
+where id = 7;
