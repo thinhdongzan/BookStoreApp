@@ -18,6 +18,9 @@ public class BookController {
     private Label bookName;
 
     @FXML
+    private Label bookPrice;
+
+    @FXML
     private VBox box;
 
     public void setData(Book book) {
@@ -26,6 +29,7 @@ public class BookController {
 
         bookName.setText(book.getName());
         authorName.setText(book.getAuthor());
+        bookPrice.setText(book.getSellingPrice() + "$");
 
     }
 }

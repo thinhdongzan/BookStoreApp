@@ -8,6 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
@@ -183,27 +184,41 @@
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0">
                            <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
+                              <HBox prefHeight="61.0" prefWidth="1099.0">
                                  <children>
+                                    <Button mnemonicParsing="false" text="Self-help" />
+                                    <Button mnemonicParsing="false" text="Horror" />
+                                    <Button mnemonicParsing="false" text="Adventure" />
+                                    <Button mnemonicParsing="false" text="Romance" />
                                     <Button mnemonicParsing="false" text="Comic" />
                                     <Button mnemonicParsing="false" text="Novel" />
                                     <Button mnemonicParsing="false" text="Fairy Tale" />
                                  </children>
                               </HBox>
                               <Label text="Best Sellers" />
-                              <ScrollPane prefHeight="327.0" prefWidth="1099.0" vbarPolicy="NEVER">
+                              <ScrollPane hbarPolicy="ALWAYS" prefHeight="235.0" prefWidth="1099.0" vbarPolicy="NEVER">
                                  <content>
-                                    <HBox fx:id="bookBestSellersLayout" prefHeight="203.0" prefWidth="1418.0" />
+                                    <HBox fx:id="bookBestSellersLayout" prefHeight="203.0" />
+                                 </content>
+                              </ScrollPane>
+                              <Label text="Recommended for you" />
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="342.0" prefWidth="1099.0">
+                                 <content>
+                                    <VBox prefHeight="433.0" prefWidth="1084.0">
+                                       <children>
+                                          <FlowPane fx:id="bookRecommendedForYouLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" vgap="10.0" />
+                                       </children>
+                                    </VBox>
                                  </content>
                               </ScrollPane>
                            </children>
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane prefHeight="200.0" prefWidth="200.0" />
-                  <Pane prefHeight="200.0" prefWidth="200.0" />
-                  <Pane prefHeight="200.0" prefWidth="200.0" />
-                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                  <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
+                  <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
+                  <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
+                  <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
                </children>
             </StackPane>
          </children>

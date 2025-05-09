@@ -20,7 +20,7 @@
          </font>
       </Label>
       <Label fx:id="authorName" text="Franz Kafka" />
-      <Label text="14.99 $">
+      <Label fx:id="bookPrice" text="14.99 $">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
