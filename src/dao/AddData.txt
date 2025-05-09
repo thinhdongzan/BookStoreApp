@@ -1,0 +1,137 @@
+CREATE TABLE Book (
+    id INT PRIMARY KEY,
+    name NVARCHAR(255),
+    quantity INT,
+    purchasePrice DECIMAL(10,2),
+    sellingPrice DECIMAL(10,2),
+    publisher NVARCHAR(255),
+    author NVARCHAR(255),
+    isbn NVARCHAR(20),
+    genre NVARCHAR(100)
+);
+
+INSERT INTO Book (id, name, quantity, purchasePrice, sellingPrice, publisher, author, isbn, genre)
+VALUES
+(1, N'To Kill a Mockingbird', 30, 120000.00, 180000.00, N'HarperCollins', N'Harper Lee', N'9780061120084', N'Tiểu thuyết'),
+(2, N'1984', 25, 110000.00, 170000.00, N'Secker & Warburg', N'George Orwell', N'9780451524935', N'Khoa học viễn tưởng'),
+(3, N'Pride and Prejudice', 20, 90000.00, 130000.00, N'Penguin Classics', N'Jane Austen', N'9780141439518', N'Văn học cổ điển'),
+(4, N'Moby-Dick', 15, 95000.00, 140000.00, N'Harper & Brothers', N'Herman Melville', N'9780142437247', N'Phiêu lưu'),
+(5, N'War and Peace', 10, 150000.00, 220000.00, N'Penguin Classics', N'Leo Tolstoy', N'9780140447934', N'Tiểu thuyết lịch sử'),
+(6, N'The Catcher in the Rye', 25, 85000.00, 120000.00, N'Litte, Brown, and Company', N'J.D. Salinger', N'9780316769488', N'Tiểu thuyết'),
+(7, N'Invisible Man', 12, 100000.00, 150000.00, N'Ralph Ellison', N'Ralph Ellison', N'9780679732761', N'Tiểu thuyết'),
+(8, N'Lord of the Rings', 10, 200000.00, 290000.00, N'Allen & Unwin', N'J.R.R. Tolkien', N'9780544003415', N'Huyền bí'),
+(9, N'Brave New World', 18, 95000.00, 130000.00, N'Chatto & Windus', N'Aldous Huxley', N'9780060850524', N'Tiểu thuyết dystopia'),
+(10, N'Anne of Green Gables', 20, 80000.00, 120000.00, N'L.C. Page & Company', N'Lucy Maud Montgomery', N'9780553213138', N'Tiểu thuyết thiếu nhi'),
+(11, N'Vermont', 12, 70000.00, 100000.00, N'Conran Octopus', N'Anonymous', N'9780195602140', N'Thơ'),
+(12, N'Muôn kiếp nhân sinh', 20, 90000.00, 140000.00, N'NXB Trẻ', N'Nguyên Phong', N'9786045874106', N'Tâm linh'),
+(13, N'Làm bạn với hình, làm tình với chữ', 25, 88000, 125000, N'NXB Trẻ', N'Bút Chì', '9786045887581', N'Tản văn - Nghệ thuật'),
+(14, N'Tôi tài giỏi, bạn cũng thế', 15, 45000.00, 75000.00, N'NXB Lao Động', N'Adam Khoo', N'9786045903687', N'Kỹ năng sống'),
+(15, N'Bí mật của sự may mắn', 18, 50000.00, 80000.00, N'NXB Trẻ', N'Xiaohui', N'9786045864585', N'Phát triển bản thân'),
+(16, N'Tình yêu và tham vọng', 30, 40000.00, 60000.00, N'NXB Văn Học', N'Phan Tất Hùng', N'9786043134534', N'Văn học'),
+(17, N'The Alchemist', 25, 150000.00, 220000.00, N'HarperOne', N'Paulo Coelho', N'9780062315007', N'Tiểu thuyết'),
+(18, N'Chuyện con mèo dạy hải âu bay', 15, 25000.00, 40000.00, N'NXB Trẻ', N'Luis Sepúlveda', N'9786042114030', N'Tiểu thuyết thiếu nhi'),
+(19, N'Nhà giả kim', 20, 35000.00, 50000.00, N'NXB Lao Động', N'Paulo Coelho', N'9786049634562', N'Tiểu thuyết'),
+(20, N'Tuổi trẻ đáng giá bao nhiêu?', 22, 42000.00, 69000.00, N'NXB Trẻ', N'Rosie Nguyễn', N'9786046836310', N'Phát triển bản thân'),
+(21, N'Dế mèn phiêu lưu ký', 30, 20000.00, 35000.00, N'NXB Kim Đồng', N'Tô Hoài', N'9786042024193', N'Tiểu thuyết thiếu nhi'),
+(22, N'Không gia đình', 28, 30000.00, 50000.00, N'NXB Văn học', N'Hector Malot', N'9786049630007', N'Văn học cổ điển'),
+(23, N'Đắc nhân tâm', 25, 35000.00, 50000.00, N'NXB Tổng hợp TP.HCM', N'Dale Carnegie', N'9786045885197', N'Kỹ năng sống'),
+(24, N'Mùa hè năm ấy', 30, 38000.00, 65000.00, N'NXB Trẻ', N'Markus Zusak', N'9781743511001', N'Tiểu thuyết'),
+(25, N'Nhóc Nicolas – Những chuyện chưa kể', 30, 78000, 115000, N'NXB Trẻ', N'René Goscinny & Jean-Jacques Sempé', '9786041115893', N'Thiếu nhi - Hài hước'),
+(26, N'Dấu chân trên cát', 40, 78000, 110000, N'NXB Tổng Hợp TP.HCM', N'Nguyễn Phong', '9786045852787', N'Truyền cảm hứng - Tâm linh'),
+(27, N'Cuốn sách hoàn hảo về Ngôn ngữ cơ thể', 30, 95000, 140000, N'NXB Thế Giới', N'Barbara Pease & Allan Pease', '9786047756952', N'Kỹ năng giao tiếp'),
+(28, N'Bố già', 18, 70000.00, 110000.00, N'Random House', N'Mario Puzo', N'9780451205767', N'Tiểu thuyết'),
+(29, N'Mật mã Da Vinci', 15, 65000.00, 100000.00, N'Doubleday', N'Dan Brown', N'9780307474278', N'Tiểu thuyết'),
+(30, N'Giết con chim nhại', 20, 55000.00, 95000.00, N'HarperCollins', N'Harper Lee', N'9780061120084', N'Tiểu thuyết'),
+(31, N'Vũ trụ trong vỏ hạt dẻ', 30, 120000, 180000, N'NXB Hà Nội', N'Stephen Hawking', '9786046831130', N'Vật lý - Khoa học'),
+(32, N'Án mạng trên chuyến tàu tốc hành phương Đông', 25, 85000, 125000, N'NXB Hà Nội', N'Agatha Christie', '9786046892246', N'Trinh thám - Tâm lý'),
+(33, N'Vượt lên chính mình', 25, 30000.00, 60000.00, N'NXB Thế Giới', N'Nguyễn Hữu Long', N'9786049238476', N'Phát triển bản thân'),
+(34, N'Hành trình của linh hồn', 20, 120000, 170000, N'NXB Lao động', N'Michael Newton', '9786045962283', N'Tâm linh - Hành trình'),
+(35, N'Những tấm lòng cao cả', 22, 38000.00, 60000.00, N'NXB Phụ Nữ', N'Emile Zola', N'9782213449249', N'Văn học'),
+(36, N'Bóng hình của gió', 30, 100000, 150000, N'NXB Hội Nhà Văn', N'Carlos Ruiz Zafón', '9786046819657', N'Văn học - Tiểu thuyết'),
+(37, N'Kinh tế học dành cho doanh nhân', 15, 85000, 135000, N'Thế Giới', N'Shlomo Maital', '9786047708119', N'Kinh tế'),
+(38, N'Con đường đi đến thành công bằng sự tử tế', 18, 95000, 145000, N'NXB Lao Động', N'Inamori Kazuo', '9786049225638', N'Phát triển bản thân'),
+(39, N'Những người khốn khổ', 12, 60000.00, 95000.00, N'NXB Văn Học', N'Victor Hugo', N'9780140444303', N'Văn học'),
+(40, N'Chạm tới giấc mơ', 10, 70000, 120000, N'NXB Trẻ', N'Sơn Tùng M-TP', '9786045867840', N'Tự truyện'),
+(41, N'Tôi đã kiếm 1 triệu đô lần đầu trên Internet thế nào?', 12, 80000, 130000, N'NXB Lao Động', N'Ewen Chia', '9786045999121', N'Kinh doanh'),
+(42, N'Những kẻ xuất chúng', 20, 95000, 130000, N'NXB Thế Giới', N'Malcolm Gladwell', '9781447474177', N'Tâm lý học'),
+(43, N'Thiên tài bên trái, kẻ điên bên phải', 25, 85000, 120000, N'NXB Thế Giới', N'Đặng Hoàng Giang', '9786047747347', N'Tâm lý học'),
+(44, N'Sổ tay nhà thôi miên', 30, 90000, 130000, N'NXB Thế Giới', N'John K. Pollock', '9786047745565', N'Tâm lý học'),
+(45, N'Tam quốc diễn nghĩa', 50, 120000, 150000, N'NXB Kim Đồng', N'La Quán Trung', '9786042068471', N'Văn học cổ điển'),
+(46, N'Ông già và biển cả', 40, 70000, 100000, N'NXB Văn Học', N'Ernest Hemingway', '9786049639872', N'Văn học nước ngoài'),
+(47, N'Đôi lứa xứng đôi, nửa đêm cười', 35, 60000, 90000, N'NXB Hội Nhà Văn', N'Nam Cao', '9786049639889', N'Văn học Việt Nam'),
+(48, N'Bản đồ tâm hồn con người', 30, 98000, 145000, N'NXB Tri Thức', N'Murray Stein', '9786049803105', N'Tâm lý học'),
+(49, N'Thế giới phẳng', 40, 110000, 160000, N'NXB Trẻ', N'Thomas L. Friedman', '9786041126318', N'Kinh tế'),
+(50, N'Tìm mình trong thế giới hậu tuổi thơ', 35, 95000, 135000, N'NXB Hội Nhà Văn', N'Đặng Hoàng Giang', '9786049828498', N'Tâm lý - Kỹ năng sống');
+
+
+
+CREATE TABLE Stationery (
+    id INT PRIMARY KEY,
+    name NVARCHAR(255),
+    quantity INT,
+    purchasePrice FLOAT,
+    sellingPrice FLOAT,
+    brand NVARCHAR(100),
+    stationeryType NVARCHAR(100)
+);
+
+INSERT INTO Stationery (id, name, quantity, purchasePrice, sellingPrice, brand, stationeryType)
+VALUES
+(1, N'Bút bi Thiên Long', 100, 2000.00, 4000.00, N'Thiên Long', N'Bút bi'),
+(2, N'Vở ô ly Campus', 50, 7000.00, 12000.00, N'Campus', N'Vở'),
+(3, N'Bút chì gỗ Staedtler', 70, 3000.00, 6000.00, N'Staedtler', N'Bút chì'),
+(4, N'Tẩy Pentel', 60, 4000.00, 7000.00, N'Pentel', N'Tẩy'),
+(5, N'Thước kẻ nhựa Deli', 80, 5000.00, 9000.00, N'Deli', N'Thước'),
+(6, N'Kéo văn phòng', 40, 12000.00, 18000.00, N'Plus', N'Kéo'),
+(7, N'Hộp bút Doremon', 30, 15000.00, 25000.00, N'Sanrio', N'Hộp bút'),
+(8, N'Bút lông dầu Artline', 90, 10000.00, 18000.00, N'Artline', N'Bút lông'),
+(9, N'Bút xóa dạng băng', 55, 8000.00, 14000.00, N'Tombow', N'Bút xóa'),
+(10, N'Bìa hồ sơ A4', 60, 4000.00, 7000.00, N'Xingfa', N'Bìa hồ sơ'),
+(11, N'Giấy note màu', 45, 3000.00, 5000.00, N'Post-it', N'Giấy ghi chú'),
+(12, N'Túi clear bag', 35, 6000.00, 11000.00, N'Comix', N'Túi tài liệu'),
+(13, N'Giấy in A4', 200, 40000.00, 65000.00, N'IK Plus', N'Giấy in'),
+(14, N'Máy dập ghim nhỏ', 15, 25000.00, 40000.00, N'KW-Trio', N'Dập ghim'),
+(15, N'Bảng trắng mini', 20, 25000.00, 40000.00, N'Thiên Long', N'Bảng viết'),
+(16, N'Sổ tay lò xo A6', 40, 12000.00, 20000.00, N'Campus', N'Sổ tay'),
+(17, N'Giấy màu thủ công', 80, 10000.00, 18000.00, N'Deli', N'Giấy màu'),
+(18, N'Bút máy học sinh', 60, 12000.00, 20000.00, N'Thiên Long', N'Bút máy'),
+(19, N'Sổ ký tên A4', 30, 30000.00, 45000.00, N'Miolo', N'Sổ ký'),
+(20, N'Thước cuộn dây 3m', 20, 20000.00, 35000.00, N'Tajima', N'Thước');
+
+
+
+
+
+CREATE TABLE Toy (
+    id INT PRIMARY KEY,
+    name NVARCHAR(255),
+    quantity INT,
+    purchasePrice FLOAT,
+    sellingPrice FLOAT,
+    brand NVARCHAR(100),
+    suitableAges NVARCHAR(50),
+    toyType NVARCHAR(100)
+);
+
+INSERT INTO Toy (id, name, quantity, purchasePrice, sellingPrice, brand, suitableAges, toyType)
+VALUES
+(1, N'Xe điều khiển từ xa', 20, 120000.00, 200000.00, N'Xiaomi', N'6+', N'Đồ chơi điều khiển'),
+(2, N'Búp bê Barbie', 30, 80000.00, 150000.00, N'Mattel', N'3+', N'Búp bê'),
+(3, N'Bộ xếp hình Lego', 25, 300000.00, 450000.00, N'Lego', N'5+', N'Xếp hình'),
+(4, N'Rubik 3x3', 50, 20000.00, 50000.00, N'Gan', N'6+', N'Trí tuệ'),
+(5, N'Gấu bông Doraemon', 40, 60000.00, 100000.00, N'Sanrio', N'3+', N'Gấu bông'),
+(6, N'Súng bắn bong bóng', 60, 25000.00, 50000.00, N'FunToys', N'4+', N'Đồ chơi vận động'),
+(7, N'Đàn piano mini', 15, 180000.00, 300000.00, N'MusicalFun', N'3+', N'Đồ chơi âm nhạc'),
+(8, N'Xe đạp trẻ em', 10, 450000.00, 650000.00, N'Apollo', N'3+', N'Xe đạp'),
+(9, N'Đồ chơi nhà bếp mini', 18, 70000.00, 120000.00, N'KitchenFun', N'3+', N'Đồ chơi mô phỏng'),
+(10, N'Khối gỗ học chữ', 22, 40000.00, 70000.00, N'WoodKid', N'2+', N'Học tập'),
+(11, N'Bộ xếp hình nam châm', 30, 120000.00, 200000.00, N'MagneticFun', N'5+', N'Xếp hình'),
+(12, N'Bộ dụng cụ bác sĩ', 28, 50000.00, 90000.00, N'KidDoctor', N'3+', N'Mô phỏng nghề nghiệp'),
+(13, N'Đồ chơi xúc xắc', 60, 15000.00, 30000.00, N'BabyFun', N'2+', N'Xúc xắc'),
+(14, N'Bảng chữ cái điện tử', 12, 140000.00, 220000.00, N'AlphaToy', N'3+', N'Đồ chơi học chữ'),
+(15, N'Bộ bowling mini', 18, 50000.00, 85000.00, N'SportKid', N'5+', N'Thể thao'),
+(16, N'Trống lắc tay', 40, 20000.00, 40000.00, N'LittleMusician', N'1+', N'Âm nhạc'),
+(17, N'Bộ đất nặn kèm khuôn', 30, 30000.00, 60000.00, N'DoughArt', N'3+', N'Nặn đất sét'),
+(18, N'Bộ thẻ flashcard', 35, 25000.00, 50000.00, N'FlashEdu', N'2+', N'Thẻ học'),
+(19, N'Yoyo phát sáng', 25, 18000.00, 35000.00, N'YoStar', N'6+', N'Đồ chơi kỹ năng'),
+(20, N'Robot siêu nhân', 20, 220000.00, 350000.00, N'HeroBot', N'6+', N'Điện tử');
