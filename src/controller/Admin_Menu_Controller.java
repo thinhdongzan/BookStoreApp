@@ -1,26 +1,30 @@
 package controller;
 
+
+
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import javafx.scene.control.*;
+
 
 import dao.DBConnection;
-import dao.Database;
+//import dao.DBConnection;
+
+import dao.EmployeeDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -31,9 +35,9 @@ import model.Employee;
 
 
 
-public class Admin_Menu_Controller {
+public class Admin_Menu_Controller implements Initializable  {
 
-  @FXML
+    @FXML
     private HBox admin_box;
 
     @FXML
@@ -69,8 +73,8 @@ public class Admin_Menu_Controller {
     @FXML
     private TableView<Employee> employee_table;
 
-    @FXML
-    private BarChart<?, ?> income_dashboard;
+    // @FXML
+    // private BarChart<?, ?> income_dashboard;
 
     @FXML
     private HBox joining_box;
@@ -96,8 +100,8 @@ public class Admin_Menu_Controller {
     @FXML
     private Button order_button;
 
-    @FXML
-    private LineChart<?, ?> order_dashboard;
+    // @FXML
+    // private LineChart<?, ?> order_dashboard;
 
     @FXML
     private VBox order_page;
@@ -140,14 +144,21 @@ public class Admin_Menu_Controller {
     
     @FXML
     private TableColumn<Employee, Integer> id_col;
+
     @FXML
     private TableColumn<Employee, String> name_col;
+
     @FXML
     private TableColumn<Employee, String> email_col;
+
     @FXML
     private TableColumn<Employee, String> phoneNumber_col;
+
     @FXML
     private TableColumn<Employee, Double> salary_col;   
+
+    @FXML
+    private Label totalEmployee_label;
 
 
     private Connection connect;
@@ -202,14 +213,16 @@ public class Admin_Menu_Controller {
 
         String sql = "SELECT * FROM employee";
 
-        connect = Database.connectDB();
+        //connect = Database.connectDB();
 
-        try {
+        try (Connection conn = DBConnection.getConnection();
+                Statement stmt = conn.createStatement();
+                ResultSet result = stmt.executeQuery(sql)) {
 
-            Employee anEmployee;;
+            Employee anEmployee;
 
-            prepare = connect.prepareStatement(sql);
-            result = prepare.executeQuery();
+            // prepare = connect.prepareStatement(sql);
+            // result = prepare.executeQuery();
 
             while (result.next()) {
                 anEmployee = new Employee(
@@ -217,8 +230,8 @@ public class Admin_Menu_Controller {
                 result.getString("name"),
                 result.getString("email"),
                 result.getString("phoneNumber"),
-                result.getDouble("salary")
-            );
+                result.getDouble("salary"));
+
                 listEmployees.add(anEmployee);
             }
         } catch (Exception e) {
@@ -239,6 +252,8 @@ public class Admin_Menu_Controller {
         phoneNumber_col.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         salary_col.setCellValueFactory(new PropertyValueFactory<>("salary"));
         employee_table.setItems(listEmployees);
+
+        totalEmployee_label.setText(""+listEmployees.size());
     }
     
 

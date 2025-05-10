@@ -3,9 +3,11 @@ package model;
 public class Employee {
     private final int id;
     private final String name;
-    private final double salary;
-    private final String phoneNumber;
     private final String email;
+    private final String phoneNumber;
+    private final double salary;
+    
+    
 
     // Constructor đầy đủ
     public Employee(int id, String name, String email, String phoneNumber,  double salary) {
@@ -35,7 +37,6 @@ public class Employee {
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
 
     // Getter và Setter cho email
     public String getEmail() {

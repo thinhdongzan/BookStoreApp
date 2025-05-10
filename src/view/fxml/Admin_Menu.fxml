@@ -132,7 +132,7 @@
    <center>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" stylesheets="@../css/login_screen.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="menu_page" prefHeight="200.0" prefWidth="100.0" styleClass="order-pane">
+            <VBox fx:id="menu_page" prefHeight="200.0" prefWidth="100.0" styleClass="order-pane" visible="false">
                <children>
                   <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" VBox.vgrow="ALWAYS">
                      <children>
@@ -583,7 +583,7 @@
                   <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="770.0" />
                </children>
             </VBox>
-            <VBox fx:id="employee_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
+            <VBox fx:id="employee_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                      <children>
@@ -661,94 +661,14 @@
                                     <Insets right="16.0" />
                                  </HBox.margin>
                               </VBox>
-                              <Text fill="#6b97eb" strokeType="OUTSIDE" strokeWidth="0.0" text="2000">
+                              <Label fx:id="totalEmployee_label" text="Label">
                                  <font>
-                                    <Font name="Calibri Bold" size="28.0" />
+                                    <Font name="System Bold" size="28.0" />
                                  </font>
-                              </Text>
+                              </Label>
                            </children>
                            <HBox.margin>
                               <Insets right="40.0" />
-                           </HBox.margin>
-                        </HBox>
-                        <HBox fx:id="joining_box" alignment="CENTER_LEFT" layoutX="155.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="200.0" styleClass="joining-boxes">
-                           <children>
-                              <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="120.0">
-                                 <children>
-                                    <Text fill="#6e6e6e" strokeType="OUTSIDE" strokeWidth="0.0" text="New">
-                                       <VBox.margin>
-                                          <Insets left="12.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font name="System Bold" size="20.0" />
-                                       </font>
-                                    </Text>
-                                    <Text fill="#6e6e6e" strokeType="OUTSIDE" strokeWidth="0.0" text="Joining">
-                                       <VBox.margin>
-                                          <Insets left="12.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font name="System Bold" size="20.0" />
-                                       </font>
-                                    </Text>
-                                    <Line endX="32.0" stroke="#48c0d4" strokeWidth="3.0">
-                                       <VBox.margin>
-                                          <Insets left="12.0" top="4.0" />
-                                       </VBox.margin>
-                                    </Line>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets right="16.0" />
-                                 </HBox.margin>
-                              </VBox>
-                              <Text fill="#48c0d4" strokeType="OUTSIDE" strokeWidth="0.0" text="1000">
-                                 <font>
-                                    <Font name="Calibri Bold" size="28.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                           <HBox.margin>
-                              <Insets right="40.0" />
-                           </HBox.margin>
-                        </HBox>
-                        <HBox fx:id="attendances_box" alignment="CENTER_LEFT" layoutX="175.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="200.0" styleClass="attendances-boxes">
-                           <children>
-                              <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="120.0">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Today">
-                                       <VBox.margin>
-                                          <Insets left="12.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font name="System Bold" size="20.0" />
-                                       </font>
-                                    </Text>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Attendances">
-                                       <VBox.margin>
-                                          <Insets left="12.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font name="System Bold" size="20.0" />
-                                       </font>
-                                    </Text>
-                                    <Line endX="32.0" stroke="#ef8ba8" strokeWidth="3.0">
-                                       <VBox.margin>
-                                          <Insets left="12.0" top="4.0" />
-                                       </VBox.margin>
-                                    </Line>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets right="16.0" />
-                                 </HBox.margin>
-                              </VBox>
-                              <Text fill="#ef8ba8" strokeType="OUTSIDE" strokeWidth="0.0" text="90%">
-                                 <font>
-                                    <Font name="Calibri Bold" size="28.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                           <HBox.margin>
-                              <Insets right="32.0" />
                            </HBox.margin>
                         </HBox>
                      </children>
