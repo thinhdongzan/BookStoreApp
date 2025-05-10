@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.scene.control.*;
 
@@ -14,7 +15,7 @@ import javafx.scene.control.*;
 import dao.DBConnection;
 //import dao.DBConnection;
 
-import dao.EmployeeDAO;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,6 +27,8 @@ import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -149,10 +152,10 @@ public class Admin_Menu_Controller implements Initializable  {
     private TableColumn<Employee, String> name_col;
 
     @FXML
-    private TableColumn<Employee, String> email_col;
+    private TableColumn<Employee, String> dob_col;
 
     @FXML
-    private TableColumn<Employee, String> phoneNumber_col;
+    private TableColumn<Employee, String> address_col;
 
     @FXML
     private TableColumn<Employee, Double> salary_col;   
@@ -160,11 +163,28 @@ public class Admin_Menu_Controller implements Initializable  {
     @FXML
     private Label totalEmployee_label;
 
+     @FXML
+    private Label take_dobLabel;
+
+    @FXML
+    private Label take_emailLabel;
+
+    @FXML
+    private Label take_nameLabel;
+
+    @FXML
+    private Label take_phoneLabel;
+
+    @FXML
+    private ImageView profile_image;
+
 
     private Connection connect;
     private PreparedStatement prepare;
     // private Statement statement;
     private ResultSet result;
+
+    private Image image;
 
     public void showMenuPage(ActionEvent event) {
         if (event.getSource() == menu_button) {
@@ -228,9 +248,13 @@ public class Admin_Menu_Controller implements Initializable  {
                 anEmployee = new Employee(
                 result.getInt("id"),
                 result.getString("name"),
-                result.getString("email"),
-                result.getString("phoneNumber"),
-                result.getDouble("salary"));
+                result.getString("dob"),
+                result.getString("address"),
+                result.getDouble("salary"),
+                result.getString("image"),
+                result.getString("phone"),
+                result.getString("email")
+                );
 
                 listEmployees.add(anEmployee);
             }
@@ -248,14 +272,95 @@ public class Admin_Menu_Controller implements Initializable  {
 
         id_col.setCellValueFactory(new PropertyValueFactory<>("id"));
         name_col.setCellValueFactory(new PropertyValueFactory<>("name"));
-        email_col.setCellValueFactory(new PropertyValueFactory<>("email"));
-        phoneNumber_col.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        dob_col.setCellValueFactory(new PropertyValueFactory<>("dob"));
+        address_col.setCellValueFactory(new PropertyValueFactory<>("address"));
         salary_col.setCellValueFactory(new PropertyValueFactory<>("salary"));
         employee_table.setItems(listEmployees);
 
         totalEmployee_label.setText(""+listEmployees.size());
     }
     
+
+      public void selectEmployee() {
+
+        Employee employeeData  = employee_table.getSelectionModel().getSelectedItem();
+        int num = employee_table.getSelectionModel().getSelectedIndex();
+
+        if((num-1) < -1) {
+            return;
+        }
+         take_nameLabel.setText(employeeData.getName());
+         take_dobLabel.setText(employeeData.getDob());
+         take_phoneLabel.setText(employeeData.getPhone());
+         take_emailLabel.setText(employeeData.getEmail());
+
+        String uri = "file:" + employeeData.getImage();
+
+        image = new Image(uri, 150, 197, false, true);
+        profile_image.setImage(image);
+
+    }
+
+    public void loadEmployeeData() {
+    // clear bảng
+    employee_table.getItems().clear();
+    showEmployee();
+
+    }
+    public void removeEmployee() {
+    String sql = "DELETE FROM employee WHERE name = ?";
+
+    try (Connection conn = DBConnection.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        Alert alert;
+
+        // Giả sử bạn chọn dòng trên bảng và lấy ID từ label hoặc field
+        if (take_nameLabel.getText().isEmpty()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Admin Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select an employee to remove.");
+            alert.showAndWait();
+        } else {
+            // Xác nhận trước khi xóa
+            alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to delete this employee?");
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.isPresent() && option.get() == ButtonType.OK) {
+                // Lấy ID từ label/field và đưa vào câu lệnh
+                stmt.setString(1, take_nameLabel.getText());
+
+                int affectedRows = stmt.executeUpdate();
+
+                if (affectedRows > 0) {
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Admin Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Employee successfully removed.");
+                    alert.showAndWait();
+
+                     loadEmployeeData(); // gọi lại để cập nhật bảng
+
+                    // TODO: Load lại bảng dữ liệu ở đây nếu cần
+                } else {
+                    alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Admin Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("No employee found with the given ID.");
+                    alert.showAndWait();
+                }
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+
 
     @FXML
     public void logout(ActionEvent event) {

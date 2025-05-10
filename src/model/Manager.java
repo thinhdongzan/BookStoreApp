@@ -6,8 +6,8 @@ public class Manager extends Employee {
 
 
     // Constructor đầy đủ
-   public Manager(int id, String name, String email, String phoneNumber, double salary, String username, String password) {
-        super(id, name, email, phoneNumber, salary);
+   public Manager(int id, String name, String dob, String address, double salary, String image, String phone, String email, String username, String password) {
+        super(id, name, dob, address, salary, image, phone, email);
         this.username = username;
         this.password = password;
     }
