@@ -132,9 +132,9 @@
    <center>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" stylesheets="@../css/login_screen.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="menu_page" prefHeight="200.0" prefWidth="100.0" styleClass="order-pane" visible="false">
+            <VBox fx:id="menu_page" prefHeight="200.0" prefWidth="100.0" styleClass="order-pane">
                <children>
-                  <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="770.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" VBox.vgrow="ALWAYS">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back">
                            <font>
@@ -157,7 +157,7 @@
                               <Insets />
                            </opaqueInsets>
                            <HBox.margin>
-                              <Insets right="10.0" />
+                              <Insets right="16.0" top="4.0" />
                            </HBox.margin>
                         </Pane>
                         <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" styleClass="icon-circle">
@@ -172,7 +172,7 @@
                               <Insets />
                            </opaqueInsets>
                            <HBox.margin>
-                              <Insets right="20.0" />
+                              <Insets right="16.0" top="4.0" />
                            </HBox.margin>
                         </Pane>
                      </children>
@@ -445,7 +445,7 @@
                         </Pane>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="770.0" visible="false">
+                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="770.0">
                      <children>
                         <HBox fx:id="odrer_box" alignment="CENTER_LEFT" layoutX="395.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="200.0" styleClass="boxes">
                            <children>
@@ -583,7 +583,7 @@
                   <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="770.0" />
                </children>
             </VBox>
-            <VBox fx:id="employee_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="employee_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
                <children>
                   <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                      <children>
@@ -595,7 +595,7 @@
                               <Insets left="16.0" />
                            </HBox.margin>
                         </Text>
-                        <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="360.0" />
+                        <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="362.0" />
                         <Pane fx:id="search_bar11" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" styleClass="search_bar">
                            <children>
                               <TextField fx:id="serach_field11" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
