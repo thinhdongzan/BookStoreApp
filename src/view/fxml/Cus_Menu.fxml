@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -125,7 +126,7 @@
                   </Label>
                </children>
             </HBox>
-            <Pane layoutX="10.0" layoutY="103.0" prefHeight="146.0" prefWidth="180.0" />
+            <Pane layoutX="10.0" layoutY="103.0" prefHeight="121.0" prefWidth="170.0" />
             <HBox alignment="CENTER" layoutX="10.0" layoutY="473.0" prefHeight="54.0" prefWidth="141.0" spacing="10.0" style="-fx-background-radius: 50 0 0 50;" styleClass="mouse-moved">
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
@@ -150,14 +151,15 @@
       </VBox>
    </left>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="53.0" prefWidth="1100.0" styleClass="anchor-pane-background1">
                <children>
-                  <Pane prefHeight="53.0" prefWidth="33.0" />
-                  <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="32.0" prefWidth="265.0" styleClass="White-background">
+                  <Pane prefHeight="47.0" prefWidth="128.0" />
+                  <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="32.0" prefWidth="375.0" styleClass="White-background">
                      <children>
-                        <TextField prefHeight="18.0" prefWidth="210.0" promptText="Search" style="-fx-background-color: rgba(0,0,0,0);" />
+                        <Pane prefHeight="32.0" prefWidth="10.0" />
+                        <TextField prefHeight="25.0" prefWidth="325.0" promptText="Search" style="-fx-background-color: rgba(0,0,0,0);" />
                         <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" styleClass="White-background">
                            <image>
                               <Image url="@../images/Button/loupe.png" />
@@ -165,14 +167,14 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <Pane prefHeight="53.0" prefWidth="500.0" />
-                  <Label text="Chào mừng khách hàng123" textFill="WHITE">
+                  <Pane prefHeight="47.0" prefWidth="286.0" />
+                  <Label prefHeight="25.0" prefWidth="215.0" text="Chào mừng khách hàng123" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Pane prefHeight="53.0" prefWidth="21.0" />
-                  <ImageView fitHeight="41.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                  <Pane prefHeight="47.0" prefWidth="9.0" />
+                  <ImageView fitHeight="38.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/Button/user.png" />
                      </image>
@@ -183,53 +185,117 @@
                <children>
                   <Pane>
                      <children>
-                        <VBox prefHeight="670.0" prefWidth="1099.0">
+                        <VBox prefHeight="670.0" prefWidth="1099.0" spacing="10.0">
                            <children>
-                              <HBox prefHeight="61.0" prefWidth="1099.0">
+                              <HBox alignment="CENTER" prefHeight="61.0" prefWidth="1099.0" spacing="60.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="Self-help" />
-                                    <Button mnemonicParsing="false" text="Horror" />
-                                    <Button mnemonicParsing="false" text="Adventure" />
-                                    <Button mnemonicParsing="false" text="Romance" />
-                                    <Button mnemonicParsing="false" text="Comic" />
-                                    <Button mnemonicParsing="false" text="Novel" />
-                                    <Button mnemonicParsing="false" text="Fairy Tale" />
+                                    <Button mnemonicParsing="false" prefWidth="80.0" text="Self-help">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button-self-help" />
+                                          <String fx:value="shadow-effect1" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefWidth="80.0" text="Horror">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button-horror" />
+                                          <String fx:value="shadow-effect1" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Adventure">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button-adventure" />
+                                          <String fx:value="shadow-effect1" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefWidth="80.0" text="Romance">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button-romance" />
+                                          <String fx:value="shadow-effect1" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefWidth="80.0" text="Comic">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button-comio" />
+                                          <String fx:value="shadow-effect1" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefWidth="80.0" stylesheets="@../css/StyleTungDZ.css" text="Novel">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button-novel" />
+                                          <String fx:value="shadow-effect1" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefWidth="80.0" stylesheets="@../css/StyleTungDZ.css" text="Fairy Tale">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button-fairy-tale" />
+                                          <String fx:value="shadow-effect1" />
+                                       </styleClass>
+                                    </Button>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="1093.0" styleClass="best-seller-section">
+                              <VBox prefHeight="307.0" prefWidth="1099.0" style="-fx-border-color: rgb(255,255,255);">
                                  <children>
-                                    <TextFlow prefHeight="30.0" prefWidth="200.0" styleClass="White-background" textAlignment="CENTER">
+                                    <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="1099.0" styleClass="best-seller-section">
                                        <children>
-                                          <Label layoutX="51.0" layoutY="11.0" text="B">
-                                             <font>
-                                                <Font name="System Bold Italic" size="20.0" />
-                                             </font>
-                                          </Label>
-                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
-                                             <image>
-                                                <Image url="@../images/Button/fire.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label text="ST SELLER">
-                                             <font>
-                                                <Font name="System Bold Italic" size="20.0" />
-                                             </font>
-                                          </Label>
+                                          <TextFlow prefHeight="30.0" prefWidth="200.0" styleClass="label-bestseller" textAlignment="CENTER">
+                                             <children>
+                                                <Label layoutX="51.0" layoutY="11.0" text="B">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
+                                                   <image>
+                                                      <Image url="@../images/Button/fire.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label text="ST SELLER">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </TextFlow>
                                        </children>
-                                    </TextFlow>
+                                    </HBox>
+                                    <ScrollPane hbarPolicy="ALWAYS" prefHeight="233.0" prefWidth="1099.0" styleClass="best-seller-section" vbarPolicy="NEVER">
+                                       <content>
+                                          <HBox fx:id="bookBestSellersLayout" prefHeight="203.0" styleClass="viewport" />
+                                       </content>
+                                    </ScrollPane>
                                  </children>
-                              </HBox>
-                              <ScrollPane hbarPolicy="ALWAYS" prefHeight="235.0" prefWidth="1099.0" styleClass="best-seller-section" vbarPolicy="NEVER">
-                                 <content>
-                                    <HBox fx:id="bookBestSellersLayout" prefHeight="203.0" styleClass="viewport" />
-                                 </content>
-                              </ScrollPane>
-                              <Label text="Recommended for you" />
+                              </VBox>
+                              <Label text="Recommended for you">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
                               <ScrollPane hbarPolicy="NEVER" prefHeight="342.0" prefWidth="1099.0">
                                  <content>
                                     <VBox prefHeight="433.0" prefWidth="1084.0">
                                        <children>
-                                          <FlowPane fx:id="bookRecommendedForYouLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" vgap="10.0" />
+                                          <FlowPane fx:id="bookRecommendedForYouLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0" />
                                        </children>
                                     </VBox>
                                  </content>
