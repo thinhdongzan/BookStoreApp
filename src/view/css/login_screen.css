@@ -153,3 +153,41 @@
     -fx-padding: 4 12;
     -fx-background-radius: 8;
 }
+
+.employee-boxes{
+    -fx-background-radius: 20px;
+    -fx-background-color: #dde2ed;
+}
+
+.joining-boxes{
+    -fx-background-radius: 20px;
+    -fx-background-color: #d7e8eb;
+}
+.attendances-boxes{
+    -fx-background-radius: 20px;
+    -fx-background-color: white;
+}
+
+.employee-button-remove {
+    -fx-background-color: #ff5c5c;
+    -fx-background-radius: 15px;
+    -fx-text-fill: black;
+    -fx-border-width: 2px;
+    -fx-border-color: black;
+    -fx-border-radius: 15px;
+    -fx-border-style: solid;
+}
+
+.employee-button-add {
+    -fx-background-color: #5c95ff;
+    -fx-background-radius: 15px;
+    -fx-text-fill: black;
+    -fx-border-width: 2px;
+    -fx-border-color: black;
+    -fx-border-radius: 15px;
+    -fx-border-style: solid;
+}
+
+.employee-button-add:hover, .employee-button-remove:hover{
+    -fx-background-color: white;
+}
