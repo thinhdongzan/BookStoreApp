@@ -445,7 +445,7 @@
                         </Pane>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="770.0" visible="false">
+                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="770.0">
                      <children>
                         <HBox fx:id="odrer_box" alignment="CENTER_LEFT" layoutX="395.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="200.0" styleClass="boxes">
                            <children>
@@ -583,7 +583,7 @@
                   <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="770.0" />
                </children>
             </VBox>
-            <VBox fx:id="employee_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="employee_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
                <children>
                   <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                      <children>
