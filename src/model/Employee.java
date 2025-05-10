@@ -1,19 +1,19 @@
 package model;
 
 public class Employee {
-    private int id;
-    private String name;
-    private double salary;
-
-    // Constructor mặc định
-    public Employee() {
-    }
+    private final int id;
+    private final String name;
+    private final double salary;
+    private final String phoneNumber;
+    private final String email;
 
     // Constructor đầy đủ
-    public Employee(int id, String name, double salary) {
+    public Employee(int id, String name, String email, String phoneNumber,  double salary) {
         this.id = id;
         this.name = name;
-        this.salary = salary;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.salary = salary; 
     }
 
     // Getter và Setter cho id
@@ -21,17 +21,9 @@ public class Employee {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     // Getter và Setter cho name
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     // Getter và Setter cho salary
@@ -39,7 +31,16 @@ public class Employee {
         return salary;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
+    // Getter và Setter cho phoneNumber
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
+
+
+    // Getter và Setter cho email
+    public String getEmail() {
+        return email;
+    }
+
 }
+
