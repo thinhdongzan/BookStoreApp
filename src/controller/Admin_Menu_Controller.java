@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -63,6 +64,56 @@ public class Admin_Menu_Controller {
 
     @FXML
     private Button storage_button;
+
+    @FXML
+    private VBox order_page;
+
+    @FXML
+    private VBox menu_page;
+
+    @FXML
+    private Button menu_button;
+
+    public void showMenuPage(ActionEvent event) {
+        if (event.getSource() == menu_button) {
+
+            menu_page.setVisible(true);
+            order_page.setVisible(false);
+            // dashboard_page.setVisible(false);
+            // employee_page.setVisible(false);
+            // storage_page.setVisible(false);
+
+        }
+         else if (event.getSource() == dashboard_button) {
+            menu_page.setVisible(false);
+            order_page.setVisible(false);
+            // dashboard_page.setVisible(true);
+            // employee_page.setVisible(false);
+            // storage_page.setVisible(false);
+        }
+        else if (event.getSource() == order_button) {
+            menu_page.setVisible(false);
+            order_page.setVisible(true);
+            // dashboard_page.setVisible(false);
+            // employee_page.setVisible(false);
+            // storage_page.setVisible(false);
+        }
+        else if (event.getSource() == employee_button) {
+            menu_page.setVisible(false);
+            order_page.setVisible(false);
+            // dashboard_page.setVisible(false);
+            // employee_page.setVisible(true);
+            // storage_page.setVisible(false);
+        }
+        else if (event.getSource() == storage_button) {
+            menu_page.setVisible(false);
+            order_page.setVisible(false);
+            // dashboard_page.setVisible(false);
+            // employee_page.setVisible(false);
+            // storage_page.setVisible(true);
+        }
+        
+    }
 
     @FXML
     public void logout(ActionEvent event) {
