@@ -6,7 +6,6 @@
 
 .text-font{
 	-fx-font-family: "Segoe UI", sans-serif;
-
 }
 
 .transparent-pane {
@@ -20,14 +19,12 @@
 
 .Red-background {
 	-fx-background-color: #FA8072	;
-
- /* trong suất background*/
 	-fx-background-radius: 15; /* bo góc đẹp hơn */
 }
 
 .White-background1 {
-	-fx-background-color: rgba(255, 255, 255); /* trong suất background*/
-	-fx-background-radius: 3; /* bo góc đẹp hơn */
+	-fx-background-color: rgba(255, 255, 255); 
+	-fx-background-radius: 3; 
 
 }
 
@@ -120,7 +117,7 @@
 	-fx-border-width: 4;
 }
 
-	.node-surround-pane2{
+.node-surround-pane2{
 		-fx-background-color: #3E70FA;
 		-fx-background-radius: 0;
 		-fx-border-color: #3E70FA;
@@ -128,7 +125,7 @@
 
 		-fx-border-radius: 20;
 		-fx-border-width: 4;
-	}
+}
 
 
 	.button-style2 {
@@ -213,4 +210,26 @@
 .button-fairy-tale{
 		-fx-background-color: #c5e1a5;
 	
+}
+
+.mouse-selfhelp: hover{
+		-fx-background-color: #958600;
+}
+.mouse-horror: hover{
+		-fx-background-color: #741616;
+}
+.mouse-adventure: hover{
+		-fx-background-color: #06587d;
+}
+.mouse-romance: hover{
+		-fx-background-color: #9e1041;
+}
+.mouse-comic: hover{
+		-fx-background-color: #9a7400;
+}
+.mouse-novel: hover{
+		-fx-background-color: #61276b;
+}
+.mouse-fairy-tale: hover{
+		-fx-background-color: #517527;
 }
