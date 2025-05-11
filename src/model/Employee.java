@@ -1,45 +1,64 @@
 package model;
 
 public class Employee {
-    private int id;
-    private String name;
-    private double salary;
-
-    // Constructor mặc định
-    public Employee() {
-    }
+    private final int id;
+    private final String name;
+    private final String dob;       // dùng String cho ngày sinh
+    private final String address;
+    private final double salary;
+    private final String image;
+    private final String phone;
+    private final String email;
 
     // Constructor đầy đủ
-    public Employee(int id, String name, double salary) {
+    public Employee(int id, String name, String dob, String address, double salary, String image, String phone, String email) {
         this.id = id;
         this.name = name;
+        this.dob = dob;
+        this.address = address;
         this.salary = salary;
+        this.image = image;
+        this.phone = phone;
+        this.email = email;
+        
     }
 
-    // Getter và Setter cho id
+    // Getter cho id
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    // Getter và Setter cho name
+    // Getter cho name
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    // Getter cho dob
+    public String getDob() {
+        return dob;
     }
 
-    // Getter và Setter cho salary
+    // Getter cho address
+    public String getAddress() {
+        return address;
+    }
+
+    // Getter cho salary
     public double getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public String getImage() {
+        return image;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }
+
+

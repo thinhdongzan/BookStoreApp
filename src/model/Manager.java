@@ -4,14 +4,10 @@ public class Manager extends Employee {
     private String username;
     private String password;
 
-    // Constructor mặc định
-    public Manager() {
-        super();
-    }
 
     // Constructor đầy đủ
-    public Manager(int id, String name, double salary, String username, String password) {
-        super(id, name, salary);
+   public Manager(int id, String name, String dob, String address, double salary, String image, String phone, String email, String username, String password) {
+        super(id, name, dob, address, salary, image, phone, email);
         this.username = username;
         this.password = password;
     }

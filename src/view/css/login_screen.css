@@ -1,7 +1,7 @@
 .menu_pane {
-    -fx-background-color: white;
-    -fx-border-color: black;
-    -fx-border-width: 0px 3px 0px 0px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e7e0e0;
+    -fx-border-width: 0px 1px 0px 0px;
 }
 
 .root {
@@ -23,7 +23,7 @@
     -fx-background-radius: 15px;
     -fx-border-radius: 15px;
     -fx-border-width: 2px;
-    -fx-border-color: black;
+    -fx-border-color: #e7e0e0;
     -fx-alignment: center;
     -fx-background-color: transparent;
 }
@@ -31,7 +31,7 @@
 .search_bar{
     -fx-background-color: transparent ;
     -fx-border-width: 2px 2px 2px 2px;
-    -fx-border-color: gray;
+    -fx-border-color: #e7e0e0;
     -fx-border-radius: 20px;
 }
 
@@ -64,17 +64,171 @@
     -fx-font-style: italic;
 }
 
-/* .menu-button:hover{
-    -fx-background-color: white;
-} */
-
 .admin-text{
     -fx-background-color: transparent;
     -fx-text-fill: black;
     -fx-font-size: 14px;
-    -fx-font-style: bold;
+    /* -fx-font-style: bold; */
 }
 
 .menu-admin {
     -fx-background-color: rgb(204, 204, 204);
+}
+
+.order-pane{
+    -fx-background-color: #ededed;
+}
+
+.logo-background-order{
+    -fx-background-radius: 40px;
+    -fx-background-color: #ffefd6;
+}
+
+.logo-background-pending{
+    -fx-background-radius: 40px;
+    -fx-background-color: #c7e6fe;
+}
+
+.logo-background-dispatch{
+    -fx-background-radius: 40px;
+    -fx-background-color: #c9f4ee;
+}
+
+.ComboBox{
+    -fx-background-color: transparent;
+    -fx-border-color: #e7e0e0;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1;
+}
+
+.boxes{
+    -fx-border-color: #e7e0e0;
+    -fx-border-width: 1;
+    -fx-border-radius: 10px;
+}
+
+.order-table{
+    -fx-background-color: white;
+}
+
+.order-table .column-header{
+    -fx-background-color: white;
+    -fx-border-color: #e7e0e0;
+    -fx-border-radius: 5;
+    -fx-border-width: 2;
+}
+
+.order-table .table-row-cell{
+    -fx-border-color: #e7e0e0;
+    -fx-border-radius: 5;
+    -fx-border-width: 2;
+}
+
+.order-table .column-header:hover{
+    -fx-background-color: #3e70fa;
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+}
+
+.order-table .column-header:hover .label{
+    -fx-text-fill: white;
+}
+
+.order-table .table-cell {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 4 10 4 10;
+}
+
+
+.label.status-on-way {
+    -fx-background-color: #fff4d4;
+    -fx-text-fill: #f3a200;
+    -fx-padding: 4 8;
+    -fx-background-radius: 8;
+}
+
+.label.status-ready {
+    -fx-background-color: #ff5c5c;
+    -fx-text-fill: white;
+    -fx-padding: 4 12;
+    -fx-background-radius: 8;
+}
+
+.employee-boxes{
+    -fx-background-radius: 20px;
+    -fx-background-color: #dde2ed;
+}
+
+.joining-boxes{
+    -fx-background-radius: 20px;
+    -fx-background-color: #d7e8eb;
+}
+.attendances-boxes{
+    -fx-background-radius: 20px;
+    -fx-background-color: white;
+}
+
+.employee-button-remove {
+    -fx-background-color: #ff5c5c;
+    -fx-background-radius: 15px;
+    -fx-text-fill: white;
+}
+
+.employee-button-add {
+    -fx-background-color: #5c95ff;
+    -fx-background-radius: 15px;
+    -fx-text-fill: white;
+}
+
+.employee-button-add:hover{
+    -fx-background-color: #3e71cf;
+
+}
+
+.employee-button-remove:hover{
+    -fx-background-color: #9d1c1c;
+}
+
+/* storage-page */
+.table-change-button{
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+.table-change-button:pressed{
+    -fx-border-width: 0 0 1 0;
+    -fx-border-style: solid;
+}
+
+.storage-table{
+    -fx-background-color: white;
+}
+
+.storage-table .column-header{
+    -fx-background-color: white;
+    -fx-border-color: #e7e0e0;
+    -fx-border-radius: 5;
+    -fx-border-width: 2;
+}
+
+.storage-table .table-row-cell{
+    -fx-border-color: #e7e0e0;
+    -fx-border-radius: 5;
+    -fx-border-width: 2;
+}
+
+.storage-table .column-header:hover{
+    -fx-background-color: #3e70fa;
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+}
+
+.storage-table .column-header:hover .label{
+    -fx-text-fill: white;
+}
+
+.storage-table .table-cell {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 4 10 4 10;
 }

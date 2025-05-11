@@ -7,19 +7,25 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" stylesheets="@../css/login_screen.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" stylesheets="@../css/login_screen.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin_Menu_Controller">
     <left>
         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="130.0" styleClass="menu_pane" BorderPane.alignment="CENTER">
             <children>
@@ -52,7 +58,7 @@
                                 <Insets left="10.0" right="10.0" top="5.0" />
                             </HBox.margin>
                         </ImageView>
-                  <Button mnemonicParsing="false" styleClass="menu-button" text="Menu" />
+                  <Button fx:id="menu_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Menu" />
                     </children>
                 </HBox>
             <HBox fx:id="dashboard_bar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="89.0" prefHeight="40.0" prefWidth="130.0" styleClass="menu">
@@ -65,7 +71,7 @@
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button fx:id="dashboard_button" mnemonicParsing="false" styleClass="menu-button" text="Dashboard" />
+                  <Button fx:id="dashboard_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Dashboard" />
                </children>
             </HBox>
             <HBox fx:id="employee_bar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="220.0" prefHeight="40.0" prefWidth="130.0" styleClass="menu">
@@ -78,7 +84,7 @@
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button fx:id="employee_button" mnemonicParsing="false" styleClass="menu-button" text="Employees" />
+                  <Button fx:id="employee_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Employees" />
                </children>
             </HBox>
             <HBox fx:id="order_bar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="260.0" prefHeight="40.0" prefWidth="130.0" styleClass="menu">
@@ -91,7 +97,7 @@
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button fx:id="order_button" mnemonicParsing="false" styleClass="menu-button" text="Orders" />
+                  <Button fx:id="order_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Orders" />
                </children>
             </HBox>
             <HBox fx:id="storage_bar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="300.0" prefHeight="40.0" prefWidth="130.0" styleClass="menu">
@@ -104,7 +110,7 @@
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button fx:id="storage_button" mnemonicParsing="false" styleClass="menu-button" text="Storage" />
+                  <Button fx:id="storage_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Storage" />
                </children>
             </HBox>
                 <Region prefHeight="73.0" prefWidth="127.0" />
@@ -118,275 +124,751 @@
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button fx:id="sign_out_button" mnemonicParsing="false" styleClass="menu-button" text="Sign out" />
+                  <Button fx:id="sign_out_button" mnemonicParsing="false" onAction="#logout" styleClass="menu-button" text="Sign out" />
                </children>
             </HBox>
             </children>
         </VBox>
     </left>
-    <center>
-        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-            <children>
-                <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="770.0" VBox.vgrow="ALWAYS">
-                    <children>
+   <center>
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" stylesheets="@../css/login_screen.css" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="menu_page" prefHeight="200.0" prefWidth="100.0" styleClass="order-pane" visible="false">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" VBox.vgrow="ALWAYS">
+                     <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back">
-                            <font>
-                                <Font name="System Bold" size="24.0" />
-                            </font>
-                            <HBox.margin>
-                                <Insets right="70.0" />
-                            </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="70.0" />
+                           </HBox.margin>
                         </Text>
                         <Pane fx:id="search_bar" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" styleClass="search_bar">
-                            <children>
-                                <TextField fx:id="serach_field" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
-                                <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
-                                    <image>
-                                        <Image url="@../images/Logo/magnifying-glass-solid.png" />
-                                    </image>
-                                </ImageView>
-                            </children>
-                            <opaqueInsets>
-                                <Insets />
-                            </opaqueInsets>
-                            <HBox.margin>
-                                <Insets right="10.0" />
-                            </HBox.margin>
+                           <children>
+                              <TextField fx:id="serach_field" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
+                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
+                                 <image>
+                                    <Image url="@../images/Logo/magnifying-glass-solid.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets right="16.0" top="4.0" />
+                           </HBox.margin>
                         </Pane>
                         <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" styleClass="icon-circle">
-                            <children>
-                                <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../images/Logo/user-solid.png" />
-                                    </image>
-                                </ImageView>
-                            </children>
-                            <opaqueInsets>
-                                <Insets />
-                            </opaqueInsets>
-                            <HBox.margin>
-                                <Insets right="20.0" />
-                            </HBox.margin>
+                           <children>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Logo/user-solid.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets right="16.0" top="4.0" />
+                           </HBox.margin>
                         </Pane>
-                    </children>
-                    <opaqueInsets>
+                     </children>
+                     <opaqueInsets>
                         <Insets />
-                    </opaqueInsets>
-                </HBox>
-                <VBox prefHeight="200.0" prefWidth="770.0" VBox.vgrow="ALWAYS">
-                    <children>
-                        <VBox>
-                            <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menu">
-                                    <VBox.margin>
-                                        <Insets left="10.0" />
-                                    </VBox.margin>
-                                </Text>
-                                <HBox prefHeight="120.0" prefWidth="200.0">
-                                    <children>
-                                        <VBox prefHeight="100.0" prefWidth="170.0" styleClass="dashboard_inner">
-                                            <children>
+                     </opaqueInsets>
+                  </HBox>
+                  <Pane fx:id="menu_pane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="480.0" prefWidth="770.0">
+                     <children>
+                        <VBox prefHeight="480.0" prefWidth="770.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menu">
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <HBox prefHeight="120.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox prefHeight="100.0" prefWidth="170.0" styleClass="dashboard_inner">
+                                             <children>
                                                 <HBox prefHeight="50.0" prefWidth="160.0">
-                                                    <children>
-                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employees">
-                                                            <font>
-                                                                <Font name="Calibri" size="18.0" />
-                                                            </font>
-                                                            <HBox.margin>
-                                                                <Insets />
-                                                            </HBox.margin>
-                                                        </Text>
-                                                        <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@../images/Logo/users-solid.png" />
-                                                            </image>
-                                                        </ImageView>
-                                                    </children>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                    <padding>
-                                                        <Insets left="10.0" right="10.0" />
-                                                    </padding>
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employees">
+                                                         <font>
+                                                            <Font name="Calibri" size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets />
+                                                         </HBox.margin>
+                                                      </Text>
+                                                      <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../images/Logo/users-solid.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                   <padding>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </padding>
                                                 </HBox>
                                                 <Region prefHeight="200.0" prefWidth="200.0" />
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="50">
-                                                    <font>
-                                                        <Font name="Calibri Bold" size="30.0" />
-                                                    </font>
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" left="10.0" />
-                                                    </VBox.margin>
+                                                   <font>
+                                                      <Font name="Calibri Bold" size="30.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" left="10.0" />
+                                                   </VBox.margin>
                                                 </Text>
-                                            </children>
-                                            <HBox.margin>
+                                             </children>
+                                             <HBox.margin>
                                                 <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                                            </HBox.margin>
-                                        </VBox>
-                                        <VBox layoutX="19.0" layoutY="19.0" prefHeight="100.0" prefWidth="170.0" styleClass="dashboard_inner">
-                                            <children>
+                                             </HBox.margin>
+                                          </VBox>
+                                          <VBox layoutX="19.0" layoutY="19.0" prefHeight="100.0" prefWidth="170.0" styleClass="dashboard_inner">
+                                             <children>
                                                 <HBox prefHeight="50.0" prefWidth="160.0">
-                                                    <children>
-                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Invoices">
-                                                            <font>
-                                                                <Font name="Calibri" size="18.0" />
-                                                            </font>
-                                                            <HBox.margin>
-                                                                <Insets />
-                                                            </HBox.margin>
-                                                        </Text>
-                                                        <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@../images/Logo/bill.png" />
-                                                            </image>
-                                                        </ImageView>
-                                                    </children>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                    <padding>
-                                                        <Insets left="10.0" right="10.0" />
-                                                    </padding>
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Invoices">
+                                                         <font>
+                                                            <Font name="Calibri" size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets />
+                                                         </HBox.margin>
+                                                      </Text>
+                                                      <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../images/Logo/bill.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                   <padding>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </padding>
                                                 </HBox>
                                                 <Region prefHeight="200.0" prefWidth="200.0" />
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="30">
-                                                    <font>
-                                                        <Font name="Calibri Bold" size="30.0" />
-                                                    </font>
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" left="10.0" />
-                                                    </VBox.margin>
+                                                   <font>
+                                                      <Font name="Calibri Bold" size="30.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" left="10.0" />
+                                                   </VBox.margin>
                                                 </Text>
-                                            </children>
-                                            <HBox.margin>
+                                             </children>
+                                             <HBox.margin>
                                                 <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                                            </HBox.margin>
-                                        </VBox>
-                                        <VBox layoutX="205.0" layoutY="11.0" prefHeight="100.0" prefWidth="170.0" styleClass="dashboard_inner">
-                                            <children>
+                                             </HBox.margin>
+                                          </VBox>
+                                          <VBox layoutX="205.0" layoutY="11.0" prefHeight="100.0" prefWidth="170.0" styleClass="dashboard_inner">
+                                             <children>
                                                 <HBox prefHeight="50.0" prefWidth="160.0">
-                                                    <children>
-                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Orders" wrappingWidth="95.4687728881836">
-                                                            <font>
-                                                                <Font name="Calibri" size="18.0" />
-                                                            </font>
-                                                            <HBox.margin>
-                                                                <Insets />
-                                                            </HBox.margin>
-                                                        </Text>
-                                                        <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@../images/Logo/order-delivery.png" />
-                                                            </image>
-                                                        </ImageView>
-                                                    </children>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                    <padding>
-                                                        <Insets left="10.0" right="10.0" />
-                                                    </padding>
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Orders" wrappingWidth="95.4687728881836">
+                                                         <font>
+                                                            <Font name="Calibri" size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets />
+                                                         </HBox.margin>
+                                                      </Text>
+                                                      <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../images/Logo/cart-shopping-solid.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                   <padding>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </padding>
                                                 </HBox>
                                                 <Region prefHeight="200.0" prefWidth="200.0" />
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="25">
-                                                    <font>
-                                                        <Font name="Calibri Bold" size="30.0" />
-                                                    </font>
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" left="10.0" />
-                                                    </VBox.margin>
+                                                   <font>
+                                                      <Font name="Calibri Bold" size="30.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" left="10.0" />
+                                                   </VBox.margin>
                                                 </Text>
-                                            </children>
-                                            <HBox.margin>
+                                             </children>
+                                             <HBox.margin>
                                                 <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                                            </HBox.margin>
-                                        </VBox>
-                                        <VBox layoutX="384.0" layoutY="11.0" prefHeight="100.0" prefWidth="170.0" styleClass="dashboard_inner">
-                                            <children>
+                                             </HBox.margin>
+                                          </VBox>
+                                          <VBox layoutX="384.0" layoutY="11.0" prefHeight="100.0" prefWidth="170.0" styleClass="dashboard_inner">
+                                             <children>
                                                 <HBox prefHeight="50.0" prefWidth="160.0">
-                                                    <children>
-                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profits">
-                                                            <font>
-                                                                <Font name="Calibri" size="18.0" />
-                                                            </font>
-                                                            <HBox.margin>
-                                                                <Insets />
-                                                            </HBox.margin>
-                                                        </Text>
-                                                        <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@../images/Logo/money.png" />
-                                                            </image>
-                                                        </ImageView>
-                                                    </children>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                    <padding>
-                                                        <Insets left="10.0" right="10.0" />
-                                                    </padding>
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profits">
+                                                         <font>
+                                                            <Font name="Calibri" size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets />
+                                                         </HBox.margin>
+                                                      </Text>
+                                                      <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../images/Logo/money.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                   <padding>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </padding>
                                                 </HBox>
                                                 <Region prefHeight="200.0" prefWidth="200.0" />
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="100K">
-                                                    <font>
-                                                        <Font name="Calibri Bold" size="30.0" />
-                                                    </font>
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" left="10.0" />
-                                                    </VBox.margin>
+                                                   <font>
+                                                      <Font name="Calibri Bold" size="30.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" left="10.0" />
+                                                   </VBox.margin>
                                                 </Text>
-                                            </children>
-                                            <HBox.margin>
+                                             </children>
+                                             <HBox.margin>
                                                 <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                                            </HBox.margin>
-                                        </VBox>
-                                    </children>
-                                    <styleClass>
-                                        <String fx:value="dashboard" />
-                                        <String fx:value="background-blur" />
-                                    </styleClass>
-                                </HBox>
-                            </children>
+                                             </HBox.margin>
+                                          </VBox>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="dashboard" />
+                                          <String fx:value="background-blur" />
+                                       </styleClass>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <HBox alignment="CENTER" prefHeight="275.0" prefWidth="709.0" styleClass="dashboard">
+                                 <children>
+                                    <LineChart fx:id="order_dashboard" maxHeight="-Infinity" prefHeight="250.0" prefWidth="350.0">
+                                       <xAxis>
+                                          <CategoryAxis label="Number of orders" side="BOTTOM" />
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis side="LEFT" />
+                                       </yAxis>
+                                    </LineChart>
+                                    <Region prefHeight="275.0" prefWidth="0.0" />
+                                    <BarChart fx:id="income_dashboard" maxHeight="-Infinity" prefHeight="250.0" prefWidth="350.0">
+                                       <xAxis>
+                                          <CategoryAxis label="Income" side="BOTTOM" />
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis side="LEFT" />
+                                       </yAxis>
+                                    </BarChart>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="30.0" right="30.0" top="20.0" />
+                           </padding>
                         </VBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <VBox fx:id="order_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" styleClass="order-pane" visible="false">
+               <children>
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Orders">
+                           <font>
+                              <Font name="Calibri Bold" size="28.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="16.0" />
+                           </HBox.margin>
                         </Text>
-                        <HBox alignment="CENTER" prefHeight="275.0" prefWidth="709.0" styleClass="dashboard">
-                            <children>
-                                <LineChart fx:id="order_dashboard" maxHeight="-Infinity" prefHeight="250.0" prefWidth="350.0">
-                                    <xAxis>
-                                        <CategoryAxis label="Number of orders" side="BOTTOM" />
-                                    </xAxis>
-                                    <yAxis>
-                                        <NumberAxis side="LEFT" />
-                                    </yAxis>
-                                </LineChart>
-                                <Region prefHeight="275.0" prefWidth="0.0" />
-                                <BarChart fx:id="income_dashboard" maxHeight="-Infinity" prefHeight="250.0" prefWidth="350.0">
-                                    <xAxis>
-                                        <CategoryAxis label="Income" side="BOTTOM" />
-                                    </xAxis>
-                                    <yAxis>
-                                        <NumberAxis side="LEFT" />
-                                    </yAxis>
-                                </BarChart>
-                            </children>
-                            <VBox.margin>
-                                <Insets />
-                            </VBox.margin>
+                        <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="410.0" />
+                        <Pane fx:id="search_bar1" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" styleClass="search_bar">
+                           <children>
+                              <TextField fx:id="serach_field1" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
+                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
+                                 <image>
+                                    <Image url="@../images/Logo/magnifying-glass-solid.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets right="16.0" />
+                           </HBox.margin>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" styleClass="icon-circle">
+                           <children>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Logo/user-solid.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets right="16.0" />
+                           </HBox.margin>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="770.0">
+                     <children>
+                        <HBox fx:id="odrer_box" alignment="CENTER_LEFT" layoutX="395.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="200.0" styleClass="boxes">
+                           <children>
+                              <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="40.0" styleClass="logo-background-order">
+                                 <HBox.margin>
+                                    <Insets left="16.0" />
+                                 </HBox.margin>
+                              </Pane>
+                              <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="120.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="50">
+                                       <VBox.margin>
+                                          <Insets left="12.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="28.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#6e6e6e" strokeType="OUTSIDE" strokeWidth="0.0" text="Orders">
+                                       <VBox.margin>
+                                          <Insets left="12.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="40.0" />
+                           </HBox.margin>
                         </HBox>
-                    </children>
-                    <padding>
-                        <Insets left="30.0" right="30.0" top="20.0" />
-                    </padding>
-                </VBox>
-            </children>
-        </VBox>
-    </center>
+                        <HBox fx:id="pending_box" alignment="CENTER_LEFT" layoutX="275.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="200.0" styleClass="boxes">
+                           <children>
+                              <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="40.0" styleClass="logo-background-pending">
+                                 <HBox.margin>
+                                    <Insets left="16.0" />
+                                 </HBox.margin>
+                              </Pane>
+                              <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="120.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="40">
+                                       <VBox.margin>
+                                          <Insets left="12.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="28.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#6e6e6e" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Pending">
+                                       <VBox.margin>
+                                          <Insets left="12.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="40.0" />
+                           </HBox.margin>
+                        </HBox>
+                        <HBox fx:id="dispactch_box" alignment="CENTER_LEFT" layoutX="415.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="200.0" styleClass="boxes">
+                           <children>
+                              <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="40.0" styleClass="logo-background-dispatch">
+                                 <HBox.margin>
+                                    <Insets left="16.0" />
+                                 </HBox.margin>
+                              </Pane>
+                              <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="120.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="25">
+                                       <VBox.margin>
+                                          <Insets left="12.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="28.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#6e6e6e" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Dispatch">
+                                       <VBox.margin>
+                                          <Insets left="12.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="32.0" />
+                           </HBox.margin>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="All Orders">
+                           <font>
+                              <Font name="Calibri Bold" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="16.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="520.0" />
+                        <ComboBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="120.0" promptText="Recent orders" styleClass="ComboBox">
+                           <HBox.margin>
+                              <Insets right="16.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+                  <TableView fx:id="order_table" prefHeight="240.0" prefWidth="706.0" styleClass="order-table">
+                    <columns>
+                      <TableColumn maxWidth="50.0" minWidth="50.0" prefWidth="56.000059485435486" text="Id" />
+                      <TableColumn prefWidth="192.79993438720703" text="Name" />
+                        <TableColumn prefWidth="61.5999755859375" text="Payment" />
+                        <TableColumn prefWidth="147.20004272460938" text="Time Remaining" />
+                        <TableColumn prefWidth="72.79995727539062" text="Type" />
+                        <TableColumn prefWidth="70.39990234375" text="Status" />
+                        <TableColumn prefWidth="83.199951171875" text="Total" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets left="32.0" right="32.0" />
+                     </VBox.margin>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="770.0" />
+               </children>
+            </VBox>
+            <VBox fx:id="employee_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
+               <children>
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employees">
+                           <font>
+                              <Font name="Calibri Bold" size="28.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="16.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="362.0" />
+                        <Pane fx:id="search_bar11" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" styleClass="search_bar">
+                           <children>
+                              <TextField fx:id="serach_field11" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
+                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
+                                 <image>
+                                    <Image url="@../images/Logo/magnifying-glass-solid.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets right="16.0" />
+                           </HBox.margin>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" styleClass="icon-circle">
+                           <children>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Logo/user-solid.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets right="16.0" />
+                           </HBox.margin>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="170.0" prefWidth="770.0">
+                     <children>
+                        <HBox fx:id="employee_box" alignment="CENTER_LEFT" layoutX="395.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="200.0" styleClass="employee-boxes">
+                           <children>
+                              <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="120.0">
+                                 <children>
+                                    <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" text="Total">
+                                       <VBox.margin>
+                                          <Insets left="12.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" text="Employees" wrappingWidth="100.478515625">
+                                       <VBox.margin>
+                                          <Insets left="12.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Line endX="32.0" stroke="#6b97eb" strokeWidth="3.0">
+                                       <VBox.margin>
+                                          <Insets left="12.0" top="4.0" />
+                                       </VBox.margin>
+                                    </Line>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="16.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <Label fx:id="totalEmployee_label" text="Label">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="40.0" />
+                           </HBox.margin>
+                        </HBox>
+                        <AnchorPane prefHeight="145.0" prefWidth="372.0" styleClass="card-form" stylesheets="@../css/style.css">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="12.0" prefHeight="135.0" prefWidth="91.0" styleClass="image-card" stylesheets="@../css/style.css">
+                                 <children>
+                                    <ImageView fx:id="profile_image" fitHeight="135.0" fitWidth="91.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="123.0" layoutY="14.0" text="Name:" AnchorPane.topAnchor="14.0">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="123.0" layoutY="44.0" text="D.O.B:" AnchorPane.topAnchor="50.0">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="123.0" layoutY="80.0" text="Phone:" AnchorPane.topAnchor="86.0">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="123.0" layoutY="110.0" text="Email:" AnchorPane.topAnchor="122.0">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="take_nameLabel" layoutX="172.0" layoutY="15.0" text="Label" AnchorPane.topAnchor="14.0" />
+                              <Label fx:id="take_dobLabel" layoutX="172.0" layoutY="50.0" text="Label" AnchorPane.topAnchor="50.0" />
+                              <Label fx:id="take_phoneLabel" layoutX="172.0" layoutY="87.0" text="Label" AnchorPane.topAnchor="86.0" />
+                              <Label fx:id="take_emailLabel" layoutX="172.0" layoutY="122.0" text="Label" AnchorPane.topAnchor="122.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
+                           <font>
+                              <Font name="Calibri Bold" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="16.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="540.0" />
+                        <ComboBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="120.0" promptText="Actions" styleClass="ComboBox">
+                           <HBox.margin>
+                              <Insets right="16.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+                  <TableView fx:id="employee_table" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#selectEmployee" prefHeight="240.0" prefWidth="770.0" styleClass="order-table">
+                     <columns>
+                        <TableColumn fx:id="id_col" maxWidth="60.0" minWidth="60.0" prefWidth="56.000059485435486" text="Id" />
+                        <TableColumn fx:id="name_col" maxWidth="230.0" minWidth="156.66661071777344" prefWidth="165.3332977294922" text="Name" />
+                        <TableColumn fx:id="dob_col" maxWidth="240.0" minWidth="126.66665649414062" prefWidth="164.00003051757812" text="D.O.B" />
+                        <TableColumn fx:id="address_col" maxWidth="257.3333740234375" minWidth="120.0" prefWidth="236.66656494140625" text="Address" />
+                        <TableColumn fx:id="salary_col" maxWidth="212.0" minWidth="120.0" prefWidth="141.3333740234375" text="Salary" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="770.0">
+                     <children>
+                        <Button fx:id="e_remove" mnemonicParsing="false" onAction="#removeEmployee" prefHeight="29.0" prefWidth="69.0" styleClass="employee-button-remove" text="Remove">
+                           <HBox.margin>
+                              <Insets right="16.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="e_add" mnemonicParsing="false" prefHeight="29.0" prefWidth="71.0" styleClass="employee-button-add" text="Add">
+                           <HBox.margin>
+                              <Insets right="64.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox fx:id="storage_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Storage">
+                           <font>
+                              <Font name="Calibri Bold" size="28.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="16.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="390.0" />
+                        <Pane fx:id="search_bar111" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" styleClass="search_bar">
+                           <children>
+                              <TextField fx:id="serach_field111" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
+                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
+                                 <image>
+                                    <Image url="@../images/Logo/magnifying-glass-solid.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets right="16.0" />
+                           </HBox.margin>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" styleClass="icon-circle">
+                           <children>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Logo/user-solid.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets right="16.0" />
+                           </HBox.margin>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0">
+                     <children>
+                        <TableView fx:id="books_table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" visible="false">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="Id" />
+                              <TableColumn prefWidth="75.0" text="Isbn" />
+                              <TableColumn prefWidth="75.0" text="Name" />
+                              <TableColumn prefWidth="75.0" text="Author" />
+                              <TableColumn prefWidth="75.0" text="Publisher" />
+                              <TableColumn prefWidth="75.0" text="Purchase Price" />
+                              <TableColumn prefWidth="75.0" text="Selling Price" />
+                              <TableColumn prefWidth="75.0" text="Quantity" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TableView fx:id="toys_table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0">
+                           <columns>
+                              <TableColumn maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Id" />
+                              <TableColumn prefWidth="75.0" text="Name" />
+                              <TableColumn prefWidth="75.0" text="Brand" />
+                              <TableColumn prefWidth="75.0" text="Type" />
+                              <TableColumn prefWidth="75.0" text="Suitable Age" />
+                              <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="75.0" text="Purchase Price" />
+                              <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="75.0" text="Selling Price" />
+                              <TableColumn maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Quantity" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TableView fx:id="stationaries_table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" visible="false">
+                           <columns>
+                              <TableColumn maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Id" />
+                              <TableColumn maxWidth="160.0" minWidth="160.0" prefWidth="75.0" text="Name" />
+                              <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="75.0" text="Brand" />
+                              <TableColumn prefWidth="75.0" text="Type" />
+                              <TableColumn maxWidth="120.0" prefWidth="75.0" text="Purchase Price" />
+                              <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="75.0" text="Selling Price" />
+                              <TableColumn maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Quantity" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                     <padding>
+                        <Insets top="16.0" />
+                     </padding>
+                  </StackPane>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="770.0">
+                     <children>
+                        <Button fx:id="books_table_button" mnemonicParsing="false" text="Books" />
+                        <Button fx:id="toys_table_button" mnemonicParsing="false" text="Toys" />
+                        <Button fx:id="stationaries_table_button" mnemonicParsing="false" text="Stationaries" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </center>
 </BorderPane>

@@ -1,12 +1,11 @@
 /* File style.css */
 .anchor-pane-background1 {
-	-fx-background-color: #3E70FA ;
+	-fx-background-color: #2C3E50 ;
 
 }
 
 .text-font{
 	-fx-font-family: "Segoe UI", sans-serif;
-
 }
 
 .transparent-pane {
@@ -20,14 +19,12 @@
 
 .Red-background {
 	-fx-background-color: #FA8072	;
-
- /* trong suất background*/
 	-fx-background-radius: 15; /* bo góc đẹp hơn */
 }
 
 .White-background1 {
-	-fx-background-color: rgba(255, 255, 255); /* trong suất background*/
-	-fx-background-radius: 3; /* bo góc đẹp hơn */
+	-fx-background-color: rgba(255, 255, 255); 
+	-fx-background-radius: 3; 
 
 }
 
@@ -61,6 +58,10 @@
 
 .shadow-effect1 {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.3, 0, 3);
+}
+
+.shadow-effect2{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0), 10, 0, 0, 10);
 }
 
 .transparent-circle {
@@ -107,7 +108,7 @@
 
 .node-surround-pane1{
 
-	-fx-background-color: white;;
+	-fx-background-color: white;
 	-fx-background-radius: 0;
 	-fx-border-color: #3E70FA;
 	-fx-text-color: #3E70FA; /* Chữ in hoa */
@@ -116,15 +117,15 @@
 	-fx-border-width: 4;
 }
 
-	.node-surround-pane2{
-		-fx-background-color: #3E70FA;;
+.node-surround-pane2{
+		-fx-background-color: #3E70FA;
 		-fx-background-radius: 0;
 		-fx-border-color: #3E70FA;
 		-fx-text-color: #3E70FA; /* Chữ in hoa */
 
 		-fx-border-radius: 20;
 		-fx-border-width: 4;
-	}
+}
 
 
 	.button-style2 {
@@ -140,18 +141,95 @@
   -border-bottom-left-radius: 12px;
   -border-top-right-radius: 0;
   -border-bottom-right-radius: 0;
-  -fx-background-color: #4F8EF7;
+  -fx-background-color: #5D6D7E;
 }
 
 .mouse-moved: hover{
-	-fx-background-color: #4F8EF7;
+	-fx-background-color: #5D6D7E		;
 	
 }
 
 .selected{
-		-fx-background-color: #4F8EF7;
+		-fx-background-color: #5D6D7E;
 	
 }
 
+.best-seller-section {
+/* Gradient nền với màu salmon */
+-fx-background-color: linear-gradient(to right,   #6d6ddf,  #c0c0f1)
+;
+	    ;  /* đỏ nổi bật */
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+}
+.label-bestseller {
+	-fx-background-color: rgba(255, 255, 255); /* trong suất background*/
+	-fx-background-radius: 8; /* bo góc đẹp hơn */
+}
 
+.viewport {
+    -fx-background-color: transparent;
+}
 
+.button-self-help{
+	-fx-background-color: #fff176	;
+	
+}
+
+.size-item-image{
+	 -fx-fit-width: 140;
+    -fx-fit-height: 22	0;
+    -fx-preserve-ratio: true;
+}
+
+.button-horror{
+		-fx-background-color: #e57373;
+	
+}
+
+.button-adventure{
+		-fx-background-color: #4fc3f7;
+	
+}
+
+.button-romance{
+		-fx-background-color: #f8bbd0;
+	
+}
+
+.button-comio{
+		-fx-background-color: #ffe082;
+	
+}
+
+.button-novel{
+		-fx-background-color: #ce93d8;
+	
+}
+
+.button-fairy-tale{
+		-fx-background-color: #c5e1a5;
+	
+}
+
+.mouse-selfhelp: hover{
+		-fx-background-color: #958600;
+}
+.mouse-horror: hover{
+		-fx-background-color: #741616;
+}
+.mouse-adventure: hover{
+		-fx-background-color: #06587d;
+}
+.mouse-romance: hover{
+		-fx-background-color: #9e1041;
+}
+.mouse-comic: hover{
+		-fx-background-color: #9a7400;
+}
+.mouse-novel: hover{
+		-fx-background-color: #61276b;
+}
+.mouse-fairy-tale: hover{
+		-fx-background-color: #517527;
+}

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -14,6 +15,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/StyleTungDZ.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cus_Menu">
    <left>
@@ -124,7 +126,7 @@
                   </Label>
                </children>
             </HBox>
-            <Pane layoutX="10.0" layoutY="103.0" prefHeight="146.0" prefWidth="180.0" />
+            <Pane layoutX="10.0" layoutY="103.0" prefHeight="121.0" prefWidth="170.0" />
             <HBox alignment="CENTER" layoutX="10.0" layoutY="473.0" prefHeight="54.0" prefWidth="141.0" spacing="10.0" style="-fx-background-radius: 50 0 0 50;" styleClass="mouse-moved">
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
@@ -149,14 +151,15 @@
       </VBox>
    </left>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="53.0" prefWidth="1100.0" styleClass="anchor-pane-background1">
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="49.0" prefWidth="1100.0" styleClass="anchor-pane-background1">
                <children>
-                  <Pane prefHeight="53.0" prefWidth="33.0" />
-                  <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="32.0" prefWidth="265.0" styleClass="White-background">
+                  <Pane prefHeight="47.0" prefWidth="128.0" />
+                  <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="32.0" prefWidth="375.0" styleClass="White-background">
                      <children>
-                        <TextField prefHeight="18.0" prefWidth="210.0" promptText="Search" style="-fx-background-color: rgba(0,0,0,0);" />
+                        <Pane prefHeight="32.0" prefWidth="10.0" />
+                        <TextField prefHeight="25.0" prefWidth="325.0" promptText="Search" style="-fx-background-color: rgba(0,0,0,0);" />
                         <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" styleClass="White-background">
                            <image>
                               <Image url="@../images/Button/loupe.png" />
@@ -164,49 +167,120 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <Pane prefHeight="53.0" prefWidth="500.0" />
-                  <Label text="Chào mừng khách hàng123" textFill="WHITE">
+                  <Pane prefHeight="47.0" prefWidth="286.0" />
+                  <Label prefHeight="25.0" prefWidth="215.0" text="Chào mừng khách hàng123" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Pane prefHeight="53.0" prefWidth="21.0" />
-                  <ImageView fitHeight="41.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                  <Pane prefHeight="47.0" prefWidth="9.0" />
+                  <ImageView fitHeight="38.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/Button/user.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
+            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="1100.0" spacing="60.0">
+               <children>
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="Self-help">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="button-self-help" />
+                        <String fx:value="mouse-selfhelp" />
+                        <String fx:value="shadow-effect1" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="Horror">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="button-horror" />
+                        <String fx:value="mouse-horror" />
+                        <String fx:value="shadow-effect1" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Adventure">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="button-adventure" />
+                        <String fx:value="mouse-adventure" />
+                        <String fx:value="shadow-effect1" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="Romance">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="button-romance" />
+                        <String fx:value="shadow-effect1" />
+                        <String fx:value="mouse-romance" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="Comic">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="button-comio" />
+                        <String fx:value="shadow-effect1" />
+                        <String fx:value="mouse-comic" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" prefWidth="80.0" stylesheets="@../css/StyleTungDZ.css" text="Novel">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="button-novel" />
+                        <String fx:value="shadow-effect1" />
+                        <String fx:value="mouse-novel" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" prefWidth="80.0" stylesheets="@../css/StyleTungDZ.css" text="Fairy Tale">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="button-fairy-tale" />
+                        <String fx:value="mouse-fairy-tale" />
+                        <String fx:value="shadow-effect1" />
+                     </styleClass>
+                  </Button>
+               </children>
+            </HBox>
             <StackPane>
                <children>
-                  <Pane>
+                  <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
+                  <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
+                  <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
+                  <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
+                  <Pane id="Adventure-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
                      <children>
-                        <VBox prefHeight="670.0" prefWidth="1099.0">
+                        <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                            <children>
-                              <HBox prefHeight="61.0" prefWidth="1099.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" text="Self-help" />
-                                    <Button mnemonicParsing="false" text="Horror" />
-                                    <Button mnemonicParsing="false" text="Adventure" />
-                                    <Button mnemonicParsing="false" text="Romance" />
-                                    <Button mnemonicParsing="false" text="Comic" />
-                                    <Button mnemonicParsing="false" text="Novel" />
-                                    <Button mnemonicParsing="false" text="Fairy Tale" />
-                                 </children>
-                              </HBox>
-                              <Label text="Best Sellers" />
-                              <ScrollPane hbarPolicy="ALWAYS" prefHeight="235.0" prefWidth="1099.0" vbarPolicy="NEVER">
+                              <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-adventure" />
+                              <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Logo/Ảnh%20chụp%20màn%20hình%202025-05-11%20223011.png" />
+                                 </image>
+                              </ImageView>
+                              <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-adventure" />
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
                                  <content>
-                                    <HBox fx:id="bookBestSellersLayout" prefHeight="203.0" />
-                                 </content>
-                              </ScrollPane>
-                              <Label text="Recommended for you" />
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="342.0" prefWidth="1099.0">
-                                 <content>
-                                    <VBox prefHeight="433.0" prefWidth="1084.0">
+                                    <VBox prefHeight="617.0" prefWidth="1084.0">
                                        <children>
-                                          <FlowPane fx:id="bookRecommendedForYouLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" vgap="10.0" />
+                                          <FlowPane fx:id="bookRecommendedForYouLayout1" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </FlowPane>
                                        </children>
                                     </VBox>
                                  </content>
@@ -215,10 +289,239 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
-                  <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
-                  <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
-                  <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
+                  <Pane id="Romance-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
+                     <children>
+                        <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-romance" />
+                              <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Logo/Ảnh%20chụp%20màn%20hình%202025-05-11%20223728.png" />
+                                 </image>
+                              </ImageView>
+                              <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-romance" />
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
+                                 <content>
+                                    <VBox prefHeight="617.0" prefWidth="1084.0">
+                                       <children>
+                                          <FlowPane fx:id="bookRecommendedForYouLayout13" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </FlowPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane id="Comic-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
+                     <children>
+                        <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-comio" />
+                              <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Logo/Ảnh%20chụp%20màn%20hình%202025-05-11%20224158.png" />
+                                 </image>
+                              </ImageView>
+                              <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-comio" />
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
+                                 <content>
+                                    <VBox prefHeight="617.0" prefWidth="1084.0">
+                                       <children>
+                                          <FlowPane fx:id="bookRecommendedForYouLayout131" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </FlowPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane id="Novel-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
+                     <children>
+                        <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-novel" />
+                              <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Logo/Ảnh%20chụp%20màn%20hình%202025-05-11%20224749.png" />
+                                 </image>
+                              </ImageView>
+                              <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-novel" />
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
+                                 <content>
+                                    <VBox prefHeight="617.0" prefWidth="1084.0">
+                                       <children>
+                                          <FlowPane fx:id="bookRecommendedForYouLayout1311" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </FlowPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane id="FairyTale-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
+                     <children>
+                        <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-fairy-tale" />
+                              <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Logo/Ảnh%20chụp%20màn%20hình%202025-05-11%20225401.png" />
+                                 </image>
+                              </ImageView>
+                              <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-fairy-tale" />
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
+                                 <content>
+                                    <VBox prefHeight="617.0" prefWidth="1084.0">
+                                       <children>
+                                          <FlowPane fx:id="bookRecommendedForYouLayout13111" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </FlowPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane id="Horror-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
+                     <children>
+                        <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-horror" />
+                              <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Logo/Ảnh%20chụp%20màn%20hình%202025-05-11%20221912.png" />
+                                 </image>
+                              </ImageView>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <styleClass>
+                                    <String fx:value="button-self-help" />
+                                    <String fx:value="button-horror" />
+                                 </styleClass>
+                              </Pane>
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
+                                 <content>
+                                    <VBox prefHeight="617.0" prefWidth="1084.0">
+                                       <children>
+                                          <FlowPane fx:id="bookRecommendedForYouLayout11" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </FlowPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane id="SelfHelp-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
+                     <children>
+                        <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-self-help" />
+                              <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Logo/Ảnh%20chụp%20màn%20hình%202025-05-11%20222301.png" />
+                                 </image>
+                              </ImageView>
+                              <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-self-help" />
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
+                                 <content>
+                                    <VBox prefHeight="617.0" prefWidth="1084.0">
+                                       <children>
+                                          <FlowPane fx:id="bookRecommendedForYouLayout12" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </FlowPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane id="Main-Book" prefHeight="557.0" prefWidth="1100.0">
+                     <children>
+                        <VBox prefHeight="670.0" prefWidth="1099.0" spacing="10.0">
+                           <children>
+                              <VBox prefHeight="344.0" prefWidth="1099.0" style="-fx-border-color: rgb(255,255,255);">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1097.0" styleClass="best-seller-section">
+                                       <children>
+                                          <TextFlow prefHeight="32.0" prefWidth="200.0" styleClass="label-bestseller" textAlignment="CENTER">
+                                             <children>
+                                                <Label layoutX="51.0" layoutY="11.0" text="B">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
+                                                   <image>
+                                                      <Image url="@../images/Button/fire.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label text="ST SELLER">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </TextFlow>
+                                       </children>
+                                    </HBox>
+                                    <ScrollPane hbarPolicy="ALWAYS" prefHeight="267.0" prefWidth="1097.0" styleClass="best-seller-section" vbarPolicy="NEVER">
+                                       <content>
+                                          <HBox fx:id="bookBestSellersLayout" prefHeight="203.0" styleClass="viewport" />
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </VBox>
+                              <Label prefHeight="30.0" prefWidth="249.0" text="Recommended for you">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="342.0" prefWidth="1099.0">
+                                 <content>
+                                    <VBox prefHeight="433.0" prefWidth="1084.0">
+                                       <children>
+                                          <FlowPane fx:id="bookRecommendedForYouLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin></FlowPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
                </children>
             </StackPane>
          </children>
