@@ -171,24 +171,21 @@
 .employee-button-remove {
     -fx-background-color: #ff5c5c;
     -fx-background-radius: 15px;
-    -fx-text-fill: black;
-    -fx-border-width: 2px;
-    -fx-border-color: black;
-    -fx-border-radius: 15px;
-    -fx-border-style: solid;
+    -fx-text-fill: white;
 }
 
 .employee-button-add {
     -fx-background-color: #5c95ff;
     -fx-background-radius: 15px;
-    -fx-text-fill: black;
-    -fx-border-width: 2px;
-    -fx-border-color: black;
-    -fx-border-radius: 15px;
-    -fx-border-style: solid;
+    -fx-text-fill: white;
 }
 
-.employee-button-add:hover, .employee-button-remove:hover{
-    -fx-background-color: white;
+.employee-button-add:hover{
+    -fx-background-color: #3e71cf;
+
+}
+
+.employee-button-remove:hover{
+    -fx-background-color: #9d1c1c;
 }
 
