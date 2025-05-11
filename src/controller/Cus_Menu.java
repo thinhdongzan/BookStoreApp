@@ -52,6 +52,8 @@ public class Cus_Menu implements Initializable {
                 VBox box = loader.load();
                 BookController bookController = loader.getController();
                 bookController.setData(book);
+                box.setPrefWidth(150);
+                box.setPrefHeight(200);
                 bookRecommendedForYouLayout.getChildren().add(box);
             }
             bookRecommendedForYouLayout.setPrefWidth(recommendedForYou.size() * 200);

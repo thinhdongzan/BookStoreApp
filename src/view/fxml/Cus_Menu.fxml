@@ -181,7 +181,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="61.0" prefWidth="1099.0" spacing="60.0">
+            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="1100.0" spacing="60.0">
                <children>
                   <Button mnemonicParsing="false" prefWidth="80.0" text="Self-help">
                      <font>
@@ -261,7 +261,7 @@
                   <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
                   <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
                   <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
-                  <Pane id="Adventure-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
+                  <Pane id="Adventure-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                            <children>
@@ -289,7 +289,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane id="Romance-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
+                  <Pane id="Romance-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                            <children>
@@ -317,7 +317,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane id="Comic-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
+                  <Pane id="Comic-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                            <children>
@@ -345,7 +345,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane id="Novel-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
+                  <Pane id="Novel-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                            <children>
@@ -373,7 +373,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane id="FairyTale-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
+                  <Pane id="FairyTale-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                            <children>
@@ -401,7 +401,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane id="Horror-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
+                  <Pane id="Horror-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                            <children>
@@ -434,7 +434,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane id="SelfHelp-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
+                  <Pane id="SelfHelp-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                            <children>
@@ -466,11 +466,11 @@
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" spacing="10.0">
                            <children>
-                              <VBox prefHeight="307.0" prefWidth="1099.0" style="-fx-border-color: rgb(255,255,255);">
+                              <VBox prefHeight="344.0" prefWidth="1099.0" style="-fx-border-color: rgb(255,255,255);">
                                  <children>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="1099.0" styleClass="best-seller-section">
+                                    <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1097.0" styleClass="best-seller-section">
                                        <children>
-                                          <TextFlow prefHeight="30.0" prefWidth="200.0" styleClass="label-bestseller" textAlignment="CENTER">
+                                          <TextFlow prefHeight="32.0" prefWidth="200.0" styleClass="label-bestseller" textAlignment="CENTER">
                                              <children>
                                                 <Label layoutX="51.0" layoutY="11.0" text="B">
                                                    <font>
@@ -491,7 +491,7 @@
                                           </TextFlow>
                                        </children>
                                     </HBox>
-                                    <ScrollPane hbarPolicy="ALWAYS" prefHeight="233.0" prefWidth="1099.0" styleClass="best-seller-section" vbarPolicy="NEVER">
+                                    <ScrollPane hbarPolicy="ALWAYS" prefHeight="267.0" prefWidth="1097.0" styleClass="best-seller-section" vbarPolicy="NEVER">
                                        <content>
                                           <HBox fx:id="bookBestSellersLayout" prefHeight="203.0" styleClass="viewport" />
                                        </content>
