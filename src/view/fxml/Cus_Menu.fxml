@@ -261,35 +261,7 @@
                   <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
                   <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
                   <Pane disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" />
-                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
-                     <children>
-                        <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
-                           <children>
-                              <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-self-help" />
-                              <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/Logo/Ảnh%20chụp%20màn%20hình%202025-05-11%20222301.png" />
-                                 </image>
-                              </ImageView>
-                              <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-self-help" />
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
-                                 <content>
-                                    <VBox prefHeight="617.0" prefWidth="1084.0">
-                                       <children>
-                                          <FlowPane fx:id="bookRecommendedForYouLayout12" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
-                                             <VBox.margin>
-                                                <Insets />
-                                             </VBox.margin>
-                                          </FlowPane>
-                                       </children>
-                                    </VBox>
-                                 </content>
-                              </ScrollPane>
-                           </children>
-                        </VBox>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
+                  <Pane id="Adventure-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                            <children>
@@ -317,7 +289,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
+                  <Pane id="Romance-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                            <children>
@@ -345,7 +317,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
+                  <Pane id="Comic-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                            <children>
@@ -373,7 +345,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
+                  <Pane id="Novel-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                            <children>
@@ -401,7 +373,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
+                  <Pane id="FairyTale-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                            <children>
@@ -429,7 +401,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
+                  <Pane id="Horror-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                            <children>
@@ -462,7 +434,35 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane prefHeight="557.0" prefWidth="1100.0">
+                  <Pane id="SelfHelp-Book" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0">
+                     <children>
+                        <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-self-help" />
+                              <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Logo/Ảnh%20chụp%20màn%20hình%202025-05-11%20222301.png" />
+                                 </image>
+                              </ImageView>
+                              <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-self-help" />
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
+                                 <content>
+                                    <VBox prefHeight="617.0" prefWidth="1084.0">
+                                       <children>
+                                          <FlowPane fx:id="bookRecommendedForYouLayout12" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </FlowPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane id="Main-Book" prefHeight="557.0" prefWidth="1100.0">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" spacing="10.0">
                            <children>
