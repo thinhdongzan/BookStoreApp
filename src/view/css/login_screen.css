@@ -193,7 +193,6 @@
 .table-change-button{
     -fx-background-color: white;
     -fx-text-fill: black;
-    -fx-font-weight: bold;
 }
 
 .table-change-button:pressed{
@@ -231,4 +230,39 @@
 .storage-table .table-cell {
     -fx-alignment: CENTER_LEFT;
     -fx-padding: 4 10 4 10;
+}
+
+/* dashboard */
+.card-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-padding: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);
+}
+
+.card-title, .card-value, .card-change {
+    -fx-text-fill: #1c1c1c; /* mặc định là đen */
+}
+
+.card-pane:hover {
+    -fx-background-color: linear-gradient(to bottom right, #3e70fa, #1a2ff2);
+}
+
+.card-pane:hover .card-title,
+.card-pane:hover .card-value,
+.card-pane:hover .card-change {
+    -fx-text-fill: white;
+}
+
+.date-button{
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);
+    -fx-text-fill: #1c1c1c;
+    -fx-font-weight: bold;
+}
+
+.date-button:hover{
+    -fx-background-color: linear-gradient(to bottom right, #3e70faaf, #1a30f2af);
+    -fx-text-fill: white;
 }

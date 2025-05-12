@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="218.0" prefWidth="160.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BookController">
+<VBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="160.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BookController">
    <children>
       <Pane prefHeight="325.0" prefWidth="140.0">
          <children>
-            <ImageView fx:id="bookImage" fitHeight="129.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="bookImage" fitHeight="135.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
       <VBox prefHeight="156.0" prefWidth="140.0">
@@ -22,11 +22,6 @@
                </font>
             </Label>
             <Label fx:id="authorName" text="Franz Kafka" />
-            <Label fx:id="bookPrice" text="14.99 $">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
          </children>
       </VBox>
    </children>

@@ -149,9 +149,9 @@
 	
 }
 
-.selected{
-		-fx-background-color: #5D6D7E;
-	
+.selected:hover {
+    /* Your hover color for selected nav */
+    -fx-background-color: #4A5A6A; /* Example: a bit lighter than selected */
 }
 
 .best-seller-section {

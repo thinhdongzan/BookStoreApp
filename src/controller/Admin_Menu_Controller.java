@@ -34,7 +34,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Book;
 import model.Employee;
+import model.Stationery;
+import model.Toy;
 
 
 
@@ -178,6 +181,99 @@ public class Admin_Menu_Controller implements Initializable  {
     @FXML
     private ImageView profile_image;
 
+    @FXML
+    private VBox storage_page;
+
+    @FXML
+    private TableColumn<Book, Integer> bookId_storage_col;
+
+    @FXML
+    private TableColumn<Book, String> bookIsbn_storage_col;
+
+    @FXML
+    private TableColumn<Book, String> bookName_storage_col;
+
+    @FXML
+    private TableColumn<Book, String> bookAuthor_storage_col;
+
+    @FXML
+    private TableColumn<Book, String> bookPublisher_storage_col;
+
+    @FXML
+    private TableColumn<Book, Double> bookPurchasePrice_storage_col;
+
+    @FXML
+    private TableColumn<Book, Double> bookSellingPrice_storage_col;
+
+    @FXML
+    private TableColumn<Book, Integer> bookQuantity_storage_col;
+    
+    @FXML
+    private TableView<Book> books_table_storage;
+
+    @FXML
+    private TableView<Stationery> stationaries_table_storage;
+
+    @FXML
+    private TableView<Toy> toys_table_storage;
+
+    @FXML
+    private Button books_table_button;
+
+    @FXML
+    private Button stationaries_table_button;
+
+    @FXML
+    private Button toys_table_button;
+
+    @FXML
+    private TableColumn<Stationery, String> stationeryBrand_storage_col;
+
+    @FXML
+    private TableColumn<Stationery, Integer> stationeryId_storage_col;
+
+    @FXML
+    private TableColumn<Stationery, String> stationeryName_storage_col;
+
+    @FXML
+    private TableColumn<Stationery, Double> stationeryPruchasePrice_storage_col;
+
+    @FXML
+    private TableColumn<Stationery, Integer> stationeryQuantity_storage_col;
+
+    @FXML
+    private TableColumn<Stationery, Double> stationerySeliingPrice_storage_col;
+
+    @FXML
+    private TableColumn<Stationery, String> stationeryType_storage_col;
+
+    @FXML
+    private TableColumn<Toy, String> toyBrand_storage_col;
+
+    @FXML
+    private TableColumn<Toy, Integer> toyId_storage_col;
+
+    @FXML
+    private TableColumn<Toy, String> toyName_storage_col;
+    @FXML
+    private TableColumn<Toy, String> toyType_storage_col;
+
+    @FXML
+    private TableColumn<Toy, Double> toyPurchasePrice_storage_col;
+
+    @FXML
+    private TableColumn<Toy, Integer> toyQuantity_storage_col;
+
+    @FXML
+    private TableColumn<Toy, Double> toySellingPrice_storage_col;
+
+    @FXML
+    private TableColumn<Toy, String> toySuitableAge_storage_col;
+
+
+
+
+
 
     private Connection connect;
     private PreparedStatement prepare;
@@ -193,7 +289,7 @@ public class Admin_Menu_Controller implements Initializable  {
             order_page.setVisible(false);
             // dashboard_page.setVisible(false);
             employee_page.setVisible(false);
-            // storage_page.setVisible(false);
+            storage_page.setVisible(false);
 
         }
          else if (event.getSource() == dashboard_button) {
@@ -201,28 +297,28 @@ public class Admin_Menu_Controller implements Initializable  {
             order_page.setVisible(false);
             // dashboard_page.setVisible(true);
             employee_page.setVisible(false);
-            // storage_page.setVisible(false);
+            storage_page.setVisible(false);
         }
         else if (event.getSource() == order_button) {
             menu_page.setVisible(false);
             order_page.setVisible(true);
             // dashboard_page.setVisible(false);
             employee_page.setVisible(false);
-            // storage_page.setVisible(false);
+            storage_page.setVisible(false);
         }
         else if (event.getSource() == employee_button) {
             menu_page.setVisible(false);
             order_page.setVisible(false);
             // dashboard_page.setVisible(false);
             employee_page.setVisible(true);
-            // storage_page.setVisible(false);
+            storage_page.setVisible(false);
         }
         else if (event.getSource() == storage_button) {
             menu_page.setVisible(false);
             order_page.setVisible(false);
             // dashboard_page.setVisible(false);
             employee_page.setVisible(false);
-            // storage_page.setVisible(true);
+            storage_page.setVisible(true);
         }
         
     }
@@ -333,7 +429,6 @@ public class Admin_Menu_Controller implements Initializable  {
             if (option.isPresent() && option.get() == ButtonType.OK) {
                 // Lấy ID từ label/field và đưa vào câu lệnh
                 stmt.setString(1, take_nameLabel.getText());
-
                 int affectedRows = stmt.executeUpdate();
 
                 if (affectedRows > 0) {
@@ -343,8 +438,7 @@ public class Admin_Menu_Controller implements Initializable  {
                     alert.setContentText("Employee successfully removed.");
                     alert.showAndWait();
 
-                     loadEmployeeData(); // gọi lại để cập nhật bảng
-
+                    loadEmployeeData(); // gọi lại để cập nhật bảng
                     // TODO: Load lại bảng dữ liệu ở đây nếu cần
                 } else {
                     alert = new Alert(Alert.AlertType.WARNING);
@@ -360,7 +454,163 @@ public class Admin_Menu_Controller implements Initializable  {
     }
 }
 
+    public ObservableList<Book> bookDataList() {
 
+    ObservableList<Book> listBooks = FXCollections.observableArrayList();
+    String sql = "SELECT * FROM book";
+
+    try (Connection conn = DBConnection.getConnection();
+         Statement stmt = conn.createStatement();
+         ResultSet result = stmt.executeQuery(sql)) {
+
+        Book book;
+
+        while (result.next()) {
+            book = new Book(
+                result.getInt("id"),
+                result.getString("name"),
+                result.getInt("quantity"),
+                result.getDouble("purchasePrice"),
+                result.getDouble("sellingPrice"),
+                result.getString("author"),
+                result.getString("publisher"),
+                result.getString("isbn")
+            );
+            listBooks.add(book);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return listBooks;
+}
+
+    private ObservableList<Book> listBooks;
+    public void showBook() {
+    listBooks = bookDataList();
+
+    bookId_storage_col.setCellValueFactory(new PropertyValueFactory<>("id"));
+    bookIsbn_storage_col.setCellValueFactory(new PropertyValueFactory<>("isbn"));
+    bookName_storage_col.setCellValueFactory(new PropertyValueFactory<>("name"));
+    bookAuthor_storage_col.setCellValueFactory(new PropertyValueFactory<>("author"));
+    bookPublisher_storage_col.setCellValueFactory(new PropertyValueFactory<>("publisher"));
+    bookPurchasePrice_storage_col.setCellValueFactory(new PropertyValueFactory<>("purchasePrice"));
+    bookSellingPrice_storage_col.setCellValueFactory(new PropertyValueFactory<>("sellingPrice"));
+    bookQuantity_storage_col.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+    books_table_storage.setItems(listBooks);
+    // totalBook_label.setText("" + listBooks.size());
+}
+
+
+    public void showStoragePage(ActionEvent event) {
+    if (event.getSource() == books_table_button) {
+        books_table_storage.setVisible(true);
+        toys_table_storage.setVisible(false);
+        stationaries_table_storage.setVisible(false);
+    } 
+    else if (event.getSource() == toys_table_button) {
+        books_table_storage.setVisible(false);
+        toys_table_storage.setVisible(true);
+        stationaries_table_storage.setVisible(false);
+    } 
+    else if (event.getSource() == stationaries_table_button) {
+        books_table_storage.setVisible(false);
+        toys_table_storage.setVisible(false);
+        stationaries_table_storage.setVisible(true);
+    }
+}
+
+
+private ObservableList<Toy> listToys;
+
+public ObservableList<Toy> toyDataList() {
+    ObservableList<Toy> listToys = FXCollections.observableArrayList();
+    String sql = "SELECT * FROM toy";
+
+    try (Connection conn = DBConnection.getConnection();
+         Statement stmt = conn.createStatement();
+         ResultSet result = stmt.executeQuery(sql)) {
+
+        Toy toy;
+        while (result.next()) {
+            toy = new Toy(
+                result.getInt("id"),
+                result.getString("name"),
+                result.getInt("quantity"),
+                result.getDouble("purchasePrice"),
+                result.getDouble("sellingPrice"),
+                result.getString("brand"),
+                result.getString("suitableAges"),
+                result.getString("toyType")
+            );
+            listToys.add(toy);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return listToys;
+}
+
+public void showToy() {
+    listToys = toyDataList();
+
+    toyId_storage_col.setCellValueFactory(new PropertyValueFactory<>("id"));
+    toyName_storage_col.setCellValueFactory(new PropertyValueFactory<>("name"));
+    toyQuantity_storage_col.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+    toyPurchasePrice_storage_col.setCellValueFactory(new PropertyValueFactory<>("purchasePrice"));
+    toySellingPrice_storage_col.setCellValueFactory(new PropertyValueFactory<>("sellingPrice"));
+    toyBrand_storage_col.setCellValueFactory(new PropertyValueFactory<>("brand"));
+    toySuitableAge_storage_col.setCellValueFactory(new PropertyValueFactory<>("suitableAges"));
+    // Nếu có toyType:
+    // toyType_storage_col.setCellValueFactory(new PropertyValueFactory<>("toyType"));
+
+    toys_table_storage.setItems(listToys);
+}
+
+private ObservableList<Stationery> listStationeries;
+
+public ObservableList<Stationery> stationeryDataList() {
+    ObservableList<Stationery> listStationeries = FXCollections.observableArrayList();
+    String sql = "SELECT * FROM stationery";
+
+    try (Connection conn = DBConnection.getConnection();
+         Statement stmt = conn.createStatement();
+         ResultSet result = stmt.executeQuery(sql)) {
+
+        Stationery item;
+        while (result.next()) {
+            item = new Stationery(
+                result.getInt("id"),
+                result.getString("name"),
+                result.getInt("quantity"),
+                result.getDouble("purchasePrice"),
+                result.getDouble("sellingPrice"),
+                result.getString("brand"),
+                result.getString("stationeryType")
+            );
+            listStationeries.add(item);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return listStationeries;
+}
+
+public void showStationery() {
+    listStationeries = stationeryDataList();
+
+    stationeryId_storage_col.setCellValueFactory(new PropertyValueFactory<>("id"));
+    stationeryName_storage_col.setCellValueFactory(new PropertyValueFactory<>("name"));
+    stationeryQuantity_storage_col.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+    stationeryPruchasePrice_storage_col.setCellValueFactory(new PropertyValueFactory<>("purchasePrice"));
+    stationerySeliingPrice_storage_col.setCellValueFactory(new PropertyValueFactory<>("sellingPrice"));
+    stationeryBrand_storage_col.setCellValueFactory(new PropertyValueFactory<>("brand"));
+    stationeryType_storage_col.setCellValueFactory(new PropertyValueFactory<>("stationeryType"));
+
+    stationaries_table_storage.setItems(listStationeries);
+}
+
+
+    
 
     @FXML
     public void logout(ActionEvent event) {
@@ -392,6 +642,10 @@ public class Admin_Menu_Controller implements Initializable  {
         // TODO Auto-generated method stub
 
         showEmployee();
+
+        showBook();
+        showToy();
+        showStationery();
     }
 
 }
