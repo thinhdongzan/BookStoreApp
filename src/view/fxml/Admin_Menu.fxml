@@ -807,45 +807,45 @@
                   </HBox>
                   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0">
                      <children>
-                        <TableView fx:id="books_table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" styleClass="storage-table" visible="false">
+                        <TableView fx:id="books_table_storage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" visible="false">
                            <columns>
-                              <TableColumn prefWidth="75.0" text="Id" />
-                              <TableColumn prefWidth="75.0" text="Isbn" />
-                              <TableColumn prefWidth="75.0" text="Name" />
-                              <TableColumn prefWidth="75.0" text="Author" />
-                              <TableColumn prefWidth="75.0" text="Publisher" />
-                              <TableColumn prefWidth="75.0" text="Purchase Price" />
-                              <TableColumn prefWidth="75.0" text="Selling Price" />
-                              <TableColumn prefWidth="75.0" text="Quantity" />
+                              <TableColumn fx:id="bookId_storage_col" prefWidth="75.0" text="Id" />
+                              <TableColumn fx:id="bookIsbn_storage_col" prefWidth="75.0" text="Isbn" />
+                              <TableColumn fx:id="bookName_storage_col" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="bookAuthor_storage_col" prefWidth="75.0" text="Author" />
+                              <TableColumn fx:id="bookPublisher_storage_col" prefWidth="75.0" text="Publisher" />
+                              <TableColumn fx:id="bookPurchasePrice_storage_col" prefWidth="75.0" text="Purchase Price" />
+                              <TableColumn fx:id="bookSellingPrice_storage_col" prefWidth="75.0" text="Selling Price" />
+                              <TableColumn fx:id="bookQuantity_storage_col" prefWidth="75.0" text="Quantity" />
                            </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <TableView fx:id="toys_table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" styleClass="storage-table">
+                        <TableView fx:id="toys_table_storage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0">
                            <columns>
-                              <TableColumn maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Id" />
-                              <TableColumn prefWidth="75.0" text="Name" />
-                              <TableColumn prefWidth="75.0" text="Brand" />
-                              <TableColumn prefWidth="75.0" text="Type" />
-                              <TableColumn prefWidth="75.0" text="Suitable Age" />
-                              <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="75.0" text="Purchase Price" />
-                              <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="75.0" text="Selling Price" />
-                              <TableColumn maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Quantity" />
+                              <TableColumn fx:id="toyId_storage_col" maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Id" />
+                              <TableColumn fx:id="toyName_storage_col" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="toyBrand_storage_col" prefWidth="75.0" text="Brand" />
+                              <TableColumn fx:id="toyType_storage_col" prefWidth="75.0" text="Type" />
+                              <TableColumn fx:id="toySuitableAge_storage_col" prefWidth="75.0" text="Suitable Age" />
+                              <TableColumn fx:id="toyPurchasePrice_storage_col" maxWidth="120.0" minWidth="120.0" prefWidth="75.0" text="Purchase Price" />
+                              <TableColumn fx:id="toySellingPrice_storage_col" maxWidth="120.0" minWidth="120.0" prefWidth="75.0" text="Selling Price" />
+                              <TableColumn fx:id="toyQuantity_storage_col" maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Quantity" />
                            </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <TableView fx:id="stationaries_table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" styleClass="storage-table" visible="false">
+                        <TableView fx:id="stationaries_table_storage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" visible="false">
                            <columns>
-                              <TableColumn maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Id" />
-                              <TableColumn maxWidth="160.0" minWidth="160.0" prefWidth="75.0" text="Name" />
-                              <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="75.0" text="Brand" />
-                              <TableColumn prefWidth="75.0" text="Type" />
-                              <TableColumn maxWidth="120.0" prefWidth="75.0" text="Purchase Price" />
-                              <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="75.0" text="Selling Price" />
-                              <TableColumn maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Quantity" />
+                              <TableColumn fx:id="stationeryId_storage_col" maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Id" />
+                              <TableColumn fx:id="stationeryName_storage_col" maxWidth="160.0" minWidth="160.0" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="stationeryBrand_storage_col" maxWidth="120.0" minWidth="120.0" prefWidth="75.0" text="Brand" />
+                              <TableColumn fx:id="stationeryType_storage_col" prefWidth="75.0" text="Type" />
+                              <TableColumn fx:id="stationeryPruchasePrice_storage_col" maxWidth="120.0" prefWidth="75.0" text="Purchase Price" />
+                              <TableColumn fx:id="stationerySeliingPrice_storage_col" maxWidth="120.0" minWidth="120.0" prefWidth="75.0" text="Selling Price" />
+                              <TableColumn fx:id="stationeryQuantity_storage_col" maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Quantity" />
                            </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -858,9 +858,9 @@
                   </StackPane>
                   <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="770.0">
                      <children>
-                        <Button fx:id="books_table_button" mnemonicParsing="false" styleClass="table-change-button" text="Books" />
-                        <Button fx:id="toys_table_button" mnemonicParsing="false" styleClass="table-change-button" text="Toys" />
-                        <Button fx:id="stationaries_table_button" mnemonicParsing="false" styleClass="table-change-button" text="Stationaries" />
+                        <Button fx:id="books_table_button" mnemonicParsing="false" onAction="#showStoragePage" text="Books" />
+                        <Button fx:id="toys_table_button" mnemonicParsing="false" onAction="#showStoragePage" text="Toys" />
+                        <Button fx:id="stationaries_table_button" mnemonicParsing="false" onAction="#showStoragePage" text="Stationaries" />
                      </children>
                      <VBox.margin>
                         <Insets />
