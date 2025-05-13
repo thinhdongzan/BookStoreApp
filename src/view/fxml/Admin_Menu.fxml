@@ -777,7 +777,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="storage_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" visible="false">
+            <VBox fx:id="storage_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0">
                <children>
                   <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                      <children>
@@ -842,8 +842,8 @@
                         </TableView>
                         <TableView fx:id="toys_table_storage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" styleClass="storage-table">
                            <columns>
-                              <TableColumn fx:id="toyId_storage_col" maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Id" />
-                              <TableColumn fx:id="toyName_storage_col" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="toyId_storage_col" maxWidth="80.0" minWidth="58.6666259765625" prefWidth="58.6666259765625" text="Id" />
+                              <TableColumn fx:id="toyName_storage_col" prefWidth="112.66667175292969" text="Name" />
                               <TableColumn fx:id="toyBrand_storage_col" prefWidth="75.0" text="Brand" />
                               <TableColumn fx:id="toyType_storage_col" prefWidth="75.0" text="Type" />
                               <TableColumn fx:id="toySuitableAge_storage_col" prefWidth="75.0" text="Suitable Age" />
@@ -904,7 +904,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="dashboard_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="dashboard_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
                <children>
                   <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                      <children>
