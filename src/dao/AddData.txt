@@ -8,8 +8,8 @@ CREATE TABLE Book (
     author VARCHAR(100),
     isbn VARCHAR(20),
     genre VARCHAR(100),
-	section VARCHAR(50),
-	ImageSrc VARCHAR(100) DEFAULT NULL
+    section VARCHAR(50),
+    ImageSrc VARCHAR(100) DEFAULT NULL
 );
 
 INSERT INTO Book (id, name, quantity, purchasePrice, sellingPrice, publisher, author, isbn, genre, section, ImageSrc)
@@ -77,7 +77,7 @@ CREATE TABLE Stationery (
     sellingPrice FLOAT,
     brand VARCHAR(100),
     stationeryType VARCHAR(100),
-	ImageSrc VARCHAR(100) DEFAULT NULL
+    ImageSrc VARCHAR(100) DEFAULT NULL
 );
 
 INSERT INTO Stationery (id, name, quantity, purchasePrice, sellingPrice, brand, stationeryType, ImageSrc)
@@ -126,7 +126,7 @@ CREATE TABLE Toy (
     brand VARCHAR(100),
     suitableAges VARCHAR(50),
     toyType VARCHAR(50),
-	ImageSrc VARCHAR(100) DEFAULT NULL
+    ImageSrc VARCHAR(100) DEFAULT NULL
 );
 
 INSERT INTO Toy (id, name, quantity, purchasePrice, sellingPrice, brand, suitableAges, toyType, ImageSrc)
