@@ -1,6 +1,6 @@
 .menu_pane {
     -fx-background-color: #ffffff;
-    -fx-border-color: #e7e0e0;
+    -fx-border-color: rgba(128, 128, 128, 0.5);
     -fx-border-width: 0px 1px 0px 0px;
 }
 
@@ -10,11 +10,12 @@
 }
 
 .menu {
-    -fx-background-color: white;
+    -fx-background-color: transparent;
 }
 
-.menu:hover {
-    -fx-background-color: #D0CFCF;
+.menu:hover{
+    -fx-border-color: #3e70fa;
+    -fx-border-width: 0 0 2 0;
 }
 
 .icon-circle {
@@ -31,7 +32,7 @@
 .search_bar{
     -fx-background-color: transparent ;
     -fx-border-width: 2px 2px 2px 2px;
-    -fx-border-color: #e7e0e0;
+    -fx-border-color: rgba(128, 128, 128, 0.5);
     -fx-border-radius: 20px;
 }
 
@@ -60,23 +61,11 @@
 .menu-button{
     -fx-background-color: transparent;
     -fx-text-fill: black;
-    -fx-font-size: 14px;
-    -fx-font-style: italic;
-}
-
-.admin-text{
-    -fx-background-color: transparent;
-    -fx-text-fill: black;
-    -fx-font-size: 14px;
-    /* -fx-font-style: bold; */
-}
-
-.menu-admin {
-    -fx-background-color: rgb(204, 204, 204);
+    -fx-font-size: 12px;
 }
 
 .order-pane{
-    -fx-background-color: #ededed;
+    -fx-background-color: white;
 }
 
 .logo-background-order{
@@ -102,9 +91,10 @@
 }
 
 .boxes{
-    -fx-border-color: #e7e0e0;
-    -fx-border-width: 1;
-    -fx-border-radius: 10px;
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-padding: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);
 }
 
 .order-table{
