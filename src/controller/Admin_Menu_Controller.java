@@ -112,6 +112,11 @@ public class Admin_Menu_Controller implements Initializable  {
     @FXML
     private VBox order_page;
 
+    @FXML
+    private VBox dashboard_page;
+
+    
+    
     // @FXML
     // private TableView<?> order_table;
 
@@ -287,7 +292,7 @@ public class Admin_Menu_Controller implements Initializable  {
 
             menu_page.setVisible(true);
             order_page.setVisible(false);
-            // dashboard_page.setVisible(false);
+            dashboard_page.setVisible(false);
             employee_page.setVisible(false);
             storage_page.setVisible(false);
 
@@ -295,32 +300,38 @@ public class Admin_Menu_Controller implements Initializable  {
          else if (event.getSource() == dashboard_button) {
             menu_page.setVisible(false);
             order_page.setVisible(false);
-            // dashboard_page.setVisible(true);
+            dashboard_page.setVisible(true);
             employee_page.setVisible(false);
             storage_page.setVisible(false);
         }
         else if (event.getSource() == order_button) {
             menu_page.setVisible(false);
             order_page.setVisible(true);
-            // dashboard_page.setVisible(false);
+            dashboard_page.setVisible(false);
             employee_page.setVisible(false);
             storage_page.setVisible(false);
         }
         else if (event.getSource() == employee_button) {
             menu_page.setVisible(false);
             order_page.setVisible(false);
-            // dashboard_page.setVisible(false);
+            dashboard_page.setVisible(false);
             employee_page.setVisible(true);
             storage_page.setVisible(false);
         }
         else if (event.getSource() == storage_button) {
             menu_page.setVisible(false);
             order_page.setVisible(false);
-            // dashboard_page.setVisible(false);
+            dashboard_page.setVisible(false);
             employee_page.setVisible(false);
             storage_page.setVisible(true);
         }
-        
+        else if (event.getSource() == dashboard_button) {
+            menu_page.setVisible(false);
+            order_page.setVisible(false);
+            dashboard_page.setVisible(true);
+            employee_page.setVisible(false);
+            storage_page.setVisible(false);
+        }
     }
     ///SHOW EMPLOYEE TABLE
     public ObservableList<Employee> dataList() {

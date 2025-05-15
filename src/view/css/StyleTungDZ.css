@@ -136,7 +136,7 @@
 	    -fx-text-transform: uppercase; /* Chữ in hoa */
 	}
 	
-.selected {
+.selected{
   -border-top-left-radius: 12px;
   -border-bottom-left-radius: 12px;
   -border-top-right-radius: 0;
@@ -144,9 +144,8 @@
   -fx-background-color: #5D6D7E;
 }
 
-.mouse-moved: hover{
-	-fx-background-color: #5D6D7E		;
-	
+.mouse-moved:hover{
+	-fx-background-color: #5D6D7E;
 }
 
 .selected:hover {
@@ -212,24 +211,24 @@
 	
 }
 
-.mouse-selfhelp: hover{
-		-fx-background-color: #958600;
+.mouse-selfhelp:hover{
+	-fx-background-color: #958600;
 }
-.mouse-horror: hover{
-		-fx-background-color: #741616;
+.mouse-horror:hover{
+	-fx-background-color: #741616;
 }
-.mouse-adventure: hover{
-		-fx-background-color: #06587d;
+.mouse-adventure:hover{
+	-fx-background-color: #06587d;
 }
-.mouse-romance: hover{
-		-fx-background-color: #9e1041;
+.mouse-romance:hover{
+	-fx-background-color: #9e1041;
 }
-.mouse-comic: hover{
-		-fx-background-color: #9a7400;
+.mouse-comic:hover{
+	-fx-background-color: #9a7400;
 }
-.mouse-novel: hover{
-		-fx-background-color: #61276b;
+.mouse-novel:hover{
+	-fx-background-color: #61276b;
 }
-.mouse-fairy-tale: hover{
-		-fx-background-color: #517527;
+.mouse-fairy-tale:hover{
+	-fx-background-color: #517527;
 }

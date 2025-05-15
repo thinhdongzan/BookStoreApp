@@ -1,9 +1,13 @@
 package controller;
 
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import model.Book;
 
@@ -26,6 +30,9 @@ public class BookController {
 
         bookName.setText(book.getName());
         authorName.setText(book.getAuthor());
+    }
 
+    public void showInfo(MouseEvent event) throws IOException {
+        System.out.println("Book info: " + bookName.getText() + " by " + authorName.getText());
     }
 }

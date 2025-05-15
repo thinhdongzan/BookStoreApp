@@ -6,17 +6,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import dao.BookDAO;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import model.Book;
+import utils.PopUpNoti;
 
 public class Cus_Menu implements Initializable {
 
@@ -28,6 +36,9 @@ public class Cus_Menu implements Initializable {
 
     private List<Book> bestSellers;
     private List<Book> recommendedForYou;
+
+    @FXML
+    private HBox bookGenres;
 
     @FXML
     private Pane cartPane;
@@ -67,6 +78,27 @@ public class Cus_Menu implements Initializable {
 
     @FXML
     private Pane bookPane;
+
+    @FXML
+    private FlowPane selfHelpLayout;
+
+    @FXML
+    private FlowPane horrorLayout;
+
+    @FXML
+    private FlowPane adventureLayout;
+
+    @FXML
+    private FlowPane novelLayout;
+
+    @FXML
+    private FlowPane romanceLayout;
+
+    @FXML
+    private FlowPane fairyTaleLayout;
+
+    @FXML
+    private FlowPane comicLayout;
 
     public void choosePane(Pane pane) {
         bookPane.setVisible(false);
@@ -113,6 +145,7 @@ public class Cus_Menu implements Initializable {
                 BookController bookController = loader.getController();
                 bookController.setData(book);
                 bookBestSellersLayout.getChildren().add(box);
+
             }
             bookBestSellersLayout.setSpacing(10); // Khoảng cách giữa các VBox
             bookBestSellersLayout.setPrefWidth(bestSellers.size() * 200); // 200 là kích thước mỗi VBox + khoảng cách
@@ -141,63 +174,179 @@ public class Cus_Menu implements Initializable {
     public void bookChoose() throws IOException {
         setSelectedNav(bookNav);
         choosePane(bookPane);
+        bookGenres.setVisible(true);
     }
 
     public void stationeryChoose() throws IOException {
         setSelectedNav(stationeryNav);
         choosePane(stationeryPane);
+        bookGenres.setVisible(false);
     }
 
     public void toyChoose() throws IOException {
         setSelectedNav(toyNav);
         choosePane(toyPane);
+        bookGenres.setVisible(false);
     }
 
     public void cartChoose() throws IOException {
         setSelectedNav(cartNav);
         choosePane(cartPane);
+        bookGenres.setVisible(false);
     }
 
     public void accountChoose() throws IOException {
         setSelectedNav(accountNav);
         choosePane(accountPane);
+        bookGenres.setVisible(false);
     }
 
     public void helpChoose() throws IOException {
         setSelectedNav(helpNav);
         choosePane(helpPane);
+        bookGenres.setVisible(false);
     }
 
     public void selfHelpChoose() throws IOException {
         choosePane(selfHelpPane);
     }
 
+    public void logoutChoose(Event event) throws IOException {
+        int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Confirm Logout",
+                JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
+            try {
+                // Get the current stage
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                // Load the login FXML
+                Parent root = FXMLLoader.load(getClass().getResource("/view/fxml/login_1.1.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+                stage.centerOnScreen();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void sortSelfHelpBook() throws IOException {
         choosePane(selfHelpPane);
+        List<Book> selfHelpBooks = BookDAO.getSelfHelp();
+        selfHelpLayout.getChildren().clear(); // Clear existing books before adding new ones
+        try {
+            for (Book book : selfHelpBooks) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                VBox box = loader.load();
+                BookController bookController = loader.getController();
+                bookController.setData(book);
+                selfHelpLayout.getChildren().add(box);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sortComicBook() throws IOException {
         choosePane(comicPane);
+        List<Book> comicBooks = BookDAO.getComic();
+        comicLayout.getChildren().clear(); // Clear existing books before adding new ones
+        try {
+            for (Book book : comicBooks) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                VBox box = loader.load();
+                BookController bookController = loader.getController();
+                bookController.setData(book);
+                comicLayout.getChildren().add(box);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sortFairyTaleBook() throws IOException {
         choosePane(fairyTailePane);
+        List<Book> fairyTaleBooks = BookDAO.getFairyTale();
+        fairyTaleLayout.getChildren().clear(); // Clear existing books before adding new ones
+        try {
+            for (Book book : fairyTaleBooks) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                VBox box = loader.load();
+                BookController bookController = loader.getController();
+                bookController.setData(book);
+                fairyTaleLayout.getChildren().add(box);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sortHorrorBook() throws IOException {
         choosePane(horrorPane);
+        List<Book> horrorBooks = BookDAO.getHorror();
+        horrorLayout.getChildren().clear(); // Clear existing books before adding new ones
+        try {
+            for (Book book : horrorBooks) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                VBox box = loader.load();
+                BookController bookController = loader.getController();
+                bookController.setData(book);
+                horrorLayout.getChildren().add(box);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sortNovelBook() throws IOException {
         choosePane(novelPane);
+        List<Book> novelBooks = BookDAO.getNovel();
+        novelLayout.getChildren().clear(); // Clear existing books before adding new ones
+        try {
+            for (Book book : novelBooks) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                VBox box = loader.load();
+                BookController bookController = loader.getController();
+                bookController.setData(book);
+                novelLayout.getChildren().add(box);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sortRomanceBook() throws IOException {
         choosePane(romancePane);
+        List<Book> romanceBooks = BookDAO.getRomance();
+        romanceLayout.getChildren().clear(); // Clear existing books before adding new ones
+        try {
+            for (Book book : romanceBooks) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                VBox box = loader.load();
+                BookController bookController = loader.getController();
+                bookController.setData(book);
+                romanceLayout.getChildren().add(box);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sortAdventureBook() throws IOException {
         choosePane(adventurePane);
+        List<Book> adventureBooks = BookDAO.getAdventure();
+        adventureLayout.getChildren().clear(); // Clear existing books before adding new ones
+        try {
+            for (Book book : adventureBooks) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                VBox box = loader.load();
+                BookController bookController = loader.getController();
+                bookController.setData(book);
+                adventureLayout.getChildren().add(box);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // Search
@@ -221,6 +370,8 @@ public class Cus_Menu implements Initializable {
     private HBox accountNav;
     @FXML
     private HBox helpNav;
+    @FXML
+    private HBox logoutNav;
 
     private void setSelectedNav(HBox selected) {
         // Remove "selected" from all navs

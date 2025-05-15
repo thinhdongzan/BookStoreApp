@@ -127,7 +127,7 @@
                </children>
             </HBox>
             <Pane layoutX="10.0" layoutY="103.0" prefHeight="121.0" prefWidth="170.0" />
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="473.0" prefHeight="54.0" prefWidth="141.0" spacing="10.0" style="-fx-background-radius: 50 0 0 50;" styleClass="mouse-moved">
+            <HBox fx:id="logoutNav" alignment="CENTER" layoutX="10.0" layoutY="473.0" onMouseClicked="#logoutChoose" prefHeight="54.0" prefWidth="141.0" spacing="10.0" style="-fx-background-radius: 50 0 0 50;" styleClass="mouse-moved">
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -181,7 +181,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="1100.0" spacing="60.0">
+            <HBox fx:id="bookGenres" alignment="CENTER" prefHeight="30.0" prefWidth="1100.0" spacing="60.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#sortSelfHelpBook" prefWidth="80.0" text="Self-help">
                      <font>
@@ -257,22 +257,26 @@
             </HBox>
             <StackPane>
                <children>
-                  <Pane fx:id="stationeryPane" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="stationeryPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
                      <children>
-                        <Label text="Stationery" />
-                     </children></Pane>
-                  <Pane fx:id="toyPane" disable="true" prefHeight="200.0" prefWidth="200.0" visible="false">
+                        <Label alignment="CENTER" text="Stationery" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="toyPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
                      <children>
-                        <Label text="Toy" />
-                     </children></Pane>
-                  <Pane fx:id="cartPane" disable="true" prefHeight="200.0" prefWidth="200.0" visible="false">
+                        <Label alignment="CENTER" text="Toy" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="cartPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
                      <children>
-                        <Label text="Cart" />
-                     </children></Pane>
-                  <Pane fx:id="accountPane" disable="true" prefHeight="200.0" prefWidth="200.0" visible="false">
+                        <Label alignment="CENTER" text="Cart" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="accountPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
                      <children>
-                        <Label text="Account" />
-                     </children></Pane>
+                        <Label alignment="CENTER" text="Account" />
+                     </children>
+                  </Pane>
                   <Pane id="Adventure-Book" fx:id="adventurePane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
@@ -288,7 +292,7 @@
                                  <content>
                                     <VBox prefHeight="617.0" prefWidth="1084.0">
                                        <children>
-                                          <FlowPane fx:id="bookRecommendedForYouLayout1" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                          <FlowPane fx:id="adventureLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -316,7 +320,7 @@
                                  <content>
                                     <VBox prefHeight="617.0" prefWidth="1084.0">
                                        <children>
-                                          <FlowPane fx:id="bookRecommendedForYouLayout13" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                          <FlowPane fx:id="romanceLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -344,7 +348,7 @@
                                  <content>
                                     <VBox prefHeight="617.0" prefWidth="1084.0">
                                        <children>
-                                          <FlowPane fx:id="bookRecommendedForYouLayout131" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                          <FlowPane fx:id="comicLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -370,9 +374,9 @@
                               <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-novel" />
                               <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
                                  <content>
-                                    <VBox prefHeight="617.0" prefWidth="1084.0">
+                                    <VBox fillWidth="false" prefHeight="921.0" prefWidth="1084.0">
                                        <children>
-                                          <FlowPane fx:id="bookRecommendedForYouLayout1311" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                          <FlowPane fx:id="novelLayout" hgap="10.0" prefHeight="988.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -400,7 +404,7 @@
                                  <content>
                                     <VBox prefHeight="617.0" prefWidth="1084.0">
                                        <children>
-                                          <FlowPane fx:id="bookRecommendedForYouLayout13111" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                          <FlowPane fx:id="fairyTaleLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -433,7 +437,7 @@
                                  <content>
                                     <VBox prefHeight="617.0" prefWidth="1084.0">
                                        <children>
-                                          <FlowPane fx:id="bookRecommendedForYouLayout11" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                          <FlowPane fx:id="horrorLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -448,7 +452,7 @@
                   </Pane>
                   <Pane id="SelfHelp-Book" fx:id="selfHelpPane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
                      <children>
-                        <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
+                        <VBox prefHeight="670.0" prefWidth="1102.0" styleClass="White-background1">
                            <children>
                               <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-self-help" />
                               <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
@@ -457,11 +461,11 @@
                                  </image>
                               </ImageView>
                               <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-self-help" />
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1102.0">
                                  <content>
-                                    <VBox prefHeight="617.0" prefWidth="1084.0">
+                                    <VBox fillWidth="false" prefHeight="879.0" prefWidth="1084.0">
                                        <children>
-                                          <FlowPane fx:id="bookRecommendedForYouLayout12" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                          <FlowPane fx:id="selfHelpLayout" hgap="10.0" prefHeight="869.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -474,9 +478,9 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane id="Main-Book" fx:id="bookPane" prefHeight="557.0" prefWidth="1100.0" visible="false">
+                  <Pane id="Main-Book" fx:id="bookPane" disable="true" prefHeight="628.0" prefWidth="1100.0" visible="false">
                      <children>
-                        <VBox prefHeight="670.0" prefWidth="1099.0" spacing="10.0">
+                        <VBox prefHeight="628.0" prefWidth="1099.0" spacing="10.0">
                            <children>
                               <VBox prefHeight="344.0" prefWidth="1099.0" style="-fx-border-color: rgb(255,255,255);">
                                  <children>
@@ -520,12 +524,13 @@
                               </Label>
                               <ScrollPane hbarPolicy="NEVER" prefHeight="342.0" prefWidth="1099.0">
                                  <content>
-                                    <VBox prefHeight="433.0" prefWidth="1084.0">
+                                    <VBox prefHeight="516.0" prefWidth="1084.0">
                                        <children>
                                           <FlowPane fx:id="bookRecommendedForYouLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
                                              <VBox.margin>
                                                 <Insets />
-                                             </VBox.margin></FlowPane>
+                                             </VBox.margin>
+                                          </FlowPane>
                                        </children>
                                     </VBox>
                                  </content>
@@ -534,10 +539,11 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane fx:id="helpPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+                  <Pane fx:id="helpPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
                      <children>
-                        <Label text="Help" />
-                     </children></Pane>
+                        <Label alignment="CENTER" text="Help" />
+                     </children>
+                  </Pane>
                </children>
             </StackPane>
          </children>
