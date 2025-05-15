@@ -1,3 +1,4 @@
+-- BOOK --
 CREATE TABLE Book (
     id INT PRIMARY KEY,
     name VARCHAR(100),
@@ -11,6 +12,10 @@ CREATE TABLE Book (
     section VARCHAR(50),
     ImageSrc VARCHAR(100) DEFAULT NULL
 );
+
+truncate table book;
+select * from book;
+drop table book;
 
 INSERT INTO Book (id, name, quantity, purchasePrice, sellingPrice, publisher, author, isbn, genre, section, ImageSrc)
 VALUES
@@ -34,7 +39,7 @@ VALUES
 (18, 'Chuyện con mèo dạy hải âu bay', 15, 25000.00, 40000.00, 'NXB Trẻ', 'Luis Sepúlveda', '9786042114030', 'Fairy Tale', 'Others', '/view/images/Books/chuyenconmeodayhaiaubay.jpg'),
 (19, 'Nhà giả kim', 20, 35000.00, 50000.00, 'NXB Lao Động', 'Paulo Coelho', '9786049634562', 'Novel', 'Best Seller', '/view/images/Books/nhagiakim.jpg'),
 (20, 'Tuổi trẻ đáng giá bao nhiêu?', 22, 42000.00, 69000.00, 'NXB Trẻ', 'Rosie Nguyễn', '9786046836310', 'Self-help', 'Recommended For You', '/view/images/Books/tuoitredanggiabaonhieu.jpg'),
-(21, 'Dế mèn phiêu lưu ký', 30, 20000.00, 35000.00, 'NXB Kim Đồng', 'Tô Hoài', '9786042024193', 'Fairy Tale', 'Others', '/view/images/Books/demenphieuluky.jpg'),
+(21, 'Dế mèn phiêu lưu ký', 30, 20000.00, 35000.00, 'NXB Kim Đồng', 'Tô Hoài', '9786042024193', 'Fairy Tale', 'Others', '/view/images/Books/demenphieuluuky.jpg'),
 (22, 'Không gia đình', 28, 30000.00, 50000.00, 'NXB Văn học', 'Hector Malot', '9786049630007', 'Novel', 'Others', '/view/images/Books/khonggiadinh.jpg'),
 (23, 'Đắc nhân tâm', 25, 35000.00, 50000.00, 'NXB Tổng hợp TP.HCM', 'Dale Carnegie', '9786045885197', 'Self-help', 'Recommended For You', '/view/images/Books/dacnhantam.jpg'),
 (24, 'Mùa hè năm ấy', 30, 38000.00, 65000.00, 'NXB Trẻ', 'Markus Zusak', '9781743511001', 'Novel', 'Recommended For You', '/view/images/Books/muahenamay.jpg'),
@@ -46,7 +51,7 @@ VALUES
 (30, 'Giết con chim nhại', 20, 55000.00, 95000.00, 'HarperCollins', 'Harper Lee', '9780061120084', 'Novel', 'Recommended For You', '/view/images/Books/gietconchimnhai.jpg'),
 (31, 'Vũ trụ trong vỏ hạt dẻ', 30, 120000.00, 180000.00, 'NXB Hà Nội', 'Stephen Hawking', '9786046831130', 'Horror', 'Recommended For You', '/view/images/Books/vutrutrongvohatde.jpg'),
 (32, 'Án mạng trên chuyến tàu tốc hành phương Đông', 25, 85000.00, 125000.00, 'NXB Hà Nội', 'Agatha Christie', '9786046892246', 'Horror', 'Best Seller', '/view/images/Books/anmangtrenchuyentautochanhphuongdong.jpg'),
-(33, 'Vượt lên chính mình', 25, 30000.00, 60000.00, 'NXB Thế Giới', 'Nguyễn Hữu Long', '9786049238476', 'Self-help', 'Recommended For You', '/view/images/Books/vutlenchinhminh.jpg'),
+(33, 'Vượt lên chính mình', 25, 30000.00, 60000.00, 'NXB Thế Giới', 'Nguyễn Hữu Long', '9786049238476', 'Self-help', 'Recommended For You', '/view/images/Books/vuotlenchinhminh.jpg'),
 (34, 'Hành trình của linh hồn', 20, 120000.00, 170000.00, 'NXB Lao động', 'Michael Newton', '9786045962283', 'Self-help', 'Recommended For You', '/view/images/Books/hanhtrinhcualinhhon.jpg'),
 (35, 'Những tấm lòng cao cả', 22, 38000.00, 60000.00, 'NXB Phụ Nữ', 'Emile Zola', '9782213449249', 'Novel', 'Others', '/view/images/Books/nhungtamlongcaoca.jpg'),
 (36, 'Bóng hình của gió', 30, 100000.00, 150000.00, 'NXB Hội Nhà Văn', 'Carlos Ruiz Zafón', '9786046819657', 'Novel', 'Recommended For You', '/view/images/Books/bonghinhcuagio.jpg'),
@@ -63,8 +68,11 @@ VALUES
 (47, 'Đôi lứa xứng đôi, nửa đêm cười', 35, 60000.00, 90000.00, 'NXB Hội Nhà Văn', 'Nam Cao', '9786049639889', 'Novel', 'Others', '/view/images/Books/doiluaxungdoinuademcuoi.jpg'),
 (48, 'Bản đồ tâm hồn con người', 30, 98000.00, 145000.00, 'NXB Tri Thức', 'Murray Stein', '9786049803105', 'Self-help', 'Recommended For You', '/view/images/Books/bandotamhonconnguoicuajung.jpg'),
 (49, 'Thế giới phẳng', 40, 110000.00, 160000.00, 'NXB Trẻ', 'Thomas L. Friedman', '9786041126318', 'Self-help', 'Best Seller', '/view/images/Books/thegioiphang.jpg'),
-(50, 'Tìm mình trong thế giới hậu tuổi thơ', 35, 95000.00, 135000.00, 'NXB Hội Nhà Văn', 'Đặng Hoàng Giang', '9786049828498', 'Self-help', 'Recommended For You', '/view/images/Books/timminhtrongthegioihautuoitho.jpg')
+(50, 'Tìm mình trong thế giới hậu tuổi thơ', 35, 95000.00, 135000.00, 'NXB Hội Nhà Văn', 'Đặng Hoàng Giang', '9786049828498', 'Self-help', 'Recommended For You', '/view/images/Books/timminhtrongthegioihautuoitho.jpg');
 
+SELECT *
+FROM book
+where genre = 'Novel';
 
 
 
