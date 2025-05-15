@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
@@ -8,9 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="720.0" stylesheets="@../../../../../../../BookStoreApp/src/view/css/add.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="720.0" stylesheets="@../css/add.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="720.0" stylesheets="@../../../../../../../BookStoreApp/src/view/css/add.css">
+      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="720.0" stylesheets="@../css/add.css">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Books">
                <HBox.margin>
@@ -126,9 +127,9 @@
                   <TextField promptText="e.g: Kim Đồng" styleClass="text_field" />
                </children>
             </VBox>
-            <VBox fx:id="add_book_purchase_price" alignment="CENTER_LEFT" layoutX="26.0" layoutY="10.0" prefHeight="80.0" prefWidth="280.0">
+            <VBox fx:id="add_book_quantity" alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="280.0">
                <children>
-                  <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Purchase Price (USD)">
+                  <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
                      <VBox.margin>
                         <Insets bottom="4.0" />
                      </VBox.margin>
@@ -136,11 +137,41 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <TextField promptText="e.g: 20.00" styleClass="text_field" />
+                  <TextField promptText="e.g: 50" styleClass="text_field" />
                </children>
                <HBox.margin>
                   <Insets right="16.0" />
                </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="218.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="720.0">
+         <children>
+            <VBox fx:id="add_book_cover" alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="280.0">
+               <HBox.margin>
+                  <Insets left="76.0" right="16.0" />
+               </HBox.margin>
+               <children>
+                  <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Cover">
+                     <VBox.margin>
+                        <Insets bottom="4.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="280.0" styleClass="image-add">
+                     <children>
+                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="255.0" promptText="insert link" styleClass="transparent" />
+                        <Button fx:id="book_image_link_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+">
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="img-add-button" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
             </VBox>
          </children>
       </HBox>
@@ -162,9 +193,9 @@
                   <Insets left="76.0" right="16.0" />
                </HBox.margin>
             </VBox>
-            <VBox fx:id="add_book_quantity" alignment="CENTER_LEFT" layoutX="362.0" layoutY="10.0" prefHeight="80.0" prefWidth="280.0">
+            <VBox fx:id="add_book_purchase_price" alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="280.0">
                <children>
-                  <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
+                  <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Purchase Price (USD)">
                      <VBox.margin>
                         <Insets bottom="4.0" />
                      </VBox.margin>
@@ -172,7 +203,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <TextField promptText="e.g: 50" styleClass="text_field" />
+                  <TextField promptText="e.g: 20.00" styleClass="text_field" />
                </children>
                <HBox.margin>
                   <Insets right="16.0" />

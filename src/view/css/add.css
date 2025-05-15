@@ -30,3 +30,17 @@
     -fx-text-fill: white;
     -fx-background-radius: 6;
 }
+
+.image-add{
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(128, 128, 128, 0.503);
+    -fx-border-width: 1;
+}
+
+.transparent{
+    -fx-background-color: transparent;
+}
+
+.img-add-button:hover{
+    -fx-background-color: rgba(198, 198, 198, 0.492);
+}

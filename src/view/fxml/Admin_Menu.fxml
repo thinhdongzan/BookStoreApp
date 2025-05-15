@@ -842,7 +842,7 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <TableView fx:id="stationaries_table_storage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" styleClass="storage-table" visible="false">
+                        <TableView fx:id="stationaries_table_storage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" styleClass="storage-table">
                            <columns>
                               <TableColumn fx:id="stationeryId_storage_col" maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Id" />
                               <TableColumn fx:id="stationeryName_storage_col" maxWidth="160.0" minWidth="160.0" prefWidth="75.0" text="Name" />
@@ -856,7 +856,7 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <TableView fx:id="toys_table_storage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" styleClass="storage-table">
+                        <TableView fx:id="toys_table_storage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" styleClass="storage-table" visible="false">
                            <columns>
                               <TableColumn fx:id="toyId_storage_col" maxWidth="80.0" minWidth="58.6666259765625" prefWidth="58.6666259765625" text="Id" />
                               <TableColumn fx:id="toyName_storage_col" prefWidth="112.66667175292969" text="Name" />
