@@ -396,7 +396,7 @@
                   </Pane>
                </children>
             </VBox>
-            <VBox fx:id="order_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" styleClass="order-pane">
+            <VBox fx:id="order_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" styleClass="order-pane" visible="false">
                <children>
                   <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                      <children>
@@ -779,7 +779,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="storage_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" visible="false">
+            <VBox fx:id="storage_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0">
                <children>
                   <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                      <children>
