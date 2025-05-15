@@ -8,78 +8,99 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="720.0" stylesheets="@../css/add.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="720.0">
+      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="720.0" stylesheets="@../css/add.css">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Toys">
                <HBox.margin>
-                  <Insets left="16.0" />
+                  <Insets left="54.0" />
                </HBox.margin>
                <font>
-                  <Font name="System Bold" size="24.0" />
+                  <Font size="24.0" />
                </font>
             </Text>
-            <Text fill="#8a8a8a81" strokeType="OUTSIDE" strokeWidth="0.0" text="add new product">
+            <Text fill="#8a8a8ab3" strokeType="OUTSIDE" strokeWidth="0.0" text="add new product">
                <font>
                   <Font size="16.0" />
                </font>
                <HBox.margin>
-                  <Insets left="16.0" />
+                  <Insets left="28.0" />
                </HBox.margin>
             </Text>
          </children>
+         <VBox.margin>
+            <Insets top="32.0" />
+         </VBox.margin>
       </HBox>
-      <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="720.0">
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="720.0">
          <children>
-            <VBox fx:id="add_toy_id" alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="160.0">
+            <VBox fx:id="add_toy_id" alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="280.0">
                <HBox.margin>
-                  <Insets left="16.0" right="16.0" />
+                  <Insets left="76.0" right="16.0" />
                </HBox.margin>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Id">
+                  <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Id">
                      <VBox.margin>
-                        <Insets bottom="8.0" />
+                        <Insets bottom="4.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                   </Text>
-                  <TextField />
+                  <TextField promptText="e.g: 1" styleClass="text_field" />
                </children>
             </VBox>
-            <VBox fx:id="add_toy_name" alignment="CENTER_LEFT" layoutX="26.0" layoutY="10.0" prefHeight="80.0" prefWidth="160.0">
+            <VBox fx:id="add_toy_name" alignment="CENTER_LEFT" layoutX="26.0" layoutY="10.0" prefHeight="80.0" prefWidth="280.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                  <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
                      <VBox.margin>
-                        <Insets bottom="8.0" />
+                        <Insets bottom="4.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                   </Text>
-                  <TextField />
-               </children>
-               <HBox.margin>
-                  <Insets right="16.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox fx:id="add_toy_brand" alignment="CENTER_LEFT" layoutX="202.0" layoutY="10.0" prefHeight="80.0" prefWidth="160.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Brand">
-                     <VBox.margin>
-                        <Insets bottom="8.0" />
-                     </VBox.margin>
-                  </Text>
-                  <TextField />
+                  <TextField promptText="e.g: Ninjago" styleClass="text_field" />
                </children>
                <HBox.margin>
                   <Insets right="16.0" />
                </HBox.margin>
             </VBox>
-            <VBox fx:id="add_toy_type" alignment="CENTER_LEFT" layoutX="362.0" layoutY="10.0" prefHeight="80.0" prefWidth="160.0">
+         </children>
+         <VBox.margin>
+            <Insets top="16.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="720.0">
+         <children>
+            <VBox fx:id="add_toy_brand" alignment="CENTER_LEFT" layoutX="202.0" layoutY="10.0" prefHeight="80.0" prefWidth="280.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+                  <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand">
                      <VBox.margin>
-                        <Insets bottom="8.0" />
+                        <Insets bottom="4.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                   </Text>
-                  <TextField />
+                  <TextField promptText="e,g: LEGO" styleClass="text_field" />
+               </children>
+               <HBox.margin>
+                  <Insets left="76.0" right="16.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox fx:id="add_toy_type" alignment="CENTER_LEFT" layoutX="362.0" layoutY="10.0" prefHeight="80.0" prefWidth="280.0">
+               <children>
+                  <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+                     <VBox.margin>
+                        <Insets bottom="4.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <TextField promptText="e.g: Building Blocks" styleClass="text_field" />
                </children>
                <HBox.margin>
                   <Insets right="16.0" />
@@ -87,55 +108,35 @@
             </VBox>
          </children>
       </HBox>
-      <HBox layoutX="10.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="720.0">
+      <HBox layoutX="10.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="720.0">
          <children>
-            <VBox fx:id="add_toy_suitable_age" alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="160.0">
+            <VBox fx:id="add_toy_suitable_age" alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="280.0">
                <HBox.margin>
-                  <Insets left="16.0" right="16.0" />
+                  <Insets left="76.0" right="16.0" />
                </HBox.margin>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Suitable Age">
+                  <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Suitable Age">
                      <VBox.margin>
-                        <Insets bottom="8.0" />
+                        <Insets bottom="4.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                   </Text>
-                  <TextField />
+                  <TextField promptText="e.g: 6+" styleClass="text_field" />
                </children>
             </VBox>
-            <VBox fx:id="add_toy_purchase_price" alignment="CENTER_LEFT" layoutX="26.0" layoutY="10.0" prefHeight="80.0" prefWidth="160.0">
+            <VBox fx:id="add_toy_purchase_price" alignment="CENTER_LEFT" layoutX="26.0" layoutY="10.0" prefHeight="80.0" prefWidth="280.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Purchase Price">
+                  <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Purchase Price">
                      <VBox.margin>
-                        <Insets bottom="8.0" />
+                        <Insets bottom="4.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                   </Text>
-                  <TextField />
-               </children>
-               <HBox.margin>
-                  <Insets right="16.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox fx:id="add_toy_selling_price" alignment="CENTER_LEFT" layoutX="202.0" layoutY="10.0" prefHeight="80.0" prefWidth="160.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Selling Price">
-                     <VBox.margin>
-                        <Insets bottom="8.0" />
-                     </VBox.margin>
-                  </Text>
-                  <TextField />
-               </children>
-               <HBox.margin>
-                  <Insets right="16.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox fx:id="add_toy_quantity" alignment="CENTER_LEFT" layoutX="362.0" layoutY="10.0" prefHeight="80.0" prefWidth="160.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
-                     <VBox.margin>
-                        <Insets bottom="8.0" />
-                     </VBox.margin>
-                  </Text>
-                  <TextField />
+                  <TextField promptText="e.g: 20.00" styleClass="text_field" />
                </children>
                <HBox.margin>
                   <Insets right="16.0" />
@@ -143,17 +144,53 @@
             </VBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="720.0">
+      <HBox layoutX="10.0" layoutY="240.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="720.0">
+         <children>
+            <VBox fx:id="add_toy_selling_price" alignment="CENTER_LEFT" layoutX="202.0" layoutY="10.0" prefHeight="80.0" prefWidth="280.0">
+               <children>
+                  <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Selling Price">
+                     <VBox.margin>
+                        <Insets bottom="4.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <TextField promptText="e.g: 29.99" styleClass="text_field" />
+               </children>
+               <HBox.margin>
+                  <Insets left="76.0" right="16.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox fx:id="add_toy_quantity" alignment="CENTER_LEFT" layoutX="362.0" layoutY="10.0" prefHeight="80.0" prefWidth="280.0">
+               <children>
+                  <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
+                     <VBox.margin>
+                        <Insets bottom="4.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <TextField promptText="e.g: 50" styleClass="text_field" />
+               </children>
+               <HBox.margin>
+                  <Insets right="16.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="720.0">
          <VBox.margin>
             <Insets />
          </VBox.margin>
          <children>
-            <Button mnemonicParsing="false" text="Add">
+            <Button fx:id="add_toy_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" styleClass="add-button" text="Add">
                <HBox.margin>
                   <Insets right="8.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Close" />
+            <Button fx:id="toy_close_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" styleClass="close-button" text="Close" />
          </children>
       </HBox>
    </children>
