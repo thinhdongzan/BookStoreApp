@@ -180,6 +180,14 @@
 }
 
 /* storage-page */
+.storage-add-button{
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-border-color: gray;
+    -fx-border-radius: 15px;
+    -fx-prompt-text-fill: white;
+}
+
 .table-change-button{
     -fx-background-color: white;
     -fx-text-fill: black;
