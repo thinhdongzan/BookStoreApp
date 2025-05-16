@@ -29,71 +29,73 @@
     <left>
         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="130.0" styleClass="menu_pane" BorderPane.alignment="CENTER">
             <children>
-            <HBox fx:id="admin_box" alignment="CENTER_LEFT" layoutX="10.0" layoutY="72.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="110.0">
                <children>
-                  <Label fx:id="title" text="Hust BS" textFill="#3e70fa">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
+                  <Label fx:id="title" prefHeight="24.0" prefWidth="74.0" text="Hust" textFill="WHITE">
                      <font>
-                        <Font name="Calibri Bold" size="24.0" />
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="title1" layoutX="10.0" layoutY="10.0" prefHeight="24.0" prefWidth="114.0" text="Book Store" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
                      </font>
                   </Label>
                </children>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets left="16.0" right="16.0" />
                </VBox.margin>
-            </HBox>
+            </VBox>
                 <HBox fx:id="menu_bar" alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" styleClass="menu">
                     <children>
                         <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/Logo/bars-solid.png" />
+                                <Image url="@../images/Logo/burger-bar.png" />
                             </image>
                             <HBox.margin>
                                 <Insets right="10.0" />
                             </HBox.margin>
                         </ImageView>
-                  <Button fx:id="menu_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Menu" />
+                  <Button fx:id="menu_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Menu" textFill="WHITE" />
                     </children>
                 </HBox>
             <HBox fx:id="dashboard_bar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="89.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" styleClass="menu">
                <children>
                   <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Logo/chart-pie-solid.png" />
+                        <Image url="@../images/Logo/pie-chart.png" />
                      </image>
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button fx:id="dashboard_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Dashboard" />
+                  <Button fx:id="dashboard_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Dashboard" textFill="WHITE" />
                </children>
             </HBox>
             <HBox fx:id="employee_bar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="220.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" styleClass="menu">
                <children>
                   <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Logo/users-solid.png" />
+                        <Image url="@../images/Logo/multiple-users-silhouette.png" />
                      </image>
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button fx:id="employee_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Employees" />
+                  <Button fx:id="employee_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Employees" textFill="WHITE" />
                </children>
             </HBox>
             <HBox fx:id="order_bar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="260.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" styleClass="menu">
                <children>
                   <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Logo/credit-card-solid.png" />
+                        <Image url="@../images/Logo/credit-card.png" />
                      </image>
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button fx:id="order_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Orders" />
+                  <Button fx:id="order_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Orders" textFill="WHITE" />
                </children>
             </HBox>
             <HBox fx:id="storage_bar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="300.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" styleClass="menu">
@@ -106,21 +108,21 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button fx:id="storage_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Storage" />
+                  <Button fx:id="storage_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Storage" textFill="WHITE" />
                </children>
             </HBox>
-                <Region prefHeight="236.0" prefWidth="130.0" />
+                <Region prefHeight="217.0" prefWidth="130.0" />
             <HBox fx:id="sign_out" alignment="CENTER_LEFT" layoutX="10.0" layoutY="340.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" styleClass="menu">
                <children>
                   <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Logo/exit.png" />
+                        <Image url="@../images/Logo/logout.png" />
                      </image>
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button fx:id="sign_out_button" mnemonicParsing="false" onAction="#logout" styleClass="menu-button" text="Sign out" />
+                  <Button fx:id="sign_out_button" mnemonicParsing="false" onAction="#logout" styleClass="menu-button" text="Sign out" textFill="WHITE" />
                </children>
             </HBox>
             </children>
@@ -131,14 +133,14 @@
          <children>
             <VBox fx:id="menu_page" prefHeight="200.0" prefWidth="100.0" styleClass="order-pane" visible="false">
                <children>
-                  <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" styleClass="title-pane" VBox.vgrow="ALWAYS">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                            <HBox.margin>
-                              <Insets right="70.0" />
+                              <Insets right="84.0" />
                            </HBox.margin>
                         </Text>
                         <Pane fx:id="search_bar" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" styleClass="search_bar">
@@ -146,22 +148,7 @@
                               <TextField fx:id="serach_field" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
                               <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
                                  <image>
-                                    <Image url="@../images/Logo/magnifying-glass-solid.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <HBox.margin>
-                              <Insets right="16.0" top="4.0" />
-                           </HBox.margin>
-                        </Pane>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" styleClass="icon-circle">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/Logo/user-solid.png" />
+                                    <Image url="@../images/Logo/search.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -398,9 +385,9 @@
             </VBox>
             <VBox fx:id="order_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" styleClass="order-pane" visible="false">
                <children>
-                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" styleClass="title-pane">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Orders">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Orders">
                            <font>
                               <Font name="Calibri" size="28.0" />
                            </font>
@@ -408,28 +395,13 @@
                               <Insets left="16.0" />
                            </HBox.margin>
                         </Text>
-                        <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="410.0" />
+                        <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="455.0" />
                         <Pane fx:id="search_bar1" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" styleClass="search_bar">
                            <children>
                               <TextField fx:id="serach_field1" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
                               <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
                                  <image>
-                                    <Image url="@../images/Logo/magnifying-glass-solid.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <HBox.margin>
-                              <Insets right="16.0" />
-                           </HBox.margin>
-                        </Pane>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" styleClass="icon-circle">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/Logo/user-solid.png" />
+                                    <Image url="@../images/Logo/search.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -606,38 +578,23 @@
             </VBox>
             <VBox fx:id="employee_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
                <children>
-                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" styleClass="title-pane">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employees">
+                        <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="Employees">
                            <font>
-                              <Font name="Calibri Bold" size="28.0" />
+                              <Font name="Calibri" size="28.0" />
                            </font>
                            <HBox.margin>
                               <Insets left="16.0" />
                            </HBox.margin>
                         </Text>
-                        <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="362.0" />
+                        <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="410.0" />
                         <Pane fx:id="search_bar11" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" styleClass="search_bar">
                            <children>
                               <TextField fx:id="serach_field11" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
                               <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
                                  <image>
-                                    <Image url="@../images/Logo/magnifying-glass-solid.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <HBox.margin>
-                              <Insets right="16.0" />
-                           </HBox.margin>
-                        </Pane>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" styleClass="icon-circle">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/Logo/user-solid.png" />
+                                    <Image url="@../images/Logo/search.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -738,11 +695,6 @@
                            </HBox.margin>
                         </Text>
                         <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="540.0" />
-                        <ComboBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="120.0" promptText="Actions" styleClass="ComboBox">
-                           <HBox.margin>
-                              <Insets right="16.0" />
-                           </HBox.margin>
-                        </ComboBox>
                      </children>
                   </HBox>
                   <TableView fx:id="employee_table" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#selectEmployee" prefHeight="240.0" prefWidth="770.0" styleClass="order-table">
@@ -779,11 +731,11 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="storage_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0">
+            <VBox fx:id="storage_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" visible="false">
                <children>
-                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" styleClass="title-pane">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Storage">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Storage">
                            <font>
                               <Font name="Calibri" size="28.0" />
                            </font>
@@ -797,7 +749,7 @@
                               <TextField fx:id="serach_field111" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
                               <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
                                  <image>
-                                    <Image url="@../images/Logo/magnifying-glass-solid.png" />
+                                    <Image url="@../images/Logo/search.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -810,9 +762,9 @@
                         </Pane>
                         <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" styleClass="icon-circle">
                            <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="24.0" fitWidth="17.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/Logo/user-solid.png" />
+                                    <Image url="@../images/Logo/user.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -903,11 +855,11 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="dashboard_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
+            <VBox fx:id="dashboard_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" styleClass="title-pane">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
                            <font>
                               <Font name="Calibri" size="24.0" />
                            </font>
@@ -915,28 +867,13 @@
                               <Insets left="16.0" />
                            </HBox.margin>
                         </Text>
-                        <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="382.0" />
+                        <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="428.0" />
                         <Pane fx:id="search_bar112" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" styleClass="search_bar">
                            <children>
                               <TextField fx:id="serach_field112" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
                               <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
                                  <image>
-                                    <Image url="@../images/Logo/magnifying-glass-solid.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <HBox.margin>
-                              <Insets right="16.0" />
-                           </HBox.margin>
-                        </Pane>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" styleClass="icon-circle">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/Logo/user-solid.png" />
+                                    <Image url="@../images/Logo/search.png" />
                                  </image>
                               </ImageView>
                            </children>
