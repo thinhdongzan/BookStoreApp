@@ -765,7 +765,7 @@
                                  <children>
                                     <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0">
                                        <children>
-                                          <TableView fx:id="books_table_storage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" styleClass="storage-table" visible="false">
+                                          <TableView fx:id="books_table_storage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" styleClass="storage-table">
                                              <columns>
                                                 <TableColumn fx:id="bookId_storage_col" prefWidth="75.0" text="Id" />
                                                 <TableColumn fx:id="bookIsbn_storage_col" prefWidth="75.0" text="Isbn" />
@@ -814,7 +814,7 @@
                                           <Insets top="16.0" />
                                        </padding>
                                     </StackPane>
-                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="770.0">
+                                    <HBox fx:id="function_under_storage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="770.0">
                                        <children>
                                           <Button fx:id="books_table_button" mnemonicParsing="false" onAction="#showStoragePage" styleClass="table-change-button" text="Books" />
                                           <Button fx:id="toys_table_button" mnemonicParsing="false" onAction="#showStoragePage" styleClass="table-change-button" text="Toys" />
@@ -1058,9 +1058,9 @@
                               </VBox>
                            </children>
                         </StackPane>
-                        <StackPane fx:id="storage_add" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0">
+                        <StackPane fx:id="storage_add" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0" visible="false">
                            <children>
-                              <VBox fx:id="toys_add_storage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="770.0" stylesheets="@../css/add.css">
+                              <VBox fx:id="toys_add_storage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="770.0" stylesheets="@../css/add.css" visible="false">
                                  <children>
                                     <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="770.0" stylesheets="@../css/add.css">
                                        <children>
@@ -1272,7 +1272,7 @@
                                                 <Insets right="8.0" />
                                              </HBox.margin>
                                           </Button>
-                                          <Button fx:id="toy_close_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" styleClass="close-button" text="Close">
+                                          <Button fx:id="toy_close_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#closeAddWindow" prefHeight="35.0" prefWidth="80.0" styleClass="close-button" text="Close">
                                              <HBox.margin>
                                                 <Insets right="48.0" />
                                              </HBox.margin>
@@ -1493,7 +1493,7 @@
                                                 <Insets right="8.0" />
                                              </HBox.margin>
                                           </Button>
-                                          <Button fx:id="book_close_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" styleClass="close-button" text="Close">
+                                          <Button fx:id="book_close_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#closeAddWindow" prefHeight="35.0" prefWidth="80.0" styleClass="close-button" text="Close">
                                              <HBox.margin>
                                                 <Insets right="48.0" />
                                              </HBox.margin>
@@ -1694,7 +1694,7 @@
                                                 <Insets right="16.0" />
                                              </HBox.margin>
                                           </Button>
-                                          <Button fx:id="stationary_close_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" styleClass="close-button" text="Close">
+                                          <Button fx:id="stationary_close_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#closeAddWindow" prefHeight="35.0" prefWidth="80.0" styleClass="close-button" text="Close">
                                              <HBox.margin>
                                                 <Insets right="40.0" />
                                              </HBox.margin>

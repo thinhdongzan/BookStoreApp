@@ -34,6 +34,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -292,6 +293,24 @@ public class Admin_Menu_Controller implements Initializable  {
 
     @FXML
     private VBox stationery_add_storage;
+
+    @FXML
+    private StackPane storage_add;
+
+    @FXML
+    private Button stationary_close_button;
+
+    @FXML
+    private Button book_close_button;  
+
+    @FXML
+    private Button toy_close_button;
+
+    @FXML
+    private HBox function_under_storage;
+
+    @FXML
+    private VBox storage_table_view;
 
 
 
@@ -761,33 +780,90 @@ public void loadStationeryData() {
         add_storage_button.setItems(list);
     }
 
+
+
+
+
+    // Open Add Window
     public void addStorage() {
         if (add_storage_button.getValue().equals("Book")) {
             books_add_storage.setVisible(true);
             stationery_add_storage.setVisible(false);
             toys_add_storage.setVisible(false);
-            books_table_storage.setVisible(false);
-            toys_table_storage.setVisible(false);
-            stationaries_table_storage.setVisible(false);
+            // books_table_storage.setVisible(false);
+            // toys_table_storage.setVisible(false);
+            // stationaries_table_storage.setVisible(false);
+            storage_table_view.setVisible(false);
+            storage_add.setVisible(true);
+            function_under_storage.setVisible(false);
             
         } else if (add_storage_button.getValue().equals("Stationery")) {
             books_add_storage.setVisible(false);
             stationery_add_storage.setVisible(true);
             toys_add_storage.setVisible(false);
-            books_table_storage.setVisible(false);
-            toys_table_storage.setVisible(false);
-            stationaries_table_storage.setVisible(false);
+            // books_table_storage.setVisible(false);
+            // toys_table_storage.setVisible(false);
+            // stationaries_table_storage.setVisible(false);
+            storage_table_view.setVisible(false);
+            storage_add.setVisible(true);
+            function_under_storage.setVisible(false);
 
         } else if (add_storage_button.getValue().equals("Toy")) {
             books_add_storage.setVisible(false);
             stationery_add_storage.setVisible(false);
             toys_add_storage.setVisible(true);
-            books_table_storage.setVisible(false);
-            toys_table_storage.setVisible(false);
-            stationaries_table_storage.setVisible(false);
+            // books_table_storage.setVisible(false);
+            // toys_table_storage.setVisible(false);
+            // stationaries_table_storage.setVisible(false);
+            storage_table_view.setVisible(false);
+            storage_add.setVisible(true);
+            function_under_storage.setVisible(false);
         }
     }
 
+
+    public void closeAddWindow(ActionEvent event) {
+    if (event.getSource() == stationary_close_button) {
+            // books_add_storage.setVisible(false);
+            // stationery_add_storage.setVisible(false);
+            // toys_add_storage.setVisible(false);
+
+
+            books_table_storage.setVisible(false);
+            toys_table_storage.setVisible(false);
+            stationaries_table_storage.setVisible(true);
+            storage_add.setVisible(false);
+            function_under_storage.setVisible(true);
+            storage_table_view.setVisible(true);
+
+    } else if (event.getSource() == book_close_button) {
+            // books_add_storage.setVisible(false);
+            // stationery_add_storage.setVisible(false);
+            // toys_add_storage.setVisible(false);
+
+
+            books_table_storage.setVisible(true);
+            toys_table_storage.setVisible(false);
+            stationaries_table_storage.setVisible(false);
+            storage_add.setVisible(false);
+            function_under_storage.setVisible(true);
+            storage_table_view.setVisible(true);
+
+    } else if (event.getSource() == toy_close_button) {
+            // books_add_storage.setVisible(false);
+            // stationery_add_storage.setVisible(false);
+            // toys_add_storage.setVisible(false);
+
+
+            books_table_storage.setVisible(false);
+            toys_table_storage.setVisible(true);
+            stationaries_table_storage.setVisible(false);
+            storage_add.setVisible(false);
+            function_under_storage.setVisible(true);
+            storage_table_view.setVisible(true);
+            
+    }
+}
 
 // LOGOUT
     @FXML
@@ -822,8 +898,11 @@ public void loadStationeryData() {
         showEmployee();
 
         showBook();
+
         showToy();
+
         showStationery();
+
         TypeItem();
     }
 
