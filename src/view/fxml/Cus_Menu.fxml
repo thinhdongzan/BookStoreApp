@@ -183,13 +183,8 @@
                   </ImageView>
                </children>
             </HBox>
-            <StackPane prefHeight="661.0" prefWidth="1100.0">
+            <StackPane id="Main-Stack" prefHeight="661.0" prefWidth="1100.0">
                <children>
-                  <Pane fx:id="cartPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
-                     <children>
-                        <Label alignment="CENTER" text="Cart" />
-                     </children>
-                  </Pane>
                   <Pane id="Book_Pane" prefHeight="661.0" prefWidth="1100.0">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1104.0">
@@ -268,13 +263,8 @@
                                     </Button>
                                  </children>
                               </HBox>
-                              <StackPane>
+                              <StackPane id="Book-Stack">
                                  <children>
-                                    <Pane fx:id="accountPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
-                                       <children>
-                                          <Label alignment="CENTER" text="Account" />
-                                       </children>
-                                    </Pane>
                                     <Pane id="Comic-Book" fx:id="comicPane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
                                        <children>
                                           <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
@@ -418,21 +408,6 @@
                                                 </ScrollPane>
                                              </children>
                                           </VBox>
-                                       </children>
-                                    </Pane>
-                                    <Pane fx:id="helpPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
-                                       <children>
-                                          <Label alignment="CENTER" text="Help" />
-                                       </children>
-                                    </Pane>
-                                    <Pane fx:id="stationeryPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
-                                       <children>
-                                          <Label alignment="CENTER" text="Stationery" />
-                                       </children>
-                                    </Pane>
-                                    <Pane fx:id="toyPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
-                                       <children>
-                                          <Label alignment="CENTER" text="Toy" />
                                        </children>
                                     </Pane>
                                     <Pane id="Adventure-Book" fx:id="adventurePane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
@@ -732,7 +707,7 @@
                                           <Separator layoutX="34.0" layoutY="16.0" opacity="0.4" prefHeight="14.0" prefWidth="250.0" />
                                        </children>
                                     </Pane>
-                                    <StackPane prefHeight="261.0" prefWidth="319.0">
+                                    <StackPane id="Payment-Stack" prefHeight="261.0" prefWidth="319.0">
                                        <children>
                                           <Pane id="PaybyCard_Pane" prefHeight="200.0" prefWidth="200.0">
                                              <children>
@@ -948,6 +923,26 @@
                               </VBox>
                            </children>
                         </HBox>
+                     </children>
+                  </Pane>
+                  <Pane id="Help_Pane" fx:id="helpPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
+                     <children>
+                        <Label alignment="CENTER" text="Help" />
+                     </children>
+                  </Pane>
+                  <Pane id="Toy_Pane" fx:id="toyPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
+                     <children>
+                        <Label alignment="CENTER" text="Toy" />
+                     </children>
+                  </Pane>
+                  <Pane id="Stationery_Pane" fx:id="stationeryPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
+                     <children>
+                        <Label alignment="CENTER" text="Stationery" />
+                     </children>
+                  </Pane>
+                  <Pane id="Account_Pane" fx:id="accountPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
+                     <children>
+                        <Label alignment="CENTER" text="Account" />
                      </children>
                   </Pane>
                </children>
