@@ -275,7 +275,8 @@ public class Admin_Menu_Controller implements Initializable  {
     @FXML
     private TableColumn<Toy, String> toySuitableAge_storage_col;
 
-
+    @FXML
+    private Label totalEmployee_label_menu;
 
 
 
@@ -287,6 +288,10 @@ public class Admin_Menu_Controller implements Initializable  {
 
     private Image image;
 
+
+
+
+    // SHOW MENU PAGE
     public void showMenuPage(ActionEvent event) {
         if (event.getSource() == menu_button) {
 
@@ -333,6 +338,7 @@ public class Admin_Menu_Controller implements Initializable  {
             storage_page.setVisible(false);
         }
     }
+
     ///SHOW EMPLOYEE TABLE
     public ObservableList<Employee> dataList() {
 
@@ -385,10 +391,10 @@ public class Admin_Menu_Controller implements Initializable  {
         employee_table.setItems(listEmployees);
 
         totalEmployee_label.setText(""+listEmployees.size());
+        // totalEmployee_label_menu.setText(""+listEmployees.size());
     }
     
-
-      public void selectEmployee() {
+    public void selectEmployee() {
 
         Employee employeeData  = employee_table.getSelectionModel().getSelectedItem();
         int num = employee_table.getSelectionModel().getSelectedIndex();
@@ -465,6 +471,35 @@ public class Admin_Menu_Controller implements Initializable  {
     }
 }
 
+
+
+
+
+
+// SHOW STORAGE PAGE
+    public void showStoragePage(ActionEvent event) {
+    if (event.getSource() == books_table_button) {
+        books_table_storage.setVisible(true);
+        toys_table_storage.setVisible(false);
+        stationaries_table_storage.setVisible(false);
+    } 
+    else if (event.getSource() == toys_table_button) {
+        books_table_storage.setVisible(false);
+        toys_table_storage.setVisible(true);
+        stationaries_table_storage.setVisible(false);
+    } 
+    else if (event.getSource() == stationaries_table_button) {
+        books_table_storage.setVisible(false);
+        toys_table_storage.setVisible(false);
+        stationaries_table_storage.setVisible(true);
+    }
+}
+
+
+
+
+
+// SHOW BOOK TABLE
     public ObservableList<Book> bookDataList() {
 
     ObservableList<Book> listBooks = FXCollections.observableArrayList();
@@ -512,24 +547,68 @@ public class Admin_Menu_Controller implements Initializable  {
 }
 
 
-    public void showStoragePage(ActionEvent event) {
-    if (event.getSource() == books_table_button) {
-        books_table_storage.setVisible(true);
-        toys_table_storage.setVisible(false);
-        stationaries_table_storage.setVisible(false);
-    } 
-    else if (event.getSource() == toys_table_button) {
-        books_table_storage.setVisible(false);
-        toys_table_storage.setVisible(true);
-        stationaries_table_storage.setVisible(false);
-    } 
-    else if (event.getSource() == stationaries_table_button) {
-        books_table_storage.setVisible(false);
-        toys_table_storage.setVisible(false);
-        stationaries_table_storage.setVisible(true);
+    public void loadBookData() {
+    // clear bảng
+    books_table_storage.getItems().clear();
+    showBook();
+
+    }
+    public void removeBook() {
+    String sql = "DELETE FROM book WHERE name = ?";
+
+    try (Connection conn = DBConnection.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        Alert alert;
+
+        // Giả sử bạn chọn dòng trên bảng và lấy tên sách từ label hoặc field
+        if (take_nameLabel.getText().isEmpty()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Admin Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select a book to remove.");
+            alert.showAndWait();
+        } else {
+            // Xác nhận trước khi xóa
+            alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to delete this book?");
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.isPresent() && option.get() == ButtonType.OK) {
+                stmt.setString(1, take_nameLabel.getText());
+                int affectedRows = stmt.executeUpdate();
+
+                if (affectedRows > 0) {
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Admin Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Book successfully removed.");
+                    alert.showAndWait();
+
+                    loadBookData(); // gọi lại để cập nhật bảng sách
+                } else {
+                    alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Admin Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("No book found with the given name.");
+                    alert.showAndWait();
+                }
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
     }
 }
 
+
+
+
+
+
+
+// SHOW TOY TABLE
 
 private ObservableList<Toy> listToys;
 
@@ -567,6 +646,7 @@ public void showToy() {
     toyId_storage_col.setCellValueFactory(new PropertyValueFactory<>("id"));
     toyName_storage_col.setCellValueFactory(new PropertyValueFactory<>("name"));
     toyQuantity_storage_col.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+    toyType_storage_col.setCellValueFactory(new PropertyValueFactory<>("toyType"));
     toyPurchasePrice_storage_col.setCellValueFactory(new PropertyValueFactory<>("purchasePrice"));
     toySellingPrice_storage_col.setCellValueFactory(new PropertyValueFactory<>("sellingPrice"));
     toyBrand_storage_col.setCellValueFactory(new PropertyValueFactory<>("brand"));
@@ -577,6 +657,65 @@ public void showToy() {
     toys_table_storage.setItems(listToys);
 }
 
+
+public void loadToyData() {
+    toys_table_storage.getItems().clear();
+    showToy();
+}
+
+public void removeToy() {
+    String sql = "DELETE FROM toy WHERE name = ?";
+
+    try (Connection conn = DBConnection.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        Alert alert;
+
+        if (take_nameLabel.getText().isEmpty()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Admin Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select a toy to remove.");
+            alert.showAndWait();
+        } else {
+            alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to delete this toy?");
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.isPresent() && option.get() == ButtonType.OK) {
+                stmt.setString(1, take_nameLabel.getText());
+                int affectedRows = stmt.executeUpdate();
+
+                if (affectedRows > 0) {
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Admin Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Toy successfully removed.");
+                    alert.showAndWait();
+
+                    loadToyData();
+                } else {
+                    alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Admin Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("No toy found with the given name.");
+                    alert.showAndWait();
+                }
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+
+
+
+
+
+// SHOW STATIONERY TABLE
 private ObservableList<Stationery> listStationeries;
 
 public ObservableList<Stationery> stationeryDataList() {
@@ -605,7 +744,6 @@ public ObservableList<Stationery> stationeryDataList() {
     }
     return listStationeries;
 }
-
 public void showStationery() {
     listStationeries = stationeryDataList();
 
@@ -620,9 +758,62 @@ public void showStationery() {
     stationaries_table_storage.setItems(listStationeries);
 }
 
+public void loadStationeryData() {
+    stationaries_table_storage.getItems().clear();
+    showStationery();
+}
+
+public void removeStationery() {
+    String sql = "DELETE FROM stationery WHERE name = ?";
+
+    try (Connection conn = DBConnection.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        Alert alert;
+
+        if (take_nameLabel.getText().isEmpty()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Admin Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select a stationery item to remove.");
+            alert.showAndWait();
+        } else {
+            alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to delete this stationery item?");
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.isPresent() && option.get() == ButtonType.OK) {
+                stmt.setString(1, take_nameLabel.getText());
+                int affectedRows = stmt.executeUpdate();
+
+                if (affectedRows > 0) {
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Admin Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Stationery item successfully removed.");
+                    alert.showAndWait();
+
+                    loadStationeryData();
+                } else {
+                    alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Admin Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("No stationery item found with the given name.");
+                    alert.showAndWait();
+                }
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
 
     
 
+
+// LOGOUT
     @FXML
     public void logout(ActionEvent event) {
         try {
