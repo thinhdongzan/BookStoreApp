@@ -6,6 +6,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -553,54 +554,65 @@ public class Admin_Menu_Controller implements Initializable  {
     showBook();
 
     }
-    public void removeBook() {
-    String sql = "DELETE FROM book WHERE name = ?";
 
-    try (Connection conn = DBConnection.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-        Alert alert;
+    public void removeSelectedItem() {
+    Alert alert;
 
-        // Giả sử bạn chọn dòng trên bảng và lấy tên sách từ label hoặc field
-        if (take_nameLabel.getText().isEmpty()) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Admin Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Please select a book to remove.");
-            alert.showAndWait();
-        } else {
-            // Xác nhận trước khi xóa
-            alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation");
-            alert.setHeaderText(null);
-            alert.setContentText("Are you sure you want to delete this book?");
-            Optional<ButtonType> option = alert.showAndWait();
-
-            if (option.isPresent() && option.get() == ButtonType.OK) {
-                stmt.setString(1, take_nameLabel.getText());
-                int affectedRows = stmt.executeUpdate();
-
-                if (affectedRows > 0) {
-                    alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Admin Message");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Book successfully removed.");
-                    alert.showAndWait();
-
-                    loadBookData(); // gọi lại để cập nhật bảng sách
-                } else {
-                    alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Admin Message");
-                    alert.setHeaderText(null);
-                    alert.setContentText("No book found with the given name.");
-                    alert.showAndWait();
-                }
+    try (Connection conn = DBConnection.getConnection()) {
+        if (books_table_storage.isVisible() && books_table_storage.getSelectionModel().getSelectedItem() != null) {
+            Book selectedBook = books_table_storage.getSelectionModel().getSelectedItem();
+            String sql = "DELETE FROM book WHERE id = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setInt(1, selectedBook.getId());
+                confirmAndDelete(stmt, "Book removed successfully");
+                loadBookData();
             }
+        } else if (toys_table_storage.isVisible() && toys_table_storage.getSelectionModel().getSelectedItem() != null) {
+            Toy selectedToy = toys_table_storage.getSelectionModel().getSelectedItem();
+            String sql = "DELETE FROM toy WHERE id = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setInt(1, selectedToy.getId());
+                confirmAndDelete(stmt, "Toy removed successfully");
+                loadToyData();
+            }
+        } else if (stationaries_table_storage.isVisible() && stationaries_table_storage.getSelectionModel().getSelectedItem() != null) {
+            Stationery selectedStationary = stationaries_table_storage.getSelectionModel().getSelectedItem();
+            String sql = "DELETE FROM stationery WHERE id = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setInt(1, selectedStationary.getId());
+                confirmAndDelete(stmt, "Stationary removed successfully");
+                loadStationeryData();
+            }
+        } else {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select an item to remove.");
+            alert.showAndWait();
         }
     } catch (Exception e) {
         e.printStackTrace();
     }
 }
+
+    private void confirmAndDelete(PreparedStatement stmt, String successMessage) throws SQLException {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirm Delete");
+    alert.setHeaderText(null);
+    alert.setContentText("Are you sure you want to delete this item?");
+    Optional<ButtonType> option = alert.showAndWait();
+
+    if (option.isPresent() && option.get() == ButtonType.OK) {
+        int affectedRows = stmt.executeUpdate();
+        Alert result = new Alert(Alert.AlertType.INFORMATION);
+        result.setTitle("Result");
+        result.setHeaderText(null);
+        result.setContentText(affectedRows > 0 ? successMessage : "Item not found.");
+        result.showAndWait();
+    }
+}
+
 
 
 
@@ -663,52 +675,7 @@ public void loadToyData() {
     showToy();
 }
 
-public void removeToy() {
-    String sql = "DELETE FROM toy WHERE name = ?";
 
-    try (Connection conn = DBConnection.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-        Alert alert;
-
-        if (take_nameLabel.getText().isEmpty()) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Admin Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Please select a toy to remove.");
-            alert.showAndWait();
-        } else {
-            alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation");
-            alert.setHeaderText(null);
-            alert.setContentText("Are you sure you want to delete this toy?");
-            Optional<ButtonType> option = alert.showAndWait();
-
-            if (option.isPresent() && option.get() == ButtonType.OK) {
-                stmt.setString(1, take_nameLabel.getText());
-                int affectedRows = stmt.executeUpdate();
-
-                if (affectedRows > 0) {
-                    alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Admin Message");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Toy successfully removed.");
-                    alert.showAndWait();
-
-                    loadToyData();
-                } else {
-                    alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Admin Message");
-                    alert.setHeaderText(null);
-                    alert.setContentText("No toy found with the given name.");
-                    alert.showAndWait();
-                }
-            }
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-}
 
 
 
@@ -763,52 +730,6 @@ public void loadStationeryData() {
     showStationery();
 }
 
-public void removeStationery() {
-    String sql = "DELETE FROM stationery WHERE name = ?";
-
-    try (Connection conn = DBConnection.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-        Alert alert;
-
-        if (take_nameLabel.getText().isEmpty()) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Admin Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Please select a stationery item to remove.");
-            alert.showAndWait();
-        } else {
-            alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation");
-            alert.setHeaderText(null);
-            alert.setContentText("Are you sure you want to delete this stationery item?");
-            Optional<ButtonType> option = alert.showAndWait();
-
-            if (option.isPresent() && option.get() == ButtonType.OK) {
-                stmt.setString(1, take_nameLabel.getText());
-                int affectedRows = stmt.executeUpdate();
-
-                if (affectedRows > 0) {
-                    alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Admin Message");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Stationery item successfully removed.");
-                    alert.showAndWait();
-
-                    loadStationeryData();
-                } else {
-                    alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Admin Message");
-                    alert.setHeaderText(null);
-                    alert.setContentText("No stationery item found with the given name.");
-                    alert.showAndWait();
-                }
-            }
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-}
 
     
 

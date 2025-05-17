@@ -1,3 +1,5 @@
+USE hustbookstore;
+
 SELECT * FROM hustbookstore.employee;
 
 CREATE TABLE Employee (
@@ -5,47 +7,18 @@ CREATE TABLE Employee (
     name VARCHAR(100),
     dob DATE,
     address VARCHAR(255),
-    salary DOUBLE
+    salary DOUBLE,
+    image VARCHAR(255),
+    phone VARCHAR(15),
+    email VARCHAR(100)
 );
 
-INSERT INTO Employee (id, name, dob, address, salary) VALUES
-(1, 'Elon Musk', '1971-06-28', 'Texas, USA', 120000),
-(2, 'Taylor Swift', '1989-12-13', 'Nashville, Tennessee, USA', 95000),
-(3, 'Cristiano Ronaldo', '1985-02-05', 'Lisbon, Portugal', 110000),
-(4, 'Emma Watson', '1990-04-15', 'Paris, France', 88000),
-(5, 'Lionel Messi', '1987-06-24', 'Rosario, Argentina', 115000),
-(6, 'Ariana Grande', '1993-06-26', 'Boca Raton, Florida, USA', 90000),
-(7, 'Keanu Reeves', '1964-09-02', 'Beirut, Lebanon', 102000);
+INSERT INTO Employee (id, name, dob, address, salary, image, phone, email) VALUES
+(1, 'Elon Musk', '1971-06-28', 'Texas, USA', 120000, 'src\\view\\images\\profileImage\\elon_musk_royal_society.jpg', '0905123456', 'elon.musk@tesla.com'),
+(2, 'Taylor Swift', '1989-12-13', 'Nashville, Tennessee, USA', 95000, 'src/view/images/profileImage/TayLor.jpg', '0916234567', 'taylor.swift@musicworld.com'),
+(3, 'Cristiano Ronaldo', '1985-02-05', 'Lisbon, Portugal', 110000, 'src/view/images/profileImage/Ronaldo.jpg', '0927345678', 'cr7@footballstars.com'),
+(4, 'Emma Watson', '1990-04-15', 'Paris, France', 88000, 'src/view/images/profileImage/Emma_Watson.jpg', '0938456789', 'emma.watson@filmhub.com'),
+(5, 'Lionel Messi', '1987-06-24', 'Rosario, Argentina', 115000, 'src/view/images/profileImage/Messi.jpg', '0949567890', 'lionel.messi@fcb.com'),
+(6, 'Ariana Grande', '1993-06-26', 'Boca Raton, Florida, USA', 90000, 'src/view/images/profileImage/Ariana_Grande.jpg', '0950678901', 'ariana.grande@popmail.com'),
+(7, 'Keanu Reeves', '1964-09-02', 'Beirut, Lebanon', 102000, 'src/view/images/profileImage/Keanu_Reeves.jpg', '0961789012', 'keanu.reeves@hollywood.com');
 
-
-ALTER TABLE Employee
-ADD image VARCHAR(255);
-ALTER TABLE employee
-ADD COLUMN phone VARCHAR(15);
-ALTER TABLE Employee ADD COLUMN email VARCHAR(100);
-
-UPDATE employee SET phone = '0905123456' WHERE id = 1;
-UPDATE employee SET phone = '0916234567' WHERE id = 2;
-UPDATE employee SET phone = '0927345678' WHERE id = 3;
-UPDATE employee SET phone = '0938456789' WHERE id = 4;
-UPDATE employee SET phone = '0949567890' WHERE id = 5;
-UPDATE employee SET phone = '0950678901' WHERE id = 6;
-UPDATE employee SET phone = '0961789012' WHERE id = 7;
-
-UPDATE Employee SET email = 'elon.musk@tesla.com' WHERE id = 1;
-UPDATE Employee SET email = 'taylor.swift@musicworld.com' WHERE id = 2;
-UPDATE Employee SET email = 'cr7@footballstars.com' WHERE id = 3;
-UPDATE Employee SET email = 'emma.watson@filmhub.com' WHERE id = 4;
-UPDATE Employee SET email = 'lionel.messi@fcb.com' WHERE id = 5;
-UPDATE Employee SET email = 'ariana.grande@popmail.com' WHERE id = 6;
-UPDATE Employee SET email = 'keanu.reeves@hollywood.com' WHERE id = 7;
-
-
-
-UPDATE Employee SET image = 'src\\view\\images\\profileImage\\elon_musk_royal_society.jpg' WHERE id = 1;
-UPDATE Employee SET image = 'src/view/images/profileImage/TayLor.jpg' WHERE id = 2;
-UPDATE Employee SET image = 'src/view/images/profileImage/Ronaldo.jpg' WHERE id = 3;
-UPDATE Employee SET image = 'src/view/images/profileImage/Emma_Watson.jpg' WHERE id = 4;
-UPDATE Employee SET image = 'src/view/images/profileImage/Messi.jpg' WHERE id = 5;
-UPDATE Employee SET image = 'src/view/images/profileImage/Ariana_Grande.jpg' WHERE id = 6;
-UPDATE Employee SET image = 'src/view/images/profileImage/Keanu_Reeves.jpg' WHERE id = 7;
