@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.scene.control.*;
@@ -278,6 +280,19 @@ public class Admin_Menu_Controller implements Initializable  {
 
     @FXML
     private Label totalEmployee_label_menu;
+
+    @FXML
+    private ComboBox<String> add_storage_button;
+
+    @FXML
+    private VBox toys_add_storage;
+
+    @FXML
+    private VBox books_add_storage;
+
+    @FXML
+    private VBox stationery_add_storage;
+
 
 
 
@@ -731,7 +746,47 @@ public void loadStationeryData() {
 }
 
 
-    
+
+
+    private String comboBox[] = {"Book", "Stationery", "Toy"};
+
+    public void TypeItem(){
+        List<String> combo = new ArrayList<>();
+        
+        for (String data : comboBox) {
+            combo.add(data);
+        }
+
+        ObservableList list = FXCollections.observableArrayList(combo);
+        add_storage_button.setItems(list);
+    }
+
+    public void addStorage() {
+        if (add_storage_button.getValue().equals("Book")) {
+            books_add_storage.setVisible(true);
+            stationery_add_storage.setVisible(false);
+            toys_add_storage.setVisible(false);
+            books_table_storage.setVisible(false);
+            toys_table_storage.setVisible(false);
+            stationaries_table_storage.setVisible(false);
+            
+        } else if (add_storage_button.getValue().equals("Stationery")) {
+            books_add_storage.setVisible(false);
+            stationery_add_storage.setVisible(true);
+            toys_add_storage.setVisible(false);
+            books_table_storage.setVisible(false);
+            toys_table_storage.setVisible(false);
+            stationaries_table_storage.setVisible(false);
+
+        } else if (add_storage_button.getValue().equals("Toy")) {
+            books_add_storage.setVisible(false);
+            stationery_add_storage.setVisible(false);
+            toys_add_storage.setVisible(true);
+            books_table_storage.setVisible(false);
+            toys_table_storage.setVisible(false);
+            stationaries_table_storage.setVisible(false);
+        }
+    }
 
 
 // LOGOUT
@@ -769,6 +824,7 @@ public void loadStationeryData() {
         showBook();
         showToy();
         showStationery();
+        TypeItem();
     }
 
 }

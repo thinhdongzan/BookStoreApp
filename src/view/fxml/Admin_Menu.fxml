@@ -795,7 +795,7 @@
                                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                              </columnResizePolicy>
                                           </TableView>
-                                          <TableView fx:id="stationaries_table_storage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" styleClass="storage-table">
+                                          <TableView fx:id="stationaries_table_storage" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="770.0" styleClass="storage-table" visible="false">
                                              <columns>
                                                 <TableColumn fx:id="stationeryId_storage_col" maxWidth="80.0" minWidth="80.0" prefWidth="75.0" text="Id" />
                                                 <TableColumn fx:id="stationeryName_storage_col" maxWidth="160.0" minWidth="160.0" prefWidth="75.0" text="Name" />
@@ -829,7 +829,7 @@
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
                                                 </Button>
-                                                <ComboBox fx:id="add_storage_button" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="80.0" promptText="Add" styleClass="storage-add-button" />
+                                                <ComboBox fx:id="add_storage_button" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#addStorage" prefHeight="20.0" prefWidth="80.0" promptText="Add..." styleClass="storage-add-button" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -1058,7 +1058,7 @@
                               </VBox>
                            </children>
                         </StackPane>
-                        <StackPane fx:id="storage_add" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0" visible="false">
+                        <StackPane fx:id="storage_add" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0">
                            <children>
                               <VBox fx:id="toys_add_storage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="770.0" stylesheets="@../css/add.css">
                                  <children>
