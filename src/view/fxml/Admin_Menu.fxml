@@ -870,6 +870,7 @@
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="240.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" />
+                              <HBox layoutX="10.0" layoutY="272.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="770.0" />
                               <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="770.0">
                                  <VBox.margin>
                                     <Insets />
