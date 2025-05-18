@@ -255,8 +255,15 @@
     -fx-fit-height: 290;
 }
 
-.button-quantity:hover {
-    -fx-background-color: black;
+.button-quantity-left:hover  {
+	-fx-background-radius: 15 0 0 15;
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+}
+
+.button-quantity-right:hover {
+	-fx-background-radius: 0 15 15 0;
+    -fx-background-color: gray;
     -fx-text-fill: white;
 }
 
