@@ -185,7 +185,7 @@
             </HBox>
             <StackPane id="Main-Stack" prefHeight="661.0" prefWidth="1100.0">
                <children>
-                  <Pane id="Book_Pane" prefHeight="661.0" prefWidth="1100.0">
+                  <Pane id="Book_Pane" fx:id="bookPane" disable="true" prefHeight="661.0" prefWidth="1100.0" visible="false">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1104.0">
                            <children>
@@ -466,7 +466,7 @@
                                           </VBox>
                                        </children>
                                     </Pane>
-                                    <Pane id="Main-Book" fx:id="bookPane" disable="true" prefHeight="628.0" prefWidth="1100.0" visible="false">
+                                    <Pane id="Main-Book" fx:id="mainPane" disable="true" prefHeight="628.0" prefWidth="1100.0" visible="false">
                                        <children>
                                           <VBox prefHeight="628.0" prefWidth="1099.0" spacing="10.0">
                                              <children>
@@ -533,7 +533,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane id="Cart_Pane" prefHeight="200.0" prefWidth="200.0" styleClass="White-background1">
+                  <Pane id="Cart_Pane" fx:id="cartPane" prefHeight="200.0" prefWidth="200.0" styleClass="White-background1">
                      <children>
                         <HBox layoutX="-2.0" layoutY="-1.0" prefHeight="673.0" prefWidth="1102.0">
                            <children>
@@ -664,7 +664,7 @@
                                     </Pane>
                                     <HBox alignment="CENTER" prefHeight="52.0" prefWidth="319.0">
                                        <children>
-                                          <Pane prefHeight="75.0" prefWidth="110.0">
+                                          <Pane onMouseClicked="#switchToPayCreditCard" prefHeight="75.0" prefWidth="110.0">
                                              <children>
                                                 <ImageView fitHeight="28.0" fitWidth="24.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -683,7 +683,7 @@
                                              </styleClass>
                                           </Pane>
                                           <Pane prefHeight="52.0" prefWidth="22.0" />
-                                          <Pane layoutX="159.0" layoutY="10.0" prefHeight="52.0" prefWidth="110.0">
+                                          <Pane layoutX="159.0" layoutY="10.0" onMouseClicked="#switchToPayCash" prefHeight="52.0" prefWidth="110.0">
                                              <children>
                                                 <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="24.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -709,7 +709,7 @@
                                     </Pane>
                                     <StackPane id="Payment-Stack" prefHeight="261.0" prefWidth="319.0">
                                        <children>
-                                          <Pane id="PaybyCard_Pane" prefHeight="200.0" prefWidth="200.0">
+                                          <Pane id="PaybyCard_Pane" fx:id="payCashPane" disable="true" prefHeight="200.0" prefWidth="200.0" visible="false">
                                              <children>
                                                 <VBox layoutY="-2.0" prefHeight="263.0" prefWidth="319.0">
                                                    <children>
@@ -794,7 +794,7 @@
                                                 </VBox>
                                              </children>
                                           </Pane>
-                                          <Pane id="PaybyMoney_Pane" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
+                                          <Pane id="PaybyMoney_Pane" fx:id="payCreditCardPane" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
                                              <children>
                                                 <VBox layoutY="-2.0" prefHeight="263.0" prefWidth="319.0">
                                                    <children>
