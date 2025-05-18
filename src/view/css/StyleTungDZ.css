@@ -250,6 +250,16 @@
     -fx-fit-height: 120;
 }
 
+.fixed-image-information {
+    -fx-fit-width: 205;
+    -fx-fit-height: 290;
+}
+
+.button-quantity:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
 .button-style-Payment {
     -fx-border-color: #ede7ff; /* Màu viền đen */
     -fx-border-width: 0.5; /* Độ dày viền là 2px */
@@ -300,5 +310,17 @@
 .custom-textfield {
     -fx-text-fill: #A3A7D2;        /* Màu chữ */
     -fx-prompt-text-fill: #A3A7D2; /* Màu placeholder (gợi ý) */
-   
+}
+.button-AddtoCart{
+	-fx-background-color: black	;
+}
+.mouse-AddtoCart:hover{
+	-fx-background-color: #696969;
+	
+}
+
+.text-field{
+	-fx-border-color: gray;
+	-fx-border-radius: 10;
+	-fx-background-color: transparent;
 }
