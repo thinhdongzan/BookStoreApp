@@ -1,7 +1,11 @@
 .menu_pane {
-    -fx-background-color: #ffffff;
-    -fx-border-color: rgba(128, 128, 128, 0.5);
-    -fx-border-width: 0px 1px 0px 0px;
+    -fx-background-color: #7d9ffa;
+}
+
+.title-pane{
+    -fx-background-color: #7d9ffa;
+    -fx-border-width: 0 0 0 1;
+    -fx-border-color: white;
 }
 
 .root {
@@ -14,30 +18,21 @@
 }
 
 .menu:hover{
-    -fx-border-color: #3e70fa;
+    -fx-border-color: white;
     -fx-border-width: 0 0 2 0;
-}
-
-.icon-circle {
-    -fx-pref-width: 30px;
-    -fx-pref-height: 30px;
-    -fx-background-radius: 15px;
-    -fx-border-radius: 15px;
-    -fx-border-width: 2px;
-    -fx-border-color: #e7e0e0;
-    -fx-alignment: center;
-    -fx-background-color: transparent;
 }
 
 .search_bar{
     -fx-background-color: transparent ;
     -fx-border-width: 2px 2px 2px 2px;
-    -fx-border-color: rgba(128, 128, 128, 0.5);
+    -fx-border-color: white;
     -fx-border-radius: 20px;
 }
 
 .search_field{
     -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
 }
 
 .search_icon{
@@ -60,7 +55,7 @@
 
 .menu-button{
     -fx-background-color: transparent;
-    -fx-text-fill: black;
+    -fx-text-fill: white;
     -fx-font-size: 12px;
 }
 
@@ -180,6 +175,14 @@
 }
 
 /* storage-page */
+.storage-add-button{
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-border-color: gray;
+    -fx-border-radius: 15px;
+    -fx-prompt-text-fill: white;
+}
+
 .table-change-button{
     -fx-background-color: white;
     -fx-text-fill: black;

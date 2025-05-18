@@ -6,7 +6,10 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.scene.control.*;
@@ -31,6 +34,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -275,6 +279,38 @@ public class Admin_Menu_Controller implements Initializable  {
     @FXML
     private TableColumn<Toy, String> toySuitableAge_storage_col;
 
+    @FXML
+    private Label totalEmployee_label_menu;
+
+    @FXML
+    private ComboBox<String> add_storage_button;
+
+    @FXML
+    private VBox toys_add_storage;
+
+    @FXML
+    private VBox books_add_storage;
+
+    @FXML
+    private VBox stationery_add_storage;
+
+    @FXML
+    private StackPane storage_add;
+
+    @FXML
+    private Button stationary_close_button;
+
+    @FXML
+    private Button book_close_button;  
+
+    @FXML
+    private Button toy_close_button;
+
+    @FXML
+    private HBox function_under_storage;
+
+    @FXML
+    private VBox storage_table_view;
 
 
 
@@ -287,6 +323,10 @@ public class Admin_Menu_Controller implements Initializable  {
 
     private Image image;
 
+
+
+
+    // SHOW MENU PAGE
     public void showMenuPage(ActionEvent event) {
         if (event.getSource() == menu_button) {
 
@@ -333,6 +373,7 @@ public class Admin_Menu_Controller implements Initializable  {
             storage_page.setVisible(false);
         }
     }
+
     ///SHOW EMPLOYEE TABLE
     public ObservableList<Employee> dataList() {
 
@@ -385,10 +426,10 @@ public class Admin_Menu_Controller implements Initializable  {
         employee_table.setItems(listEmployees);
 
         totalEmployee_label.setText(""+listEmployees.size());
+        // totalEmployee_label_menu.setText(""+listEmployees.size());
     }
     
-
-      public void selectEmployee() {
+    public void selectEmployee() {
 
         Employee employeeData  = employee_table.getSelectionModel().getSelectedItem();
         int num = employee_table.getSelectionModel().getSelectedIndex();
@@ -465,6 +506,35 @@ public class Admin_Menu_Controller implements Initializable  {
     }
 }
 
+
+
+
+
+
+// SHOW STORAGE PAGE
+    public void showStoragePage(ActionEvent event) {
+    if (event.getSource() == books_table_button) {
+        books_table_storage.setVisible(true);
+        toys_table_storage.setVisible(false);
+        stationaries_table_storage.setVisible(false);
+    } 
+    else if (event.getSource() == toys_table_button) {
+        books_table_storage.setVisible(false);
+        toys_table_storage.setVisible(true);
+        stationaries_table_storage.setVisible(false);
+    } 
+    else if (event.getSource() == stationaries_table_button) {
+        books_table_storage.setVisible(false);
+        toys_table_storage.setVisible(false);
+        stationaries_table_storage.setVisible(true);
+    }
+}
+
+
+
+
+
+// SHOW BOOK TABLE
     public ObservableList<Book> bookDataList() {
 
     ObservableList<Book> listBooks = FXCollections.observableArrayList();
@@ -512,24 +582,79 @@ public class Admin_Menu_Controller implements Initializable  {
 }
 
 
-    public void showStoragePage(ActionEvent event) {
-    if (event.getSource() == books_table_button) {
-        books_table_storage.setVisible(true);
-        toys_table_storage.setVisible(false);
-        stationaries_table_storage.setVisible(false);
-    } 
-    else if (event.getSource() == toys_table_button) {
-        books_table_storage.setVisible(false);
-        toys_table_storage.setVisible(true);
-        stationaries_table_storage.setVisible(false);
-    } 
-    else if (event.getSource() == stationaries_table_button) {
-        books_table_storage.setVisible(false);
-        toys_table_storage.setVisible(false);
-        stationaries_table_storage.setVisible(true);
+    public void loadBookData() {
+    // clear bảng
+    books_table_storage.getItems().clear();
+    showBook();
+
+    }
+
+
+    public void removeSelectedItem() {
+    Alert alert;
+
+    try (Connection conn = DBConnection.getConnection()) {
+        if (books_table_storage.isVisible() && books_table_storage.getSelectionModel().getSelectedItem() != null) {
+            Book selectedBook = books_table_storage.getSelectionModel().getSelectedItem();
+            String sql = "DELETE FROM book WHERE id = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setInt(1, selectedBook.getId());
+                confirmAndDelete(stmt, "Book removed successfully");
+                loadBookData();
+            }
+        } else if (toys_table_storage.isVisible() && toys_table_storage.getSelectionModel().getSelectedItem() != null) {
+            Toy selectedToy = toys_table_storage.getSelectionModel().getSelectedItem();
+            String sql = "DELETE FROM toy WHERE id = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setInt(1, selectedToy.getId());
+                confirmAndDelete(stmt, "Toy removed successfully");
+                loadToyData();
+            }
+        } else if (stationaries_table_storage.isVisible() && stationaries_table_storage.getSelectionModel().getSelectedItem() != null) {
+            Stationery selectedStationary = stationaries_table_storage.getSelectionModel().getSelectedItem();
+            String sql = "DELETE FROM stationery WHERE id = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setInt(1, selectedStationary.getId());
+                confirmAndDelete(stmt, "Stationary removed successfully");
+                loadStationeryData();
+            }
+        } else {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select an item to remove.");
+            alert.showAndWait();
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
     }
 }
 
+    private void confirmAndDelete(PreparedStatement stmt, String successMessage) throws SQLException {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirm Delete");
+    alert.setHeaderText(null);
+    alert.setContentText("Are you sure you want to delete this item?");
+    Optional<ButtonType> option = alert.showAndWait();
+
+    if (option.isPresent() && option.get() == ButtonType.OK) {
+        int affectedRows = stmt.executeUpdate();
+        Alert result = new Alert(Alert.AlertType.INFORMATION);
+        result.setTitle("Result");
+        result.setHeaderText(null);
+        result.setContentText(affectedRows > 0 ? successMessage : "Item not found.");
+        result.showAndWait();
+    }
+}
+
+
+
+
+
+
+
+
+// SHOW TOY TABLE
 
 private ObservableList<Toy> listToys;
 
@@ -567,6 +692,7 @@ public void showToy() {
     toyId_storage_col.setCellValueFactory(new PropertyValueFactory<>("id"));
     toyName_storage_col.setCellValueFactory(new PropertyValueFactory<>("name"));
     toyQuantity_storage_col.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+    toyType_storage_col.setCellValueFactory(new PropertyValueFactory<>("toyType"));
     toyPurchasePrice_storage_col.setCellValueFactory(new PropertyValueFactory<>("purchasePrice"));
     toySellingPrice_storage_col.setCellValueFactory(new PropertyValueFactory<>("sellingPrice"));
     toyBrand_storage_col.setCellValueFactory(new PropertyValueFactory<>("brand"));
@@ -577,6 +703,20 @@ public void showToy() {
     toys_table_storage.setItems(listToys);
 }
 
+
+public void loadToyData() {
+    toys_table_storage.getItems().clear();
+    showToy();
+}
+
+
+
+
+
+
+
+
+// SHOW STATIONERY TABLE
 private ObservableList<Stationery> listStationeries;
 
 public ObservableList<Stationery> stationeryDataList() {
@@ -605,7 +745,6 @@ public ObservableList<Stationery> stationeryDataList() {
     }
     return listStationeries;
 }
-
 public void showStationery() {
     listStationeries = stationeryDataList();
 
@@ -620,9 +759,113 @@ public void showStationery() {
     stationaries_table_storage.setItems(listStationeries);
 }
 
+public void loadStationeryData() {
+    stationaries_table_storage.getItems().clear();
+    showStationery();
+}
 
-    
 
+
+
+    private String comboBox[] = {"Book", "Stationery", "Toy"};
+
+    public void TypeItem(){
+        List<String> combo = new ArrayList<>();
+        
+        for (String data : comboBox) {
+            combo.add(data);
+        }
+
+        ObservableList list = FXCollections.observableArrayList(combo);
+        add_storage_button.setItems(list);
+    }
+
+
+
+
+
+    // Open Add Window
+    public void addStorage() {
+        if (add_storage_button.getValue().equals("Book")) {
+            books_add_storage.setVisible(true);
+            stationery_add_storage.setVisible(false);
+            toys_add_storage.setVisible(false);
+            // books_table_storage.setVisible(false);
+            // toys_table_storage.setVisible(false);
+            // stationaries_table_storage.setVisible(false);
+            storage_table_view.setVisible(false);
+            storage_add.setVisible(true);
+            function_under_storage.setVisible(false);
+            
+        } else if (add_storage_button.getValue().equals("Stationery")) {
+            books_add_storage.setVisible(false);
+            stationery_add_storage.setVisible(true);
+            toys_add_storage.setVisible(false);
+            // books_table_storage.setVisible(false);
+            // toys_table_storage.setVisible(false);
+            // stationaries_table_storage.setVisible(false);
+            storage_table_view.setVisible(false);
+            storage_add.setVisible(true);
+            function_under_storage.setVisible(false);
+
+        } else if (add_storage_button.getValue().equals("Toy")) {
+            books_add_storage.setVisible(false);
+            stationery_add_storage.setVisible(false);
+            toys_add_storage.setVisible(true);
+            // books_table_storage.setVisible(false);
+            // toys_table_storage.setVisible(false);
+            // stationaries_table_storage.setVisible(false);
+            storage_table_view.setVisible(false);
+            storage_add.setVisible(true);
+            function_under_storage.setVisible(false);
+        }
+    }
+
+
+    public void closeAddWindow(ActionEvent event) {
+    if (event.getSource() == stationary_close_button) {
+            // books_add_storage.setVisible(false);
+            // stationery_add_storage.setVisible(false);
+            // toys_add_storage.setVisible(false);
+
+
+            books_table_storage.setVisible(false);
+            toys_table_storage.setVisible(false);
+            stationaries_table_storage.setVisible(true);
+            storage_add.setVisible(false);
+            function_under_storage.setVisible(true);
+            storage_table_view.setVisible(true);
+
+    } else if (event.getSource() == book_close_button) {
+            // books_add_storage.setVisible(false);
+            // stationery_add_storage.setVisible(false);
+            // toys_add_storage.setVisible(false);
+
+
+            books_table_storage.setVisible(true);
+            toys_table_storage.setVisible(false);
+            stationaries_table_storage.setVisible(false);
+            storage_add.setVisible(false);
+            function_under_storage.setVisible(true);
+            storage_table_view.setVisible(true);
+
+    } else if (event.getSource() == toy_close_button) {
+            // books_add_storage.setVisible(false);
+            // stationery_add_storage.setVisible(false);
+            // toys_add_storage.setVisible(false);
+
+
+            books_table_storage.setVisible(false);
+            toys_table_storage.setVisible(true);
+            stationaries_table_storage.setVisible(false);
+            storage_add.setVisible(false);
+            function_under_storage.setVisible(true);
+            storage_table_view.setVisible(true);
+            
+    }
+}
+
+// LOGOUT
     @FXML
     public void logout(ActionEvent event) {
         try {
@@ -655,8 +898,12 @@ public void showStationery() {
         showEmployee();
 
         showBook();
+
         showToy();
+
         showStationery();
+
+        TypeItem();
     }
 
 }

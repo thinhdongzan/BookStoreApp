@@ -22,6 +22,18 @@
 	-fx-background-radius: 15; /* bo góc đẹp hơn */
 }
 
+.Payment-pane {
+-fx-background-color: linear-gradient(
+    from 0% 0% to 100% 100%,
+    #151C62 0%,
+    #151C62 20%,
+    #3F468F 80%,
+    #7D82BB 95%,
+    #A3A7D2 100%
+);
+    -fx-background-radius: 15;
+}
+
 .White-background1 {
 	-fx-background-color: rgba(255, 255, 255); 
 	-fx-background-radius: 3; 
@@ -231,4 +243,62 @@
 }
 .mouse-fairy-tale:hover{
 	-fx-background-color: #517527;
+}
+
+.fixed-image {
+    -fx-fit-width: 100;
+    -fx-fit-height: 120;
+}
+
+.button-style-Payment {
+    -fx-border-color: #ede7ff; /* Màu viền đen */
+    -fx-border-width: 0.5; /* Độ dày viền là 2px */
+    -fx-text-transform: uppercase; /* Chữ in hoa */
+	-fx-text-color: #3E70FA; /* Chữ in hoa */
+	-fx-background-radius: 50;
+	-fx-border-radius: 50;
+
+}
+
+.button-style-Checkout {
+    -fx-border-color: #ede7ff; /* Màu viền đen */
+    -fx-border-width: 0.5; /* Độ dày viền là 2px */
+    -fx-text-transform: uppercase; /* Chữ in hoa */
+	-fx-text-color: #3E70FA; /* Chữ in hoa */
+	-fx-background-radius: 50;
+	-fx-background-color: #ede7ff;
+	-fx-border-radius: 50;
+
+}
+
+.button-payment-selected: hover, 
+.button-payment-selected: selected {
+	-fx-border-width: 2; /* Độ dày viền là 2px */
+}
+
+.button-checkout-selected: hover, 
+.button-checkout-selected: selected {
+	-fx-border-color: #000435; /* Màu viền đen */
+	-fx-background-color: #000435;
+}
+
+.separator {
+    -fx-padding: 0 0 0 0;         /* Bỏ khoảng đệm */
+    -fx-border-width: 0.1 0 0 0;  /* Độ dày đường kẻ */
+}
+
+.button-style-Payment2 {
+    -fx-border-color: #ede7ff; /* Màu viền đen */
+    -fx-border-width: 0.5; /* Độ dày viền là 2px */
+    -fx-text-transform: uppercase; /* Chữ in hoa */
+	-fx-text-color: #3E70FA; /* Chữ in hoa */
+	-fx-background-radius: 50;
+	-fx-border-radius: 50;
+
+}
+
+.custom-textfield {
+    -fx-text-fill: #A3A7D2;        /* Màu chữ */
+    -fx-prompt-text-fill: #A3A7D2; /* Màu placeholder (gợi ý) */
+   
 }

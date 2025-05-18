@@ -80,6 +80,9 @@ public class Cus_Menu implements Initializable {
     private Pane bookPane;
 
     @FXML
+    private Pane mainPane;
+
+    @FXML
     private FlowPane selfHelpLayout;
 
     @FXML
@@ -107,6 +110,20 @@ public class Cus_Menu implements Initializable {
         cartPane.setVisible(false);
         accountPane.setVisible(false);
         helpPane.setVisible(false);
+
+        bookPane.setDisable(true);
+        stationeryPane.setDisable(true);
+        toyPane.setDisable(true);
+        cartPane.setDisable(true);
+        accountPane.setDisable(true);
+        helpPane.setDisable(true);
+
+        pane.setVisible(true);
+        pane.setDisable(false);
+    }
+
+    public void chooseGenre(Pane pane) {
+        mainPane.setVisible(false);
         selfHelpPane.setVisible(false);
         novelPane.setVisible(false);
         romancePane.setVisible(false);
@@ -115,12 +132,7 @@ public class Cus_Menu implements Initializable {
         comicPane.setVisible(false);
         adventurePane.setVisible(false);
 
-        bookPane.setDisable(true);
-        stationeryPane.setDisable(true);
-        toyPane.setDisable(true);
-        cartPane.setDisable(true);
-        accountPane.setDisable(true);
-        helpPane.setDisable(true);
+        mainPane.setDisable(true);
         selfHelpPane.setDisable(true);
         novelPane.setDisable(true);
         romancePane.setDisable(true);
@@ -137,6 +149,7 @@ public class Cus_Menu implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setSelectedNav(bookNav);
         choosePane(bookPane);
+        chooseGenre(mainPane);
         bestSellers = BookDAO.getBestSeller();
         try {
             for (Book book : bestSellers) {
@@ -174,41 +187,33 @@ public class Cus_Menu implements Initializable {
     public void bookChoose() throws IOException {
         setSelectedNav(bookNav);
         choosePane(bookPane);
-        bookGenres.setVisible(true);
+        chooseGenre(mainPane);
     }
 
     public void stationeryChoose() throws IOException {
         setSelectedNav(stationeryNav);
         choosePane(stationeryPane);
-        bookGenres.setVisible(false);
     }
 
     public void toyChoose() throws IOException {
         setSelectedNav(toyNav);
         choosePane(toyPane);
-        bookGenres.setVisible(false);
     }
 
     public void cartChoose() throws IOException {
         setSelectedNav(cartNav);
         choosePane(cartPane);
-        bookGenres.setVisible(false);
+        choosePayMethod(payCreditCardPane);
     }
 
     public void accountChoose() throws IOException {
         setSelectedNav(accountNav);
         choosePane(accountPane);
-        bookGenres.setVisible(false);
     }
 
     public void helpChoose() throws IOException {
         setSelectedNav(helpNav);
         choosePane(helpPane);
-        bookGenres.setVisible(false);
-    }
-
-    public void selfHelpChoose() throws IOException {
-        choosePane(selfHelpPane);
     }
 
     public void logoutChoose(Event event) throws IOException {
@@ -231,7 +236,7 @@ public class Cus_Menu implements Initializable {
     }
 
     public void sortSelfHelpBook() throws IOException {
-        choosePane(selfHelpPane);
+        chooseGenre(selfHelpPane);
         List<Book> selfHelpBooks = BookDAO.getSelfHelp();
         selfHelpLayout.getChildren().clear(); // Clear existing books before adding new ones
         try {
@@ -248,7 +253,7 @@ public class Cus_Menu implements Initializable {
     }
 
     public void sortComicBook() throws IOException {
-        choosePane(comicPane);
+        chooseGenre(comicPane);
         List<Book> comicBooks = BookDAO.getComic();
         comicLayout.getChildren().clear(); // Clear existing books before adding new ones
         try {
@@ -265,7 +270,7 @@ public class Cus_Menu implements Initializable {
     }
 
     public void sortFairyTaleBook() throws IOException {
-        choosePane(fairyTailePane);
+        chooseGenre(fairyTailePane);
         List<Book> fairyTaleBooks = BookDAO.getFairyTale();
         fairyTaleLayout.getChildren().clear(); // Clear existing books before adding new ones
         try {
@@ -282,7 +287,7 @@ public class Cus_Menu implements Initializable {
     }
 
     public void sortHorrorBook() throws IOException {
-        choosePane(horrorPane);
+        chooseGenre(horrorPane);
         List<Book> horrorBooks = BookDAO.getHorror();
         horrorLayout.getChildren().clear(); // Clear existing books before adding new ones
         try {
@@ -299,7 +304,7 @@ public class Cus_Menu implements Initializable {
     }
 
     public void sortNovelBook() throws IOException {
-        choosePane(novelPane);
+        chooseGenre(novelPane);
         List<Book> novelBooks = BookDAO.getNovel();
         novelLayout.getChildren().clear(); // Clear existing books before adding new ones
         try {
@@ -316,7 +321,7 @@ public class Cus_Menu implements Initializable {
     }
 
     public void sortRomanceBook() throws IOException {
-        choosePane(romancePane);
+        chooseGenre(romancePane);
         List<Book> romanceBooks = BookDAO.getRomance();
         romanceLayout.getChildren().clear(); // Clear existing books before adding new ones
         try {
@@ -333,7 +338,7 @@ public class Cus_Menu implements Initializable {
     }
 
     public void sortAdventureBook() throws IOException {
-        choosePane(adventurePane);
+        chooseGenre(adventurePane);
         List<Book> adventureBooks = BookDAO.getAdventure();
         adventureLayout.getChildren().clear(); // Clear existing books before adding new ones
         try {
@@ -388,4 +393,28 @@ public class Cus_Menu implements Initializable {
         }
     }
 
+    // Cart
+    @FXML
+    private Pane payCreditCardPane;
+    @FXML
+    private Pane payCashPane;
+
+    public void choosePayMethod(Pane pane) {
+        payCreditCardPane.setVisible(false);
+        payCashPane.setVisible(false);
+
+        payCreditCardPane.setDisable(true);
+        payCashPane.setDisable(true);
+
+        pane.setVisible(true);
+        pane.setDisable(false);
+    }
+
+    public void switchToPayCreditCard() throws IOException {
+        choosePayMethod(payCreditCardPane);
+    }
+
+    public void switchToPayCash() throws IOException {
+        choosePayMethod(payCashPane);
+    }
 }
