@@ -417,4 +417,8 @@ public class Cus_Menu implements Initializable {
     public void switchToPayCash() throws IOException {
         choosePayMethod(payCashPane);
     }
+
+    // Stationery
+    @FXML
+    private FlowPane stationeryLayout;
 }
