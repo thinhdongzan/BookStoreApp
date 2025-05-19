@@ -9,9 +9,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import javax.swing.Action;
+
 import javafx.scene.control.*;
 
 
@@ -328,6 +332,8 @@ public class Admin_Menu_Controller implements Initializable  {
 
     // SHOW MENU PAGE
     public void showMenuPage(ActionEvent event) {
+
+       
         if (event.getSource() == menu_button) {
 
             menu_page.setVisible(true);
@@ -507,6 +513,138 @@ public class Admin_Menu_Controller implements Initializable  {
 }
 
 
+    // SHOW ADD EMPLOYEE PAGE
+    @FXML
+    private VBox employee_add_page;
+
+    @FXML
+    private VBox employee_table_page;
+
+    @FXML
+    private Button confirm_add_employee_btn;
+
+    @FXML
+    private Button close_addwindow_employee_btn;
+public void showAddEmployeePage(ActionEvent event) {
+    if (event.getSource() == e_add) {
+        employee_table_page.setVisible(false);
+        employee_add_page.setVisible(true);
+    }
+        
+}
+
+    @FXML
+    private TextField add_employee_name;
+    @FXML
+    private TextField add_employee_dob;
+    @FXML
+    private TextField add_employee_address;
+    @FXML
+    private TextField add_employee_salary;
+    @FXML
+    private TextField add_employee_number;
+    @FXML
+    private TextField add_employee_email;
+    @FXML
+    private TextField add_employee_image;
+    @FXML
+    private TextField add_employee_id;
+
+    public void clearEmployeeData() {
+       
+        add_employee_name.clear();
+        add_employee_dob.clear();
+        add_employee_address.clear();
+        add_employee_salary.clear();
+        add_employee_number.clear();
+        add_employee_email.clear();
+        profile_image.setImage(null);
+    }
+    
+    public void addNewEmployee() {
+    String sql = "INSERT INTO employee (id, name, dob, address, salary, image, phone, email)\r\n" + //
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?);\r\n" + //
+                "";
+
+    try {
+        Alert alert;
+
+        
+
+
+        // Kiểm tra dữ liệu rỗng
+        if (add_employee_name.getText().isEmpty()
+                || add_employee_dob.getText().isEmpty()
+                || add_employee_address.getText().isEmpty()
+                || add_employee_salary.getText().isEmpty()
+                || add_employee_number.getText().isEmpty()
+                || add_employee_email.getText().isEmpty()) {
+
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Admin Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please complete all employee details.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Kiểm tra định dạng ngày sinh (yyyy-MM-dd)
+        java.sql.Date dob;
+        try {
+            dob = java.sql.Date.valueOf(add_employee_dob.getText());
+        } catch (IllegalArgumentException e) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi định dạng ngày");
+            alert.setHeaderText(null);
+            alert.setContentText("Vui lòng nhập ngày theo định dạng yyyy-MM-dd (VD: 2000-05-19)");
+            alert.showAndWait();
+            return;
+        }
+
+        // Kiểm tra số điện thoại là số
+        String phoneText = add_employee_number.getText();
+        if (!phoneText.matches("\\d+")) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi định dạng số điện thoại");
+            alert.setHeaderText(null);
+            alert.setContentText("Số điện thoại chỉ được chứa chữ số.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Thực hiện ghi dữ liệu vào DB
+        Connection conn = DBConnection.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
+
+        stmt.setInt(1, Integer.parseInt(add_employee_id.getText()));
+        stmt.setString(2, add_employee_name.getText());
+        stmt.setDate(3, dob);
+        stmt.setString(4, add_employee_address.getText());
+        stmt.setDouble(5, Double.parseDouble(add_employee_salary.getText()));
+        stmt.setString(6, phoneText);
+        stmt.setString(7, add_employee_email.getText());
+        stmt.setString(8, getData.path); // giả định bạn đã có getData.path
+
+        stmt.executeUpdate();
+
+        alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Admin Message");
+        alert.setHeaderText(null);
+        alert.setContentText("Successfully added new employee!");
+        alert.showAndWait();
+
+        clearEmployeeData(); // Đảm bảo hàm này được định nghĩa
+
+    } catch (Exception e) {
+        e.printStackTrace();
+
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Lỗi hệ thống");
+        alert.setHeaderText(null);
+        alert.setContentText("Có lỗi xảy ra trong quá trình thêm nhân viên.");
+        alert.showAndWait();
+    }
+}
 
 
 
@@ -581,6 +719,118 @@ public class Admin_Menu_Controller implements Initializable  {
     // totalBook_label.setText("" + listBooks.size());
 }
 
+
+    // ADD BOOK
+    @FXML
+    private TextField add_book_id;
+    @FXML
+    private TextField add_book_name;
+    @FXML
+    private TextField add_book_quantity;
+    @FXML
+    private TextField add_book_purchase_price;
+    @FXML
+    private TextField add_book_selling_price;
+    @FXML
+    private TextField add_book_author;
+    @FXML
+    private TextField add_book_publisher;
+    @FXML
+    private TextField add_book_isbn;
+    @FXML
+    private TextField add_book_genre;
+    @FXML
+    private Button add_book_button;
+
+
+    private void clearBookFields() {
+    add_book_id.clear();
+    add_book_name.clear();
+    add_book_quantity.clear();
+    add_book_purchase_price.clear();
+    add_book_selling_price.clear();
+    add_book_publisher.clear();
+    add_book_author.clear();
+    add_book_isbn.clear();
+    add_book_genre.clear();
+}
+
+
+
+public void addNewBook() {
+    String sql = "INSERT INTO book (id, name, quantity, purchasePrice, sellingPrice, publisher, author, isbn, genre) " +
+                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+
+    try {
+        Alert alert;
+
+        // Kiểm tra dữ liệu rỗng
+        if (add_book_id.getText().isEmpty() ||
+            add_book_name.getText().isEmpty() ||
+            add_book_quantity.getText().isEmpty() ||
+            add_book_purchase_price.getText().isEmpty() ||
+            add_book_selling_price.getText().isEmpty() ||
+            add_book_publisher.getText().isEmpty() ||
+            add_book_author.getText().isEmpty() ||
+            add_book_isbn.getText().isEmpty() ||
+            add_book_genre.getText().isEmpty()) {
+
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Admin Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please complete all book details.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Kiểm tra các trường là số
+        try {
+            Integer.parseInt(add_book_id.getText());
+            Integer.parseInt(add_book_quantity.getText());
+            Double.parseDouble(add_book_purchase_price.getText());
+            Double.parseDouble(add_book_selling_price.getText());
+        } catch (NumberFormatException e) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi định dạng");
+            alert.setHeaderText(null);
+            alert.setContentText("ID, Quantity, Purchase Price và Selling Price phải là số hợp lệ.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Thực hiện ghi vào DB
+        Connection conn = DBConnection.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
+
+        stmt.setInt(1, Integer.parseInt(add_book_id.getText()));
+        stmt.setString(2, add_book_name.getText());
+        stmt.setInt(3, Integer.parseInt(add_book_quantity.getText()));
+        stmt.setDouble(4, Double.parseDouble(add_book_purchase_price.getText()));
+        stmt.setDouble(5, Double.parseDouble(add_book_selling_price.getText()));
+        stmt.setString(6, add_book_publisher.getText());
+        stmt.setString(7, add_book_author.getText());
+        stmt.setString(8, add_book_isbn.getText());
+        stmt.setString(9, add_book_genre.getText());
+
+        stmt.executeUpdate();
+
+        alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Admin Message");
+        alert.setHeaderText(null);
+        alert.setContentText("Successfully added new book!");
+        alert.showAndWait();
+
+        clearBookFields(); // Hàm này nên được định nghĩa để xóa dữ liệu trong các TextField
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Lỗi hệ thống");
+        alert.setHeaderText(null);
+        alert.setContentText("Có lỗi xảy ra trong quá trình thêm sách.");
+        alert.showAndWait();
+    }
+}
 
     public void loadBookData() {
     // clear bảng
@@ -709,9 +959,223 @@ public void loadToyData() {
     showToy();
 }
 
+//ADD TOY  
+    @FXML
+    private TextField add_toy_id;
+    @FXML
+    private TextField add_toy_name; 
+    @FXML
+    private TextField add_toy_quantity;
+    @FXML
+    private TextField add_toy_purchase_price;
+    @FXML
+    private TextField add_toy_selling_price;
+    @FXML
+    private TextField add_toy_brand;
+    @FXML
+    private TextField add_toy_suitable_age;
+    @FXML
+    private TextField add_toy_type;
+    @FXML
+    private TextField add_toy_image;
+    @FXML 
+    private Button add_toy_button;
+
+
+public void clearToyData() {
+       
+        add_toy_id.clear();
+        add_toy_name.clear();
+        add_toy_quantity.clear();
+        add_toy_purchase_price.clear();
+        add_toy_selling_price.clear();
+        add_toy_brand.clear();
+        add_toy_suitable_age.clear();
+        add_toy_type.clear();
+    }
+    
+public void addNewToy() {
+    String sql = "INSERT INTO toys (id, name, quantity, purchasePrice, sellingPrice, brand, suitableAges, toyType) "
+               + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+    try {
+        Alert alert;
+
+        // Kiểm tra dữ liệu rỗng
+        if (add_toy_id.getText().isEmpty() ||
+            add_toy_name.getText().isEmpty() ||
+            add_toy_quantity.getText().isEmpty() ||
+            add_toy_purchase_price.getText().isEmpty() ||
+            add_toy_selling_price.getText().isEmpty() ||
+            add_toy_brand.getText().isEmpty() ||
+            add_toy_suitable_age.getText().isEmpty() ||
+            add_toy_type.getText().isEmpty()) {
+
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Admin Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please complete all toy details.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Kiểm tra quantity là số nguyên
+        int quantity;
+        try {
+            quantity = Integer.parseInt(add_toy_quantity.getText());
+        } catch (NumberFormatException e) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi định dạng");
+            alert.setHeaderText(null);
+            alert.setContentText("Số lượng phải là số nguyên.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Kiểm tra giá nhập là số thực
+        double purchasePrice;
+        try {
+            purchasePrice = Double.parseDouble(add_toy_purchase_price.getText());
+        } catch (NumberFormatException e) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi định dạng");
+            alert.setHeaderText(null);
+            alert.setContentText("Giá nhập phải là số.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Kiểm tra giá bán là số thực
+        double sellingPrice;
+        try {
+            sellingPrice = Double.parseDouble(add_toy_selling_price.getText());
+        } catch (NumberFormatException e) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi định dạng");
+            alert.setHeaderText(null);
+            alert.setContentText("Giá bán phải là số.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Ghi vào cơ sở dữ liệu
+        Connection conn = DBConnection.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
+
+        stmt.setInt(1, Integer.parseInt(add_toy_id.getText()));
+        stmt.setString(2, add_toy_name.getText());
+        stmt.setInt(3, quantity);
+        stmt.setDouble(4, purchasePrice);
+        stmt.setDouble(5, sellingPrice);
+        stmt.setString(6, add_toy_brand.getText());
+        stmt.setString(7, add_toy_suitable_age.getText());
+        stmt.setString(8, add_toy_type.getText());
+
+        stmt.executeUpdate();
+
+        alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Admin Message");
+        alert.setHeaderText(null);
+        alert.setContentText("Successfully added new toy!");
+        alert.showAndWait();
+
+        clearToyData(); // Hàm này bạn cần định nghĩa để reset các ô nhập
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Lỗi hệ thống");
+        alert.setHeaderText(null);
+        alert.setContentText("Có lỗi xảy ra trong quá trình thêm đồ chơi.");
+        alert.showAndWait();
+    }
+}
 
 
 
+// ADD STATIONERY
+    @FXML
+    private TextField add_stationery_id;
+    @FXML
+    private TextField add_stationery_name;
+    @FXML
+    private TextField add_stationery_quantity;
+    @FXML
+    private TextField add_stationery_purchase_price;
+    @FXML
+    private TextField add_stationery_selling_price;
+    @FXML
+    private TextField add_stationery_brand;
+    @FXML
+    private TextField add_stationery_type;
+    @FXML
+    private Button add_stationary_button;
+
+private void clearStationeryFields() {
+    add_stationery_id.clear();
+    add_stationery_name.clear();
+    add_stationery_quantity.clear();
+    add_stationery_purchase_price.clear();
+    add_stationery_selling_price.clear();
+    add_stationery_brand.clear();
+    add_stationery_type.clear();
+}
+
+public void addNewStationery() {
+    String sql = "INSERT INTO stationery (id, name, quantity, purchasePrice, sellingPrice, brand, stationeryType) " +
+                 "VALUES (?, ?, ?, ?, ?, ?, ?);";
+
+    try {
+        Alert alert;
+
+        // Kiểm tra dữ liệu rỗng
+        if (add_stationery_id.getText().isEmpty()
+                || add_stationery_name.getText().isEmpty()
+                || add_stationery_quantity.getText().isEmpty()
+                || add_stationery_purchase_price.getText().isEmpty()
+                || add_stationery_selling_price.getText().isEmpty()
+                || add_stationery_brand.getText().isEmpty()
+                || add_stationery_type.getText().isEmpty()) {
+
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi dữ liệu");
+            alert.setHeaderText(null);
+            alert.setContentText("Vui lòng nhập đầy đủ thông tin văn phòng phẩm.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Kết nối và chuẩn bị câu lệnh
+        Connection conn = DBConnection.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
+
+        stmt.setInt(1, Integer.parseInt(add_stationery_id.getText()));
+        stmt.setString(2, add_stationery_name.getText());
+        stmt.setInt(3, Integer.parseInt(add_stationery_quantity.getText()));
+        stmt.setDouble(4, Double.parseDouble(add_stationery_purchase_price.getText()));
+        stmt.setDouble(5, Double.parseDouble(add_stationery_selling_price.getText()));
+        stmt.setString(6, add_stationery_brand.getText());
+        stmt.setString(7, add_stationery_type.getText());
+
+        stmt.executeUpdate();
+
+        alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Thông báo");
+        alert.setHeaderText(null);
+        alert.setContentText("Thêm văn phòng phẩm thành công!");
+        alert.showAndWait();
+
+        clearStationeryFields(); // Hàm để xóa nội dung các trường sau khi thêm xong
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Lỗi hệ thống");
+        alert.setHeaderText(null);
+        alert.setContentText("Đã xảy ra lỗi khi thêm văn phòng phẩm.");
+        alert.showAndWait();
+    }
+}
 
 
 
@@ -862,7 +1326,10 @@ public void loadStationeryData() {
             function_under_storage.setVisible(true);
             storage_table_view.setVisible(true);
             
-    }
+    } else if (event.getSource() == close_addwindow_employee_btn) {
+            employee_table_page.setVisible(true);
+            employee_add_page.setVisible(false);
+        }
 }
 
 // LOGOUT

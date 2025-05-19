@@ -131,7 +131,7 @@
    <center>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" stylesheets="@../css/login_screen.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="menu_page" prefHeight="200.0" prefWidth="100.0" styleClass="order-pane" visible="false">
+            <VBox fx:id="menu_page" prefHeight="200.0" prefWidth="100.0" styleClass="order-pane">
                <children>
                   <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" styleClass="title-pane" VBox.vgrow="ALWAYS">
                      <children>
@@ -571,7 +571,7 @@
                      </VBox.margin></HBox>
                </children>
             </VBox>
-            <VBox fx:id="employee_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="employee_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
                <children>
                   <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" styleClass="title-pane">
                      <children>
@@ -604,7 +604,7 @@
                   </HBox>
                   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0">
                      <children>
-                        <VBox fx:id="employee_table_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0" visible="false">
+                        <VBox fx:id="employee_table_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0">
                            <children>
                               <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="170.0" prefWidth="770.0">
                                  <children>
@@ -718,7 +718,7 @@
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="e_add" mnemonicParsing="false" prefHeight="29.0" prefWidth="71.0" styleClass="employee-button-add" text="Add">
+                                    <Button fx:id="e_add" mnemonicParsing="false" onAction="#showAddEmployeePage" prefHeight="29.0" prefWidth="71.0" styleClass="employee-button-add" text="Add">
                                        <HBox.margin>
                                           <Insets right="64.0" />
                                        </HBox.margin>
@@ -763,7 +763,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Text>
-                                          <TextField fx:id="add_toy_id1" promptText="e.g: 1" styleClass="text_field" />
+                                          <TextField fx:id="add_employee_id" promptText="e.g: 1" styleClass="text_field" />
                                        </children>
                                     </VBox>
                                     <VBox alignment="CENTER_LEFT" layoutX="26.0" layoutY="10.0" prefHeight="80.0" prefWidth="280.0">
@@ -776,7 +776,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Text>
-                                          <TextField fx:id="add_toy_name1" promptText="e.g: LeBonbon" styleClass="text_field" />
+                                          <TextField fx:id="add_employee_name" promptText="e.g: LeBonbon" styleClass="text_field" />
                                        </children>
                                        <HBox.margin>
                                           <Insets right="16.0" />
@@ -799,7 +799,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Text>
-                                          <TextField fx:id="add_toy_brand1" promptText="e,g: 20/10/2005" styleClass="text_field" />
+                                          <TextField fx:id="add_employee_dob" promptText="yy-mm-dd" styleClass="text_field" />
                                        </children>
                                        <HBox.margin>
                                           <Insets left="76.0" right="16.0" />
@@ -815,7 +815,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Text>
-                                          <TextField fx:id="add_toy_type1" promptText="e.g: 1 Dai Co Viet" styleClass="text_field" />
+                                          <TextField fx:id="add_employee_address" promptText="e.g: 1 Dai Co Viet" styleClass="text_field" />
                                        </children>
                                        <HBox.margin>
                                           <Insets right="16.0" />
@@ -837,7 +837,7 @@
                                           </Text>
                                           <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="280.0" styleClass="image-add">
                                              <children>
-                                                <TextField fx:id="add_toy_image1" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="255.0" promptText="insert link" styleClass="transparent" />
+                                                <TextField fx:id="add_employee_image" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="255.0" promptText="insert link" styleClass="transparent" />
                                                 <Button fx:id="toy_image_link_button1" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+">
                                                    <styleClass>
                                                       <String fx:value="transparent" />
@@ -861,7 +861,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Text>
-                                          <TextField fx:id="add_toy_quantity1" promptText="e.g: 50.00" styleClass="text_field" />
+                                          <TextField fx:id="add_employee_salary" promptText="e.g: 50.00" styleClass="text_field" />
                                        </children>
                                        <HBox.margin>
                                           <Insets right="16.0" />
@@ -869,19 +869,57 @@
                                     </VBox>
                                  </children>
                               </HBox>
-                              <HBox layoutX="10.0" layoutY="240.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" />
+                              <HBox layoutX="10.0" layoutY="240.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
+                                 <children>
+                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
+                                       <children>
+                                          <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="280.0">
+                                             <HBox.margin>
+                                                <Insets left="76.0" right="16.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number">
+                                                   <VBox.margin>
+                                                      <Insets bottom="4.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Text>
+                                                <TextField fx:id="add_employee_number" promptText="e.g: 1" styleClass="text_field" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER_LEFT" layoutX="26.0" layoutY="10.0" prefHeight="80.0" prefWidth="280.0">
+                                             <children>
+                                                <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+                                                   <VBox.margin>
+                                                      <Insets bottom="4.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Text>
+                                                <TextField fx:id="add_employee_email" promptText="e.g: LeBonbon" styleClass="text_field" />
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets right="16.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children></HBox>
                               <HBox layoutX="10.0" layoutY="272.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="770.0" />
                               <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="770.0">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
                                  <children>
-                                    <Button fx:id="add_toy_button1" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" styleClass="add-button" text="Add">
+                                    <Button fx:id="confirm_add_employee_btn" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#addNewEmployee" prefHeight="35.0" prefWidth="80.0" styleClass="add-button" text="Add">
                                        <HBox.margin>
                                           <Insets right="8.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button fx:id="toy_close_button1" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#closeAddWindow" prefHeight="35.0" prefWidth="80.0" styleClass="close-button" text="Close">
+                                    <Button fx:id="close_addwindow_employee_btn" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#closeAddWindow" prefHeight="35.0" prefWidth="80.0" styleClass="close-button" text="Close">
                                        <HBox.margin>
                                           <Insets right="48.0" />
                                        </HBox.margin>
@@ -927,7 +965,7 @@
                   </HBox>
                   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0">
                      <children>
-                        <StackPane fx:id="storage_table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0" visible="false">
+                        <StackPane fx:id="storage_table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0">
                            <children>
                               <VBox fx:id="storage_table_view" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0">
                                  <children>
@@ -1435,7 +1473,7 @@
                                           <Insets />
                                        </VBox.margin>
                                        <children>
-                                          <Button fx:id="add_toy_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" styleClass="add-button" text="Add">
+                                          <Button fx:id="add_toy_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#addNewToy" prefHeight="35.0" prefWidth="80.0" styleClass="add-button" text="Add">
                                              <HBox.margin>
                                                 <Insets right="8.0" />
                                              </HBox.margin>
@@ -1613,6 +1651,7 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
+                                          <TextField fx:id="add_book_genre" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="57.0" prefWidth="255.0" promptText="insert link" styleClass="transparent" text="GENRE" />
                                        </children>
                                     </HBox>
                                     <HBox layoutX="10.0" layoutY="240.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
@@ -1656,7 +1695,7 @@
                                           <Insets />
                                        </VBox.margin>
                                        <children>
-                                          <Button fx:id="add_book_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" styleClass="add-button" text="Add">
+                                          <Button fx:id="add_book_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#addNewBook" prefHeight="35.0" prefWidth="80.0" styleClass="add-button" text="Add">
                                              <HBox.margin>
                                                 <Insets right="8.0" />
                                              </HBox.margin>
@@ -1710,7 +1749,7 @@
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
                                                 </Text>
-                                                <TextField fx:id="add_stationary_id" promptText="e.g: 1" styleClass="text_field" />
+                                                <TextField fx:id="add_stationery_id" promptText="e.g: 1" styleClass="text_field" />
                                              </children>
                                           </VBox>
                                           <VBox alignment="CENTER_LEFT" layoutX="26.0" layoutY="10.0" prefHeight="80.0" prefWidth="280.0">
@@ -1723,7 +1762,7 @@
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
                                                 </Text>
-                                                <TextField fx:id="add_stationary_name" promptText="e.g: Ninjago" styleClass="text_field" />
+                                                <TextField fx:id="add_stationery_name" promptText="e.g: Ninjago" styleClass="text_field" />
                                              </children>
                                              <HBox.margin>
                                                 <Insets right="16.0" />
@@ -1746,7 +1785,7 @@
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
                                                 </Text>
-                                                <TextField fx:id="add_stationary_brand" promptText="e,g: LEGO" styleClass="text_field" />
+                                                <TextField fx:id="add_stationery_brand" promptText="e,g: LEGO" styleClass="text_field" />
                                              </children>
                                              <HBox.margin>
                                                 <Insets left="76.0" right="24.0" />
@@ -1762,7 +1801,7 @@
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
                                                 </Text>
-                                                <TextField fx:id="add_stationary_type" promptText="e.g: Building Blocks" styleClass="text_field" />
+                                                <TextField fx:id="add_stationery_type" promptText="e.g: Building Blocks" styleClass="text_field" />
                                              </children>
                                              <HBox.margin>
                                                 <Insets right="16.0" />
@@ -1808,7 +1847,7 @@
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
                                                 </Text>
-                                                <TextField fx:id="add_stationary_quantity" promptText="e.g: 50" styleClass="text_field" />
+                                                <TextField fx:id="add_stationery_quantity" promptText="e.g: 50" styleClass="text_field" />
                                              </children>
                                              <HBox.margin>
                                                 <Insets right="16.0" />
@@ -1828,7 +1867,7 @@
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
                                                 </Text>
-                                                <TextField fx:id="add_stationary_selling_price" promptText="e.g: 29.99" styleClass="text_field" />
+                                                <TextField fx:id="add_stationery_selling_price" promptText="e.g: 29.99" styleClass="text_field" />
                                              </children>
                                              <HBox.margin>
                                                 <Insets left="76.0" right="24.0" />
@@ -1844,7 +1883,7 @@
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
                                                 </Text>
-                                                <TextField fx:id="add_stationary_purchase_price" promptText="e.g: 20.00" styleClass="text_field" />
+                                                <TextField fx:id="add_stationery_purchase_price" promptText="e.g: 20.00" styleClass="text_field" />
                                              </children>
                                              <HBox.margin>
                                                 <Insets right="16.0" />
@@ -1857,7 +1896,7 @@
                                           <Insets />
                                        </VBox.margin>
                                        <children>
-                                          <Button fx:id="add_stationary_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" styleClass="add-button" text="Add">
+                                          <Button fx:id="add_stationary_button" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#addNewStationery" prefHeight="35.0" prefWidth="80.0" styleClass="add-button" text="Add">
                                              <HBox.margin>
                                                 <Insets right="16.0" />
                                              </HBox.margin>
