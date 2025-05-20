@@ -24,12 +24,16 @@ public class BookController {
     @FXML
     private VBox box;
 
+    @FXML
+    private Label bookPrice;
+
     public void setData(Book book) {
         Image image = new Image(getClass().getResourceAsStream(book.getImageSrc()));
         bookImage.setImage(image);
 
         bookName.setText(book.getName());
         authorName.setText(book.getAuthor());
+        bookPrice.setText(String.valueOf(book.getSellingPrice()));
     }
 
     public void showInfo(MouseEvent event) throws IOException {

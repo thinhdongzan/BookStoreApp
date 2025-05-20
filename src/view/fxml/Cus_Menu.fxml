@@ -185,7 +185,7 @@
             </HBox>
             <StackPane id="Main-Stack" prefHeight="673.0" prefWidth="1100.0">
                <children>
-                  <Pane id="Book_Pane" fx:id="bookPane" prefHeight="661.0" prefWidth="1100.0">
+                  <Pane id="Book_Pane" fx:id="bookPane" disable="true" prefHeight="661.0" prefWidth="1100.0" visible="false">
                      <children>
                         <VBox prefHeight="670.0" prefWidth="1104.0">
                            <children>
@@ -952,7 +952,7 @@
                         </ScrollPane>
                      </children>
                   </Pane>
-                  <Pane id="Stationery_Pane" fx:id="stationeryPane" disable="true" prefHeight="661.0" prefWidth="1100.0" visible="false">
+                  <Pane id="Stationery_Pane" fx:id="stationeryPane" prefHeight="661.0" prefWidth="1100.0">
                      <children>
                         <ScrollPane prefHeight="661.0" prefWidth="1100.0">
                            <content>
@@ -972,7 +972,7 @@
                                           </Label>
                                        </children>
                                     </Pane>
-                                    <FlowPane fx:id="stationeryLayout" prefHeight="234.0" prefWidth="1084.0" />
+                                    <FlowPane fx:id="stationeryLayout" hgap="10.0" prefHeight="234.0" prefWidth="1084.0" vgap="10.0" />
                                  </children>
                               </VBox>
                            </content>

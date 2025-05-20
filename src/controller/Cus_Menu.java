@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import dao.BookDAO;
+import dao.StationeryDAO;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -24,6 +25,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Book;
+import model.Stationery;
 import utils.PopUpNoti;
 
 public class Cus_Menu implements Initializable {
@@ -153,7 +155,7 @@ public class Cus_Menu implements Initializable {
         bestSellers = BookDAO.getBestSeller();
         try {
             for (Book book : bestSellers) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Display_Book.fxml"));
                 VBox box = loader.load();
                 BookController bookController = loader.getController();
                 bookController.setData(book);
@@ -170,7 +172,7 @@ public class Cus_Menu implements Initializable {
         recommendedForYou = BookDAO.getRecommendedForYou();
         try {
             for (Book book : recommendedForYou) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Display_Book.fxml"));
                 VBox box = loader.load();
                 BookController bookController = loader.getController();
                 bookController.setData(book);
@@ -193,6 +195,18 @@ public class Cus_Menu implements Initializable {
     public void stationeryChoose() throws IOException {
         setSelectedNav(stationeryNav);
         choosePane(stationeryPane);
+        List<Stationery> stationeryList = StationeryDAO.getAllStationery();
+        try {
+            for (Stationery stationery : stationeryList) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Display_Stationery.fxml"));
+                VBox stationeryBox = loader.load();
+                StationeryController stationeryController = loader.getController();
+                stationeryController.setData(stationery);
+                stationeryLayout.getChildren().add(stationeryBox);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void toyChoose() throws IOException {
@@ -241,7 +255,7 @@ public class Cus_Menu implements Initializable {
         selfHelpLayout.getChildren().clear(); // Clear existing books before adding new ones
         try {
             for (Book book : selfHelpBooks) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Display_Book.fxml"));
                 VBox box = loader.load();
                 BookController bookController = loader.getController();
                 bookController.setData(book);
@@ -258,7 +272,7 @@ public class Cus_Menu implements Initializable {
         comicLayout.getChildren().clear(); // Clear existing books before adding new ones
         try {
             for (Book book : comicBooks) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Display_Book.fxml"));
                 VBox box = loader.load();
                 BookController bookController = loader.getController();
                 bookController.setData(book);
@@ -275,7 +289,7 @@ public class Cus_Menu implements Initializable {
         fairyTaleLayout.getChildren().clear(); // Clear existing books before adding new ones
         try {
             for (Book book : fairyTaleBooks) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Display_Book.fxml"));
                 VBox box = loader.load();
                 BookController bookController = loader.getController();
                 bookController.setData(book);
@@ -292,7 +306,7 @@ public class Cus_Menu implements Initializable {
         horrorLayout.getChildren().clear(); // Clear existing books before adding new ones
         try {
             for (Book book : horrorBooks) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Display_Book.fxml"));
                 VBox box = loader.load();
                 BookController bookController = loader.getController();
                 bookController.setData(book);
@@ -309,7 +323,7 @@ public class Cus_Menu implements Initializable {
         novelLayout.getChildren().clear(); // Clear existing books before adding new ones
         try {
             for (Book book : novelBooks) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Display_Book.fxml"));
                 VBox box = loader.load();
                 BookController bookController = loader.getController();
                 bookController.setData(book);
@@ -326,7 +340,7 @@ public class Cus_Menu implements Initializable {
         romanceLayout.getChildren().clear(); // Clear existing books before adding new ones
         try {
             for (Book book : romanceBooks) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Display_Book.fxml"));
                 VBox box = loader.load();
                 BookController bookController = loader.getController();
                 bookController.setData(book);
@@ -343,7 +357,7 @@ public class Cus_Menu implements Initializable {
         adventureLayout.getChildren().clear(); // Clear existing books before adding new ones
         try {
             for (Book book : adventureBooks) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Book.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Display_Book.fxml"));
                 VBox box = loader.load();
                 BookController bookController = loader.getController();
                 bookController.setData(book);
@@ -421,4 +435,5 @@ public class Cus_Menu implements Initializable {
     // Stationery
     @FXML
     private FlowPane stationeryLayout;
+
 }
