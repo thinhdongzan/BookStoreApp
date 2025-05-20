@@ -1,9 +1,9 @@
 .menu_pane {
-    -fx-background-color: #7d9ffa;
+    -fx-background-color: #4a6188;
 }
 
 .title-pane{
-    -fx-background-color: #7d9ffa;
+    -fx-background-color: #4a6188;
     -fx-border-width: 0 0 0 1;
     -fx-border-color: white;
 }
@@ -56,7 +56,8 @@
 .menu-button{
     -fx-background-color: transparent;
     -fx-text-fill: white;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
 }
 
 .order-pane{
@@ -348,3 +349,40 @@
     -fx-scale-x: 1.01;
     -fx-scale-y: 1.01;
 }
+
+/* product */
+.product-pane{
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-padding: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);
+}
+
+.product-title{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(to bottom right, #3e70fa, #1a30f2);
+}
+
+.product-price{
+    -fx-text-fill: gray;
+    -fx-font-size: 12px;
+}
+
+.product-info-title{
+    -fx-font-size: 20;
+    -fx-text-fill: gray;
+}
+
+.product-info{
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 12;
+}
+
+.product-pane:hover{
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+}
+
+

@@ -145,8 +145,9 @@
 }
 
 .card-form{
-    -fx-background-color:#f8f8f8;
-    -fx-border-color:#454368;
-    -fx-border-radius:10px;
-    -fx-background-radius:10px;
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-padding: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);
 }
+
