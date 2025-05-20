@@ -9,6 +9,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -131,7 +132,7 @@
    <center>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" stylesheets="@../css/login_screen.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="menu_page" prefHeight="200.0" prefWidth="100.0" styleClass="order-pane">
+            <VBox fx:id="menu_page" prefHeight="200.0" prefWidth="100.0" styleClass="order-pane" visible="false">
                <children>
                   <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" styleClass="title-pane" VBox.vgrow="ALWAYS">
                      <children>
@@ -965,7 +966,7 @@
                   </HBox>
                   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0">
                      <children>
-                        <StackPane fx:id="storage_table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0">
+                        <StackPane fx:id="storage_table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0" visible="false">
                            <children>
                               <VBox fx:id="storage_table_view" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0">
                                  <children>
@@ -1264,7 +1265,7 @@
                               </VBox>
                            </children>
                         </StackPane>
-                        <StackPane fx:id="storage_add" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0" visible="false">
+                        <StackPane fx:id="storage_add" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0">
                            <children>
                               <VBox fx:id="toys_add_storage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="770.0" stylesheets="@../css/add.css" visible="false">
                                  <children>
@@ -1487,7 +1488,7 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <VBox fx:id="books_add_storage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="770.0" stylesheets="@../css/add.css" visible="false">
+                              <VBox fx:id="books_add_storage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="770.0" stylesheets="@../css/add.css">
                                  <children>
                                     <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="720.0" stylesheets="@../css/add.css">
                                        <children>
@@ -1651,7 +1652,19 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <TextField fx:id="add_book_genre" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="57.0" prefWidth="255.0" promptText="insert link" styleClass="transparent" text="GENRE" />
+                                          <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="280.0">
+                                             <children>
+                                                <Text fill="#7e7e7e" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre">
+                                                   <VBox.margin>
+                                                      <Insets bottom="4.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Text>
+                                                <TextField fx:id="add_book_genre" promptText="e.g: Romance" styleClass="text_field" />
+                                             </children>
+                                          </VBox>
                                        </children>
                                     </HBox>
                                     <HBox layoutX="10.0" layoutY="240.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
@@ -1916,163 +1929,283 @@
                   </StackPane>
                </children>
             </VBox>
-            <VBox fx:id="dashboard_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
+            <VBox fx:id="dashboard_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" styleClass="title-pane">
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
-                           <font>
-                              <Font name="Calibri" size="24.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="16.0" />
-                           </HBox.margin>
-                        </Text>
-                        <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="428.0" />
-                        <Pane fx:id="search_bar112" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" styleClass="search_bar">
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" styleClass="title-pane">
                            <children>
-                              <TextField fx:id="serach_field112" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
-                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
-                                 <image>
-                                    <Image url="@../images/Logo/search.png" />
-                                 </image>
-                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+                                 <font>
+                                    <Font name="Calibri" size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="16.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="428.0" />
+                              <Pane fx:id="search_bar112" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" styleClass="search_bar">
+                                 <children>
+                                    <TextField fx:id="serach_field112" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
+                                       <image>
+                                          <Image url="@../images/Logo/search.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <HBox.margin>
+                                    <Insets right="16.0" />
+                                 </HBox.margin>
+                              </Pane>
                            </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <HBox.margin>
-                              <Insets right="16.0" />
-                           </HBox.margin>
-                        </Pane>
+                        </HBox>
                      </children>
-                  </HBox>
-                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="770.0">
-                     <children>
-                        <Button fx:id="d_day_button" mnemonicParsing="false" styleClass="date-button" text="Day">
-                           <HBox.margin>
-                              <Insets right="16.0" />
-                           </HBox.margin></Button>
-                        <Button fx:id="d_week_button" mnemonicParsing="false" styleClass="date-button" text="Week">
-                           <HBox.margin>
-                              <Insets right="16.0" />
-                           </HBox.margin></Button>
-                        <Button fx:id="d_month_button" mnemonicParsing="false" styleClass="date-button" text="Month">
-                           <HBox.margin>
-                              <Insets right="16.0" />
-                           </HBox.margin></Button>
-                        <Button fx:id="d_year_button" mnemonicParsing="false" styleClass="date-button" text="Year">
-                           <HBox.margin>
-                              <Insets right="16.0" />
-                           </HBox.margin></Button>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="770.0">
-                     <children>
-                        <VBox fx:id="revenue_buton" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="200.0" styleClass="card-pane">
+                  </AnchorPane>
+                  <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="470.0" prefWidth="770.0">
+                     <content>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="770.0">
                            <children>
-                              <Label styleClass="card-title" text="Revenue">
+                              <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="770.0">
+                                 <children>
+                                    <Button fx:id="d_day_button" mnemonicParsing="false" styleClass="date-button" text="Day">
+                                       <HBox.margin>
+                                          <Insets right="16.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="d_week_button" mnemonicParsing="false" styleClass="date-button" text="Week">
+                                       <HBox.margin>
+                                          <Insets right="16.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="d_month_button" mnemonicParsing="false" styleClass="date-button" text="Month">
+                                       <HBox.margin>
+                                          <Insets right="16.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="d_year_button" mnemonicParsing="false" styleClass="date-button" text="Year">
+                                       <HBox.margin>
+                                          <Insets right="24.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="770.0">
+                                 <children>
+                                    <VBox fx:id="revenue_buton" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="208.0" styleClass="card-pane">
+                                       <children>
+                                          <Label styleClass="card-title" text="Revenue">
+                                             <VBox.margin>
+                                                <Insets left="12.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label styleClass="card-value" text="Label" textFill="#1c1c1c">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="12.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets right="32.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox fx:id="costs_box" layoutX="295.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="208.0" styleClass="card-pane">
+                                       <children>
+                                          <Label styleClass="card-title" text="Costs">
+                                             <VBox.margin>
+                                                <Insets left="12.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label styleClass="card-value" text="Label" textFill="#1c1c1c">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="12.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets right="32.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox fx:id="profitx_box" layoutX="395.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="208.0" styleClass="card-pane">
+                                       <children>
+                                          <Label styleClass="card-title" text="Profits">
+                                             <VBox.margin>
+                                                <Insets left="12.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label styleClass="card-value" text="Label" textFill="#1c1c1c">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="12.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets right="32.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
                                  <VBox.margin>
-                                    <Insets left="12.0" />
+                                    <Insets />
                                  </VBox.margin>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label styleClass="card-value" text="Label" textFill="#1c1c1c">
-                                 <font>
-                                    <Font name="System Bold" size="20.0" />
-                                 </font>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="770.0">
                                  <VBox.margin>
-                                    <Insets left="12.0" />
+                                    <Insets top="20.0" />
                                  </VBox.margin>
-                              </Label>
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="240.0" prefWidth="448.0" styleClass="chart-pane">
+                                       <HBox.margin>
+                                          <Insets left="54.0" right="32.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <Label fx:id="chart_title_dashboard" text="Revenue">
+                                             <VBox.margin>
+                                                <Insets bottom="8.0" left="24.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <BarChart fx:id="bar_chart_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="400.0" styleClass="chart">
+                                            <xAxis>
+                                              <CategoryAxis maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="320.0" side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="208.0" styleClass="expenses-pane">
+                                       <children>
+                                          <Label fx:id="expenses_label_dashboard" text="Expeneses">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Label>
+                                          <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-container">
+                                             <VBox.margin>
+                                                <Insets top="16.0" />
+                                             </VBox.margin>
+                                             <children>
+                                                <StackPane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-bg">
+                                                   <children>
+                                                      <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" styleClass="progress-bar-fill" />
+                                                      <Label text="Label" textFill="WHITE">
+                                                         <StackPane.margin>
+                                                            <Insets left="8.0" />
+                                                         </StackPane.margin>
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox layoutX="30.0" layoutY="68.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-container">
+                                             <children>
+                                                <StackPane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-bg">
+                                                   <children>
+                                                      <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="120.0" styleClass="progress-bar-fill" />
+                                                      <Label text="Label" textFill="WHITE">
+                                                         <StackPane.margin>
+                                                            <Insets left="8.0" />
+                                                         </StackPane.margin>
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="8.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox layoutX="30.0" layoutY="98.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-container">
+                                             <children>
+                                                <StackPane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-bg">
+                                                   <children>
+                                                      <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="140.0" styleClass="progress-bar-fill" />
+                                                      <Label text="Label" textFill="WHITE">
+                                                         <StackPane.margin>
+                                                            <Insets left="8.0" />
+                                                         </StackPane.margin>
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="8.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox layoutX="30.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-container">
+                                             <children>
+                                                <StackPane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-bg">
+                                                   <children>
+                                                      <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-fill" />
+                                                      <Label text="Label" textFill="WHITE">
+                                                         <StackPane.margin>
+                                                            <Insets left="8.0" />
+                                                         </StackPane.margin>
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="8.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets right="32.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <TableView prefHeight="353.0" prefWidth="686.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="C1" />
+                                  <TableColumn prefWidth="75.0" text="C2" />
+                                </columns>
+                                 <VBox.margin>
+                                    <Insets left="52.0" right="32.0" top="24.0" />
+                                 </VBox.margin>
+                              </TableView>
                            </children>
-                           <HBox.margin>
-                              <Insets right="32.0" />
-                           </HBox.margin>
                         </VBox>
-                        <VBox fx:id="costs_box" layoutX="295.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="200.0" styleClass="card-pane">
-                           <children>
-                              <Label styleClass="card-title" text="Costs">
-                                 <VBox.margin>
-                                    <Insets left="12.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label styleClass="card-value" text="Label" textFill="#1c1c1c">
-                                 <font>
-                                    <Font name="System Bold" size="20.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets left="12.0" />
-                                 </VBox.margin>
-                              </Label>
-                           </children>
-                           <HBox.margin>
-                              <Insets right="32.0" />
-                           </HBox.margin>
-                        </VBox>
-                        <VBox fx:id="profitx_box" layoutX="395.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="200.0" styleClass="card-pane">
-                           <children>
-                              <Label styleClass="card-title" text="Profits">
-                                 <VBox.margin>
-                                    <Insets left="12.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label styleClass="card-value" text="Label" textFill="#1c1c1c">
-                                 <font>
-                                    <Font name="System Bold" size="20.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets left="12.0" />
-                                 </VBox.margin>
-                              </Label>
-                           </children>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </VBox>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="770.0">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                     <children>
-                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="360.0">
-                           <HBox.margin>
-                              <Insets left="54.0" />
-                           </HBox.margin>
-                           <children>
-                              <Label fx:id="chart_title_dashboard" text="Revenue">
-                                 <VBox.margin>
-                                    <Insets left="24.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                              </Label>
-                              <BarChart maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="160.0" prefWidth="320.0">
-                                <xAxis>
-                                  <CategoryAxis maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="320.0" side="BOTTOM" />
-                                </xAxis>
-                                <yAxis>
-                                  <NumberAxis side="LEFT" />
-                                </yAxis>
-                              </BarChart>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
+                     </content>
+                  </ScrollPane>
                </children>
             </VBox>
          </children>
