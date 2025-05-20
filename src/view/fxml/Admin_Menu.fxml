@@ -2094,10 +2094,10 @@
                                           </Label>
                                           <BarChart fx:id="bar_chart_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="400.0" styleClass="chart">
                                             <xAxis>
-                                              <CategoryAxis maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="320.0" side="BOTTOM" />
+                                              <CategoryAxis label="date" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="320.0" side="BOTTOM" />
                                             </xAxis>
                                             <yAxis>
-                                              <NumberAxis side="LEFT" />
+                                              <NumberAxis prefHeight="125.0" prefWidth="24.0" side="LEFT" />
                                             </yAxis>
                                           </BarChart>
                                        </children>

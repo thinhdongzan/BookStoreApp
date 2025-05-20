@@ -276,7 +276,9 @@
 
 .chart-plot-background {
     -fx-background-color: transparent;
+
 }
+
 
 .chart-vertical-grid-lines,
 .chart-horizontal-grid-lines {
@@ -294,15 +296,18 @@
     -fx-background-radius: 12px;
 }
 
-.axis {
-    -fx-tick-label-fill: #3e70fa;
+.axis{
+    -fx-axis-line-color: black; /* Axis line */
+    -fx-tick-mark-color: black; /* Tick marks (small lines) */
+    -fx-tick-label-fill: black;
     -fx-tick-length: 0;
-    -fx-font-size: 11px;
+    -fx-font-size: 12px;
 }
 
 .axis-label {
-    -fx-text-fill: #3e70fa;
+    -fx-text-fill: #1a30f2;
     -fx-font-size: 12px;
+    -fx-font-weight: bold;
 }
 
 .chart-pane{
