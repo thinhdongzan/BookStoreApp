@@ -2104,7 +2104,7 @@
                                     </VBox>
                                     <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="208.0" styleClass="expenses-pane">
                                        <children>
-                                          <Label fx:id="expenses_label_dashboard" text="Expeneses">
+                                          <Label fx:id="expenses_label_dashboard" styleClass="total-expense" text="Expeneses">
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
@@ -2187,6 +2187,15 @@
                                                       </Label>
                                                    </children>
                                                 </StackPane>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="8.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                             <children>
+                                                <Label styleClass="total-expense" text="Total: " />
+                                                <Label fx:id="total_expense_label_dashboard" styleClass="total-expense" text="Label" />
                                              </children>
                                              <VBox.margin>
                                                 <Insets top="8.0" />

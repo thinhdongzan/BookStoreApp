@@ -350,6 +350,11 @@
     -fx-scale-y: 1.01;
 }
 
+.total-expense{
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+}
 /* product */
 .product-pane{
     -fx-background-color: white;
