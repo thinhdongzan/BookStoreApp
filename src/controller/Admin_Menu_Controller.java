@@ -1,28 +1,24 @@
 package controller;
 
 
-
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+// import java.sql.Connection;
+// import java.sql.PreparedStatement;
+// import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+// import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
+// import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
-import javax.swing.Action;
-
+// import javax.swing.Action;
 import javafx.scene.control.*;
-
-
-import dao.DBConnection;
-//import dao.DBConnection;
-
-
+import dao.BookDAO;
+// import dao.DBConnection;
+import dao.EmployeeDAO;
+import dao.ToyDAO;
+import dao.StationeryDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,13 +27,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.LineChart;
+// import javafx.scene.chart.BarChart;
+// import javafx.scene.chart.LineChart;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -320,14 +317,32 @@ public class Admin_Menu_Controller implements Initializable  {
 
 
 
-    private Connection connect;
-    private PreparedStatement prepare;
-    // private Statement statement;
-    private ResultSet result;
+    // private Connection connect;
+    // private PreparedStatement prepare;
+    // // private Statement statement;
+    // private ResultSet result;
 
     private Image image;
 
 
+
+
+    @FXML
+    private Region bar10;
+    @FXML
+    private Region bar20;
+    // Add others as needed
+
+    @FXML
+    public void initialize() {
+        setProgress(bar10, 1);
+        setProgress(bar20, 0.20);
+        // ...
+    }
+
+    private void setProgress(Region bar, double percentage) {
+        bar.setPrefWidth(160 * percentage); // 300 is full width
+    }
 
 
     // SHOW MENU PAGE
@@ -380,49 +395,15 @@ public class Admin_Menu_Controller implements Initializable  {
         }
     }
 
-    ///SHOW EMPLOYEE TABLE
-    public ObservableList<Employee> dataList() {
 
-        ObservableList<Employee> listEmployees = FXCollections.observableArrayList();
 
-        String sql = "SELECT * FROM employee";
-
-        //connect = Database.connectDB();
-
-        try (Connection conn = DBConnection.getConnection();
-                Statement stmt = conn.createStatement();
-                ResultSet result = stmt.executeQuery(sql)) {
-
-            Employee anEmployee;
-
-            // prepare = connect.prepareStatement(sql);
-            // result = prepare.executeQuery();
-
-            while (result.next()) {
-                anEmployee = new Employee(
-                result.getInt("id"),
-                result.getString("name"),
-                result.getString("dob"),
-                result.getString("address"),
-                result.getDouble("salary"),
-                result.getString("image"),
-                result.getString("phone"),
-                result.getString("email")
-                );
-
-                listEmployees.add(anEmployee);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return listEmployees;
-    }
 
     private ObservableList<Employee> listEmployees;
 
+    @FXML
     public void showEmployee() {
 
-        listEmployees = dataList();
+        listEmployees = EmployeeDAO.getEmployeeDataList();
 
         id_col.setCellValueFactory(new PropertyValueFactory<>("id"));
         name_col.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -432,7 +413,7 @@ public class Admin_Menu_Controller implements Initializable  {
         employee_table.setItems(listEmployees);
 
         totalEmployee_label.setText(""+listEmployees.size());
-        // totalEmployee_label_menu.setText(""+listEmployees.size());
+        totalEmployee_label_menu.setText(""+listEmployees.size());
     }
     
     public void selectEmployee() {
@@ -455,62 +436,53 @@ public class Admin_Menu_Controller implements Initializable  {
 
     }
 
-    public void loadEmployeeData() {
-    // clear bảng
-    employee_table.getItems().clear();
-    showEmployee();
+    public Label getTake_nameLabel() {
+    return take_nameLabel;
+}
 
-    }
-    public void removeEmployee() {
-    String sql = "DELETE FROM employee WHERE name = ?";
+   
+    @FXML
+    public void removeEmployee(ActionEvent event) {
+        if (event.getSource() == e_remove) {
+            try {
+                // Gọi DAO chỉ xử lý SQL
+                boolean removed = EmployeeDAO.removeEmployee(this);
 
-    try (Connection conn = DBConnection.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-        Alert alert;
-
-        // Giả sử bạn chọn dòng trên bảng và lấy ID từ label hoặc field
-        if (take_nameLabel.getText().isEmpty()) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Admin Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Please select an employee to remove.");
-            alert.showAndWait();
-        } else {
-            // Xác nhận trước khi xóa
-            alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation");
-            alert.setHeaderText(null);
-            alert.setContentText("Are you sure you want to delete this employee?");
-            Optional<ButtonType> option = alert.showAndWait();
-
-            if (option.isPresent() && option.get() == ButtonType.OK) {
-                // Lấy ID từ label/field và đưa vào câu lệnh
-                stmt.setString(1, take_nameLabel.getText());
-                int affectedRows = stmt.executeUpdate();
-
-                if (affectedRows > 0) {
+                // Hiển thị thông báo tương ứng
+                Alert alert;
+                if (removed) {
                     alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Admin Message");
                     alert.setHeaderText(null);
                     alert.setContentText("Employee successfully removed.");
                     alert.showAndWait();
 
-                    loadEmployeeData(); // gọi lại để cập nhật bảng
-                    // TODO: Load lại bảng dữ liệu ở đây nếu cần
+                    showEmployee(); // Refresh bảng nếu cần
                 } else {
                     alert = new Alert(Alert.AlertType.WARNING);
                     alert.setTitle("Admin Message");
                     alert.setHeaderText(null);
-                    alert.setContentText("No employee found with the given ID.");
+                    alert.setContentText("No employee found with the given name.");
                     alert.showAndWait();
                 }
+            } catch (IllegalArgumentException e) {
+                // Trường hợp label chưa chọn hoặc null
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Admin Message");
+                alert.setHeaderText(null);
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
+            } catch (Exception e) {
+                e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("System Error");
+                alert.setHeaderText(null);
+                alert.setContentText("An unexpected error occurred.");
+                alert.showAndWait();
             }
         }
-    } catch (Exception e) {
-        e.printStackTrace();
     }
-}
+
 
 
     // SHOW ADD EMPLOYEE PAGE
@@ -525,13 +497,16 @@ public class Admin_Menu_Controller implements Initializable  {
 
     @FXML
     private Button close_addwindow_employee_btn;
-public void showAddEmployeePage(ActionEvent event) {
+
+    public void showAddEmployeePage(ActionEvent event) {
     if (event.getSource() == e_add) {
         employee_table_page.setVisible(false);
         employee_add_page.setVisible(true);
     }
         
 }
+
+
 
     @FXML
     private TextField add_employee_name;
@@ -550,6 +525,57 @@ public void showAddEmployeePage(ActionEvent event) {
     @FXML
     private TextField add_employee_id;
 
+    public TextField getAdd_employee_id() { return add_employee_id; }
+    public TextField getAdd_employee_name() { return add_employee_name; }
+    public TextField getAdd_employee_dob() { return add_employee_dob; }
+    public TextField getAdd_employee_address() { return add_employee_address; }
+    public TextField getAdd_employee_salary() { return add_employee_salary; }
+    public TextField getAdd_employee_number() { return add_employee_number; }
+    public TextField getAdd_employee_email() { return add_employee_email; }
+
+    public void addNewEmployee(ActionEvent event) {
+    if (event.getSource() == confirm_add_employee_btn) {
+        try {
+            boolean success = EmployeeDAO.addEmployee(this);
+
+            Alert alert;
+            if (success) {
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Admin Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Successfully added new employee!");
+                alert.showAndWait();
+
+                clearEmployeeData(); // Xóa form
+                showEmployee();      // Refresh bảng
+            } else {
+                alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Admin Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Employee was not added.");
+                alert.showAndWait();
+            }
+
+        } catch (IllegalArgumentException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("System Error");
+            alert.setHeaderText(null);
+            alert.setContentText("An unexpected error occurred while adding the employee.");
+            alert.showAndWait();
+        }
+    }
+}
+
+
+
     public void clearEmployeeData() {
        
         add_employee_name.clear();
@@ -561,95 +587,12 @@ public void showAddEmployeePage(ActionEvent event) {
         profile_image.setImage(null);
     }
     
-    public void addNewEmployee() {
-    String sql = "INSERT INTO employee (id, name, dob, address, salary, image, phone, email)\r\n" + //
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?);\r\n" + //
-                "";
-
-    try {
-        Alert alert;
-
-        
-
-
-        // Kiểm tra dữ liệu rỗng
-        if (add_employee_name.getText().isEmpty()
-                || add_employee_dob.getText().isEmpty()
-                || add_employee_address.getText().isEmpty()
-                || add_employee_salary.getText().isEmpty()
-                || add_employee_number.getText().isEmpty()
-                || add_employee_email.getText().isEmpty()) {
-
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Admin Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Please complete all employee details.");
-            alert.showAndWait();
-            return;
-        }
-
-        // Kiểm tra định dạng ngày sinh (yyyy-MM-dd)
-        java.sql.Date dob;
-        try {
-            dob = java.sql.Date.valueOf(add_employee_dob.getText());
-        } catch (IllegalArgumentException e) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi định dạng ngày");
-            alert.setHeaderText(null);
-            alert.setContentText("Vui lòng nhập ngày theo định dạng yyyy-MM-dd (VD: 2000-05-19)");
-            alert.showAndWait();
-            return;
-        }
-
-        // Kiểm tra số điện thoại là số
-        String phoneText = add_employee_number.getText();
-        if (!phoneText.matches("\\d+")) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi định dạng số điện thoại");
-            alert.setHeaderText(null);
-            alert.setContentText("Số điện thoại chỉ được chứa chữ số.");
-            alert.showAndWait();
-            return;
-        }
-
-        // Thực hiện ghi dữ liệu vào DB
-        Connection conn = DBConnection.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql);
-
-        stmt.setInt(1, Integer.parseInt(add_employee_id.getText()));
-        stmt.setString(2, add_employee_name.getText());
-        stmt.setDate(3, dob);
-        stmt.setString(4, add_employee_address.getText());
-        stmt.setDouble(5, Double.parseDouble(add_employee_salary.getText()));
-        stmt.setString(6, phoneText);
-        stmt.setString(7, add_employee_email.getText());
-        stmt.setString(8, getData.path); // giả định bạn đã có getData.path
-
-        stmt.executeUpdate();
-
-        alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Admin Message");
-        alert.setHeaderText(null);
-        alert.setContentText("Successfully added new employee!");
-        alert.showAndWait();
-
-        clearEmployeeData(); // Đảm bảo hàm này được định nghĩa
-
-    } catch (Exception e) {
-        e.printStackTrace();
-
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Lỗi hệ thống");
-        alert.setHeaderText(null);
-        alert.setContentText("Có lỗi xảy ra trong quá trình thêm nhân viên.");
-        alert.showAndWait();
-    }
-}
 
 
 
 
-// SHOW STORAGE PAGE
+
+    // SHOW STORAGE PAGE
     public void showStoragePage(ActionEvent event) {
     if (event.getSource() == books_table_button) {
         books_table_storage.setVisible(true);
@@ -672,40 +615,12 @@ public void showAddEmployeePage(ActionEvent event) {
 
 
 
-// SHOW BOOK TABLE
-    public ObservableList<Book> bookDataList() {
+    // SHOW BOOK TABLE
 
-    ObservableList<Book> listBooks = FXCollections.observableArrayList();
-    String sql = "SELECT * FROM book";
-
-    try (Connection conn = DBConnection.getConnection();
-         Statement stmt = conn.createStatement();
-         ResultSet result = stmt.executeQuery(sql)) {
-
-        Book book;
-
-        while (result.next()) {
-            book = new Book(
-                result.getInt("id"),
-                result.getString("name"),
-                result.getInt("quantity"),
-                result.getDouble("purchasePrice"),
-                result.getDouble("sellingPrice"),
-                result.getString("author"),
-                result.getString("publisher"),
-                result.getString("isbn")
-            );
-            listBooks.add(book);
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-    return listBooks;
-}
 
     private ObservableList<Book> listBooks;
     public void showBook() {
-    listBooks = bookDataList();
+    listBooks = BookDAO.bookDataList();
 
     bookId_storage_col.setCellValueFactory(new PropertyValueFactory<>("id"));
     bookIsbn_storage_col.setCellValueFactory(new PropertyValueFactory<>("isbn"));
@@ -757,80 +672,59 @@ public void showAddEmployeePage(ActionEvent event) {
 
 
 
-public void addNewBook() {
-    String sql = "INSERT INTO book (id, name, quantity, purchasePrice, sellingPrice, publisher, author, isbn, genre) " +
-                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    public TextField getAdd_book_id() { return add_book_id; }
+    public TextField getAdd_book_name() { return add_book_name; }
+    public TextField getAdd_book_quantity() { return add_book_quantity; }
+    public TextField getAdd_book_purchase_price() { return add_book_purchase_price; }
+    public TextField getAdd_book_selling_price() { return add_book_selling_price; }
+    public TextField getAdd_book_publisher() { return add_book_publisher; }
+    public TextField getAdd_book_author() { return add_book_author; }
+    public TextField getAdd_book_isbn() { return add_book_isbn; }
+    public TextField getAdd_book_genre() { return add_book_genre; }
 
-    try {
-        Alert alert;
-
-        // Kiểm tra dữ liệu rỗng
-        if (add_book_id.getText().isEmpty() ||
-            add_book_name.getText().isEmpty() ||
-            add_book_quantity.getText().isEmpty() ||
-            add_book_purchase_price.getText().isEmpty() ||
-            add_book_selling_price.getText().isEmpty() ||
-            add_book_publisher.getText().isEmpty() ||
-            add_book_author.getText().isEmpty() ||
-            add_book_isbn.getText().isEmpty() ||
-            add_book_genre.getText().isEmpty()) {
-
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Admin Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Please complete all book details.");
-            alert.showAndWait();
-            return;
-        }
-
-        // Kiểm tra các trường là số
+   @FXML
+    public void addNewBook(ActionEvent event) {
+    if (event.getSource() == add_book_button) {
         try {
-            Integer.parseInt(add_book_id.getText());
-            Integer.parseInt(add_book_quantity.getText());
-            Double.parseDouble(add_book_purchase_price.getText());
-            Double.parseDouble(add_book_selling_price.getText());
-        } catch (NumberFormatException e) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi định dạng");
+            // Gọi DAO để thêm sách, nếu lỗi input sẽ ném ra
+            boolean success = BookDAO.addNewBook(this);
+
+            Alert alert;
+            if (success) {
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Admin Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Successfully added new book!");
+                alert.showAndWait();
+
+                clearBookFields();  // Xóa form
+                loadBookData();     // Refresh bảng
+            } else {
+                alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Admin Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Book was not added.");
+                alert.showAndWait();
+            }
+
+        } catch (IllegalArgumentException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Input");
             alert.setHeaderText(null);
-            alert.setContentText("ID, Quantity, Purchase Price và Selling Price phải là số hợp lệ.");
+            alert.setContentText(e.getMessage());
             alert.showAndWait();
-            return;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("System Error");
+            alert.setHeaderText(null);
+            alert.setContentText("An unexpected error occurred while adding the book.");
+            alert.showAndWait();
         }
-
-        // Thực hiện ghi vào DB
-        Connection conn = DBConnection.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql);
-
-        stmt.setInt(1, Integer.parseInt(add_book_id.getText()));
-        stmt.setString(2, add_book_name.getText());
-        stmt.setInt(3, Integer.parseInt(add_book_quantity.getText()));
-        stmt.setDouble(4, Double.parseDouble(add_book_purchase_price.getText()));
-        stmt.setDouble(5, Double.parseDouble(add_book_selling_price.getText()));
-        stmt.setString(6, add_book_publisher.getText());
-        stmt.setString(7, add_book_author.getText());
-        stmt.setString(8, add_book_isbn.getText());
-        stmt.setString(9, add_book_genre.getText());
-
-        stmt.executeUpdate();
-
-        alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Admin Message");
-        alert.setHeaderText(null);
-        alert.setContentText("Successfully added new book!");
-        alert.showAndWait();
-
-        clearBookFields(); // Hàm này nên được định nghĩa để xóa dữ liệu trong các TextField
-
-    } catch (Exception e) {
-        e.printStackTrace();
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Lỗi hệ thống");
-        alert.setHeaderText(null);
-        alert.setContentText("Có lỗi xảy ra trong quá trình thêm sách.");
-        alert.showAndWait();
     }
 }
+
 
     public void loadBookData() {
     // clear bảng
@@ -841,123 +735,109 @@ public void addNewBook() {
 
 
     public void removeSelectedItem() {
-    Alert alert;
+        // Alert alert;
 
-    try (Connection conn = DBConnection.getConnection()) {
-        if (books_table_storage.isVisible() && books_table_storage.getSelectionModel().getSelectedItem() != null) {
-            Book selectedBook = books_table_storage.getSelectionModel().getSelectedItem();
-            String sql = "DELETE FROM book WHERE id = ?";
-            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-                stmt.setInt(1, selectedBook.getId());
-                confirmAndDelete(stmt, "Book removed successfully");
-                loadBookData();
+        try {
+            if (books_table_storage.isVisible() && books_table_storage.getSelectionModel().getSelectedItem() != null) {
+                Book selectedBook = books_table_storage.getSelectionModel().getSelectedItem();
+
+                if (confirmDelete("Bạn có chắc muốn xoá sách này?")) {
+                    BookDAO.deleteBookById(selectedBook.getId());
+                    showInfo("Book removed successfully");
+                    loadBookData();
+                }
+
+            } else if (toys_table_storage.isVisible() && toys_table_storage.getSelectionModel().getSelectedItem() != null) {
+                Toy selectedToy = toys_table_storage.getSelectionModel().getSelectedItem();
+
+                if (confirmDelete("Bạn có chắc muốn xoá đồ chơi này?")) {
+                    ToyDAO.deleteToyById(selectedToy.getId());
+                    showInfo("Toy removed successfully");
+                    loadToyData();
+                }
+
+            } else if (stationaries_table_storage.isVisible() && stationaries_table_storage.getSelectionModel().getSelectedItem() != null) {
+                Stationery selectedStationery = stationaries_table_storage.getSelectionModel().getSelectedItem();
+
+                if (confirmDelete("Bạn có chắc muốn xoá văn phòng phẩm này?")) {
+                    StationeryDAO.deleteStationeryById(selectedStationery.getId());
+                    showInfo("Stationery removed successfully");
+                    loadStationeryData();
+                }
+
+            } else {
+                showError("Please select an item to remove.");
             }
-        } else if (toys_table_storage.isVisible() && toys_table_storage.getSelectionModel().getSelectedItem() != null) {
-            Toy selectedToy = toys_table_storage.getSelectionModel().getSelectedItem();
-            String sql = "DELETE FROM toy WHERE id = ?";
-            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-                stmt.setInt(1, selectedToy.getId());
-                confirmAndDelete(stmt, "Toy removed successfully");
-                loadToyData();
-            }
-        } else if (stationaries_table_storage.isVisible() && stationaries_table_storage.getSelectionModel().getSelectedItem() != null) {
-            Stationery selectedStationary = stationaries_table_storage.getSelectionModel().getSelectedItem();
-            String sql = "DELETE FROM stationery WHERE id = ?";
-            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-                stmt.setInt(1, selectedStationary.getId());
-                confirmAndDelete(stmt, "Stationary removed successfully");
-                loadStationeryData();
-            }
-        } else {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Please select an item to remove.");
-            alert.showAndWait();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showError("Lỗi khi xoá dữ liệu.");
         }
-    } catch (Exception e) {
-        e.printStackTrace();
     }
-}
 
-    private void confirmAndDelete(PreparedStatement stmt, String successMessage) throws SQLException {
-    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-    alert.setTitle("Confirm Delete");
-    alert.setHeaderText(null);
-    alert.setContentText("Are you sure you want to delete this item?");
-    Optional<ButtonType> option = alert.showAndWait();
+    private boolean confirmDelete(String message) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Xác nhận xoá");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
 
-    if (option.isPresent() && option.get() == ButtonType.OK) {
-        int affectedRows = stmt.executeUpdate();
-        Alert result = new Alert(Alert.AlertType.INFORMATION);
-        result.setTitle("Result");
-        result.setHeaderText(null);
-        result.setContentText(affectedRows > 0 ? successMessage : "Item not found.");
-        result.showAndWait();
+        Optional<ButtonType> result = alert.showAndWait();
+        return result.isPresent() && result.get() == ButtonType.OK;
     }
-}
 
-
-
-
-
-
-
-
-// SHOW TOY TABLE
-
-private ObservableList<Toy> listToys;
-
-public ObservableList<Toy> toyDataList() {
-    ObservableList<Toy> listToys = FXCollections.observableArrayList();
-    String sql = "SELECT * FROM toy";
-
-    try (Connection conn = DBConnection.getConnection();
-         Statement stmt = conn.createStatement();
-         ResultSet result = stmt.executeQuery(sql)) {
-
-        Toy toy;
-        while (result.next()) {
-            toy = new Toy(
-                result.getInt("id"),
-                result.getString("name"),
-                result.getInt("quantity"),
-                result.getDouble("purchasePrice"),
-                result.getDouble("sellingPrice"),
-                result.getString("brand"),
-                result.getString("suitableAges"),
-                result.getString("toyType")
-            );
-            listToys.add(toy);
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
+    private void showInfo(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Thông báo");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
-    return listToys;
-}
 
-public void showToy() {
-    listToys = toyDataList();
-
-    toyId_storage_col.setCellValueFactory(new PropertyValueFactory<>("id"));
-    toyName_storage_col.setCellValueFactory(new PropertyValueFactory<>("name"));
-    toyQuantity_storage_col.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-    toyType_storage_col.setCellValueFactory(new PropertyValueFactory<>("toyType"));
-    toyPurchasePrice_storage_col.setCellValueFactory(new PropertyValueFactory<>("purchasePrice"));
-    toySellingPrice_storage_col.setCellValueFactory(new PropertyValueFactory<>("sellingPrice"));
-    toyBrand_storage_col.setCellValueFactory(new PropertyValueFactory<>("brand"));
-    toySuitableAge_storage_col.setCellValueFactory(new PropertyValueFactory<>("suitableAges"));
-    // Nếu có toyType:
-    // toyType_storage_col.setCellValueFactory(new PropertyValueFactory<>("toyType"));
-
-    toys_table_storage.setItems(listToys);
-}
+    private void showError(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Lỗi");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 
 
-public void loadToyData() {
-    toys_table_storage.getItems().clear();
-    showToy();
-}
+
+
+
+
+
+
+
+
+
+
+    // SHOW TOY TABLE
+
+    private ObservableList<Toy> listToys;
+
+    public void showToy() {
+        listToys = ToyDAO.toyDataList();
+
+        toyId_storage_col.setCellValueFactory(new PropertyValueFactory<>("id"));
+        toyName_storage_col.setCellValueFactory(new PropertyValueFactory<>("name"));
+        toyQuantity_storage_col.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        toyType_storage_col.setCellValueFactory(new PropertyValueFactory<>("toyType"));
+        toyPurchasePrice_storage_col.setCellValueFactory(new PropertyValueFactory<>("purchasePrice"));
+        toySellingPrice_storage_col.setCellValueFactory(new PropertyValueFactory<>("sellingPrice"));
+        toyBrand_storage_col.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        toySuitableAge_storage_col.setCellValueFactory(new PropertyValueFactory<>("suitableAges"));
+        // Nếu có toyType:
+        // toyType_storage_col.setCellValueFactory(new PropertyValueFactory<>("toyType"));
+
+        toys_table_storage.setItems(listToys);
+    }
+
+
+    public void loadToyData() {
+        toys_table_storage.getItems().clear();
+        showToy();
+    }
 
 //ADD TOY  
     @FXML
@@ -994,102 +874,50 @@ public void clearToyData() {
         add_toy_type.clear();
     }
     
-public void addNewToy() {
-    String sql = "INSERT INTO toys (id, name, quantity, purchasePrice, sellingPrice, brand, suitableAges, toyType) "
-               + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-    try {
-        Alert alert;
 
-        // Kiểm tra dữ liệu rỗng
-        if (add_toy_id.getText().isEmpty() ||
-            add_toy_name.getText().isEmpty() ||
-            add_toy_quantity.getText().isEmpty() ||
-            add_toy_purchase_price.getText().isEmpty() ||
-            add_toy_selling_price.getText().isEmpty() ||
-            add_toy_brand.getText().isEmpty() ||
-            add_toy_suitable_age.getText().isEmpty() ||
-            add_toy_type.getText().isEmpty()) {
+    public TextField getAdd_toy_id() { return add_toy_id; }
+    public TextField getAdd_toy_name() { return add_toy_name; }
+    public TextField getAdd_toy_quantity() { return add_toy_quantity; }
+    public TextField getAdd_toy_purchase_price() { return add_toy_purchase_price; }
+    public TextField getAdd_toy_selling_price() { return add_toy_selling_price; }
+    public TextField getAdd_toy_brand() { return add_toy_brand; }
+    public TextField getAdd_toy_suitable_age() { return add_toy_suitable_age; }
+    public TextField getAdd_toy_type() { return add_toy_type; }
 
-            alert = new Alert(Alert.AlertType.ERROR);
+    @FXML
+    public void addNewToy(ActionEvent event) {
+    if (event.getSource() == add_toy_button) { // Đảm bảo `toy_add_button` đúng tên biến nút
+        try {
+            // boolean success = ToyDAO.addToy(this);
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Admin Message");
             alert.setHeaderText(null);
-            alert.setContentText("Please complete all toy details.");
+            alert.setContentText("Thêm đồ chơi thành công!");
             alert.showAndWait();
-            return;
-        }
 
-        // Kiểm tra quantity là số nguyên
-        int quantity;
-        try {
-            quantity = Integer.parseInt(add_toy_quantity.getText());
-        } catch (NumberFormatException e) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi định dạng");
+            clearToyData(); // reset form
+            showToy();      // cập nhật bảng
+
+        } catch (IllegalArgumentException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi dữ liệu");
             alert.setHeaderText(null);
-            alert.setContentText("Số lượng phải là số nguyên.");
+            alert.setContentText(e.getMessage());
             alert.showAndWait();
-            return;
-        }
 
-        // Kiểm tra giá nhập là số thực
-        double purchasePrice;
-        try {
-            purchasePrice = Double.parseDouble(add_toy_purchase_price.getText());
-        } catch (NumberFormatException e) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi định dạng");
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi hệ thống");
             alert.setHeaderText(null);
-            alert.setContentText("Giá nhập phải là số.");
+            alert.setContentText("Đã xảy ra lỗi trong quá trình thêm đồ chơi.");
             alert.showAndWait();
-            return;
         }
-
-        // Kiểm tra giá bán là số thực
-        double sellingPrice;
-        try {
-            sellingPrice = Double.parseDouble(add_toy_selling_price.getText());
-        } catch (NumberFormatException e) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi định dạng");
-            alert.setHeaderText(null);
-            alert.setContentText("Giá bán phải là số.");
-            alert.showAndWait();
-            return;
-        }
-
-        // Ghi vào cơ sở dữ liệu
-        Connection conn = DBConnection.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql);
-
-        stmt.setInt(1, Integer.parseInt(add_toy_id.getText()));
-        stmt.setString(2, add_toy_name.getText());
-        stmt.setInt(3, quantity);
-        stmt.setDouble(4, purchasePrice);
-        stmt.setDouble(5, sellingPrice);
-        stmt.setString(6, add_toy_brand.getText());
-        stmt.setString(7, add_toy_suitable_age.getText());
-        stmt.setString(8, add_toy_type.getText());
-
-        stmt.executeUpdate();
-
-        alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Admin Message");
-        alert.setHeaderText(null);
-        alert.setContentText("Successfully added new toy!");
-        alert.showAndWait();
-
-        clearToyData(); // Hàm này bạn cần định nghĩa để reset các ô nhập
-
-    } catch (Exception e) {
-        e.printStackTrace();
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Lỗi hệ thống");
-        alert.setHeaderText(null);
-        alert.setContentText("Có lỗi xảy ra trong quá trình thêm đồ chơi.");
-        alert.showAndWait();
     }
 }
+
 
 
 
@@ -1111,106 +939,69 @@ public void addNewToy() {
     @FXML
     private Button add_stationary_button;
 
-private void clearStationeryFields() {
-    add_stationery_id.clear();
-    add_stationery_name.clear();
-    add_stationery_quantity.clear();
-    add_stationery_purchase_price.clear();
-    add_stationery_selling_price.clear();
-    add_stationery_brand.clear();
-    add_stationery_type.clear();
-}
+    private void clearStationeryFields() {
+        add_stationery_id.clear();
+        add_stationery_name.clear();
+        add_stationery_quantity.clear();
+        add_stationery_purchase_price.clear();
+        add_stationery_selling_price.clear();
+        add_stationery_brand.clear();
+        add_stationery_type.clear();
+    }
 
-public void addNewStationery() {
-    String sql = "INSERT INTO stationery (id, name, quantity, purchasePrice, sellingPrice, brand, stationeryType) " +
-                 "VALUES (?, ?, ?, ?, ?, ?, ?);";
 
-    try {
-        Alert alert;
+    public TextField getAdd_stationery_id() { return add_stationery_id; }
+    public TextField getAdd_stationery_name() { return add_stationery_name; }
+    public TextField getAdd_stationery_quantity() { return add_stationery_quantity; }
+    public TextField getAdd_stationery_purchase_price() { return add_stationery_purchase_price; }
+    public TextField getAdd_stationery_selling_price() { return add_stationery_selling_price; }
+    public TextField getAdd_stationery_brand() { return add_stationery_brand; }
+    public TextField getAdd_stationery_type() { return add_stationery_type; }
 
-        // Kiểm tra dữ liệu rỗng
-        if (add_stationery_id.getText().isEmpty()
-                || add_stationery_name.getText().isEmpty()
-                || add_stationery_quantity.getText().isEmpty()
-                || add_stationery_purchase_price.getText().isEmpty()
-                || add_stationery_selling_price.getText().isEmpty()
-                || add_stationery_brand.getText().isEmpty()
-                || add_stationery_type.getText().isEmpty()) {
 
-            alert = new Alert(Alert.AlertType.ERROR);
+    @FXML
+    public void addNewStationery(ActionEvent event) {
+    if (event.getSource() == add_stationary_button) { // Đảm bảo đúng tên biến button
+        try {
+            // boolean success = StationeryDAO.addStationery(this);
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Thông báo");
+            alert.setHeaderText(null);
+            alert.setContentText("Thêm văn phòng phẩm thành công!");
+            alert.showAndWait();
+
+            clearStationeryFields(); // reset form
+            showStationery();        // load lại bảng
+
+        } catch (IllegalArgumentException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Lỗi dữ liệu");
             alert.setHeaderText(null);
-            alert.setContentText("Vui lòng nhập đầy đủ thông tin văn phòng phẩm.");
+            alert.setContentText(e.getMessage());
             alert.showAndWait();
-            return;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi hệ thống");
+            alert.setHeaderText(null);
+            alert.setContentText("Đã xảy ra lỗi khi thêm văn phòng phẩm.");
+            alert.showAndWait();
         }
-
-        // Kết nối và chuẩn bị câu lệnh
-        Connection conn = DBConnection.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql);
-
-        stmt.setInt(1, Integer.parseInt(add_stationery_id.getText()));
-        stmt.setString(2, add_stationery_name.getText());
-        stmt.setInt(3, Integer.parseInt(add_stationery_quantity.getText()));
-        stmt.setDouble(4, Double.parseDouble(add_stationery_purchase_price.getText()));
-        stmt.setDouble(5, Double.parseDouble(add_stationery_selling_price.getText()));
-        stmt.setString(6, add_stationery_brand.getText());
-        stmt.setString(7, add_stationery_type.getText());
-
-        stmt.executeUpdate();
-
-        alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Thông báo");
-        alert.setHeaderText(null);
-        alert.setContentText("Thêm văn phòng phẩm thành công!");
-        alert.showAndWait();
-
-        clearStationeryFields(); // Hàm để xóa nội dung các trường sau khi thêm xong
-
-    } catch (Exception e) {
-        e.printStackTrace();
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Lỗi hệ thống");
-        alert.setHeaderText(null);
-        alert.setContentText("Đã xảy ra lỗi khi thêm văn phòng phẩm.");
-        alert.showAndWait();
     }
 }
 
 
 
 
-// SHOW STATIONERY TABLE
-private ObservableList<Stationery> listStationeries;
 
-public ObservableList<Stationery> stationeryDataList() {
-    ObservableList<Stationery> listStationeries = FXCollections.observableArrayList();
-    String sql = "SELECT * FROM stationery";
+    // SHOW STATIONERY TABLE
+    private ObservableList<Stationery> listStationeries;
 
-    try (Connection conn = DBConnection.getConnection();
-         Statement stmt = conn.createStatement();
-         ResultSet result = stmt.executeQuery(sql)) {
 
-        Stationery item;
-        while (result.next()) {
-            item = new Stationery(
-                result.getInt("id"),
-                result.getString("name"),
-                result.getInt("quantity"),
-                result.getDouble("purchasePrice"),
-                result.getDouble("sellingPrice"),
-                result.getString("brand"),
-                result.getString("stationeryType")
-            );
-            listStationeries.add(item);
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-    return listStationeries;
-}
-public void showStationery() {
-    listStationeries = stationeryDataList();
+    public void showStationery() {
+    listStationeries = StationeryDAO.stationeryDataList();
 
     stationeryId_storage_col.setCellValueFactory(new PropertyValueFactory<>("id"));
     stationeryName_storage_col.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -1223,7 +1014,7 @@ public void showStationery() {
     stationaries_table_storage.setItems(listStationeries);
 }
 
-public void loadStationeryData() {
+    public void loadStationeryData() {
     stationaries_table_storage.getItems().clear();
     showStationery();
 }
@@ -1288,10 +1079,7 @@ public void loadStationeryData() {
 
     public void closeAddWindow(ActionEvent event) {
     if (event.getSource() == stationary_close_button) {
-            // books_add_storage.setVisible(false);
-            // stationery_add_storage.setVisible(false);
-            // toys_add_storage.setVisible(false);
-
+            
 
             books_table_storage.setVisible(false);
             toys_table_storage.setVisible(false);
@@ -1301,11 +1089,7 @@ public void loadStationeryData() {
             storage_table_view.setVisible(true);
 
     } else if (event.getSource() == book_close_button) {
-            // books_add_storage.setVisible(false);
-            // stationery_add_storage.setVisible(false);
-            // toys_add_storage.setVisible(false);
-
-
+         
             books_table_storage.setVisible(true);
             toys_table_storage.setVisible(false);
             stationaries_table_storage.setVisible(false);
@@ -1314,11 +1098,7 @@ public void loadStationeryData() {
             storage_table_view.setVisible(true);
 
     } else if (event.getSource() == toy_close_button) {
-            // books_add_storage.setVisible(false);
-            // stationery_add_storage.setVisible(false);
-            // toys_add_storage.setVisible(false);
-
-
+          
             books_table_storage.setVisible(false);
             toys_table_storage.setVisible(true);
             stationaries_table_storage.setVisible(false);
@@ -1342,8 +1122,6 @@ public void loadStationeryData() {
 
                 Stage stage = new Stage();
                 Scene scene = new Scene(root);
-
-                
 
                 stage.initStyle(StageStyle.TRANSPARENT);
 

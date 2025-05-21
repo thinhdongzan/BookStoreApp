@@ -132,7 +132,7 @@
    <center>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" stylesheets="@../css/login_screen.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="menu_page" prefHeight="200.0" prefWidth="100.0" styleClass="order-pane" visible="false">
+            <VBox fx:id="menu_page" prefHeight="200.0" prefWidth="100.0" styleClass="order-pane">
                <children>
                   <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" styleClass="title-pane" VBox.vgrow="ALWAYS">
                      <children>
@@ -205,7 +205,7 @@
                                                    </padding>
                                                 </HBox>
                                                 <Region prefHeight="200.0" prefWidth="200.0" />
-                                                <Label fx:id="order_label_order1" text="50">
+                                                <Label fx:id="totalEmployee_label_menu" text="50">
                                                    <font>
                                                       <Font name="System Bold" size="24.0" />
                                                    </font>
@@ -553,7 +553,7 @@
                   </TableView>
                   <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="770.0">
                      <children>
-                        <Button fx:id="remove_order_button" mnemonicParsing="false" onAction="#removeEmployee" prefHeight="29.0" prefWidth="69.0" styleClass="employee-button-remove" text="Remove">
+                        <Button fx:id="remove_order_button" mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" styleClass="employee-button-remove" text="Remove">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -972,7 +972,7 @@
                   </HBox>
                   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0">
                      <children>
-                        <StackPane fx:id="storage_table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0" visible="false">
+                        <StackPane fx:id="storage_table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0">
                            <children>
                               <VBox fx:id="storage_table_view" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0">
                                  <children>
@@ -1271,7 +1271,7 @@
                               </VBox>
                            </children>
                         </StackPane>
-                        <StackPane fx:id="storage_add" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0">
+                        <StackPane fx:id="storage_add" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="770.0" visible="false">
                            <children>
                               <VBox fx:id="toys_add_storage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="770.0" stylesheets="@../css/add.css" visible="false">
                                  <children>
@@ -1935,7 +1935,7 @@
                   </StackPane>
                </children>
             </VBox>
-            <VBox fx:id="dashboard_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="dashboard_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
                <children>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                      <children>
@@ -2119,7 +2119,7 @@
                                              <children>
                                                 <StackPane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-bg">
                                                    <children>
-                                                      <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" styleClass="progress-bar-fill" />
+                                                      <Region fx:id="bar10" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" styleClass="progress-bar-fill" />
                                                       <Label text="Label" textFill="WHITE">
                                                          <StackPane.margin>
                                                             <Insets left="8.0" />
@@ -2136,7 +2136,7 @@
                                              <children>
                                                 <StackPane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-bg">
                                                    <children>
-                                                      <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="120.0" styleClass="progress-bar-fill" />
+                                                      <Region fx:id="bar20" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="120.0" styleClass="progress-bar-fill" />
                                                       <Label text="Label" textFill="WHITE">
                                                          <StackPane.margin>
                                                             <Insets left="8.0" />
