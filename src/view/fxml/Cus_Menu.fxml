@@ -18,9 +18,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/StyleTungDZ.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cus_Menu">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../../LOL/src/view/css/StyleTungDZ.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cus_Menu">
    <left>
-      <VBox prefHeight="720.0" prefWidth="180.0" styleClass="anchor-pane-background1" stylesheets="@../css/StyleTungDZ.css" BorderPane.alignment="CENTER">
+      <VBox prefHeight="720.0" prefWidth="180.0" styleClass="anchor-pane-background1" stylesheets="@../../LOL/src/view/css/StyleTungDZ.css" BorderPane.alignment="CENTER">
          <children>
             <Label prefHeight="17.0" prefWidth="180.0" text="Hust" textFill="WHITE">
                <font>
@@ -42,7 +42,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Button/open-book.png" />
+                        <Image url="@../../LOL/src/view/images/Button/open-book.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="40.0" prefWidth="71.0" text="Book" textFill="WHITE">
@@ -56,7 +56,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Button/stationery.png" />
+                        <Image url="@../../LOL/src/view/images/Button/stationery.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="40.0" prefWidth="71.0" text="Stationery" textFill="WHITE">
@@ -70,7 +70,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Button/teddy-bear%20(1).png" />
+                        <Image url="@../../LOL/src/view/images/Button/teddy-bear%20(1).png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="40.0" prefWidth="71.0" text="Toy" textFill="WHITE">
@@ -89,7 +89,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Button/grocery-store.png" />
+                        <Image url="@../../LOL/src/view/images/Button/grocery-store.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="40.0" prefWidth="71.0" text="Cart" textFill="WHITE">
@@ -103,7 +103,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Button/user.png" />
+                        <Image url="@../../LOL/src/view/images/Button/user.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="40.0" prefWidth="71.0" text="Account" textFill="WHITE">
@@ -117,7 +117,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Button/question-sign.png" />
+                        <Image url="@../../LOL/src/view/images/Button/question-sign.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="40.0" prefWidth="71.0" text="Help" textFill="WHITE">
@@ -132,7 +132,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Button/logout.png" />
+                        <Image url="@../../LOL/src/view/images/Button/logout.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="40.0" prefWidth="71.0" text="Log Out" textFill="WHITE">
@@ -163,7 +163,7 @@
                         <TextField fx:id="searchBar" onAction="#searchOnAction" prefHeight="25.0" prefWidth="325.0" promptText="Search" style="-fx-background-color: rgba(0,0,0,0);" />
                         <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" styleClass="White-background">
                            <image>
-                              <Image url="@../images/Button/loupe.png" />
+                              <Image url="@../../LOL/src/view/images/Button/loupe.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -177,361 +177,13 @@
                   <Pane prefHeight="47.0" prefWidth="9.0" />
                   <ImageView fitHeight="38.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Button/user.png" />
+                        <Image url="@../../LOL/src/view/images/Button/user.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <StackPane id="Main-Stack" prefHeight="673.0" prefWidth="1100.0">
                <children>
-                  <Pane id="Book_Pane" fx:id="bookPane" disable="true" prefHeight="661.0" prefWidth="1100.0" visible="false">
-                     <children>
-                        <VBox prefHeight="670.0" prefWidth="1104.0">
-                           <children>
-                              <HBox id="Book_Category" fx:id="bookGenres" alignment="CENTER" prefHeight="52.0" prefWidth="1100.0" spacing="60.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#sortSelfHelpBook" prefWidth="80.0" text="Self-help">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                       <styleClass>
-                                          <String fx:value="button-self-help" />
-                                          <String fx:value="mouse-selfhelp" />
-                                          <String fx:value="shadow-effect1" />
-                                       </styleClass>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#sortHorrorBook" prefWidth="80.0" text="Horror">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                       <styleClass>
-                                          <String fx:value="button-horror" />
-                                          <String fx:value="mouse-horror" />
-                                          <String fx:value="shadow-effect1" />
-                                       </styleClass>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#sortAdventureBook" prefHeight="25.0" prefWidth="80.0" text="Adventure">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                       <styleClass>
-                                          <String fx:value="button-adventure" />
-                                          <String fx:value="mouse-adventure" />
-                                          <String fx:value="shadow-effect1" />
-                                       </styleClass>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#sortRomanceBook" prefWidth="80.0" text="Romance">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                       <styleClass>
-                                          <String fx:value="button-romance" />
-                                          <String fx:value="shadow-effect1" />
-                                          <String fx:value="mouse-romance" />
-                                       </styleClass>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#sortComicBook" prefWidth="80.0" text="Comic">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                       <styleClass>
-                                          <String fx:value="button-comio" />
-                                          <String fx:value="shadow-effect1" />
-                                          <String fx:value="mouse-comic" />
-                                       </styleClass>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" stylesheets="@../css/StyleTungDZ.css" text="Novel">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                       <styleClass>
-                                          <String fx:value="button-novel" />
-                                          <String fx:value="shadow-effect1" />
-                                          <String fx:value="mouse-novel" />
-                                       </styleClass>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" stylesheets="@../css/StyleTungDZ.css" text="Fairy Tale">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                       <styleClass>
-                                          <String fx:value="button-fairy-tale" />
-                                          <String fx:value="mouse-fairy-tale" />
-                                          <String fx:value="shadow-effect1" />
-                                       </styleClass>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                              <StackPane id="Book-Stack">
-                                 <children>
-                                    <Pane id="Comic-Book" fx:id="comicPane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
-                                       <children>
-                                          <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
-                                             <children>
-                                                <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-comio" />
-                                                <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/Logo/comicbanner.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-comio" />
-                                                <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
-                                                   <content>
-                                                      <VBox prefHeight="617.0" prefWidth="1084.0">
-                                                         <children>
-                                                            <FlowPane fx:id="comicLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
-                                                               <VBox.margin>
-                                                                  <Insets />
-                                                               </VBox.margin>
-                                                            </FlowPane>
-                                                         </children>
-                                                      </VBox>
-                                                   </content>
-                                                </ScrollPane>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </Pane>
-                                    <Pane id="Novel-Book" fx:id="novelPane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
-                                       <children>
-                                          <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
-                                             <children>
-                                                <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-novel" />
-                                                <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/Logo/novelbanner.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-novel" />
-                                                <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
-                                                   <content>
-                                                      <VBox fillWidth="false" prefHeight="921.0" prefWidth="1084.0">
-                                                         <children>
-                                                            <FlowPane fx:id="novelLayout" hgap="10.0" prefHeight="988.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
-                                                               <VBox.margin>
-                                                                  <Insets />
-                                                               </VBox.margin>
-                                                            </FlowPane>
-                                                         </children>
-                                                      </VBox>
-                                                   </content>
-                                                </ScrollPane>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </Pane>
-                                    <Pane id="FairyTale-Book" fx:id="fairyTailePane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
-                                       <children>
-                                          <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
-                                             <children>
-                                                <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-fairy-tale" />
-                                                <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/Logo/fairytalebanner.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-fairy-tale" />
-                                                <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
-                                                   <content>
-                                                      <VBox prefHeight="617.0" prefWidth="1084.0">
-                                                         <children>
-                                                            <FlowPane fx:id="fairyTaleLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
-                                                               <VBox.margin>
-                                                                  <Insets />
-                                                               </VBox.margin>
-                                                            </FlowPane>
-                                                         </children>
-                                                      </VBox>
-                                                   </content>
-                                                </ScrollPane>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </Pane>
-                                    <Pane id="Horror-Book" fx:id="horrorPane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
-                                       <children>
-                                          <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
-                                             <children>
-                                                <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-horror" />
-                                                <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/Logo/horrorbanner.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
-                                                   <styleClass>
-                                                      <String fx:value="button-self-help" />
-                                                      <String fx:value="button-horror" />
-                                                   </styleClass>
-                                                </Pane>
-                                                <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
-                                                   <content>
-                                                      <VBox prefHeight="617.0" prefWidth="1084.0">
-                                                         <children>
-                                                            <FlowPane fx:id="horrorLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
-                                                               <VBox.margin>
-                                                                  <Insets />
-                                                               </VBox.margin>
-                                                            </FlowPane>
-                                                         </children>
-                                                      </VBox>
-                                                   </content>
-                                                </ScrollPane>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </Pane>
-                                    <Pane id="SelfHelp-Book" fx:id="selfHelpPane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
-                                       <children>
-                                          <VBox prefHeight="670.0" prefWidth="1102.0" styleClass="White-background1">
-                                             <children>
-                                                <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-self-help" />
-                                                <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/Logo/selfhelpbanner.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-self-help" />
-                                                <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1102.0">
-                                                   <content>
-                                                      <VBox fillWidth="false" prefHeight="879.0" prefWidth="1084.0">
-                                                         <children>
-                                                            <FlowPane fx:id="selfHelpLayout" hgap="10.0" prefHeight="869.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
-                                                               <VBox.margin>
-                                                                  <Insets />
-                                                               </VBox.margin>
-                                                            </FlowPane>
-                                                         </children>
-                                                      </VBox>
-                                                   </content>
-                                                </ScrollPane>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </Pane>
-                                    <Pane id="Adventure-Book" fx:id="adventurePane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
-                                       <children>
-                                          <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
-                                             <children>
-                                                <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-adventure" />
-                                                <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/Logo/adventurebanner.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-adventure" />
-                                                <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
-                                                   <content>
-                                                      <VBox prefHeight="617.0" prefWidth="1084.0">
-                                                         <children>
-                                                            <FlowPane fx:id="adventureLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
-                                                               <VBox.margin>
-                                                                  <Insets />
-                                                               </VBox.margin>
-                                                            </FlowPane>
-                                                         </children>
-                                                      </VBox>
-                                                   </content>
-                                                </ScrollPane>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </Pane>
-                                    <Pane id="Romance-Book" fx:id="romancePane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
-                                       <children>
-                                          <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
-                                             <children>
-                                                <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-romance" />
-                                                <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/Logo/romancebanner.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-romance" />
-                                                <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
-                                                   <content>
-                                                      <VBox prefHeight="617.0" prefWidth="1084.0">
-                                                         <children>
-                                                            <FlowPane fx:id="romanceLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
-                                                               <VBox.margin>
-                                                                  <Insets />
-                                                               </VBox.margin>
-                                                            </FlowPane>
-                                                         </children>
-                                                      </VBox>
-                                                   </content>
-                                                </ScrollPane>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </Pane>
-                                    <Pane id="Main-Book" fx:id="mainPane" prefHeight="628.0" prefWidth="1100.0">
-                                       <children>
-                                          <VBox prefHeight="628.0" prefWidth="1099.0" spacing="10.0">
-                                             <children>
-                                                <VBox prefHeight="344.0" prefWidth="1099.0" style="-fx-border-color: rgb(255,255,255);">
-                                                   <children>
-                                                      <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1097.0" styleClass="best-seller-section">
-                                                         <children>
-                                                            <TextFlow prefHeight="32.0" prefWidth="200.0" styleClass="label-bestseller" textAlignment="CENTER">
-                                                               <children>
-                                                                  <Label layoutX="51.0" layoutY="11.0" text="B">
-                                                                     <font>
-                                                                        <Font name="System Bold Italic" size="20.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
-                                                                     <image>
-                                                                        <Image url="@../images/Button/fire.png" />
-                                                                     </image>
-                                                                  </ImageView>
-                                                                  <Label text="ST SELLER">
-                                                                     <font>
-                                                                        <Font name="System Bold Italic" size="20.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                               </children>
-                                                            </TextFlow>
-                                                         </children>
-                                                      </HBox>
-                                                      <ScrollPane fitToHeight="true" hbarPolicy="ALWAYS" prefHeight="267.0" prefWidth="1097.0" styleClass="best-seller-section" vbarPolicy="NEVER">
-                                                         <content>
-                                                            <HBox fx:id="bookBestSellersLayout" prefHeight="372.0" prefWidth="443.0" styleClass="viewport" />
-                                                         </content>
-                                                      </ScrollPane>
-                                                   </children>
-                                                </VBox>
-                                                <Label prefHeight="30.0" prefWidth="249.0" text="Recommended for you">
-                                                   <font>
-                                                      <Font name="System Bold" size="20.0" />
-                                                   </font>
-                                                   <VBox.margin>
-                                                      <Insets left="30.0" />
-                                                   </VBox.margin>
-                                                </Label>
-                                                <ScrollPane hbarPolicy="NEVER" prefHeight="342.0" prefWidth="1099.0">
-                                                   <content>
-                                                      <VBox prefHeight="516.0" prefWidth="1084.0">
-                                                         <children>
-                                                            <FlowPane fx:id="bookRecommendedForYouLayout" hgap="20.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="20.0">
-                                                               <VBox.margin>
-                                                                  <Insets />
-                                                               </VBox.margin>
-                                                            </FlowPane>
-                                                         </children>
-                                                      </VBox>
-                                                   </content>
-                                                </ScrollPane>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </Pane>
-                                 </children>
-                              </StackPane>
-                           </children>
-                        </VBox>
-                     </children>
-                  </Pane>
                   <Pane id="Cart_Pane" fx:id="cartPane" disable="true" prefHeight="200.0" prefWidth="200.0" styleClass="White-background1" visible="false">
                      <children>
                         <HBox layoutX="-2.0" layoutY="-1.0" prefHeight="673.0" prefWidth="1102.0">
@@ -667,7 +319,7 @@
                                              <children>
                                                 <ImageView fitHeight="28.0" fitWidth="24.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../images/Button/credit-card.png" />
+                                                      <Image url="@../../LOL/src/view/images/Button/credit-card.png" />
                                                    </image>
                                                 </ImageView>
                                                 <Label alignment="CENTER" layoutX="53.0" layoutY="8.0" prefHeight="36.0" prefWidth="50.0" text="Credit Card" textFill="#ede7ff" wrapText="true">
@@ -686,7 +338,7 @@
                                              <children>
                                                 <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="24.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../images/Button/money.png" />
+                                                      <Image url="@../../LOL/src/view/images/Button/money.png" />
                                                    </image>
                                                 </ImageView>
                                                 <Label alignment="CENTER" layoutX="45.0" layoutY="8.0" prefHeight="36.0" prefWidth="63.0" text="Cash" textFill="#ede7ff" wrapText="true">
@@ -932,7 +584,7 @@
                                  <children>
                                     <ImageView fitHeight="504.0" fitWidth="1082.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../images/Toys/Ảnh%20chụp%20màn%20hình%202025-05-18%20145912.png" />
+                                          <Image url="@../../LOL/src/view/images/Toys/Ảnh%20chụp%20màn%20hình%202025-05-18%20145912.png" />
                                        </image>
                                     </ImageView>
                                     <Pane prefHeight="86.0" prefWidth="1084.0">
@@ -946,7 +598,7 @@
                                     </Pane>
                                     <FlowPane fx:id="toyLayout" hgap="10.0" prefHeight="234.0" prefWidth="1084.0" vgap="10.0">
                                        <VBox.margin>
-                                          <Insets top="100.0"/>
+                                          <Insets top="100.0" />
                                        </VBox.margin>
                                     </FlowPane>
                                  </children>
@@ -963,7 +615,7 @@
                                  <children>
                                     <ImageView fitHeight="504.0" fitWidth="1082.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../images/Stationery/Ảnh%20chụp%20màn%20hình%202025-05-18%20154047.png" />
+                                          <Image url="@../../LOL/src/view/images/Stationery/Ảnh%20chụp%20màn%20hình%202025-05-18%20154047.png" />
                                        </image>
                                     </ImageView>
                                     <Pane prefHeight="86.0" prefWidth="1084.0">
@@ -991,170 +643,649 @@
                         <Label alignment="CENTER" text="Help" />
                      </children>
                   </Pane>
-                  <Pane id="Accout_Pane" fx:id="accountPane" disable="true" prefHeight="661.0" prefWidth="1100.0" stylesheets="@../css/StyleTungDZ.css" visible="false">
+                  <Pane id="Book_Pane" fx:id="bookPane" disable="true" prefHeight="661.0" prefWidth="1100.0" visible="false">
                      <children>
-                        <ScrollPane prefHeight="675.0" prefWidth="1100.0">
-                           <content>
-                              <VBox prefHeight="813.0" prefWidth="1084.0" style="-fx-background-color: #f9f9f9;">
+                        <VBox prefHeight="670.0" prefWidth="1104.0">
+                           <children>
+                              <HBox id="Book_Category" fx:id="bookGenres" alignment="CENTER" prefHeight="52.0" prefWidth="1100.0" spacing="60.0">
                                  <children>
-                                    <Pane prefHeight="88.0" prefWidth="1084.0">
+                                    <Button mnemonicParsing="false" onAction="#sortSelfHelpBook" prefWidth="80.0" text="Self-help">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button-self-help" />
+                                          <String fx:value="mouse-selfhelp" />
+                                          <String fx:value="shadow-effect1" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#sortHorrorBook" prefWidth="80.0" text="Horror">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button-horror" />
+                                          <String fx:value="mouse-horror" />
+                                          <String fx:value="shadow-effect1" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#sortAdventureBook" prefHeight="25.0" prefWidth="80.0" text="Adventure">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button-adventure" />
+                                          <String fx:value="mouse-adventure" />
+                                          <String fx:value="shadow-effect1" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#sortRomanceBook" prefWidth="80.0" text="Romance">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button-romance" />
+                                          <String fx:value="shadow-effect1" />
+                                          <String fx:value="mouse-romance" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#sortComicBook" prefWidth="80.0" text="Comic">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button-comio" />
+                                          <String fx:value="shadow-effect1" />
+                                          <String fx:value="mouse-comic" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" stylesheets="@../../LOL/src/view/css/StyleTungDZ.css" text="Novel">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button-novel" />
+                                          <String fx:value="shadow-effect1" />
+                                          <String fx:value="mouse-novel" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" stylesheets="@../../LOL/src/view/css/StyleTungDZ.css" text="Fairy Tale">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button-fairy-tale" />
+                                          <String fx:value="mouse-fairy-tale" />
+                                          <String fx:value="shadow-effect1" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <StackPane id="Book-Stack">
+                                 <children>
+                                    <Pane id="Comic-Book" fx:id="comicPane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
                                        <children>
-                                          <Label layoutX="50.0" layoutY="7.0" text="Profile">
-                                             <font>
-                                                <Font name="System Bold" size="36.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="50.0" layoutY="46.0" text="Update your profile.">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Label>
+                                          <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
+                                             <children>
+                                                <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-comio" />
+                                                <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../LOL/src/view/images/Logo/comicbanner.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-comio" />
+                                                <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
+                                                   <content>
+                                                      <VBox prefHeight="617.0" prefWidth="1084.0">
+                                                         <children>
+                                                            <FlowPane fx:id="comicLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../../LOL/src/view/css/StyleTungDZ.css" vgap="10.0">
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </FlowPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </VBox>
                                        </children>
                                     </Pane>
-                                    <Pane prefHeight="394.0" prefWidth="984.0" style="-fx-border-radius: 15; -fx-border-color: gray;" VBox.vgrow="NEVER">
-                                       <VBox.margin>
-                                          <Insets left="50.0" right="50.0" />
-                                       </VBox.margin>
+                                    <Pane id="Novel-Book" fx:id="novelPane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
                                        <children>
-                                          <Label layoutX="35.0" layoutY="43.0" text="Personal Information">
-                                             <font>
-                                                <Font name="System Bold" size="20.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="35.0" layoutY="73.0" text="Update your personal information here." />
-                                          <Pane layoutX="298.0" layoutY="28.0" prefHeight="277.0" prefWidth="661.0" style="-fx-border-radius: 15; -fx-border-color: gray; -fx-background-color: #f9f9f9;">
-                                             <padding>
-                                                <Insets bottom="10.0" right="10.0" top="10.0" />
-                                             </padding>
+                                          <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                                              <children>
-                                                <VBox layoutY="-5.0" prefHeight="285.0" prefWidth="661.0" spacing="10.0">
-                                                   <children>
-                                                      <Pane prefHeight="53.0" prefWidth="641.0">
+                                                <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-novel" />
+                                                <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../LOL/src/view/images/Logo/novelbanner.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-novel" />
+                                                <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
+                                                   <content>
+                                                      <VBox fillWidth="false" prefHeight="921.0" prefWidth="1084.0">
                                                          <children>
-                                                            <Label layoutY="8.0" prefHeight="29.0" prefWidth="66.0" text="Name">
-                                                               <font>
-                                                                  <Font name="System Bold" size="14.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <TextField layoutY="33.0" prefHeight="33.0" prefWidth="403.0" styleClass="text-field-account" />
-                                                            <Label layoutX="429.0" layoutY="8.0" prefHeight="29.0" prefWidth="127.0" text="Date of Birth">
-                                                               <font>
-                                                                  <Font name="System Bold" size="14.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <TextField layoutX="429.0" layoutY="33.0" prefHeight="33.0" prefWidth="174.0" styleClass="text-field-account" />
+                                                            <FlowPane fx:id="novelLayout" hgap="10.0" prefHeight="988.0" prefWidth="1084.0" stylesheets="@../../LOL/src/view/css/StyleTungDZ.css" vgap="10.0">
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </FlowPane>
                                                          </children>
-                                                      </Pane>
-                                                      <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
-                                                         <children>
-                                                            <Label layoutY="8.0" prefHeight="29.0" prefWidth="66.0" text="Username">
-                                                               <font>
-                                                                  <Font name="System Bold" size="14.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
-                                                         <children>
-                                                            <Label layoutY="8.0" prefHeight="29.0" prefWidth="147.0" text="Phone Number">
-                                                               <font>
-                                                                  <Font name="System Bold" size="14.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
-                                                         <children>
-                                                            <Label layoutY="8.0" prefHeight="29.0" prefWidth="66.0" text="Address">
-                                                               <font>
-                                                                  <Font name="System Bold" size="14.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
-                                                         </children>
-                                                      </Pane>
-                                                   </children>
-                                                   <padding>
-                                                      <Insets left="20.0" />
-                                                   </padding>
-                                                </VBox>
+                                                      </VBox>
+                                                   </content>
+                                                </ScrollPane>
                                              </children>
-                                          </Pane>
-                                          <Label alignment="CENTER" layoutX="887.0" layoutY="321.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #90D5FF; -fx-background-radius: 15;" text="Save" textAlignment="CENTER" textFill="WHITE">
-                                             <font>
-                                                <Font name="System Bold" size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" layoutX="796.0" layoutY="321.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: white; -fx-background-radius: 15;" text="Cancel" textAlignment="CENTER" textFill="#040404de">
-                                             <font>
-                                                <Font name="System Bold" size="14.0" />
-                                             </font>
-                                          </Label>
+                                          </VBox>
                                        </children>
                                     </Pane>
-                                    <Pane layoutX="60.0" layoutY="119.0" prefHeight="255.0" prefWidth="984.0" style="-fx-border-radius: 15; -fx-border-color: gray;">
+                                    <Pane id="FairyTale-Book" fx:id="fairyTailePane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
                                        <children>
-                                          <Label layoutX="35.0" layoutY="43.0" text="Personal Information">
-                                             <font>
-                                                <Font name="System Bold" size="20.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="35.0" layoutY="73.0" text="Update your personal information here." />
-                                          <Pane layoutX="298.0" layoutY="28.0" prefHeight="150.0" prefWidth="661.0" style="-fx-border-radius: 15; -fx-border-color: gray; -fx-background-color: #f9f9f9;">
-                                             <padding>
-                                                <Insets bottom="10.0" right="10.0" top="10.0" />
-                                             </padding>
+                                          <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
                                              <children>
-                                                <VBox layoutY="-5.0" prefHeight="159.0" prefWidth="661.0" spacing="10.0">
-                                                   <children>
-                                                      <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
+                                                <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-fairy-tale" />
+                                                <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../LOL/src/view/images/Logo/fairytalebanner.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-fairy-tale" />
+                                                <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
+                                                   <content>
+                                                      <VBox prefHeight="617.0" prefWidth="1084.0">
                                                          <children>
-                                                            <Label layoutY="8.0" prefHeight="29.0" prefWidth="157.0" text="Current Password">
-                                                               <font>
-                                                                  <Font name="System Bold" size="14.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                            <FlowPane fx:id="fairyTaleLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../../LOL/src/view/css/StyleTungDZ.css" vgap="10.0">
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </FlowPane>
                                                          </children>
-                                                      </Pane>
-                                                      <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
-                                                         <children>
-                                                            <Label layoutY="8.0" prefHeight="29.0" prefWidth="147.0" text="New Password">
-                                                               <font>
-                                                                  <Font name="System Bold" size="14.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
-                                                         </children>
-                                                      </Pane>
-                                                   </children>
-                                                   <padding>
-                                                      <Insets left="20.0" />
-                                                   </padding>
-                                                </VBox>
+                                                      </VBox>
+                                                   </content>
+                                                </ScrollPane>
                                              </children>
-                                          </Pane>
-                                          <Label alignment="CENTER" layoutX="887.0" layoutY="192.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #90D5FF; -fx-background-radius: 15;" text="Save" textAlignment="CENTER" textFill="WHITE">
-                                             <font>
-                                                <Font name="System Bold" size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" layoutX="796.0" layoutY="192.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: white; -fx-background-radius: 15;" text="Cancel" textAlignment="CENTER" textFill="#040404de">
-                                             <font>
-                                                <Font name="System Bold" size="14.0" />
-                                             </font>
-                                          </Label>
+                                          </VBox>
                                        </children>
-                                       <VBox.margin>
-                                          <Insets left="50.0" right="50.0" top="50.0" />
-                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane id="Horror-Book" fx:id="horrorPane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
+                                       <children>
+                                          <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
+                                             <children>
+                                                <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-horror" />
+                                                <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../LOL/src/view/images/Logo/horrorbanner.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                   <styleClass>
+                                                      <String fx:value="button-self-help" />
+                                                      <String fx:value="button-horror" />
+                                                   </styleClass>
+                                                </Pane>
+                                                <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
+                                                   <content>
+                                                      <VBox prefHeight="617.0" prefWidth="1084.0">
+                                                         <children>
+                                                            <FlowPane fx:id="horrorLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../../LOL/src/view/css/StyleTungDZ.css" vgap="10.0">
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </FlowPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane id="SelfHelp-Book" fx:id="selfHelpPane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
+                                       <children>
+                                          <VBox prefHeight="670.0" prefWidth="1102.0" styleClass="White-background1">
+                                             <children>
+                                                <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-self-help" />
+                                                <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../LOL/src/view/images/Logo/selfhelpbanner.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-self-help" />
+                                                <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1102.0">
+                                                   <content>
+                                                      <VBox fillWidth="false" prefHeight="879.0" prefWidth="1084.0">
+                                                         <children>
+                                                            <FlowPane fx:id="selfHelpLayout" hgap="10.0" prefHeight="869.0" prefWidth="1084.0" stylesheets="@../../LOL/src/view/css/StyleTungDZ.css" vgap="10.0">
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </FlowPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane id="Adventure-Book" fx:id="adventurePane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
+                                       <children>
+                                          <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
+                                             <children>
+                                                <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-adventure" />
+                                                <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../LOL/src/view/images/Logo/adventurebanner.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-adventure" />
+                                                <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
+                                                   <content>
+                                                      <VBox prefHeight="617.0" prefWidth="1084.0">
+                                                         <children>
+                                                            <FlowPane fx:id="adventureLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../../LOL/src/view/css/StyleTungDZ.css" vgap="10.0">
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </FlowPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane id="Romance-Book" fx:id="romancePane" layoutX="10.0" layoutY="10.0" prefHeight="557.0" prefWidth="1100.0" visible="false">
+                                       <children>
+                                          <VBox prefHeight="670.0" prefWidth="1099.0" styleClass="White-background1">
+                                             <children>
+                                                <Pane prefHeight="200.0" prefWidth="1102.0" styleClass="button-romance" />
+                                                <ImageView fitHeight="212.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../LOL/src/view/images/Logo/romancebanner.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Pane prefHeight="200.0" prefWidth="200.0" styleClass="button-romance" />
+                                                <ScrollPane hbarPolicy="NEVER" prefHeight="625.0" prefWidth="1099.0">
+                                                   <content>
+                                                      <VBox prefHeight="617.0" prefWidth="1084.0">
+                                                         <children>
+                                                            <FlowPane fx:id="romanceLayout" hgap="10.0" prefHeight="613.0" prefWidth="1084.0" stylesheets="@../../LOL/src/view/css/StyleTungDZ.css" vgap="10.0">
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </FlowPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane id="Main-Book" fx:id="mainPane" prefHeight="628.0" prefWidth="1100.0">
+                                       <children>
+                                          <VBox prefHeight="628.0" prefWidth="1099.0" spacing="10.0">
+                                             <children>
+                                                <VBox prefHeight="344.0" prefWidth="1099.0" style="-fx-border-color: rgb(255,255,255);">
+                                                   <children>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1097.0" styleClass="best-seller-section">
+                                                         <children>
+                                                            <TextFlow prefHeight="32.0" prefWidth="200.0" styleClass="label-bestseller" textAlignment="CENTER">
+                                                               <children>
+                                                                  <Label layoutX="51.0" layoutY="11.0" text="B">
+                                                                     <font>
+                                                                        <Font name="System Bold Italic" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
+                                                                     <image>
+                                                                        <Image url="@../../LOL/src/view/images/Button/fire.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                                  <Label text="ST SELLER">
+                                                                     <font>
+                                                                        <Font name="System Bold Italic" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </TextFlow>
+                                                         </children>
+                                                      </HBox>
+                                                      <ScrollPane fitToHeight="true" hbarPolicy="ALWAYS" prefHeight="267.0" prefWidth="1097.0" styleClass="best-seller-section" vbarPolicy="NEVER">
+                                                         <content>
+                                                            <HBox fx:id="bookBestSellersLayout" prefHeight="372.0" prefWidth="443.0" styleClass="viewport" />
+                                                         </content>
+                                                      </ScrollPane>
+                                                   </children>
+                                                </VBox>
+                                                <Label prefHeight="30.0" prefWidth="249.0" text="Recommended for you">
+                                                   <font>
+                                                      <Font name="System Bold" size="20.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <ScrollPane hbarPolicy="NEVER" prefHeight="342.0" prefWidth="1099.0">
+                                                   <content>
+                                                      <VBox prefHeight="516.0" prefWidth="1084.0">
+                                                         <children>
+                                                            <FlowPane fx:id="bookRecommendedForYouLayout" hgap="20.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../../LOL/src/view/css/StyleTungDZ.css" vgap="20.0">
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </FlowPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
                                     </Pane>
                                  </children>
-                              </VBox>
-                           </content>
-                        </ScrollPane>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane id="Accout_Pane" fx:id="accountPane" disable="true" prefHeight="661.0" prefWidth="1100.0" stylesheets="@../../LOL/src/view/css/StyleTungDZ.css" visible="false">
+                     <children>
+                        <StackPane prefHeight="678.0" prefWidth="1103.0">
+                           <children>
+                              <ScrollPane id="Edit_Pane" prefHeight="675.0" prefWidth="1100.0">
+                                 <content>
+                                    <VBox prefHeight="813.0" prefWidth="1084.0" style="-fx-background-color: #f9f9f9;">
+                                       <children>
+                                          <Pane prefHeight="88.0" prefWidth="1084.0">
+                                             <children>
+                                                <Label layoutX="50.0" layoutY="7.0" text="Profile">
+                                                   <font>
+                                                      <Font name="System Bold" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="50.0" layoutY="46.0" text="Update your profile.">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="394.0" prefWidth="984.0" style="-fx-border-radius: 15; -fx-border-color: gray;" VBox.vgrow="NEVER">
+                                             <VBox.margin>
+                                                <Insets left="50.0" right="50.0" />
+                                             </VBox.margin>
+                                             <children>
+                                                <Label layoutX="35.0" layoutY="43.0" text="Personal Information">
+                                                   <font>
+                                                      <Font name="System Bold" size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="35.0" layoutY="73.0" text="Update your personal information here." />
+                                                <Pane layoutX="298.0" layoutY="28.0" prefHeight="277.0" prefWidth="661.0" style="-fx-border-radius: 15; -fx-border-color: gray; -fx-background-color: #f9f9f9;">
+                                                   <padding>
+                                                      <Insets bottom="10.0" right="10.0" top="10.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <VBox layoutY="-5.0" prefHeight="285.0" prefWidth="661.0" spacing="10.0">
+                                                         <children>
+                                                            <Pane prefHeight="53.0" prefWidth="641.0">
+                                                               <children>
+                                                                  <Label layoutY="8.0" prefHeight="29.0" prefWidth="66.0" text="Name">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <TextField layoutY="33.0" prefHeight="33.0" prefWidth="403.0" styleClass="text-field-account" />
+                                                                  <Label layoutX="429.0" layoutY="8.0" prefHeight="29.0" prefWidth="127.0" text="Date of Birth">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <TextField layoutX="429.0" layoutY="33.0" prefHeight="33.0" prefWidth="174.0" styleClass="text-field-account" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
+                                                               <children>
+                                                                  <Label layoutY="8.0" prefHeight="29.0" prefWidth="66.0" text="Username">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
+                                                               <children>
+                                                                  <Label layoutY="8.0" prefHeight="29.0" prefWidth="147.0" text="Phone Number">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
+                                                               <children>
+                                                                  <Label layoutY="8.0" prefHeight="29.0" prefWidth="66.0" text="Address">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                               </children>
+                                                            </Pane>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="20.0" />
+                                                         </padding>
+                                                      </VBox>
+                                                   </children>
+                                                </Pane>
+                                                <Label alignment="CENTER" layoutX="887.0" layoutY="321.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #90D5FF; -fx-background-radius: 15;" text="Save" textAlignment="CENTER" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" layoutX="796.0" layoutY="321.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: white; -fx-background-radius: 15;" text="Cancel" textAlignment="CENTER" textFill="#040404de">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutX="60.0" layoutY="119.0" prefHeight="255.0" prefWidth="984.0" style="-fx-border-radius: 15; -fx-border-color: gray;">
+                                             <children>
+                                                <Label layoutX="35.0" layoutY="43.0" text="Personal Information">
+                                                   <font>
+                                                      <Font name="System Bold" size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="35.0" layoutY="73.0" text="Update your personal information here." />
+                                                <Pane layoutX="298.0" layoutY="28.0" prefHeight="150.0" prefWidth="661.0" style="-fx-border-radius: 15; -fx-border-color: gray; -fx-background-color: #f9f9f9;">
+                                                   <padding>
+                                                      <Insets bottom="10.0" right="10.0" top="10.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <VBox layoutY="-5.0" prefHeight="159.0" prefWidth="661.0" spacing="10.0">
+                                                         <children>
+                                                            <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
+                                                               <children>
+                                                                  <Label layoutY="8.0" prefHeight="29.0" prefWidth="157.0" text="Current Password">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
+                                                               <children>
+                                                                  <Label layoutY="8.0" prefHeight="29.0" prefWidth="147.0" text="New Password">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                               </children>
+                                                            </Pane>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="20.0" />
+                                                         </padding>
+                                                      </VBox>
+                                                   </children>
+                                                </Pane>
+                                                <Label alignment="CENTER" layoutX="887.0" layoutY="192.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #90D5FF; -fx-background-radius: 15;" text="Save" textAlignment="CENTER" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" layoutX="796.0" layoutY="192.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: white; -fx-background-radius: 15;" text="Cancel" textAlignment="CENTER" textFill="#040404de">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="50.0" right="50.0" top="50.0" />
+                                             </VBox.margin>
+                                          </Pane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                              <Pane id="Info_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1100.0" stylesheets="@../../LOL/src/view/css/StyleTungDZ.css">
+                                 <children>
+                                    <VBox layoutX="75.0" layoutY="75.0" prefHeight="510.0" prefWidth="950.0" style="-fx-background-color: linear-gradient(to right, #2a3439, #1C1C1C); -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.5, 2, 2);;">
+                                       <children>
+                                          <HBox prefHeight="95.0" prefWidth="950.0">
+                                             <children>
+                                                <Pane prefHeight="93.0" prefWidth="950.0">
+                                                   <children>
+                                                      <Label layoutX="42.0" layoutY="27.0" prefHeight="53.0" prefWidth="404.0" text="Personal Information" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Segoe UI Bold Italic" size="36.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="52.0" prefWidth="950.0">
+                                             <children>
+                                                <Pane prefHeight="51.0" prefWidth="950.0">
+                                                   <children>
+                                                      <Label layoutX="102.0" layoutY="12.0" text="Full name:" textFill="#cccccc">
+                                                         <font>
+                                                            <Font name="Segoe UI Italic" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="281.0" layoutY="11.0" prefHeight="29.0" prefWidth="609.0" text="Donald" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </HBox>
+                                          <HBox layoutX="10.0" layoutY="87.0" prefHeight="55.0" prefWidth="950.0">
+                                             <children>
+                                                <Pane prefHeight="51.0" prefWidth="950.0">
+                                                   <children>
+                                                      <Label layoutX="102.0" layoutY="12.0" text="User name:" textFill="#cccccc">
+                                                         <font>
+                                                            <Font name="Segoe UI Italic" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="281.0" layoutY="11.0" prefHeight="29.0" prefWidth="609.0" text="DonDonald123" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </HBox>
+                                          <HBox layoutX="10.0" layoutY="139.0" prefHeight="53.0" prefWidth="950.0">
+                                             <children>
+                                                <Pane prefHeight="51.0" prefWidth="950.0">
+                                                   <children>
+                                                      <Label layoutX="102.0" layoutY="12.0" text="Date of birth:" textFill="#cccccc">
+                                                         <font>
+                                                            <Font name="Segoe UI Italic" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="281.0" layoutY="11.0" prefHeight="29.0" prefWidth="609.0" text="04/04/1997" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </HBox>
+                                          <HBox layoutX="10.0" layoutY="191.0" prefHeight="52.0" prefWidth="950.0">
+                                             <children>
+                                                <Pane prefHeight="51.0" prefWidth="950.0">
+                                                   <children>
+                                                      <Label layoutX="102.0" layoutY="12.0" text="Phone number:" textFill="#cccccc">
+                                                         <font>
+                                                            <Font name="Segoe UI Italic" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="281.0" layoutY="11.0" prefHeight="29.0" prefWidth="609.0" text="037876532543" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </HBox>
+                                          <HBox layoutX="10.0" layoutY="243.0" prefHeight="122.0" prefWidth="950.0">
+                                             <children>
+                                                <Pane prefHeight="115.0" prefWidth="950.0">
+                                                   <children>
+                                                      <Label layoutX="102.0" layoutY="12.0" text="Address:" textFill="#cccccc">
+                                                         <font>
+                                                            <Font name="Segoe UI Italic" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label alignment="TOP_LEFT" layoutX="281.0" layoutY="11.0" prefHeight="115.0" prefWidth="609.0" text="The White House, 1600 Pennsylvania Avenue NW, Washington, DC 20500, United States" textFill="WHITE" wrapText="true">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </HBox>
+                                          <Pane prefHeight="77.0" prefWidth="950.0">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="630.0" layoutY="17.0" prefHeight="43.0" prefWidth="256.0" style="-fx-font-size: 24;" text="Update your profile" textAlignment="CENTER" textFill="#212121">
+                                                   <font>
+                                                      <Font name="Segoe UI Bold Italic" size="24.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="setting-button" />
+                                                      <String fx:value="italic-bold-font" />
+                                                   </styleClass>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets top="50.0" />
+                                 </padding>
+                              </Pane>
+                           </children>
+                        </StackPane>
                      </children>
                   </Pane>
                </children>
