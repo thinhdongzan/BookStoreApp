@@ -11,7 +11,7 @@ public class Stationery extends Product {
 
     // Constructor đầy đủ
     public Stationery(int id, String name, int quantity, double purchasePrice, double sellingPrice,
-                      String brand, String stationeryType) {
+            String brand, String stationeryType) {
         super(id, name, quantity, purchasePrice, sellingPrice);
         this.brand = brand;
         this.stationeryType = stationeryType;
@@ -34,7 +34,7 @@ public class Stationery extends Product {
     public void setStationeryType(String stationeryType) {
         this.stationeryType = stationeryType;
     }
-    
+
     @Override
     public void displayInfo() {
         super.displayInfo();

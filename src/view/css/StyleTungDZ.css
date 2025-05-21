@@ -189,7 +189,7 @@
 
 .size-item-image{
 	 -fx-fit-width: 140;
-    -fx-fit-height: 22	0;
+    -fx-fit-height: 220;
     -fx-preserve-ratio: true;
 }
 
@@ -250,6 +250,23 @@
     -fx-fit-height: 120;
 }
 
+.fixed-image-information {
+    -fx-fit-width: 205;
+    -fx-fit-height: 290;
+}
+
+.button-quantity-left:hover  {
+	-fx-background-radius: 15 0 0 15;
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+}
+
+.button-quantity-right:hover {
+	-fx-background-radius: 0 15 15 0;
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+}
+
 .button-style-Payment {
     -fx-border-color: #ede7ff; /* Màu viền đen */
     -fx-border-width: 0.5; /* Độ dày viền là 2px */
@@ -300,5 +317,17 @@
 .custom-textfield {
     -fx-text-fill: #A3A7D2;        /* Màu chữ */
     -fx-prompt-text-fill: #A3A7D2; /* Màu placeholder (gợi ý) */
-   
+}
+.button-AddtoCart{
+	-fx-background-color: black	;
+}
+.mouse-AddtoCart:hover{
+	-fx-background-color: #696969;
+	
+}
+
+.text-field-account{
+	-fx-border-color: gray;
+	-fx-border-radius: 10;
+	-fx-background-color: transparent;
 }

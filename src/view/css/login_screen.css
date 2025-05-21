@@ -1,9 +1,9 @@
 .menu_pane {
-    -fx-background-color: #7d9ffa;
+    -fx-background-color: #4a6188;
 }
 
 .title-pane{
-    -fx-background-color: #7d9ffa;
+    -fx-background-color: #4a6188;
     -fx-border-width: 0 0 0 1;
     -fx-border-color: white;
 }
@@ -39,24 +39,11 @@
     -fx-background-color: gray;
 }
 
-.dashboard_inner:hover {
-    -fx-background-color: rgb(207, 205, 205);
-    -fx-background-radius: 10px;
-    -fx-scale-x: 1.05;
-    -fx-scale-y: 1.05;
-}
-
-.dashboard {
-    -fx-background-radius: 10px;
-    -fx-border-radius: 10px;
-    -fx-border-color: black;
-    -fx-font-size: 15px;
-}
-
 .menu-button{
     -fx-background-color: transparent;
     -fx-text-fill: white;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
 }
 
 .order-pane{
@@ -259,3 +246,139 @@
     -fx-background-color: linear-gradient(to bottom right, #3e70faaf, #1a30f2af);
     -fx-text-fill: white;
 }
+
+/* dashboard */
+.chart {
+    -fx-background-color: #f5f5f5;
+    -fx-padding: 10;
+    -fx-border-color: transparent;
+}
+
+.chart-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #3e70faaf;
+    -fx-padding: 10 0 0 10;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+
+}
+
+
+.chart-vertical-grid-lines,
+.chart-horizontal-grid-lines {
+    -fx-stroke: transparent;
+}
+
+.default-color0.chart-bar {
+    -fx-bar-fill: linear-gradient(to bottom right, #3e70faaf, #1a30f2af);
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.5, 0, 2);
+}
+
+.chart-bar {
+    -fx-background-insets: 0;
+    -fx-background-radius: 12px;
+}
+
+.axis{
+    -fx-axis-line-color: black; /* Axis line */
+    -fx-tick-mark-color: black; /* Tick marks (small lines) */
+    -fx-tick-label-fill: black;
+    -fx-tick-length: 0;
+    -fx-font-size: 12px;
+}
+
+.axis-label {
+    -fx-text-fill: #1a30f2;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.chart-pane{
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-padding: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);
+}
+
+
+/* expenses */
+.expenses-pane{
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-padding: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);
+}
+
+.progress-bar-container {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f3f3f3);
+    -fx-background-radius: 15;
+}
+
+.progress-bar-bg {
+    -fx-background-color: #d9d9d9;
+    -fx-background-radius: 15;
+    -fx-padding: 0;
+    -fx-alignment: center-left;
+}
+
+.progress-bar-fill {
+    -fx-background-color: linear-gradient(to bottom right, #3e70fa, #1a30f2);
+    -fx-background-radius: 15;
+}
+
+.progress-label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-alignment: center;
+}
+
+.progress-bar-container:hover, .progress-bar-bg:hover{
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+}
+
+.total-expense{
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+}
+/* product */
+.product-pane{
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-padding: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);
+}
+
+.product-title{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(to bottom right, #3e70fa, #1a30f2);
+}
+
+.product-price{
+    -fx-text-fill: gray;
+    -fx-font-size: 12px;
+}
+
+.product-info-title{
+    -fx-font-size: 20;
+    -fx-text-fill: gray;
+}
+
+.product-info{
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 12;
+}
+
+.product-pane:hover{
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+}
+
+

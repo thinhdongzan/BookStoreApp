@@ -9,7 +9,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
@@ -183,7 +182,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <StackPane id="Main-Stack" prefHeight="661.0" prefWidth="1100.0">
+            <StackPane id="Main-Stack" prefHeight="673.0" prefWidth="1100.0">
                <children>
                   <Pane id="Book_Pane" fx:id="bookPane" disable="true" prefHeight="661.0" prefWidth="1100.0" visible="false">
                      <children>
@@ -466,7 +465,7 @@
                                           </VBox>
                                        </children>
                                     </Pane>
-                                    <Pane id="Main-Book" fx:id="mainPane" disable="true" prefHeight="628.0" prefWidth="1100.0" visible="false">
+                                    <Pane id="Main-Book" fx:id="mainPane" prefHeight="628.0" prefWidth="1100.0">
                                        <children>
                                           <VBox prefHeight="628.0" prefWidth="1099.0" spacing="10.0">
                                              <children>
@@ -514,7 +513,7 @@
                                                    <content>
                                                       <VBox prefHeight="516.0" prefWidth="1084.0">
                                                          <children>
-                                                            <FlowPane fx:id="bookRecommendedForYouLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                                            <FlowPane fx:id="bookRecommendedForYouLayout" hgap="20.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="20.0">
                                                                <VBox.margin>
                                                                   <Insets />
                                                                </VBox.margin>
@@ -533,7 +532,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane id="Cart_Pane" fx:id="cartPane" prefHeight="200.0" prefWidth="200.0" styleClass="White-background1">
+                  <Pane id="Cart_Pane" fx:id="cartPane" disable="true" prefHeight="200.0" prefWidth="200.0" styleClass="White-background1" visible="false">
                      <children>
                         <HBox layoutX="-2.0" layoutY="-1.0" prefHeight="673.0" prefWidth="1102.0">
                            <children>
@@ -550,9 +549,9 @@
                                     </Pane>
                                     <HBox prefHeight="56.0" prefWidth="729.0">
                                        <children>
-                                          <Pane prefHeight="56.0" prefWidth="275.0">
+                                          <Pane prefHeight="56.0" prefWidth="332.0">
                                              <children>
-                                                <Label layoutX="14.0" layoutY="29.0" text="Product">
+                                                <Label layoutX="25.0" layoutY="29.0" text="Product">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
@@ -561,7 +560,7 @@
                                           </Pane>
                                           <Pane prefHeight="56.0" prefWidth="139.0">
                                              <children>
-                                                <Label layoutY="29.0" text="Price">
+                                                <Label layoutX="14.0" layoutY="29.0" text="Price">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
@@ -570,16 +569,16 @@
                                           </Pane>
                                           <Pane prefHeight="56.0" prefWidth="171.0">
                                              <children>
-                                                <Label layoutY="29.0" text="Quantity">
+                                                <Label layoutX="26.0" layoutY="29.0" text="Quantity">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
                                                 </Label>
                                              </children>
                                           </Pane>
-                                          <Pane prefHeight="56.0" prefWidth="117.0">
+                                          <Pane prefHeight="56.0" prefWidth="179.0">
                                              <children>
-                                                <Label layoutX="-7.0" layoutY="29.0" text="Total Price">
+                                                <Label layoutY="29.0" text="Total Price">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
@@ -589,10 +588,10 @@
                                           <Pane prefHeight="56.0" prefWidth="59.0" />
                                        </children>
                                     </HBox>
-                                    <ScrollPane prefHeight="357.0" prefWidth="733.0">
-                                      <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                      </content>
+                                    <ScrollPane prefHeight="357.0" prefWidth="733.0" vbarPolicy="NEVER">
+                                       <content>
+                                          <VBox fx:id="cartLayout" prefHeight="441.0" prefWidth="711.0" />
+                                       </content>
                                     </ScrollPane>
                                     <Pane prefHeight="173.0" prefWidth="729.0">
                                        <children>
@@ -606,12 +605,12 @@
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="556.0" layoutY="18.0" prefHeight="35.0" prefWidth="155.0" text="\$150.98">
+                                          <Label fx:id="subTotal" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="556.0" layoutY="18.0" prefHeight="35.0" prefWidth="155.0" text="\$150.98">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="560.0" layoutY="53.0" prefHeight="35.0" prefWidth="151.0" text="\$50.00">
+                                          <Label fx:id="shippingFee" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="560.0" layoutY="53.0" prefHeight="35.0" prefWidth="151.0" text="\$50.00">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
@@ -622,7 +621,7 @@
                                                 <Font name="System Bold" size="24.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="555.0" layoutY="111.0" prefHeight="45.0" prefWidth="156.0" text="\$200.98">
+                                          <Label fx:id="totalCost" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="555.0" layoutY="111.0" prefHeight="45.0" prefWidth="156.0" text="\$200.98">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -709,7 +708,7 @@
                                     </Pane>
                                     <StackPane id="Payment-Stack" prefHeight="261.0" prefWidth="319.0">
                                        <children>
-                                          <Pane id="PaybyCard_Pane" fx:id="payCashPane" disable="true" prefHeight="200.0" prefWidth="200.0" visible="false">
+                                          <Pane id="PaybyCard_Pane" fx:id="payCashPane" prefHeight="200.0" prefWidth="200.0">
                                              <children>
                                                 <VBox layoutY="-2.0" prefHeight="263.0" prefWidth="319.0">
                                                    <children>
@@ -925,24 +924,237 @@
                         </HBox>
                      </children>
                   </Pane>
+                  <Pane id="Toy_Pane" fx:id="toyPane" prefHeight="715.0" prefWidth="1100.0">
+                     <children>
+                        <ScrollPane prefHeight="674.0" prefWidth="1100.0">
+                           <content>
+                              <VBox prefHeight="752.0" prefWidth="1084.0">
+                                 <children>
+                                    <ImageView fitHeight="504.0" fitWidth="1082.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Toys/Ảnh%20chụp%20màn%20hình%202025-05-18%20145912.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Pane prefHeight="86.0" prefWidth="1084.0">
+                                       <children>
+                                          <Label layoutX="108.0" layoutY="14.0" text="Trending Now">
+                                             <font>
+                                                <Font name="System Bold" size="40.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <FlowPane fx:id="toyLayout" hgap="10.0" prefHeight="234.0" prefWidth="1084.0" vgap="10.0">
+                                       <VBox.margin>
+                                          <Insets top="100.0"/>
+                                       </VBox.margin>
+                                    </FlowPane>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </Pane>
+                  <Pane id="Stationery_Pane" fx:id="stationeryPane" disable="true" prefHeight="661.0" prefWidth="1100.0" visible="false">
+                     <children>
+                        <ScrollPane prefHeight="661.0" prefWidth="1100.0">
+                           <content>
+                              <VBox prefHeight="752.0" prefWidth="1084.0">
+                                 <children>
+                                    <ImageView fitHeight="504.0" fitWidth="1082.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Stationery/Ảnh%20chụp%20màn%20hình%202025-05-18%20154047.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Pane prefHeight="86.0" prefWidth="1084.0">
+                                       <children>
+                                          <Label layoutX="108.0" layoutY="14.0" text="Trending Now">
+                                             <font>
+                                                <Font name="System Bold" size="40.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <FlowPane fx:id="stationeryLayout" hgap="10.0" prefHeight="234.0" prefWidth="1084.0" vgap="10.0">
+                                       <VBox.margin>
+                                          <Insets top="100.0" />
+                                       </VBox.margin>
+                                    </FlowPane>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </Pane>
                   <Pane id="Help_Pane" fx:id="helpPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
                      <children>
                         <Label alignment="CENTER" text="Help" />
                      </children>
                   </Pane>
-                  <Pane id="Toy_Pane" fx:id="toyPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
+                  <Pane id="Accout_Pane" fx:id="accountPane" disable="true" prefHeight="661.0" prefWidth="1100.0" stylesheets="@../css/StyleTungDZ.css" visible="false">
                      <children>
-                        <Label alignment="CENTER" text="Toy" />
-                     </children>
-                  </Pane>
-                  <Pane id="Stationery_Pane" fx:id="stationeryPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
-                     <children>
-                        <Label alignment="CENTER" text="Stationery" />
-                     </children>
-                  </Pane>
-                  <Pane id="Account_Pane" fx:id="accountPane" disable="true" prefHeight="628.0" prefWidth="1100.0" styleClass="White-background1" visible="false">
-                     <children>
-                        <Label alignment="CENTER" text="Account" />
+                        <ScrollPane prefHeight="675.0" prefWidth="1100.0">
+                           <content>
+                              <VBox prefHeight="813.0" prefWidth="1084.0" style="-fx-background-color: #f9f9f9;">
+                                 <children>
+                                    <Pane prefHeight="88.0" prefWidth="1084.0">
+                                       <children>
+                                          <Label layoutX="50.0" layoutY="7.0" text="Profile">
+                                             <font>
+                                                <Font name="System Bold" size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="50.0" layoutY="46.0" text="Update your profile.">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="394.0" prefWidth="984.0" style="-fx-border-radius: 15; -fx-border-color: gray;" VBox.vgrow="NEVER">
+                                       <VBox.margin>
+                                          <Insets left="50.0" right="50.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label layoutX="35.0" layoutY="43.0" text="Personal Information">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="35.0" layoutY="73.0" text="Update your personal information here." />
+                                          <Pane layoutX="298.0" layoutY="28.0" prefHeight="277.0" prefWidth="661.0" style="-fx-border-radius: 15; -fx-border-color: gray; -fx-background-color: #f9f9f9;">
+                                             <padding>
+                                                <Insets bottom="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox layoutY="-5.0" prefHeight="285.0" prefWidth="661.0" spacing="10.0">
+                                                   <children>
+                                                      <Pane prefHeight="53.0" prefWidth="641.0">
+                                                         <children>
+                                                            <Label layoutY="8.0" prefHeight="29.0" prefWidth="66.0" text="Name">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField layoutY="33.0" prefHeight="33.0" prefWidth="403.0" styleClass="text-field-account" />
+                                                            <Label layoutX="429.0" layoutY="8.0" prefHeight="29.0" prefWidth="127.0" text="Date of Birth">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField layoutX="429.0" layoutY="33.0" prefHeight="33.0" prefWidth="174.0" styleClass="text-field-account" />
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
+                                                         <children>
+                                                            <Label layoutY="8.0" prefHeight="29.0" prefWidth="66.0" text="Username">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
+                                                         <children>
+                                                            <Label layoutY="8.0" prefHeight="29.0" prefWidth="147.0" text="Phone Number">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
+                                                         <children>
+                                                            <Label layoutY="8.0" prefHeight="29.0" prefWidth="66.0" text="Address">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                </VBox>
+                                             </children>
+                                          </Pane>
+                                          <Label alignment="CENTER" layoutX="887.0" layoutY="321.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #90D5FF; -fx-background-radius: 15;" text="Save" textAlignment="CENTER" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="796.0" layoutY="321.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: white; -fx-background-radius: 15;" text="Cancel" textAlignment="CENTER" textFill="#040404de">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Pane layoutX="60.0" layoutY="119.0" prefHeight="255.0" prefWidth="984.0" style="-fx-border-radius: 15; -fx-border-color: gray;">
+                                       <children>
+                                          <Label layoutX="35.0" layoutY="43.0" text="Personal Information">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="35.0" layoutY="73.0" text="Update your personal information here." />
+                                          <Pane layoutX="298.0" layoutY="28.0" prefHeight="150.0" prefWidth="661.0" style="-fx-border-radius: 15; -fx-border-color: gray; -fx-background-color: #f9f9f9;">
+                                             <padding>
+                                                <Insets bottom="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox layoutY="-5.0" prefHeight="159.0" prefWidth="661.0" spacing="10.0">
+                                                   <children>
+                                                      <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
+                                                         <children>
+                                                            <Label layoutY="8.0" prefHeight="29.0" prefWidth="157.0" text="Current Password">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
+                                                         <children>
+                                                            <Label layoutY="8.0" prefHeight="29.0" prefWidth="147.0" text="New Password">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                </VBox>
+                                             </children>
+                                          </Pane>
+                                          <Label alignment="CENTER" layoutX="887.0" layoutY="192.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #90D5FF; -fx-background-radius: 15;" text="Save" textAlignment="CENTER" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="796.0" layoutY="192.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: white; -fx-background-radius: 15;" text="Cancel" textAlignment="CENTER" textFill="#040404de">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="50.0" right="50.0" top="50.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
                      </children>
                   </Pane>
                </children>

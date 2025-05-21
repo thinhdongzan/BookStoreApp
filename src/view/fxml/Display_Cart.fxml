@@ -9,16 +9,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="700.0" spacing="20.0" style="-fx-background-radius: 15; -fx-background-color: White;" stylesheets="@../css/StyleTungDZ.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="700.0" spacing="20.0" style="-fx-background-radius: 15; -fx-background-color: White;" stylesheets="@../css/StyleTungDZ.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DisplayCartController">
    <children>
-      <ImageView fitHeight="120.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../BookStoreApp/src/view/images/Books/61pTzIJ-QML._UF1000,1000_QL80_.jpg" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="productImage" fitHeight="120.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true" />
       <VBox prefHeight="110.0" prefWidth="171.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="110.0" prefWidth="170.0" text="Metamorphosis" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="productName" alignment="CENTER" contentDisplay="CENTER" prefHeight="110.0" prefWidth="170.0" text="Metamorphosis" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -27,7 +23,7 @@
       </VBox>
       <VBox layoutX="130.0" layoutY="30.0" prefHeight="110.0" prefWidth="80.0">
          <children>
-            <Label prefHeight="110.0" prefWidth="79.0" text="\$14.99" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="productPrice" prefHeight="110.0" prefWidth="79.0" text="\$14.99" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -50,7 +46,7 @@
             </Pane>
             <Pane layoutX="61.0" layoutY="11.0" prefHeight="33.0" prefWidth="53.0" style="-fx-border-color: transparent black transparent black;">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" prefHeight="35.0" prefWidth="48.0" text="02" textAlignment="CENTER">
+                  <Label fx:id="productQuantity" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" prefHeight="35.0" prefWidth="48.0" text="02" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -70,7 +66,7 @@
       </HBox>
       <VBox alignment="CENTER_RIGHT" prefHeight="110.0" prefWidth="91.0">
          <children>
-            <Label prefHeight="73.0" prefWidth="344.0" text="\$29.98">
+            <Label fx:id="productSumCost" prefHeight="73.0" prefWidth="344.0" text="\$29.98">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -79,7 +75,7 @@
       </VBox>
       <VBox alignment="CENTER_RIGHT" layoutX="584.0" layoutY="30.0" prefHeight="110.0" prefWidth="33.0">
          <children>
-            <ImageView fitHeight="26.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="26.0" fitWidth="34.0" onMouseClicked="#handleDelete" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../BookStoreApp/src/view/images/Button/trash-can.png" />
                </image>
