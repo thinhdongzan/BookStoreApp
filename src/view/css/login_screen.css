@@ -39,20 +39,6 @@
     -fx-background-color: gray;
 }
 
-.dashboard_inner:hover {
-    -fx-background-color: rgb(207, 205, 205);
-    -fx-background-radius: 10px;
-    -fx-scale-x: 1.05;
-    -fx-scale-y: 1.05;
-}
-
-.dashboard {
-    -fx-background-radius: 10px;
-    -fx-border-radius: 10px;
-    -fx-border-color: black;
-    -fx-font-size: 15px;
-}
-
 .menu-button{
     -fx-background-color: transparent;
     -fx-text-fill: white;
