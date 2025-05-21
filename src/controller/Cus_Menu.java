@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
 import dao.BookDAO;
 import dao.StationeryDAO;
+import dao.ToyDAO;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -18,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
@@ -25,7 +28,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Book;
+import model.Cart;
+import model.Product;
 import model.Stationery;
+import model.Toy;
 import utils.PopUpNoti;
 
 public class Cus_Menu implements Initializable {
@@ -160,25 +166,25 @@ public class Cus_Menu implements Initializable {
                 BookController bookController = loader.getController();
                 bookController.setData(book);
                 bookBestSellersLayout.getChildren().add(box);
-
             }
-            bookBestSellersLayout.setSpacing(10); // Khoảng cách giữa các VBox
-            bookBestSellersLayout.setPrefWidth(bestSellers.size() * 200); // 200 là kích thước mỗi VBox + khoảng cách
-
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         recommendedForYou = BookDAO.getRecommendedForYou();
         try {
+            int i = 0;
             for (Book book : recommendedForYou) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Display_Book.fxml"));
                 VBox box = loader.load();
                 BookController bookController = loader.getController();
                 bookController.setData(book);
-                box.setPrefWidth(150);
-                box.setPrefHeight(200);
+                if (i % 5 == 0) {
+                    javafx.geometry.Insets margin = new javafx.geometry.Insets(0, 0, 0, 20); // top, right, bottom, left
+                    FlowPane.setMargin(box, margin);
+                }
                 bookRecommendedForYouLayout.getChildren().add(box);
+                i++;
             }
             bookRecommendedForYouLayout.setPrefWidth(recommendedForYou.size() * 200);
         } catch (IOException e) {
@@ -196,6 +202,7 @@ public class Cus_Menu implements Initializable {
         setSelectedNav(stationeryNav);
         choosePane(stationeryPane);
         List<Stationery> stationeryList = StationeryDAO.getAllStationery();
+        stationeryLayout.getChildren().clear();
         try {
             for (Stationery stationery : stationeryList) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Display_Stationery.fxml"));
@@ -212,12 +219,26 @@ public class Cus_Menu implements Initializable {
     public void toyChoose() throws IOException {
         setSelectedNav(toyNav);
         choosePane(toyPane);
+        List<Toy> toyList = ToyDAO.getAllToy();
+        toyLayout.getChildren().clear();
+        try {
+            for (Toy toy : toyList) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Display_Toy.fxml"));
+                VBox toyBox = loader.load();
+                ToyController toyController = loader.getController();
+                toyController.setData(toy);
+                toyLayout.getChildren().add(toyBox);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void cartChoose() throws IOException {
         setSelectedNav(cartNav);
         choosePane(cartPane);
         choosePayMethod(payCreditCardPane);
+        updateCartView();
     }
 
     public void accountChoose() throws IOException {
@@ -412,6 +433,14 @@ public class Cus_Menu implements Initializable {
     private Pane payCreditCardPane;
     @FXML
     private Pane payCashPane;
+    @FXML
+    private VBox cartLayout;
+    @FXML
+    private Label subTotal;
+    @FXML
+    private Label shippingFee;
+    @FXML
+    private Label totalCost;
 
     public void choosePayMethod(Pane pane) {
         payCreditCardPane.setVisible(false);
@@ -432,8 +461,30 @@ public class Cus_Menu implements Initializable {
         choosePayMethod(payCashPane);
     }
 
+    public void updateCartView() {
+        cartLayout.getChildren().clear();
+        for (Map.Entry<Product, Integer> entry : Cart.getInstance().getItems().entrySet()) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Display_Cart.fxml"));
+                HBox cartRow = loader.load();
+                DisplayCartController controller = loader.getController();
+                controller.setData(entry.getKey(), entry.getValue(), this);
+                cartLayout.getChildren().add(cartRow);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        subTotal.setText(String.format("$%.2f", Cart.getInstance().getTotalCost()));
+        shippingFee.setText(String.format("$%.2f", Cart.SHIPPING_FEE));
+        totalCost.setText(String.format("$%.2f", Cart.getInstance().getTotalCostWithShipping()));
+    }
+
     // Stationery
     @FXML
     private FlowPane stationeryLayout;
+
+    // Toy
+    @FXML
+    private FlowPane toyLayout;
 
 }

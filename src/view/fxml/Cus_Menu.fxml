@@ -9,7 +9,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
@@ -514,7 +513,7 @@
                                                    <content>
                                                       <VBox prefHeight="516.0" prefWidth="1084.0">
                                                          <children>
-                                                            <FlowPane fx:id="bookRecommendedForYouLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0">
+                                                            <FlowPane fx:id="bookRecommendedForYouLayout" hgap="20.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="20.0">
                                                                <VBox.margin>
                                                                   <Insets />
                                                                </VBox.margin>
@@ -550,9 +549,9 @@
                                     </Pane>
                                     <HBox prefHeight="56.0" prefWidth="729.0">
                                        <children>
-                                          <Pane prefHeight="56.0" prefWidth="275.0">
+                                          <Pane prefHeight="56.0" prefWidth="332.0">
                                              <children>
-                                                <Label layoutX="14.0" layoutY="29.0" text="Product">
+                                                <Label layoutX="25.0" layoutY="29.0" text="Product">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
@@ -561,7 +560,7 @@
                                           </Pane>
                                           <Pane prefHeight="56.0" prefWidth="139.0">
                                              <children>
-                                                <Label layoutY="29.0" text="Price">
+                                                <Label layoutX="14.0" layoutY="29.0" text="Price">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
@@ -570,16 +569,16 @@
                                           </Pane>
                                           <Pane prefHeight="56.0" prefWidth="171.0">
                                              <children>
-                                                <Label layoutY="29.0" text="Quantity">
+                                                <Label layoutX="26.0" layoutY="29.0" text="Quantity">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
                                                 </Label>
                                              </children>
                                           </Pane>
-                                          <Pane prefHeight="56.0" prefWidth="117.0">
+                                          <Pane prefHeight="56.0" prefWidth="179.0">
                                              <children>
-                                                <Label layoutX="-7.0" layoutY="29.0" text="Total Price">
+                                                <Label layoutY="29.0" text="Total Price">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
@@ -589,10 +588,10 @@
                                           <Pane prefHeight="56.0" prefWidth="59.0" />
                                        </children>
                                     </HBox>
-                                    <ScrollPane prefHeight="357.0" prefWidth="733.0">
-                                      <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                      </content>
+                                    <ScrollPane prefHeight="357.0" prefWidth="733.0" vbarPolicy="NEVER">
+                                       <content>
+                                          <VBox fx:id="cartLayout" prefHeight="441.0" prefWidth="711.0" />
+                                       </content>
                                     </ScrollPane>
                                     <Pane prefHeight="173.0" prefWidth="729.0">
                                        <children>
@@ -606,12 +605,12 @@
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="556.0" layoutY="18.0" prefHeight="35.0" prefWidth="155.0" text="\$150.98">
+                                          <Label fx:id="subTotal" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="556.0" layoutY="18.0" prefHeight="35.0" prefWidth="155.0" text="\$150.98">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="560.0" layoutY="53.0" prefHeight="35.0" prefWidth="151.0" text="\$50.00">
+                                          <Label fx:id="shippingFee" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="560.0" layoutY="53.0" prefHeight="35.0" prefWidth="151.0" text="\$50.00">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
@@ -622,7 +621,7 @@
                                                 <Font name="System Bold" size="24.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="555.0" layoutY="111.0" prefHeight="45.0" prefWidth="156.0" text="\$200.98">
+                                          <Label fx:id="totalCost" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="555.0" layoutY="111.0" prefHeight="45.0" prefWidth="156.0" text="\$200.98">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -925,7 +924,7 @@
                         </HBox>
                      </children>
                   </Pane>
-                  <Pane id="Toy_Pane" fx:id="toyPane" disable="true" prefHeight="715.0" prefWidth="1100.0" visible="false">
+                  <Pane id="Toy_Pane" fx:id="toyPane" prefHeight="715.0" prefWidth="1100.0">
                      <children>
                         <ScrollPane prefHeight="674.0" prefWidth="1100.0">
                            <content>
@@ -945,14 +944,18 @@
                                           </Label>
                                        </children>
                                     </Pane>
-                                    <FlowPane prefHeight="234.0" prefWidth="1084.0" />
+                                    <FlowPane fx:id="toyLayout" hgap="10.0" prefHeight="234.0" prefWidth="1084.0" vgap="10.0">
+                                       <VBox.margin>
+                                          <Insets top="100.0"/>
+                                       </VBox.margin>
+                                    </FlowPane>
                                  </children>
                               </VBox>
                            </content>
                         </ScrollPane>
                      </children>
                   </Pane>
-                  <Pane id="Stationery_Pane" fx:id="stationeryPane" prefHeight="661.0" prefWidth="1100.0">
+                  <Pane id="Stationery_Pane" fx:id="stationeryPane" disable="true" prefHeight="661.0" prefWidth="1100.0" visible="false">
                      <children>
                         <ScrollPane prefHeight="661.0" prefWidth="1100.0">
                            <content>
@@ -972,7 +975,11 @@
                                           </Label>
                                        </children>
                                     </Pane>
-                                    <FlowPane fx:id="stationeryLayout" hgap="10.0" prefHeight="234.0" prefWidth="1084.0" vgap="10.0" />
+                                    <FlowPane fx:id="stationeryLayout" hgap="10.0" prefHeight="234.0" prefWidth="1084.0" vgap="10.0">
+                                       <VBox.margin>
+                                          <Insets top="100.0" />
+                                       </VBox.margin>
+                                    </FlowPane>
                                  </children>
                               </VBox>
                            </content>

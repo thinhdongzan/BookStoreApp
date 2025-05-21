@@ -12,7 +12,7 @@ public class Toy extends Product {
 
     // Constructor đầy đủ
     public Toy(int id, String name, int quantity, double purchasePrice, double sellingPrice,
-               String brand, String suitableAges, String toyType) {
+            String brand, String suitableAges, String toyType) {
         super(id, name, quantity, purchasePrice, sellingPrice);
         this.brand = brand;
         this.suitableAges = suitableAges;
@@ -45,7 +45,7 @@ public class Toy extends Product {
     public void setToyType(String toyType) {
         this.toyType = toyType;
     }
-    
+
     @Override
     public void displayInfo() {
         super.displayInfo();

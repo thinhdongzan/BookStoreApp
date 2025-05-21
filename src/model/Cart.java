@@ -5,38 +5,48 @@ import java.util.Map;
 
 public class Cart {
     private Customer customer;
-    private Map<Product, Integer> items;
+    private static Cart instance;
+    private Map<Product, Integer> items = new HashMap<>();
 
-    public Cart(Customer customer) {
-        this.customer = customer;
-        this.items = new HashMap<>();
+    public static final double SHIPPING_FEE = 10.00;
+
+    private Cart() {
     }
 
-    // Thêm sản phẩm vào giỏ
+    public static Cart getInstance() {
+        if (instance == null) {
+            instance = new Cart();
+        }
+        return instance;
+    }
+
     public void addProduct(Product product, int quantity) {
         items.put(product, items.getOrDefault(product, 0) + quantity);
-    }
-
-    // Xóa sản phẩm khỏi giỏ
-    public void removeProduct(Product product) {
-        items.remove(product);
-    }
-
-    // Xem tất cả sản phẩm trong giỏ
-    public void displayCart() {
-        System.out.println("Cart for Customer: " + customer.getName());
-        for (Map.Entry<Product, Integer> entry : items.entrySet()) {
-            Product product = entry.getKey();
-            int quantity = entry.getValue();
-            System.out.println("Product: " + product.getName() + " | Quantity: " + quantity + " | Unit Price: " + product.getSellingPrice());
-        }
     }
 
     public Map<Product, Integer> getItems() {
         return items;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public void remove(Product product) {
+        items.remove(product);
+    }
+
+    public double getTotalCost() {
+        double total = 0;
+        for (Map.Entry<Product, Integer> entry : items.entrySet()) {
+            Product product = entry.getKey();
+            int quantity = entry.getValue();
+            total += product.getSellingPrice() * quantity;
+        }
+        return total;
+    }
+
+    public double getTotalCostWithShipping() {
+        return getTotalCost() + SHIPPING_FEE;
+    }
+
+    public double getSHIPPING_FEE() {
+        return SHIPPING_FEE;
     }
 }

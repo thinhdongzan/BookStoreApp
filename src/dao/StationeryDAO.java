@@ -16,7 +16,7 @@ import model.Stationery;
 public class StationeryDAO {
     public static List<Stationery> getAllStationery() {
         List<Stationery> stationeryList = new ArrayList<>();
-        String query = "SELECT name, brand, sellingPrice, ImageSrc FROM stationery";
+        String query = "SELECT * FROM stationery";
         try (Connection conn = DBConnection.getConnection();
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(query)) {
@@ -26,6 +26,7 @@ public class StationeryDAO {
                 stationery.setBrand(rs.getString("brand"));
                 stationery.setImageSrc(rs.getString("ImageSrc"));
                 stationery.setSellingPrice(rs.getDouble("sellingPrice"));
+                stationery.setStationeryType(rs.getString("stationeryType"));
                 stationeryList.add(stationery);
             }
         } catch (SQLException e) {
