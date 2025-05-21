@@ -183,13 +183,14 @@
 }
 
 .button-self-help{
-	-fx-background-color: #fff176	;
-	
+	-fx-background-color: #D4C540;
 }
+	
+
 
 .size-item-image{
 	 -fx-fit-width: 140;
-    -fx-fit-height: 220;
+    -fx-fit-height: 22	0;
     -fx-preserve-ratio: true;
 }
 
@@ -199,7 +200,7 @@
 }
 
 .button-adventure{
-		-fx-background-color: #4fc3f7;
+		-fx-background-color: #73D0F9;
 	
 }
 
@@ -221,6 +222,21 @@
 .button-fairy-tale{
 		-fx-background-color: #c5e1a5;
 	
+}
+
+.button-category {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    
+    -fx-font-size: 12px;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.button-category:hover {
+    -fx-underline: true;
 }
 
 .mouse-selfhelp:hover{
@@ -255,13 +271,13 @@
     -fx-fit-height: 290;
 }
 
-.button-quantity-left:hover  {
+.button-quantity-l:hover  {
 	-fx-background-radius: 15 0 0 15;
     -fx-background-color: gray;
     -fx-text-fill: white;
 }
 
-.button-quantity-right:hover {
+.button-quantity:hover {
 	-fx-background-radius: 0 15 15 0;
     -fx-background-color: gray;
     -fx-text-fill: white;
@@ -326,8 +342,30 @@
 	
 }
 
+
 .text-field-account{
 	-fx-border-color: gray;
 	-fx-border-radius: 10;
 	-fx-background-color: transparent;
+	}
+
+
+.italic-bold-font{
+	    -fx-font-weight: bold;
+    -fx-font-style: italic;
 }
+.setting-button {
+    -fx-background-color: #ECECEC ; 
+    -fx-text-fill: #1C1C1C;
+
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.3, 0, 2);
+    -fx-cursor: hand;
+}
+
+
+.setting-button:hover {
+    -fx-background-color: #C0C0C0;
+}
+	
+	
