@@ -181,6 +181,35 @@
     -fx-background-radius: 15;
 }
 
+.employee-payment-button{
+    -fx-font-size: 12;
+    -fx-text-fill: white;
+    -fx-background-color: #3e71cf;
+    -fx-background-radius: 15;
+    -fx-font-weight: bold;
+}
+
+.label-payment{
+    -fx-text-fill: black;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+.employee-payment-button:hover{
+    -fx-background-color: linear-gradient(to bottom right, #3e70fa, #1a2ff2);
+    -fx-cursor: hand;
+}
+
+.employee-back-button{
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-font-size: 12;
+}
+
+.employee-back-button:hover{
+    -fx-background-radius: 12;
+    -fx-background-color: rgb(222, 222, 222);
+}
 /* storage-page */
 .storage-add-button{
     -fx-background-color: white;
@@ -468,11 +497,4 @@
     -fx-background-color: black;
     -fx-background-size: cover;
     -fx-background-position: center;
-}
-
-.label. {
-    -fx-background-color: #ff5c5c;
-    -fx-text-fill: white;
-    -fx-padding: 4 12;
-    -fx-background-radius: 8;
 }

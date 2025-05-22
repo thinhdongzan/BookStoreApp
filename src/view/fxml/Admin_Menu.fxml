@@ -1178,36 +1178,66 @@
                         </VBox>
                         <VBox fx:id="employees_payment_table_page" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0" visible="false">
                            <children>
+                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="770.0" />
                               <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employees payment">
                                        <font>
-                                          <Font name="Calibri Bold" size="24.0" />
+                                          <Font name="Calibri" size="24.0" />
                                        </font>
                                        <HBox.margin>
-                                          <Insets left="16.0" />
+                                          <Insets left="54.0" />
                                        </HBox.margin>
                                     </Text>
-                                    <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="47.0" prefWidth="600.0" />
+                                    <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="58.0" prefWidth="440.0" />
+                                    <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="60.0" styleClass="employee-back-button">
+                                       <children>
+                                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/Logo/back.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="employee_back_button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="44.0" styleClass="employee-back-button" text="Back">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets right="32.0" />
+                                       </HBox.margin>
+                                    </HBox>
                                  </children>
                               </HBox>
-                              <TableView fx:id="employee_table1" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#selectEmployee" prefHeight="360.0" prefWidth="722.0" styleClass="order-table">
+                              <TableView fx:id="employee_table1" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#selectEmployee" prefHeight="340.0" prefWidth="680.0" styleClass="order-table">
                                  <columns>
                                     <TableColumn fx:id="id_pay_col" maxWidth="60.0" minWidth="80.0" prefWidth="60.0" text="Id" />
-                                    <TableColumn fx:id="name_col1" maxWidth="280.0" minWidth="280.0" prefWidth="280.0" text="Name" />
-                                    <TableColumn fx:id="salary_pay_col" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Salary" />
-                                    <TableColumn fx:id="status_pay_col" maxWidth="160.0" minWidth="160.0" prefWidth="160.0" text="Status" />
+                                    <TableColumn fx:id="name_col1" maxWidth="360.0" minWidth="360.0" prefWidth="360.0" text="Name" />
+                                    <TableColumn fx:id="salary_pay_col" maxWidth="236.0" minWidth="236.0" prefWidth="236.0" text="Salary" />
                                  </columns>
+                                 <VBox.margin>
+                                    <Insets left="54.0" right="32.0" />
+                                 </VBox.margin>
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                  </columnResizePolicy>
-                                 <VBox.margin>
-                                    <Insets left="16.0" right="32.0" />
-                                 </VBox.margin>
                               </TableView>
                               <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="770.0">
                                  <children>
-                                    <Button fx:id="payment_button_employee" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showAddEmployeePage" prefHeight="30.0" prefWidth="80.0" styleClass="employee-add-button" text="Pay">
+                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="240.0">
+                                       <HBox.margin>
+                                          <Insets bottom="8.0" right="16.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <Label styleClass="label-payment" text="Total payment:" />
+                                          <Label styleClass="label-payment" text="total">
+                                             <HBox.margin>
+                                                <Insets left="12.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="payment_button_employee" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showAddEmployeePage" prefHeight="30.0" prefWidth="80.0" styleClass="employee-payment-button" text="Pay">
                                        <HBox.margin>
                                           <Insets bottom="8.0" right="32.0" />
                                        </HBox.margin>
@@ -2388,7 +2418,7 @@
                                                          <children>
                                                             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0">
                                                                <children>
-                                                                  <Label text="Gender:">
+                                                                  <Label text="Name:">
                                                                      <HBox.margin>
                                                                         <Insets left="16.0" />
                                                                      </HBox.margin>
