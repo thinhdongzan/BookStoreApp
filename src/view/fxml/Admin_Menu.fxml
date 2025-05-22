@@ -131,7 +131,7 @@
    <center>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" stylesheets="@../css/login_screen.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="dashboard_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
+            <VBox fx:id="dashboard_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                      <children>
@@ -316,7 +316,7 @@
                                                 <StackPane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-bg">
                                                    <children>
                                                       <Region fx:id="bar10" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" styleClass="progress-bar-fill" />
-                                                      <Label text="Label" textFill="WHITE">
+                                                      <Label fx:id="cost1" text="Label" textFill="WHITE">
                                                          <StackPane.margin>
                                                             <Insets left="8.0" />
                                                          </StackPane.margin>
@@ -333,7 +333,7 @@
                                                 <StackPane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-bg">
                                                    <children>
                                                       <Region fx:id="bar20" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="120.0" styleClass="progress-bar-fill" />
-                                                      <Label text="Label" textFill="WHITE">
+                                                      <Label fx:id="cost2" text="Label" textFill="WHITE">
                                                          <StackPane.margin>
                                                             <Insets left="8.0" />
                                                          </StackPane.margin>
@@ -352,8 +352,8 @@
                                              <children>
                                                 <StackPane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-bg">
                                                    <children>
-                                                      <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="140.0" styleClass="progress-bar-fill" />
-                                                      <Label text="Label" textFill="WHITE">
+                                                      <Region fx:id="bar30" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="140.0" styleClass="progress-bar-fill" />
+                                                      <Label fx:id="cost3" text="Label" textFill="WHITE">
                                                          <StackPane.margin>
                                                             <Insets left="8.0" />
                                                          </StackPane.margin>
@@ -372,8 +372,8 @@
                                              <children>
                                                 <StackPane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-bg">
                                                    <children>
-                                                      <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-fill" />
-                                                      <Label text="Label" textFill="WHITE">
+                                                      <Region fx:id="bar40" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" styleClass="progress-bar-fill" />
+                                                      <Label fx:id="cost4" text="Label" textFill="WHITE">
                                                          <StackPane.margin>
                                                             <Insets left="8.0" />
                                                          </StackPane.margin>
@@ -391,7 +391,7 @@
                                           <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0">
                                              <children>
                                                 <Label styleClass="total-expense" text="Total: " />
-                                                <Label fx:id="total_expense_label_dashboard" styleClass="total-expense" text="Label" />
+                                                <Label fx:id="total_otherCostLabel" styleClass="total-expense" text="Label" />
                                              </children>
                                              <VBox.margin>
                                                 <Insets top="8.0" />
@@ -805,7 +805,7 @@
                      </VBox.margin></HBox>
                </children>
             </VBox>
-            <VBox fx:id="employee_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="employee_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
                <children>
                   <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0" styleClass="title-pane">
                      <children>
@@ -838,7 +838,7 @@
                   </HBox>
                   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0">
                      <children>
-                        <VBox fx:id="employee_table_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0">
+                        <VBox fx:id="employee_table_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0" visible="false">
                            <children>
                               <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="170.0" prefWidth="770.0">
                                  <children>
@@ -1197,7 +1197,7 @@
                                                 <Image url="@../images/Logo/back.png" />
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="employee_back_button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="44.0" styleClass="employee-back-button" text="Back">
+                                          <Button fx:id="employee_back_button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#backToEmployeePage" prefHeight="24.0" prefWidth="44.0" styleClass="employee-back-button" text="Back">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
@@ -1212,7 +1212,7 @@
                               <TableView fx:id="employee_table1" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#selectEmployee" prefHeight="340.0" prefWidth="680.0" styleClass="order-table">
                                  <columns>
                                     <TableColumn fx:id="id_pay_col" maxWidth="60.0" minWidth="80.0" prefWidth="60.0" text="Id" />
-                                    <TableColumn fx:id="name_col1" maxWidth="360.0" minWidth="360.0" prefWidth="360.0" text="Name" />
+                                    <TableColumn fx:id="name_pay_col" maxWidth="360.0" minWidth="360.0" prefWidth="360.0" text="Name" />
                                     <TableColumn fx:id="salary_pay_col" maxWidth="236.0" minWidth="236.0" prefWidth="236.0" text="Salary" />
                                  </columns>
                                  <VBox.margin>
@@ -1230,14 +1230,14 @@
                                        </HBox.margin>
                                        <children>
                                           <Label styleClass="label-payment" text="Total payment:" />
-                                          <Label styleClass="label-payment" text="total">
+                                          <Label fx:id="total_paymentLabel" styleClass="label-payment" text="total">
                                              <HBox.margin>
                                                 <Insets left="12.0" />
                                              </HBox.margin>
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <Button fx:id="payment_button_employee" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showAddEmployeePage" prefHeight="30.0" prefWidth="80.0" styleClass="employee-payment-button" text="Pay">
+                                    <Button fx:id="payment_button_employee" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#paySalary" prefHeight="30.0" prefWidth="80.0" styleClass="employee-payment-button" text="Pay">
                                        <HBox.margin>
                                           <Insets bottom="8.0" right="32.0" />
                                        </HBox.margin>

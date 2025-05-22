@@ -4,10 +4,11 @@ package controller;
 import java.net.URL;
 
 import java.sql.SQLException;
-
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.function.Function;
@@ -41,6 +42,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Book;
 import model.Employee;
+import model.OtherCost;
 import model.Stationery;
 import model.Toy;
 
@@ -312,24 +314,77 @@ public class Admin_Menu_Controller implements Initializable  {
     private Image image;
 
 
+    //OTHER COST
+    List<OtherCost> costs = List.of(
+    new OtherCost("Điện", 3200000),
+    new OtherCost("Nước", 3500000),
+    new OtherCost("Thuê mặt bằng", 8000000),
+    new OtherCost("Khác", 4800000)
+);
+
+
 
 
     @FXML
     private Region bar10;
     @FXML
     private Region bar20;
+    @FXML
+    private Region bar30;
+    @FXML
+    private Region bar40;
+    @FXML private Label cost1;
+    @FXML private Label cost2;
+    @FXML private Label cost3;
+    @FXML private Label cost4;
+
+    @FXML private Label total_otherCostLabel;
+
+
+    private String formatCurrency(double amount) {
+        Locale vietnam = Locale.forLanguageTag("vi-VN"); 
+        NumberFormat nf = NumberFormat.getInstance(vietnam);
+        return nf.format(amount) + " VND";
+    }
+
     // Add others as needed
 
-    @FXML
-    public void initialize() {
-        setProgress(bar10, 1);
-        setProgress(bar20, 0.20);
-        // ...
+    public void showOtherCosts(List<OtherCost> costs) {
+    // Tổng chi phí
+    double total = costs.stream().mapToDouble(OtherCost::getAmount).sum();
+
+    // Gán vào label
+    total_otherCostLabel.setText(total + " VND");
+
+    // Đặt chiều rộng tối đa cho bar (bạn điều chỉnh nếu cần)
+    double maxWidth = 200;
+
+    // Danh sách các Region tương ứng
+    List<Region> bars = List.of(bar10, bar20, bar30, bar40);
+
+    // Cập nhật từng thanh
+    for (int i = 0; i < bars.size() && i < costs.size(); i++) {
+        double amount = costs.get(i).getAmount();
+        double percent = amount / total;
+
+        Region bar = bars.get(i);
+        bar.setPrefWidth(maxWidth * percent);
+        // bar.setStyle("-fx-background-color: linear-gradient(to right, #0057ff, #00aaff);"
+        //            + "-fx-background-radius: 20px;");
     }
 
-    private void setProgress(Region bar, double percentage) {
-        bar.setPrefWidth(160 * percentage); // 300 is full width
+    List<Label> costLabels = List.of(cost1, cost2, cost3, cost4);
+
+    for (int i = 0; i < costLabels.size(); i++) {
+        if (i < costs.size()) {
+            OtherCost cost = costs.get(i);
+            costLabels.get(i).setText(cost.getType() + ": " + formatCurrency(cost.getAmount()));
+        } else {
+            costLabels.get(i).setText(""); // Xóa nếu không đủ dữ liệu
+        }
     }
+}
+
 
 
    
@@ -410,6 +465,38 @@ public class Admin_Menu_Controller implements Initializable  {
         //totalEmployee_label_menu.setText(""+listEmployees.size());
     }
     
+
+
+    @FXML
+    private TableColumn<Employee, String> salary_pay_col;
+    @FXML
+    private TableColumn<Employee, String> name_pay_col;
+    @FXML
+    private TableColumn<Employee, Integer> id_pay_col;
+    @FXML
+    private TableView<Employee> employee_table1;
+    @FXML
+    private Label total_paymentLabel;
+    @FXML
+    public void showPayment() {
+
+        listEmployees = EmployeeDAO.getPaymentDataList();
+
+        id_pay_col.setCellValueFactory(new PropertyValueFactory<>("id"));
+        name_pay_col.setCellValueFactory(new PropertyValueFactory<>("name"));
+        salary_pay_col.setCellValueFactory(new PropertyValueFactory<>("salary"));
+
+        employee_table1.setItems(listEmployees);
+        double total = 0;
+        for (Employee emp : listEmployees) {
+            if ("UNPAID".equalsIgnoreCase(emp.getSalaryStatus())) {
+                total += emp.getSalary();
+            }
+        }
+
+        total_paymentLabel.setText(total + " VND");
+            //totalEmployee_label_menu.setText(""+listEmployees.size());
+        }
     public void selectEmployee() {
 
         Employee employeeData  = employee_table.getSelectionModel().getSelectedItem();
@@ -446,36 +533,38 @@ public class Admin_Menu_Controller implements Initializable  {
                 Alert alert;
                 if (removed) {
                     alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Admin Message");
+                    alert.setTitle("Thông báo");
                     alert.setHeaderText(null);
-                    alert.setContentText("Employee successfully removed.");
+                    alert.setContentText("Đã xóa nhân viên thành công.");
                     alert.showAndWait();
 
-                    showEmployee(); // Refresh bảng nếu cần
+                    showEmployee(); // Làm mới bảng nếu cần
+                    showPayment();
                 } else {
                     alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Admin Message");
+                    alert.setTitle("Thông báo");
                     alert.setHeaderText(null);
-                    alert.setContentText("No employee found with the given name.");
+                    alert.setContentText("Không tìm thấy nhân viên với tên đã nhập.");
                     alert.showAndWait();
                 }
             } catch (IllegalArgumentException e) {
                 // Trường hợp label chưa chọn hoặc null
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Admin Message");
+                alert.setTitle("Lỗi");
                 alert.setHeaderText(null);
                 alert.setContentText(e.getMessage());
                 alert.showAndWait();
             } catch (Exception e) {
                 e.printStackTrace();
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("System Error");
+                alert.setTitle("Lỗi hệ thống");
                 alert.setHeaderText(null);
-                alert.setContentText("An unexpected error occurred.");
+                alert.setContentText("Đã xảy ra lỗi không mong muốn.");
                 alert.showAndWait();
             }
         }
     }
+
 
 
 
@@ -526,11 +615,12 @@ public class Admin_Menu_Controller implements Initializable  {
     public TextField getAdd_employee_salary() { return add_employee_salary; }
     public TextField getAdd_employee_number() { return add_employee_number; }
     public TextField getAdd_employee_email() { return add_employee_email; }
+
     public int getSelectedEmployeeId() {
     Employee selectedEmployee = employee_table.getSelectionModel().getSelectedItem();
 
     if (selectedEmployee == null) {
-        throw new IllegalArgumentException("Please select an employee from the table.");
+        throw new IllegalArgumentException("Vui lòng chọn một nhân viên từ bảng.");
     }
 
     return selectedEmployee.getId();
@@ -547,24 +637,25 @@ public class Admin_Menu_Controller implements Initializable  {
             Alert alert;
             if (success) {
                 alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Admin Message");
+                alert.setTitle("Thông báo từ quản trị viên");
                 alert.setHeaderText(null);
-                alert.setContentText("Successfully added new employee!");
+                alert.setContentText("Đã thêm nhân viên mới thành công!");
                 alert.showAndWait();
 
                 clearEmployeeData(); // Xóa form
                 showEmployee();      // Refresh bảng
+                showPayment(); // Refresh bảng thanh toán
             } else {
                 alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Admin Message");
+                alert.setTitle("Thông báo từ quản trị viên");
                 alert.setHeaderText(null);
-                alert.setContentText("Employee was not added.");
+                alert.setContentText("Không thêm được nhân viên.");
                 alert.showAndWait();
             }
 
         } catch (IllegalArgumentException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Invalid Input");
+            alert.setTitle("Dữ liệu nhập không hợp lệ.");
             alert.setHeaderText(null);
             alert.setContentText(e.getMessage());
             alert.showAndWait();
@@ -572,9 +663,9 @@ public class Admin_Menu_Controller implements Initializable  {
         } catch (Exception e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("System Error");
+            alert.setTitle("Lỗi hệ thống.");
             alert.setHeaderText(null);
-            alert.setContentText("An unexpected error occurred while adding the employee.");
+            alert.setContentText("Đã xảy ra lỗi không mong muốn khi thêm nhân viên.");
             alert.showAndWait();
         }
     }
@@ -593,6 +684,51 @@ public class Admin_Menu_Controller implements Initializable  {
         profile_image.setImage(null);
     }
     
+
+    @FXML
+    private Button employee_pay_button;
+
+    @FXML
+    private VBox employees_payment_table_page;
+
+    public void showPaymentPage(ActionEvent event) {
+        if (event.getSource() == employee_pay_button) {
+            
+            employee_table_page.setVisible(false);
+            employees_payment_table_page.setVisible(true);
+        }
+    }
+
+    @FXML
+    private Button employee_back_button;
+    public void backToEmployeePage(ActionEvent event) {
+        if (event.getSource() == employee_back_button) {
+            employees_payment_table_page.setVisible(false);
+            employee_table_page.setVisible(true);
+        }
+    }
+
+
+    @FXML
+    private Button payment_button_employee;
+
+
+    public void paySalary(ActionEvent event){
+        showPayment();
+        if(event.getSource() == payment_button_employee){
+
+            EmployeeDAO.markAllEmployeesAsPaid();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Thông báo");
+        alert.setHeaderText(null);
+        alert.setContentText("Tất cả nhân viên đã được trả lương.");
+        alert.showAndWait();
+
+        showPayment();
+
+        }
+    }
 
 
 
@@ -689,7 +825,7 @@ public class Admin_Menu_Controller implements Initializable  {
     public TextField getAdd_book_genre() { return add_book_genre; }
 
     @FXML
-    public void addNewBook(ActionEvent event) {
+public void addNewBook(ActionEvent event) {
     if (event.getSource() == add_book_button) {
         try {
             // Gọi DAO để thêm sách, nếu lỗi input sẽ ném ra
@@ -698,24 +834,24 @@ public class Admin_Menu_Controller implements Initializable  {
             Alert alert;
             if (success) {
                 alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Admin Message");
+                alert.setTitle("Thông báo từ quản trị viên");
                 alert.setHeaderText(null);
-                alert.setContentText("Successfully added new book!");
+                alert.setContentText("Đã thêm sách mới thành công!");
                 alert.showAndWait();
 
                 clearBookFields();  // Xóa form
                 loadBookData();     // Refresh bảng
             } else {
                 alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Admin Message");
+                alert.setTitle("Thông báo từ quản trị viên");
                 alert.setHeaderText(null);
-                alert.setContentText("Book was not added.");
+                alert.setContentText("Không thêm được sách.");
                 alert.showAndWait();
             }
 
         } catch (IllegalArgumentException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Invalid Input");
+            alert.setTitle("Dữ liệu nhập không hợp lệ");
             alert.setHeaderText(null);
             alert.setContentText(e.getMessage());
             alert.showAndWait();
@@ -723,13 +859,14 @@ public class Admin_Menu_Controller implements Initializable  {
         } catch (Exception e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("System Error");
+            alert.setTitle("Lỗi hệ thống");
             alert.setHeaderText(null);
-            alert.setContentText("An unexpected error occurred while adding the book.");
+            alert.setContentText("Đã xảy ra lỗi không mong muốn khi thêm sách.");
             alert.showAndWait();
         }
     }
 }
+
 
 
     public void loadBookData() {
@@ -824,46 +961,6 @@ public class Admin_Menu_Controller implements Initializable  {
 
 
 
-    // public void removeSelectedItem() {
-    //     // Alert alert;
-
-    //     try {
-    //         if (books_table_storage.isVisible() && books_table_storage.getSelectionModel().getSelectedItem() != null) {
-    //             Book selectedBook = books_table_storage.getSelectionModel().getSelectedItem();
-
-    //             if (confirmDelete("Bạn có chắc muốn xoá sách này?")) {
-    //                 BookDAO.deleteBookById(selectedBook.getId());
-    //                 showInfo("Book removed successfully");
-    //                 loadBookData();
-    //             }
-
-    //         } else if (toys_table_storage.isVisible() && toys_table_storage.getSelectionModel().getSelectedItem() != null) {
-    //             Toy selectedToy = toys_table_storage.getSelectionModel().getSelectedItem();
-
-    //             if (confirmDelete("Bạn có chắc muốn xoá đồ chơi này?")) {
-    //                 ToyDAO.deleteToyById(selectedToy.getId());
-    //                 showInfo("Toy removed successfully");
-    //                 loadToyData();
-    //             }
-
-    //         } else if (stationaries_table_storage.isVisible() && stationaries_table_storage.getSelectionModel().getSelectedItem() != null) {
-    //             Stationery selectedStationery = stationaries_table_storage.getSelectionModel().getSelectedItem();
-
-    //             if (confirmDelete("Bạn có chắc muốn xoá văn phòng phẩm này?")) {
-    //                 StationeryDAO.deleteStationeryById(selectedStationery.getId());
-    //                 showInfo("Stationery removed successfully");
-    //                 loadStationeryData();
-    //             }
-
-    //         } else {
-    //             showError("Please select an item to remove.");
-    //         }
-
-    //     } catch (SQLException e) {
-    //         e.printStackTrace();
-    //         showError("Lỗi khi xoá dữ liệu.");
-    //     }
-    // }
 
     private boolean confirmDelete(String message) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -982,7 +1079,7 @@ public void clearToyData() {
             // boolean success = ToyDAO.addToy(this);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Admin Message");
+            alert.setTitle("Thông báo từ quản trị viên");
             alert.setHeaderText(null);
             alert.setContentText("Thêm đồ chơi thành công!");
             alert.showAndWait();
@@ -1009,19 +1106,7 @@ public void clearToyData() {
 }
 
 
-    @FXML
-    private Button employee_pay_button;
-
-    @FXML
-    private VBox employees_payment_table_page;
-
-    public void showPaymentPage(ActionEvent event) {
-        if (event.getSource() == employee_pay_button) {
-            
-            employee_table_page.setVisible(false);
-            employees_payment_table_page.setVisible(true);
-        }
-    }
+    
 
 
 
@@ -1254,6 +1339,10 @@ public void clearToyData() {
         showStationery();
 
         TypeItem();
+
+        showPayment();
+
+        showOtherCosts(costs);
     }
 
 }

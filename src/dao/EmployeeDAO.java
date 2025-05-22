@@ -46,7 +46,8 @@ public class EmployeeDAO {
                 result.getDouble("salary"),
                 result.getString("image"),
                 result.getString("phone"),
-                result.getString("email")
+                result.getString("email"),
+                result.getString("status")  // đọc cột status từ DB
                 );
 
                 listEmployees.add(anEmployee);
@@ -57,6 +58,41 @@ public class EmployeeDAO {
         return listEmployees;
     }
 
+    public static ObservableList<Employee> getPaymentDataList() {
+    ObservableList<Employee> listEmployees = FXCollections.observableArrayList();
+
+    String sql = "SELECT * FROM employee WHERE status = 'UNPAID'";
+
+    try (Connection conn = DBConnection.getConnection();
+         Statement stmt = conn.createStatement();
+         ResultSet result = stmt.executeQuery(sql)) {
+
+        Employee anEmployee;
+
+        while (result.next()) {
+            anEmployee = new Employee(
+                result.getInt("id"),
+                result.getString("name"),
+                result.getString("dob"),
+                result.getString("address"),
+                result.getDouble("salary"),
+                result.getString("image"),
+                result.getString("phone"),
+                result.getString("email"),
+                result.getString("status")  // đọc cột status từ DB
+            );
+
+            listEmployees.add(anEmployee);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    return listEmployees;
+}
+
+
+    
 
    
     @FXML
@@ -188,6 +224,23 @@ public static boolean removeEmployee(Admin_Menu_Controller controller) {
         throw new RuntimeException("Database error while inserting employee.");
     }
 }
+
+
+    //PAYMENT
+    public static void markAllEmployeesAsPaid() {
+    String sql = "UPDATE employee SET status = 'PAID' WHERE status = 'UNPAID'";
+
+    try (Connection conn = DBConnection.getConnection();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+        int rowsUpdated = pstmt.executeUpdate();
+        System.out.println("Đã cập nhật " + rowsUpdated + " nhân viên sang trạng thái 'ĐÃ TRẢ LƯƠNG'.");
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
 
 
 }
