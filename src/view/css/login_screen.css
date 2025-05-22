@@ -469,3 +469,10 @@
     -fx-background-size: cover;
     -fx-background-position: center;
 }
+
+.label. {
+    -fx-background-color: #ff5c5c;
+    -fx-text-fill: white;
+    -fx-padding: 4 12;
+    -fx-background-radius: 8;
+}

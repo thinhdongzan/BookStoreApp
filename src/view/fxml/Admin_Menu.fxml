@@ -46,19 +46,6 @@
                   <Insets left="16.0" right="16.0" />
                </VBox.margin>
             </VBox>
-            <HBox fx:id="menu_bar" alignment="CENTER_LEFT" layoutX="25.0" layoutY="118.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" styleClass="menu">
-               <children>
-                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/Logo/burger-bar.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Button fx:id="menu_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Menu" textFill="WHITE" />
-               </children>
-            </HBox>
             <HBox fx:id="dashboard_bar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="89.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" styleClass="menu">
                <children>
                   <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
@@ -124,7 +111,7 @@
                   <Button fx:id="setting_button" mnemonicParsing="false" onAction="#showMenuPage" styleClass="menu-button" text="Settings" textFill="WHITE" />
                </children>
             </HBox>
-                <Region prefHeight="180.0" prefWidth="130.0" />
+                <Region prefHeight="220.0" prefWidth="130.0" />
             <HBox fx:id="sign_out" alignment="CENTER_LEFT" layoutX="10.0" layoutY="340.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" styleClass="menu">
                <children>
                   <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
