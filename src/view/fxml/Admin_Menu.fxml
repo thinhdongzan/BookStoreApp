@@ -838,7 +838,7 @@
                   </HBox>
                   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0">
                      <children>
-                        <VBox fx:id="employee_table_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0" visible="false">
+                        <VBox fx:id="employee_table_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0">
                            <children>
                               <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="170.0" prefWidth="770.0">
                                  <children>
@@ -931,7 +931,7 @@
                                        </HBox.margin>
                                     </Text>
                                     <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="47.0" prefWidth="600.0" />
-                                    <Button fx:id="employee_pay_button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" styleClass="employee-pay-button" text="Pay" textAlignment="CENTER">
+                                    <Button fx:id="employee_pay_button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#showPaymentPage" prefHeight="30.0" prefWidth="80.0" styleClass="employee-pay-button" text="Pay" textAlignment="CENTER">
                                        <HBox.margin>
                                           <Insets bottom="8.0" right="32.0" />
                                        </HBox.margin>
@@ -1176,7 +1176,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox fx:id="employees_payment_table_page" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0">
+                        <VBox fx:id="employees_payment_table_page" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0" visible="false">
                            <children>
                               <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                                  <children>
@@ -2219,7 +2219,7 @@
                   </StackPane>
                </children>
             </VBox>
-            <VBox fx:id="setting_page" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="setting_page" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" visible="false">
                <children>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                      <children>

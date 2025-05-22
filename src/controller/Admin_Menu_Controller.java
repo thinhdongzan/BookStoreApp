@@ -12,6 +12,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.function.Function;
 
+import javax.swing.Action;
+
 import javafx.scene.control.*;
 import dao.BookDAO;
 
@@ -686,7 +688,7 @@ public class Admin_Menu_Controller implements Initializable  {
     public TextField getAdd_book_isbn() { return add_book_isbn; }
     public TextField getAdd_book_genre() { return add_book_genre; }
 
-   @FXML
+    @FXML
     public void addNewBook(ActionEvent event) {
     if (event.getSource() == add_book_button) {
         try {
@@ -1005,6 +1007,21 @@ public void clearToyData() {
         }
     }
 }
+
+
+    @FXML
+    private Button employee_pay_button;
+
+    @FXML
+    private VBox employees_payment_table_page;
+
+    public void showPaymentPage(ActionEvent event) {
+        if (event.getSource() == employee_pay_button) {
+            
+            employee_table_page.setVisible(false);
+            employees_payment_table_page.setVisible(true);
+        }
+    }
 
 
 
