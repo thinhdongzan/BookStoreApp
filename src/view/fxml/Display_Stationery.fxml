@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="stationeryBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#showInfo" prefHeight="227.0" prefWidth="160.0" style="-fx-border-color: gray; -fx-border-radius: 0; -fx-background-color: white;" styleClass="White-background" stylesheets="@../css/StyleTungDZ.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StationeryController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="227.0" prefWidth="160.0" style="-fx-background-color: white;" styleClass="White-background" stylesheets="@../css/StyleTungDZ.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox prefHeight="135.0" prefWidth="135.0">
          <children>
-            <ImageView fx:id="stationeryImage" fitHeight="220.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="220.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/Stationery/butdaquangstabilo.jpg" />
                </image>
@@ -24,13 +24,13 @@
             </ImageView>
          </children>
       </HBox>
-      <Label fx:id="stationeryName" text="Bút dạ quang">
+      <Label text="Bút dạ quang">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="stationeryBrand" text="Name brand" />
-      <Label fx:id="stationeryPrice" text="1.09$">
+      <Label text="Name brand" />
+      <Label text="1.09$">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
