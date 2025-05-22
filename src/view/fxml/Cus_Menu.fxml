@@ -22,9 +22,9 @@
    <left>
       <VBox prefHeight="720.0" prefWidth="180.0" styleClass="anchor-pane-background1" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="55.0" prefWidth="155.0" text="Hust" textFill="WHITE">
+            <Label prefHeight="43.0" prefWidth="155.0" text="Hust" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="48.0" />
+                  <Font name="Arial Bold" size="36.0" />
                </font>
             </Label>
             <Label prefHeight="40.0" prefWidth="163.0" text="BookStore" textFill="WHITE">
@@ -184,398 +184,6 @@
             </HBox>
             <StackPane id="Main-Stack" prefHeight="673.0" prefWidth="1100.0">
                <children>
-                  <Pane id="Cart_Pane" fx:id="cartPane" disable="true" prefHeight="200.0" prefWidth="200.0" styleClass="White-background1" visible="false">
-                     <children>
-                        <HBox layoutX="-2.0" layoutY="-1.0" prefHeight="673.0" prefWidth="1102.0">
-                           <children>
-                              <VBox id="Cart List" prefHeight="673.0" prefWidth="1397.0">
-                                 <children>
-                                    <Pane prefHeight="68.0" prefWidth="749.0">
-                                       <children>
-                                          <Label layoutX="59.0" layoutY="14.0" prefHeight="53.0" prefWidth="692.0" text="My Cart">
-                                             <font>
-                                                <Font name="System Bold Italic" size="36.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </Pane>
-                                    <HBox prefHeight="56.0" prefWidth="729.0">
-                                       <children>
-                                          <Pane prefHeight="56.0" prefWidth="332.0">
-                                             <children>
-                                                <Label layoutX="25.0" layoutY="29.0" text="Product">
-                                                   <font>
-                                                      <Font name="System Bold" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </Pane>
-                                          <Pane prefHeight="56.0" prefWidth="139.0">
-                                             <children>
-                                                <Label layoutX="14.0" layoutY="29.0" text="Price">
-                                                   <font>
-                                                      <Font name="System Bold" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </Pane>
-                                          <Pane prefHeight="56.0" prefWidth="171.0">
-                                             <children>
-                                                <Label layoutX="26.0" layoutY="29.0" text="Quantity">
-                                                   <font>
-                                                      <Font name="System Bold" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </Pane>
-                                          <Pane prefHeight="56.0" prefWidth="179.0">
-                                             <children>
-                                                <Label layoutY="29.0" text="Total Price">
-                                                   <font>
-                                                      <Font name="System Bold" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </Pane>
-                                          <Pane prefHeight="56.0" prefWidth="59.0" />
-                                       </children>
-                                    </HBox>
-                                    <ScrollPane prefHeight="357.0" prefWidth="733.0" vbarPolicy="NEVER">
-                                       <content>
-                                          <VBox fx:id="cartLayout" prefHeight="441.0" prefWidth="711.0" />
-                                       </content>
-                                    </ScrollPane>
-                                    <Pane prefHeight="173.0" prefWidth="729.0">
-                                       <children>
-                                          <Label layoutX="469.0" layoutY="20.0" text="Subtotal:">
-                                             <font>
-                                                <Font name="System Bold" size="20.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="463.0" layoutY="55.0" text="Shipping:">
-                                             <font>
-                                                <Font name="System Bold" size="20.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="subTotal" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="556.0" layoutY="18.0" prefHeight="35.0" prefWidth="155.0" text="\$150.98">
-                                             <font>
-                                                <Font size="20.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="shippingFee" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="560.0" layoutY="53.0" prefHeight="35.0" prefWidth="151.0" text="\$50.00">
-                                             <font>
-                                                <Font size="20.0" />
-                                             </font>
-                                          </Label>
-                                          <Separator layoutX="448.0" layoutY="95.0" prefHeight="1.0" prefWidth="263.0" />
-                                          <Label layoutX="489.0" layoutY="116.0" text="Total:">
-                                             <font>
-                                                <Font name="System Bold" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="totalCost" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="555.0" layoutY="111.0" prefHeight="45.0" prefWidth="156.0" text="\$200.98">
-                                             <font>
-                                                <Font size="30.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </Pane>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets left="20.0" right="20.0" />
-                                 </HBox.margin>
-                              </VBox>
-                              <VBox id="Payment" layoutX="10.0" layoutY="10.0" prefHeight="673.0" prefWidth="1002.0" styleClass="Payment-pane">
-                                 <HBox.margin>
-                                    <Insets bottom="40.0" left="15.0" right="15.0" top="40.0" />
-                                 </HBox.margin>
-                                 <children>
-                                    <Pane prefHeight="72.0" prefWidth="319.0">
-                                       <children>
-                                          <Label layoutX="26.0" layoutY="19.0" prefHeight="53.0" prefWidth="254.0" text="Payment Info." textFill="#ede7ff">
-                                             <font>
-                                                <Font name="System Bold Italic" size="36.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </Pane>
-                                    <Pane prefHeight="21.0" prefWidth="319.0">
-                                       <children>
-                                          <Separator layoutX="32.0" layoutY="13.0" prefHeight="2.0" prefWidth="250.0" />
-                                       </children>
-                                    </Pane>
-                                    <Pane prefHeight="33.0" prefWidth="319.0">
-                                       <children>
-                                          <Label alignment="TOP_LEFT" layoutX="31.0" prefHeight="47.0" prefWidth="223.0" text="Payment Method" textFill="#ede7ff">
-                                             <font>
-                                                <Font name="System Bold Italic" size="18.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </Pane>
-                                    <HBox alignment="CENTER" prefHeight="52.0" prefWidth="319.0">
-                                       <children>
-                                          <Pane onMouseClicked="#switchToPayCreditCard" prefHeight="75.0" prefWidth="110.0">
-                                             <children>
-                                                <ImageView fitHeight="28.0" fitWidth="24.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../BookStoreApp/src/view/images/Button/credit-card.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Label alignment="CENTER" layoutX="53.0" layoutY="8.0" prefHeight="36.0" prefWidth="50.0" text="Credit Card" textFill="#ede7ff" wrapText="true">
-                                                   <font>
-                                                      <Font name="System Bold" size="12.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                             <styleClass>
-                                                <String fx:value="button-style-Payment" />
-                                                <String fx:value="button-selected" />
-                                             </styleClass>
-                                          </Pane>
-                                          <Pane prefHeight="52.0" prefWidth="22.0" />
-                                          <Pane layoutX="159.0" layoutY="10.0" onMouseClicked="#switchToPayCash" prefHeight="52.0" prefWidth="110.0">
-                                             <children>
-                                                <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="24.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../BookStoreApp/src/view/images/Button/money.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Label alignment="CENTER" layoutX="45.0" layoutY="8.0" prefHeight="36.0" prefWidth="63.0" text="Cash" textFill="#ede7ff" wrapText="true">
-                                                   <font>
-                                                      <Font name="System Bold" size="12.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                             <styleClass>
-                                                <String fx:value="button-style-Payment" />
-                                                <String fx:value="button-selected" />
-                                             </styleClass></Pane>
-                                       </children>
-                                    </HBox>
-                                    <Pane layoutX="10.0" layoutY="82.0" prefHeight="47.0" prefWidth="319.0" style="-fx-padding: 0 0 0 0; -fx-border-width: 0.5 0 0 0;">
-                                       <children>
-                                          <Separator layoutX="34.0" layoutY="16.0" opacity="0.4" prefHeight="14.0" prefWidth="250.0" />
-                                       </children>
-                                    </Pane>
-                                    <StackPane id="Payment-Stack" prefHeight="261.0" prefWidth="319.0">
-                                       <children>
-                                          <Pane id="PaybyCard_Pane" fx:id="payCashPane" prefHeight="200.0" prefWidth="200.0">
-                                             <children>
-                                                <VBox layoutY="-2.0" prefHeight="263.0" prefWidth="319.0">
-                                                   <children>
-                                                      <Pane prefHeight="25.0" prefWidth="319.0">
-                                                         <children>
-                                                            <Label alignment="TOP_LEFT" layoutX="31.0" prefHeight="29.0" prefWidth="223.0" text="Phone Number:" textFill="#ede7ff">
-                                                               <font>
-                                                                  <Font name="System Bold Italic" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane prefHeight="34.0" prefWidth="319.0">
-                                                         <children>
-                                                            <TextField layoutX="29.0" layoutY="2.0" prefHeight="37.0" prefWidth="255.0" promptText="...">
-                                                               <styleClass>
-                                                                  <String fx:value="transparent-pane" />
-                                                                  <String fx:value="custom-textfield" />
-                                                               </styleClass>
-                                                            </TextField>
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane prefHeight="18.0" prefWidth="319.0" style="-fx-padding: 0 0 0 0; -fx-border-width: 0.5 0 0 0;">
-                                                         <children>
-                                                            <Separator layoutX="34.0" layoutY="-11.0" opacity="0.4" prefHeight="25.0" prefWidth="250.0" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="319.0">
-                                                         <children>
-                                                            <Label alignment="TOP_LEFT" layoutX="31.0" prefHeight="29.0" prefWidth="223.0" text="Address:" textFill="#ede7ff">
-                                                               <font>
-                                                                  <Font name="System Bold Italic" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane layoutX="10.0" layoutY="35.0" prefHeight="34.0" prefWidth="319.0">
-                                                         <children>
-                                                            <TextField layoutX="29.0" layoutY="2.0" prefHeight="37.0" prefWidth="255.0" promptText="...">
-                                                               <styleClass>
-                                                                  <String fx:value="transparent-pane" />
-                                                                  <String fx:value="custom-textfield" />
-                                                               </styleClass>
-                                                            </TextField>
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane layoutX="10.0" layoutY="69.0" prefHeight="18.0" prefWidth="319.0" style="-fx-padding: 0 0 0 0; -fx-border-width: 0.5 0 0 0;">
-                                                         <children>
-                                                            <Separator layoutX="34.0" layoutY="-11.0" opacity="0.4" prefHeight="25.0" prefWidth="250.0" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane layoutX="10.0" layoutY="87.0" prefHeight="25.0" prefWidth="319.0">
-                                                         <children>
-                                                            <Label alignment="TOP_LEFT" layoutX="31.0" prefHeight="29.0" prefWidth="223.0" text="Note:" textFill="#ede7ff">
-                                                               <font>
-                                                                  <Font name="System Bold Italic" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label alignment="TOP_LEFT" layoutX="216.0" prefHeight="29.0" prefWidth="111.0" text="CVV:" textFill="#ede7ff">
-                                                               <font>
-                                                                  <Font name="System Bold Italic" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                         </children>
-                                                      </Pane>
-                                                      <HBox prefHeight="100.0" prefWidth="200.0">
-                                                         <children>
-                                                            <Pane prefHeight="34.0" prefWidth="319.0">
-                                                               <children>
-                                                                  <Separator layoutX="28.0" layoutY="33.0" opacity="0.4" prefHeight="25.0" prefWidth="259.0" />
-                                                                  <TextField layoutX="27.0" layoutY="14.0" prefHeight="37.0" prefWidth="262.0" promptText="(optional)">
-                                                                     <styleClass>
-                                                                        <String fx:value="transparent-pane" />
-                                                                        <String fx:value="custom-textfield" />
-                                                                     </styleClass>
-                                                                  </TextField>
-                                                               </children>
-                                                            </Pane>
-                                                         </children>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                             </children>
-                                          </Pane>
-                                          <Pane id="PaybyMoney_Pane" fx:id="payCreditCardPane" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
-                                             <children>
-                                                <VBox layoutY="-2.0" prefHeight="263.0" prefWidth="319.0">
-                                                   <children>
-                                                      <Pane prefHeight="25.0" prefWidth="319.0">
-                                                         <children>
-                                                            <Label alignment="TOP_LEFT" layoutX="31.0" prefHeight="29.0" prefWidth="223.0" text="Full Name:" textFill="#ede7ff">
-                                                               <font>
-                                                                  <Font name="System Bold Italic" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane prefHeight="34.0" prefWidth="319.0">
-                                                         <children>
-                                                            <TextField layoutX="29.0" layoutY="2.0" prefHeight="37.0" prefWidth="255.0" promptText="...">
-                                                               <styleClass>
-                                                                  <String fx:value="transparent-pane" />
-                                                                  <String fx:value="custom-textfield" />
-                                                               </styleClass>
-                                                            </TextField>
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane prefHeight="18.0" prefWidth="319.0" style="-fx-padding: 0 0 0 0; -fx-border-width: 0.5 0 0 0;">
-                                                         <children>
-                                                            <Separator layoutX="34.0" layoutY="-11.0" opacity="0.4" prefHeight="25.0" prefWidth="250.0" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="319.0">
-                                                         <children>
-                                                            <Label alignment="TOP_LEFT" layoutX="31.0" prefHeight="29.0" prefWidth="223.0" text="Card Number:" textFill="#ede7ff">
-                                                               <font>
-                                                                  <Font name="System Bold Italic" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane layoutX="10.0" layoutY="35.0" prefHeight="34.0" prefWidth="319.0">
-                                                         <children>
-                                                            <TextField layoutX="29.0" layoutY="2.0" prefHeight="37.0" prefWidth="255.0" promptText="...">
-                                                               <styleClass>
-                                                                  <String fx:value="transparent-pane" />
-                                                                  <String fx:value="custom-textfield" />
-                                                               </styleClass>
-                                                            </TextField>
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane layoutX="10.0" layoutY="69.0" prefHeight="18.0" prefWidth="319.0" style="-fx-padding: 0 0 0 0; -fx-border-width: 0.5 0 0 0;">
-                                                         <children>
-                                                            <Separator layoutX="34.0" layoutY="-11.0" opacity="0.4" prefHeight="25.0" prefWidth="250.0" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane layoutX="10.0" layoutY="87.0" prefHeight="25.0" prefWidth="319.0">
-                                                         <children>
-                                                            <Label alignment="TOP_LEFT" layoutX="31.0" prefHeight="29.0" prefWidth="223.0" text="Expiration Date:" textFill="#ede7ff">
-                                                               <font>
-                                                                  <Font name="System Bold Italic" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label alignment="TOP_LEFT" layoutX="216.0" prefHeight="29.0" prefWidth="111.0" text="CVV:" textFill="#ede7ff">
-                                                               <font>
-                                                                  <Font name="System Bold Italic" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                         </children>
-                                                      </Pane>
-                                                      <HBox prefHeight="100.0" prefWidth="200.0">
-                                                         <children>
-                                                            <Pane prefHeight="34.0" prefWidth="319.0">
-                                                               <children>
-                                                                  <Separator layoutX="28.0" layoutY="33.0" opacity="0.4" prefHeight="25.0" prefWidth="54.0" />
-                                                                  <TextField alignment="CENTER" layoutX="27.0" layoutY="14.0" prefHeight="37.0" prefWidth="55.0" promptText="MM">
-                                                                     <styleClass>
-                                                                        <String fx:value="transparent-pane" />
-                                                                        <String fx:value="custom-textfield" />
-                                                                     </styleClass>
-                                                                  </TextField>
-                                                               </children>
-                                                            </Pane>
-                                                            <Pane layoutX="10.0" layoutY="10.0" prefHeight="34.0" prefWidth="319.0">
-                                                               <children>
-                                                                  <Separator layoutX="7.0" layoutY="33.0" opacity="0.4" prefHeight="25.0" prefWidth="75.0" />
-                                                                  <TextField alignment="CENTER" layoutX="6.0" layoutY="14.0" prefHeight="37.0" prefWidth="76.0" promptText="YYYY">
-                                                                     <styleClass>
-                                                                        <String fx:value="transparent-pane" />
-                                                                        <String fx:value="custom-textfield" />
-                                                                     </styleClass>
-                                                                  </TextField>
-                                                               </children>
-                                                            </Pane>
-                                                            <Pane layoutX="10.0" layoutY="10.0" prefHeight="34.0" prefWidth="319.0">
-                                                               <children>
-                                                                  <Separator layoutX="3.0" layoutY="33.0" opacity="0.4" prefHeight="25.0" prefWidth="49.0" />
-                                                                  <TextField alignment="CENTER" layoutX="2.0" layoutY="14.0" prefHeight="37.0" prefWidth="52.0" promptText="XXX">
-                                                                     <styleClass>
-                                                                        <String fx:value="transparent-pane" />
-                                                                        <String fx:value="custom-textfield" />
-                                                                     </styleClass>
-                                                                  </TextField>
-                                                               </children>
-                                                            </Pane>
-                                                         </children>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                             </children>
-                                          </Pane>
-                                       </children>
-                                    </StackPane>
-                                    <Pane prefHeight="64.0" prefWidth="219.0">
-                                       <VBox.margin>
-                                          <Insets left="50.0" right="50.0" />
-                                       </VBox.margin>
-                                       <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="15.0" prefHeight="17.0" prefWidth="215.0" text="Check Out" textAlignment="CENTER" textFill="#3f468f">
-                                             <font>
-                                                <Font name="System Bold" size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                       <styleClass>
-                                          <String fx:value="button-checkout-selected" />
-                                          <String fx:value="button-style-Checkout" />
-                                       </styleClass>
-                                    </Pane>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                     </children>
-                  </Pane>
                   <Pane id="Toy_Pane" fx:id="toyPane" prefHeight="715.0" prefWidth="1100.0">
                      <children>
                         <ScrollPane prefHeight="674.0" prefWidth="1100.0">
@@ -1477,7 +1085,7 @@
                   </Pane>
                   <Pane fx:id="helpPane" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="673.0" fitWidth="1100.0" pickOnBounds="true">
+                        <ImageView fitHeight="674.0" fitWidth="1100.0" pickOnBounds="true">
                            <image>
                               <Image url="@../../BookStoreApp/src/view/images/Help/HelpPane_White.png" />
                            </image>
@@ -1487,51 +1095,443 @@
                               <Font name="System Bold Italic" size="48.0" />
                            </font>
                         </Label>
-                        <Label layoutX="616.0" layoutY="162.0" text="The Art of Reading, Reimagined" textFill="#d4af37">
+                        <Label layoutX="616.0" layoutY="169.0" text="The Art of Reading, Reimagined" textFill="#d4af37">
                            <font>
                               <Font name="System Bold Italic" size="24.0" />
                            </font>
                         </Label>
-                        <Label alignment="TOP_LEFT" layoutX="616.0" layoutY="206.0" prefHeight="192.0" prefWidth="440.0" text="In a world of noise, we celebrate the quiet power of a good book. &quot;Hust Bookstore&quot; is a space designed for discovery—where crisp pages meet curated aesthetics. Let our bibliophiles help you find stories that linger long after the last page." wrapText="true">
+                        <Label alignment="TOP_LEFT" layoutX="617.0" layoutY="229.0" prefHeight="192.0" prefWidth="440.0" text="In a world of noise, we celebrate the quiet power of a good book. &quot;Hust Bookstore&quot; is a space designed for discovery—where crisp pages meet curated aesthetics. Let our bibliophiles help you find stories that linger long after the last page." wrapText="true">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="620.0" layoutY="462.0" text="Contact info.">
+                        <Label layoutX="616.0" layoutY="496.0" text="Contact info.">
                            <font>
                               <Font name="System Bold Italic" size="24.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="618.0" layoutY="508.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="618.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../BookStoreApp/src/view/images/Button/telephone.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="657.0" layoutY="510.0" text="+1 202-456-7041">
+                        <Label layoutX="659.0" layoutY="542.0" text="+1 202-456-7041">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="657.0" layoutY="580.0" prefHeight="59.0" prefWidth="355.0" text="The White House, 1600 Pennsylvania Avenue NW, Washington, DC 20500, United States" wrapText="true">
+                        <Label layoutX="659.0" layoutY="591.0" prefHeight="59.0" prefWidth="355.0" text="The White House, 1600 Pennsylvania Avenue NW, Washington, DC 20500, United States" wrapText="true">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="618.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="618.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../BookStoreApp/src/view/images/Button/gmail.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="618.0" layoutY="585.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="618.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../BookStoreApp/src/view/images/Button/location-pin.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="658.0" layoutY="548.0" text="HUSTbookstore@gmail.com ">
+                        <Label layoutX="659.0" layoutY="571.0" text="HUSTbookstore@gmail.com ">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
+                     </children>
+                  </Pane>
+                  <Pane id="Cart_Pane" fx:id="cartPane" disable="true" prefHeight="200.0" prefWidth="200.0" styleClass="White-background1" visible="false">
+                     <children>
+                        <HBox layoutX="-2.0" layoutY="-1.0" prefHeight="673.0" prefWidth="1102.0">
+                           <children>
+                              <VBox id="Cart List" prefHeight="673.0" prefWidth="1397.0">
+                                 <children>
+                                    <Pane prefHeight="68.0" prefWidth="749.0">
+                                       <children>
+                                          <Label layoutX="59.0" layoutY="14.0" prefHeight="53.0" prefWidth="692.0" text="My Cart">
+                                             <font>
+                                                <Font name="System Bold Italic" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <HBox prefHeight="56.0" prefWidth="729.0">
+                                       <children>
+                                          <Pane prefHeight="56.0" prefWidth="332.0">
+                                             <children>
+                                                <Label layoutX="25.0" layoutY="29.0" text="Product">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="56.0" prefWidth="139.0">
+                                             <children>
+                                                <Label layoutX="14.0" layoutY="29.0" text="Price">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="56.0" prefWidth="171.0">
+                                             <children>
+                                                <Label layoutX="26.0" layoutY="29.0" text="Quantity">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="56.0" prefWidth="179.0">
+                                             <children>
+                                                <Label layoutY="29.0" text="Total Price">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="56.0" prefWidth="59.0" />
+                                       </children>
+                                    </HBox>
+                                    <ScrollPane prefHeight="357.0" prefWidth="733.0" vbarPolicy="NEVER">
+                                       <content>
+                                          <VBox fx:id="cartLayout" prefHeight="441.0" prefWidth="711.0" />
+                                       </content>
+                                    </ScrollPane>
+                                    <Pane prefHeight="173.0" prefWidth="729.0">
+                                       <children>
+                                          <Label layoutX="469.0" layoutY="20.0" text="Subtotal:">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="463.0" layoutY="55.0" text="Shipping:">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="subTotal" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="556.0" layoutY="18.0" prefHeight="35.0" prefWidth="155.0" text="\$150.98">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="shippingFee" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="560.0" layoutY="53.0" prefHeight="35.0" prefWidth="151.0" text="\$50.00">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Separator layoutX="448.0" layoutY="95.0" prefHeight="1.0" prefWidth="263.0" />
+                                          <Label layoutX="489.0" layoutY="116.0" text="Total:">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="totalCost" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="555.0" layoutY="111.0" prefHeight="45.0" prefWidth="156.0" text="\$200.98">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox id="Payment" layoutX="10.0" layoutY="10.0" prefHeight="673.0" prefWidth="1002.0" styleClass="Payment-pane">
+                                 <HBox.margin>
+                                    <Insets bottom="40.0" left="15.0" right="15.0" top="40.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <Pane prefHeight="72.0" prefWidth="319.0">
+                                       <children>
+                                          <Label layoutX="26.0" layoutY="19.0" prefHeight="53.0" prefWidth="254.0" text="Payment Info." textFill="#ede7ff">
+                                             <font>
+                                                <Font name="System Bold Italic" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="21.0" prefWidth="319.0">
+                                       <children>
+                                          <Separator layoutX="32.0" layoutY="13.0" prefHeight="2.0" prefWidth="250.0" />
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="33.0" prefWidth="319.0">
+                                       <children>
+                                          <Label alignment="TOP_LEFT" layoutX="31.0" prefHeight="47.0" prefWidth="223.0" text="Payment Method" textFill="#ede7ff">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <HBox alignment="CENTER" prefHeight="52.0" prefWidth="319.0">
+                                       <children>
+                                          <Pane onMouseClicked="#switchToPayCreditCard" prefHeight="75.0" prefWidth="110.0">
+                                             <children>
+                                                <ImageView fitHeight="28.0" fitWidth="24.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../BookStoreApp/src/view/images/Button/credit-card.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" layoutX="53.0" layoutY="8.0" prefHeight="36.0" prefWidth="50.0" text="Credit Card" textFill="#ede7ff" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <styleClass>
+                                                <String fx:value="button-style-Payment" />
+                                                <String fx:value="button-selected" />
+                                             </styleClass>
+                                          </Pane>
+                                          <Pane prefHeight="52.0" prefWidth="22.0" />
+                                          <Pane layoutX="159.0" layoutY="10.0" onMouseClicked="#switchToPayCash" prefHeight="52.0" prefWidth="110.0">
+                                             <children>
+                                                <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="24.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../BookStoreApp/src/view/images/Button/money.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" layoutX="45.0" layoutY="8.0" prefHeight="36.0" prefWidth="63.0" text="Cash" textFill="#ede7ff" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <styleClass>
+                                                <String fx:value="button-style-Payment" />
+                                                <String fx:value="button-selected" />
+                                             </styleClass></Pane>
+                                       </children>
+                                    </HBox>
+                                    <Pane layoutX="10.0" layoutY="82.0" prefHeight="47.0" prefWidth="319.0" style="-fx-padding: 0 0 0 0; -fx-border-width: 0.5 0 0 0;">
+                                       <children>
+                                          <Separator layoutX="34.0" layoutY="16.0" opacity="0.4" prefHeight="14.0" prefWidth="250.0" />
+                                       </children>
+                                    </Pane>
+                                    <StackPane id="Payment-Stack" prefHeight="261.0" prefWidth="319.0">
+                                       <children>
+                                          <Pane id="PaybyCard_Pane" fx:id="payCashPane" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox layoutY="-2.0" prefHeight="263.0" prefWidth="319.0">
+                                                   <children>
+                                                      <Pane prefHeight="25.0" prefWidth="319.0">
+                                                         <children>
+                                                            <Label alignment="TOP_LEFT" layoutX="31.0" prefHeight="29.0" prefWidth="223.0" text="Phone Number:" textFill="#ede7ff">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane prefHeight="34.0" prefWidth="319.0">
+                                                         <children>
+                                                            <TextField layoutX="29.0" layoutY="2.0" prefHeight="37.0" prefWidth="255.0" promptText="...">
+                                                               <styleClass>
+                                                                  <String fx:value="transparent-pane" />
+                                                                  <String fx:value="custom-textfield" />
+                                                               </styleClass>
+                                                            </TextField>
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane prefHeight="18.0" prefWidth="319.0" style="-fx-padding: 0 0 0 0; -fx-border-width: 0.5 0 0 0;">
+                                                         <children>
+                                                            <Separator layoutX="34.0" layoutY="-11.0" opacity="0.4" prefHeight="25.0" prefWidth="250.0" />
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="319.0">
+                                                         <children>
+                                                            <Label alignment="TOP_LEFT" layoutX="31.0" prefHeight="29.0" prefWidth="223.0" text="Address:" textFill="#ede7ff">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane layoutX="10.0" layoutY="35.0" prefHeight="34.0" prefWidth="319.0">
+                                                         <children>
+                                                            <TextField layoutX="29.0" layoutY="2.0" prefHeight="37.0" prefWidth="255.0" promptText="...">
+                                                               <styleClass>
+                                                                  <String fx:value="transparent-pane" />
+                                                                  <String fx:value="custom-textfield" />
+                                                               </styleClass>
+                                                            </TextField>
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane layoutX="10.0" layoutY="69.0" prefHeight="18.0" prefWidth="319.0" style="-fx-padding: 0 0 0 0; -fx-border-width: 0.5 0 0 0;">
+                                                         <children>
+                                                            <Separator layoutX="34.0" layoutY="-11.0" opacity="0.4" prefHeight="25.0" prefWidth="250.0" />
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane layoutX="10.0" layoutY="87.0" prefHeight="25.0" prefWidth="319.0">
+                                                         <children>
+                                                            <Label alignment="TOP_LEFT" layoutX="31.0" prefHeight="29.0" prefWidth="223.0" text="Note:" textFill="#ede7ff">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label alignment="TOP_LEFT" layoutX="216.0" prefHeight="29.0" prefWidth="111.0" text="CVV:" textFill="#ede7ff">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                      <HBox prefHeight="100.0" prefWidth="200.0">
+                                                         <children>
+                                                            <Pane prefHeight="34.0" prefWidth="319.0">
+                                                               <children>
+                                                                  <Separator layoutX="28.0" layoutY="33.0" opacity="0.4" prefHeight="25.0" prefWidth="259.0" />
+                                                                  <TextField layoutX="27.0" layoutY="14.0" prefHeight="37.0" prefWidth="262.0" promptText="(optional)">
+                                                                     <styleClass>
+                                                                        <String fx:value="transparent-pane" />
+                                                                        <String fx:value="custom-textfield" />
+                                                                     </styleClass>
+                                                                  </TextField>
+                                                               </children>
+                                                            </Pane>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </Pane>
+                                          <Pane id="PaybyMoney_Pane" fx:id="payCreditCardPane" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox layoutY="-2.0" prefHeight="263.0" prefWidth="319.0">
+                                                   <children>
+                                                      <Pane prefHeight="25.0" prefWidth="319.0">
+                                                         <children>
+                                                            <Label alignment="TOP_LEFT" layoutX="31.0" prefHeight="29.0" prefWidth="223.0" text="Full Name:" textFill="#ede7ff">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane prefHeight="34.0" prefWidth="319.0">
+                                                         <children>
+                                                            <TextField layoutX="29.0" layoutY="2.0" prefHeight="37.0" prefWidth="255.0" promptText="...">
+                                                               <styleClass>
+                                                                  <String fx:value="transparent-pane" />
+                                                                  <String fx:value="custom-textfield" />
+                                                               </styleClass>
+                                                            </TextField>
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane prefHeight="18.0" prefWidth="319.0" style="-fx-padding: 0 0 0 0; -fx-border-width: 0.5 0 0 0;">
+                                                         <children>
+                                                            <Separator layoutX="34.0" layoutY="-11.0" opacity="0.4" prefHeight="25.0" prefWidth="250.0" />
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="319.0">
+                                                         <children>
+                                                            <Label alignment="TOP_LEFT" layoutX="31.0" prefHeight="29.0" prefWidth="223.0" text="Card Number:" textFill="#ede7ff">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane layoutX="10.0" layoutY="35.0" prefHeight="34.0" prefWidth="319.0">
+                                                         <children>
+                                                            <TextField layoutX="29.0" layoutY="2.0" prefHeight="37.0" prefWidth="255.0" promptText="...">
+                                                               <styleClass>
+                                                                  <String fx:value="transparent-pane" />
+                                                                  <String fx:value="custom-textfield" />
+                                                               </styleClass>
+                                                            </TextField>
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane layoutX="10.0" layoutY="69.0" prefHeight="18.0" prefWidth="319.0" style="-fx-padding: 0 0 0 0; -fx-border-width: 0.5 0 0 0;">
+                                                         <children>
+                                                            <Separator layoutX="34.0" layoutY="-11.0" opacity="0.4" prefHeight="25.0" prefWidth="250.0" />
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane layoutX="10.0" layoutY="87.0" prefHeight="25.0" prefWidth="319.0">
+                                                         <children>
+                                                            <Label alignment="TOP_LEFT" layoutX="31.0" prefHeight="29.0" prefWidth="223.0" text="Expiration Date:" textFill="#ede7ff">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label alignment="TOP_LEFT" layoutX="216.0" prefHeight="29.0" prefWidth="111.0" text="CVV:" textFill="#ede7ff">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                      <HBox prefHeight="100.0" prefWidth="200.0">
+                                                         <children>
+                                                            <Pane prefHeight="34.0" prefWidth="319.0">
+                                                               <children>
+                                                                  <Separator layoutX="28.0" layoutY="33.0" opacity="0.4" prefHeight="25.0" prefWidth="54.0" />
+                                                                  <TextField alignment="CENTER" layoutX="27.0" layoutY="14.0" prefHeight="37.0" prefWidth="55.0" promptText="MM">
+                                                                     <styleClass>
+                                                                        <String fx:value="transparent-pane" />
+                                                                        <String fx:value="custom-textfield" />
+                                                                     </styleClass>
+                                                                  </TextField>
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane layoutX="10.0" layoutY="10.0" prefHeight="34.0" prefWidth="319.0">
+                                                               <children>
+                                                                  <Separator layoutX="7.0" layoutY="33.0" opacity="0.4" prefHeight="25.0" prefWidth="75.0" />
+                                                                  <TextField alignment="CENTER" layoutX="6.0" layoutY="14.0" prefHeight="37.0" prefWidth="76.0" promptText="YYYY">
+                                                                     <styleClass>
+                                                                        <String fx:value="transparent-pane" />
+                                                                        <String fx:value="custom-textfield" />
+                                                                     </styleClass>
+                                                                  </TextField>
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane layoutX="10.0" layoutY="10.0" prefHeight="34.0" prefWidth="319.0">
+                                                               <children>
+                                                                  <Separator layoutX="3.0" layoutY="33.0" opacity="0.4" prefHeight="25.0" prefWidth="49.0" />
+                                                                  <TextField alignment="CENTER" layoutX="2.0" layoutY="14.0" prefHeight="37.0" prefWidth="52.0" promptText="XXX">
+                                                                     <styleClass>
+                                                                        <String fx:value="transparent-pane" />
+                                                                        <String fx:value="custom-textfield" />
+                                                                     </styleClass>
+                                                                  </TextField>
+                                                               </children>
+                                                            </Pane>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </StackPane>
+                                    <Pane prefHeight="64.0" prefWidth="219.0">
+                                       <VBox.margin>
+                                          <Insets left="50.0" right="50.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="15.0" prefHeight="17.0" prefWidth="215.0" text="Check Out" textAlignment="CENTER" textFill="#3f468f">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="button-checkout-selected" />
+                                          <String fx:value="button-style-Checkout" />
+                                       </styleClass>
+                                    </Pane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
                      </children>
                   </Pane>
                </children>
