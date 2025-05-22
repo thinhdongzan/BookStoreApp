@@ -251,70 +251,125 @@ public class BookDAO {
 
 
      public static boolean addNewBook(Admin_Menu_Controller controller) {
-        String sql = "INSERT INTO book (id, name, quantity, purchasePrice, sellingPrice, publisher, author, isbn, genre) " +
-                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    String isbn = controller.getAdd_book_isbn().getText();
 
-        // Lấy dữ liệu từ controller
-        String id = controller.getAdd_book_id().getText();
-        String name = controller.getAdd_book_name().getText();
-        String quantity = controller.getAdd_book_quantity().getText();
-        String purchasePrice = controller.getAdd_book_purchase_price().getText();
-        String sellingPrice = controller.getAdd_book_selling_price().getText();
-        String publisher = controller.getAdd_book_publisher().getText();
-        String author = controller.getAdd_book_author().getText();
-        String isbn = controller.getAdd_book_isbn().getText();
-        String genre = controller.getAdd_book_genre().getText();
+    if (isbn.isEmpty()) {
+        throw new IllegalArgumentException("ISBN không được để trống.");
+    }
 
-        // Kiểm tra dữ liệu rỗng
-        if (id.isEmpty() || name.isEmpty() || quantity.isEmpty() || purchasePrice.isEmpty() ||
-            sellingPrice.isEmpty() || publisher.isEmpty() || author.isEmpty() ||
-            isbn.isEmpty() || genre.isEmpty()) {
-            throw new IllegalArgumentException("Please complete all book details.");
+    // Lấy dữ liệu khác
+    String name = controller.getAdd_book_name().getText();
+    String quantity = controller.getAdd_book_quantity().getText();
+    String purchasePrice = controller.getAdd_book_purchase_price().getText();
+    String sellingPrice = controller.getAdd_book_selling_price().getText();
+    String publisher = controller.getAdd_book_publisher().getText();
+    String author = controller.getAdd_book_author().getText();
+    String genre = controller.getAdd_book_genre().getText();
+
+    if (name.isEmpty() || quantity.isEmpty() || purchasePrice.isEmpty() || sellingPrice.isEmpty()
+            || publisher.isEmpty() || author.isEmpty() || genre.isEmpty()) {
+        throw new IllegalArgumentException("Vui lòng nhập đầy đủ thông tin sách.");
+    }
+
+    int qty;
+    double priceBuy, priceSell;
+    try {
+        qty = Integer.parseInt(quantity);
+        priceBuy = Double.parseDouble(purchasePrice);
+        priceSell = Double.parseDouble(sellingPrice);
+    } catch (NumberFormatException e) {
+        throw new IllegalArgumentException("Quantity, Purchase Price và Selling Price phải là số hợp lệ.");
+    }
+
+    try (Connection conn = DBConnection.getConnection()) {
+        // Kiểm tra sách đã tồn tại chưa dựa vào isbn
+        String checkSql = "SELECT quantity FROM book WHERE isbn = ?";
+        try (PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
+            checkStmt.setString(1, isbn);
+            ResultSet rs = checkStmt.executeQuery();
+
+            if (rs.next()) {
+                // Sách đã tồn tại => cập nhật số lượng
+                int currentQty = rs.getInt("quantity");
+                int newQty = currentQty + qty;
+
+                String updateSql = "UPDATE book SET quantity = ? WHERE isbn = ?";
+                try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
+                    updateStmt.setInt(1, newQty);
+                    updateStmt.setString(2, isbn);
+                    return updateStmt.executeUpdate() > 0;
+                }
+            } else {
+                // Sách chưa tồn tại => insert mới
+                String insertSql = "INSERT INTO book (name, quantity, purchasePrice, sellingPrice, publisher, author, isbn, genre) " +
+                                   "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                try (PreparedStatement insertStmt = conn.prepareStatement(insertSql)) {
+                    insertStmt.setString(1, name);
+                    insertStmt.setInt(2, qty);
+                    insertStmt.setDouble(3, priceBuy);
+                    insertStmt.setDouble(4, priceSell);
+                    insertStmt.setString(5, publisher);
+                    insertStmt.setString(6, author);
+                    insertStmt.setString(7, isbn);
+                    insertStmt.setString(8, genre);
+                    return insertStmt.executeUpdate() > 0;
+                }
+            }
         }
 
-        // Kiểm tra định dạng số
-        int bookId, qty;
-        double priceBuy, priceSell;
-        try {
-            bookId = Integer.parseInt(id);
-            qty = Integer.parseInt(quantity);
-            priceBuy = Double.parseDouble(purchasePrice);
-            priceSell = Double.parseDouble(sellingPrice);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("ID, Quantity, Purchase Price và Selling Price phải là số hợp lệ.");
+    } catch (SQLException e) {
+        e.printStackTrace();
+        throw new RuntimeException("Lỗi cơ sở dữ liệu khi thêm/cập nhật sách.");
+    }
+}
+
+
+
+    public static boolean deleteBookById(int id, int qtyToRemove) {
+        if (id <= 0 || qtyToRemove <= 0) {
+            throw new IllegalArgumentException("ID hoặc số lượng xoá không hợp lệ.");
         }
 
-        // Ghi vào database
+        String checkSql = "SELECT quantity FROM book WHERE id = ?";
+        String updateSql = "UPDATE book SET quantity = quantity - ? WHERE id = ?";
+        String deleteSql = "DELETE FROM book WHERE id = ?";
+
         try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
 
-            stmt.setInt(1, bookId);
-            stmt.setString(2, name);
-            stmt.setInt(3, qty);
-            stmt.setDouble(4, priceBuy);
-            stmt.setDouble(5, priceSell);
-            stmt.setString(6, publisher);
-            stmt.setString(7, author);
-            stmt.setString(8, isbn);
-            stmt.setString(9, genre);
+            checkStmt.setInt(1, id);
+            ResultSet rs = checkStmt.executeQuery();
 
-            return stmt.executeUpdate() > 0;
+            if (rs.next()) {
+                int currentQty = rs.getInt("quantity");
+
+                if (qtyToRemove < currentQty) {
+                    // Giảm số lượng
+                    try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
+                        updateStmt.setInt(1, qtyToRemove);
+                        updateStmt.setInt(2, id);
+                        return updateStmt.executeUpdate() > 0;
+                    }
+                } else if (qtyToRemove == currentQty) {
+                    // Xoá hẳn
+                    try (PreparedStatement deleteStmt = conn.prepareStatement(deleteSql)) {
+                        deleteStmt.setInt(1, id);
+                        return deleteStmt.executeUpdate() > 0;
+                    }
+                } else {
+                    throw new IllegalArgumentException("Số lượng cần xoá lớn hơn số lượng hiện có.");
+                }
+            } else {
+                throw new IllegalArgumentException("Không tìm thấy sách với ID này.");
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new RuntimeException("Database error while inserting new book.");
+            throw new RuntimeException("Lỗi cơ sở dữ liệu khi xoá hoặc cập nhật sách.");
         }
     }
 
 
-    public static void deleteBookById(int id) throws SQLException {
-    String sql = "DELETE FROM book WHERE id = ?";
-    try (Connection conn = DBConnection.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql)) {
-        stmt.setInt(1, id);
-        stmt.executeUpdate();
-    }
-}
 
     
 

@@ -120,14 +120,47 @@ public static boolean addStationery(Admin_Menu_Controller controller) {
 
 
 
-    public static void deleteStationeryById(int id) throws SQLException {
-    String sql = "DELETE FROM stationery WHERE id = ?";
+public static boolean deleteStationeryById(int id, int quantityToRemove) {
+    String selectSql = "SELECT quantity FROM stationery WHERE id = ?";
+    String updateSql = "UPDATE stationery SET quantity = ? WHERE id = ?";
+    String deleteSql = "DELETE FROM stationery WHERE id = ?";
+
     try (Connection conn = DBConnection.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql)) {
-        stmt.setInt(1, id);
-        stmt.executeUpdate();
+         PreparedStatement selectStmt = conn.prepareStatement(selectSql)) {
+
+        selectStmt.setInt(1, id);
+        ResultSet rs = selectStmt.executeQuery();
+
+        if (rs.next()) {
+            int currentQty = rs.getInt("quantity");
+
+            if (quantityToRemove > currentQty) {
+                throw new IllegalArgumentException("Số lượng xoá lớn hơn số lượng hiện có.");
+            }
+
+            if (quantityToRemove == currentQty) {
+                try (PreparedStatement deleteStmt = conn.prepareStatement(deleteSql)) {
+                    deleteStmt.setInt(1, id);
+                    return deleteStmt.executeUpdate() > 0;
+                }
+            } else {
+                int newQty = currentQty - quantityToRemove;
+                try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
+                    updateStmt.setInt(1, newQty);
+                    updateStmt.setInt(2, id);
+                    return updateStmt.executeUpdate() > 0;
+                }
+            }
+        } else {
+            throw new IllegalArgumentException("Không tìm thấy văn phòng phẩm với ID này.");
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        throw new RuntimeException("Lỗi khi xoá văn phòng phẩm.");
     }
 }
+
 
 
 

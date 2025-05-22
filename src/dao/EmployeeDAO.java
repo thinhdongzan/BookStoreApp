@@ -71,18 +71,19 @@ public class EmployeeDAO {
 
 
 public static boolean removeEmployee(Admin_Menu_Controller controller) {
-    String sql = "DELETE FROM employee WHERE name = ?";
+    String sql = "DELETE FROM employee WHERE id = ?";
 
     try (Connection conn = DBConnection.getConnection();
          PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-        String selectedName = controller.getTake_nameLabel().getText();
+        // Giả sử controller có phương thức lấy ID là getSelectedEmployeeId()
+        int selectedId = controller.getSelectedEmployeeId();
 
-        if (selectedName == null || selectedName.isEmpty()) {
-            throw new IllegalArgumentException("Please select an employee to remove.");
+        if (selectedId <= 0) {
+            throw new IllegalArgumentException("Please select a valid employee to remove.");
         }
 
-        stmt.setString(1, selectedName);
+        stmt.setInt(1, selectedId);
         int affectedRows = stmt.executeUpdate();
 
         return affectedRows > 0;

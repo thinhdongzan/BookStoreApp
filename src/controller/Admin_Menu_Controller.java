@@ -2,20 +2,19 @@ package controller;
 
 
 import java.net.URL;
-// import java.sql.Connection;
-// import java.sql.PreparedStatement;
-// import java.sql.ResultSet;
+
 import java.sql.SQLException;
-// import java.sql.Statement;
+
 import java.util.ArrayList;
-// import java.util.Date;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-// import javax.swing.Action;
+import java.util.function.Function;
+
 import javafx.scene.control.*;
 import dao.BookDAO;
-// import dao.DBConnection;
+
 import dao.EmployeeDAO;
 import dao.ToyDAO;
 import dao.StationeryDAO;
@@ -27,8 +26,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-// import javafx.scene.chart.BarChart;
-// import javafx.scene.chart.LineChart;
+
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -84,8 +82,7 @@ public class Admin_Menu_Controller implements Initializable  {
     @FXML
     private TableView<Employee> employee_table;
 
-    // @FXML
-    // private BarChart<?, ?> income_dashboard;
+
 
     @FXML
     private HBox joining_box;
@@ -111,8 +108,6 @@ public class Admin_Menu_Controller implements Initializable  {
     @FXML
     private Button order_button;
 
-    // @FXML
-    // private LineChart<?, ?> order_dashboard;
 
     @FXML
     private VBox order_page;
@@ -120,10 +115,6 @@ public class Admin_Menu_Controller implements Initializable  {
     @FXML
     private VBox dashboard_page;
 
-    
-    
-    // @FXML
-    // private TableView<?> order_table;
 
     @FXML
     private HBox pending_box;
@@ -313,14 +304,8 @@ public class Admin_Menu_Controller implements Initializable  {
     @FXML
     private VBox storage_table_view;
 
-
-
-
-
-    // private Connection connect;
-    // private PreparedStatement prepare;
-    // // private Statement statement;
-    // private ResultSet result;
+    @FXML
+    private VBox setting_page;
 
     private Image image;
 
@@ -345,53 +330,60 @@ public class Admin_Menu_Controller implements Initializable  {
     }
 
 
+   
+    @FXML
+    private Button setting_button;
     // SHOW MENU PAGE
     public void showMenuPage(ActionEvent event) {
 
        
-        if (event.getSource() == menu_button) {
-
-            menu_page.setVisible(true);
-            order_page.setVisible(false);
-            dashboard_page.setVisible(false);
-            employee_page.setVisible(false);
-            storage_page.setVisible(false);
-
-        }
-         else if (event.getSource() == dashboard_button) {
-            menu_page.setVisible(false);
+        if (event.getSource() == dashboard_button) {
+  
             order_page.setVisible(false);
             dashboard_page.setVisible(true);
             employee_page.setVisible(false);
             storage_page.setVisible(false);
+            setting_page.setVisible(false);
         }
         else if (event.getSource() == order_button) {
-            menu_page.setVisible(false);
+ 
             order_page.setVisible(true);
             dashboard_page.setVisible(false);
             employee_page.setVisible(false);
             storage_page.setVisible(false);
+            setting_page.setVisible(false);
         }
         else if (event.getSource() == employee_button) {
-            menu_page.setVisible(false);
+            
             order_page.setVisible(false);
             dashboard_page.setVisible(false);
             employee_page.setVisible(true);
             storage_page.setVisible(false);
+            setting_page.setVisible(false);
         }
         else if (event.getSource() == storage_button) {
-            menu_page.setVisible(false);
+            
             order_page.setVisible(false);
             dashboard_page.setVisible(false);
             employee_page.setVisible(false);
             storage_page.setVisible(true);
+            setting_page.setVisible(false);
         }
         else if (event.getSource() == dashboard_button) {
-            menu_page.setVisible(false);
+           
             order_page.setVisible(false);
             dashboard_page.setVisible(true);
             employee_page.setVisible(false);
             storage_page.setVisible(false);
+            setting_page.setVisible(false);
+        }
+        else if (event.getSource() == setting_button) {
+          
+            order_page.setVisible(false);
+            dashboard_page.setVisible(false);
+            employee_page.setVisible(false);
+            storage_page.setVisible(false);
+            setting_page.setVisible(true);
         }
     }
 
@@ -413,7 +405,7 @@ public class Admin_Menu_Controller implements Initializable  {
         employee_table.setItems(listEmployees);
 
         totalEmployee_label.setText(""+listEmployees.size());
-        totalEmployee_label_menu.setText(""+listEmployees.size());
+        //totalEmployee_label_menu.setText(""+listEmployees.size());
     }
     
     public void selectEmployee() {
@@ -532,6 +524,18 @@ public class Admin_Menu_Controller implements Initializable  {
     public TextField getAdd_employee_salary() { return add_employee_salary; }
     public TextField getAdd_employee_number() { return add_employee_number; }
     public TextField getAdd_employee_email() { return add_employee_email; }
+    public int getSelectedEmployeeId() {
+    Employee selectedEmployee = employee_table.getSelectionModel().getSelectedItem();
+
+    if (selectedEmployee == null) {
+        throw new IllegalArgumentException("Please select an employee from the table.");
+    }
+
+    return selectedEmployee.getId();
+}
+
+
+
 
     public void addNewEmployee(ActionEvent event) {
     if (event.getSource() == confirm_add_employee_btn) {
@@ -734,46 +738,130 @@ public class Admin_Menu_Controller implements Initializable  {
     }
 
 
-    public void removeSelectedItem() {
-        // Alert alert;
+    private void handleRemoveWithQuantity(
+        String itemType,
+        String itemName,
+        int currentQty,
+        Function<Integer, Boolean> deleteFunction,
+        Runnable reloadFunction
+) {
+    TextInputDialog dialog = new TextInputDialog();
+    dialog.setTitle("Xoá " + itemType);
+    dialog.setHeaderText("Tên: " + itemName + "\nSố lượng hiện có: " + currentQty);
+    dialog.setContentText("Nhập số lượng muốn xoá:");
 
+    Optional<String> result = dialog.showAndWait();
+
+    result.ifPresent(input -> {
         try {
-            if (books_table_storage.isVisible() && books_table_storage.getSelectionModel().getSelectedItem() != null) {
-                Book selectedBook = books_table_storage.getSelectionModel().getSelectedItem();
+            int qtyToRemove = Integer.parseInt(input);
 
-                if (confirmDelete("Bạn có chắc muốn xoá sách này?")) {
-                    BookDAO.deleteBookById(selectedBook.getId());
-                    showInfo("Book removed successfully");
-                    loadBookData();
-                }
-
-            } else if (toys_table_storage.isVisible() && toys_table_storage.getSelectionModel().getSelectedItem() != null) {
-                Toy selectedToy = toys_table_storage.getSelectionModel().getSelectedItem();
-
-                if (confirmDelete("Bạn có chắc muốn xoá đồ chơi này?")) {
-                    ToyDAO.deleteToyById(selectedToy.getId());
-                    showInfo("Toy removed successfully");
-                    loadToyData();
-                }
-
-            } else if (stationaries_table_storage.isVisible() && stationaries_table_storage.getSelectionModel().getSelectedItem() != null) {
-                Stationery selectedStationery = stationaries_table_storage.getSelectionModel().getSelectedItem();
-
-                if (confirmDelete("Bạn có chắc muốn xoá văn phòng phẩm này?")) {
-                    StationeryDAO.deleteStationeryById(selectedStationery.getId());
-                    showInfo("Stationery removed successfully");
-                    loadStationeryData();
-                }
-
-            } else {
-                showError("Please select an item to remove.");
+            if (qtyToRemove <= 0) {
+                showError("Vui lòng nhập số lượng > 0.");
+                return;
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-            showError("Lỗi khi xoá dữ liệu.");
+            if (qtyToRemove > currentQty) {
+                showError("Số lượng xoá lớn hơn số lượng hiện có.");
+                return;
+            }
+
+            if (confirmDelete("Bạn có chắc muốn xoá " + qtyToRemove + " " + itemType + " này?")) {
+                boolean success = deleteFunction.apply(qtyToRemove);
+                if (success) {
+                    showInfo("Xoá " + itemType + " thành công.");
+                    reloadFunction.run();
+                } else {
+                    showError("Xoá " + itemType + " thất bại.");
+                }
+            }
+
+        } catch (NumberFormatException e) {
+            showError("Vui lòng nhập số hợp lệ.");
         }
+    });
+}
+
+
+
+    public void removeSelectedItem() {
+    if (books_table_storage.isVisible() && books_table_storage.getSelectionModel().getSelectedItem() != null) {
+        Book selectedBook = books_table_storage.getSelectionModel().getSelectedItem();
+        handleRemoveWithQuantity(
+            "sách",
+            selectedBook.getName(),
+            selectedBook.getQuantity(),
+            qty -> BookDAO.deleteBookById(selectedBook.getId(), qty),
+            this::loadBookData
+        );
+
+    } else if (toys_table_storage.isVisible() && toys_table_storage.getSelectionModel().getSelectedItem() != null) {
+        Toy selectedToy = toys_table_storage.getSelectionModel().getSelectedItem();
+        handleRemoveWithQuantity(
+            "đồ chơi",
+            selectedToy.getName(),
+            selectedToy.getQuantity(),
+            qty -> ToyDAO.deleteToyById(selectedToy.getId(), qty),
+            this::loadToyData
+        );
+
+    } else if (stationaries_table_storage.isVisible() && stationaries_table_storage.getSelectionModel().getSelectedItem() != null) {
+        Stationery selectedStationery = stationaries_table_storage.getSelectionModel().getSelectedItem();
+        handleRemoveWithQuantity(
+            "văn phòng phẩm",
+            selectedStationery.getName(),
+            selectedStationery.getQuantity(),
+            qty -> StationeryDAO.deleteStationeryById(selectedStationery.getId(), qty),
+            this::loadStationeryData
+        );
+
+    } else {
+        showError("Vui lòng chọn mục cần xoá.");
     }
+}
+
+
+
+    // public void removeSelectedItem() {
+    //     // Alert alert;
+
+    //     try {
+    //         if (books_table_storage.isVisible() && books_table_storage.getSelectionModel().getSelectedItem() != null) {
+    //             Book selectedBook = books_table_storage.getSelectionModel().getSelectedItem();
+
+    //             if (confirmDelete("Bạn có chắc muốn xoá sách này?")) {
+    //                 BookDAO.deleteBookById(selectedBook.getId());
+    //                 showInfo("Book removed successfully");
+    //                 loadBookData();
+    //             }
+
+    //         } else if (toys_table_storage.isVisible() && toys_table_storage.getSelectionModel().getSelectedItem() != null) {
+    //             Toy selectedToy = toys_table_storage.getSelectionModel().getSelectedItem();
+
+    //             if (confirmDelete("Bạn có chắc muốn xoá đồ chơi này?")) {
+    //                 ToyDAO.deleteToyById(selectedToy.getId());
+    //                 showInfo("Toy removed successfully");
+    //                 loadToyData();
+    //             }
+
+    //         } else if (stationaries_table_storage.isVisible() && stationaries_table_storage.getSelectionModel().getSelectedItem() != null) {
+    //             Stationery selectedStationery = stationaries_table_storage.getSelectionModel().getSelectedItem();
+
+    //             if (confirmDelete("Bạn có chắc muốn xoá văn phòng phẩm này?")) {
+    //                 StationeryDAO.deleteStationeryById(selectedStationery.getId());
+    //                 showInfo("Stationery removed successfully");
+    //                 loadStationeryData();
+    //             }
+
+    //         } else {
+    //             showError("Please select an item to remove.");
+    //         }
+
+    //     } catch (SQLException e) {
+    //         e.printStackTrace();
+    //         showError("Lỗi khi xoá dữ liệu.");
+    //     }
+    // }
 
     private boolean confirmDelete(String message) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -1024,16 +1112,20 @@ public void clearToyData() {
 
     private String comboBox[] = {"Book", "Stationery", "Toy"};
 
-    public void TypeItem(){
-        List<String> combo = new ArrayList<>();
-        
-        for (String data : comboBox) {
-            combo.add(data);
-        }
+        public void TypeItem(){
+            List<String> combo = new ArrayList<>();
+            
+            for (String data : comboBox) {
+                combo.add(data);
+            }
 
-        ObservableList list = FXCollections.observableArrayList(combo);
-        add_storage_button.setItems(list);
-    }
+            ObservableList list = FXCollections.observableArrayList(combo);
+            add_storage_button.setItems(list);
+            add_storage_button.setPromptText("Add...");
+        }
+        
+
+
 
 
 
@@ -1045,9 +1137,7 @@ public void clearToyData() {
             books_add_storage.setVisible(true);
             stationery_add_storage.setVisible(false);
             toys_add_storage.setVisible(false);
-            // books_table_storage.setVisible(false);
-            // toys_table_storage.setVisible(false);
-            // stationaries_table_storage.setVisible(false);
+
             storage_table_view.setVisible(false);
             storage_add.setVisible(true);
             function_under_storage.setVisible(false);
@@ -1056,9 +1146,7 @@ public void clearToyData() {
             books_add_storage.setVisible(false);
             stationery_add_storage.setVisible(true);
             toys_add_storage.setVisible(false);
-            // books_table_storage.setVisible(false);
-            // toys_table_storage.setVisible(false);
-            // stationaries_table_storage.setVisible(false);
+          
             storage_table_view.setVisible(false);
             storage_add.setVisible(true);
             function_under_storage.setVisible(false);
@@ -1067,9 +1155,7 @@ public void clearToyData() {
             books_add_storage.setVisible(false);
             stationery_add_storage.setVisible(false);
             toys_add_storage.setVisible(true);
-            // books_table_storage.setVisible(false);
-            // toys_table_storage.setVisible(false);
-            // stationaries_table_storage.setVisible(false);
+           
             storage_table_view.setVisible(false);
             storage_add.setVisible(true);
             function_under_storage.setVisible(false);
@@ -1110,6 +1196,8 @@ public void clearToyData() {
             employee_table_page.setVisible(true);
             employee_add_page.setVisible(false);
         }
+        add_storage_button.setValue(null);
+       
 }
 
 // LOGOUT
