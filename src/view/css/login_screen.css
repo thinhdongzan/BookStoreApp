@@ -17,9 +17,13 @@
     -fx-background-color: transparent;
 }
 
+.menu:hover .menu-button{
+    -fx-text-fill: white;
+}
+
 .menu:hover{
-    -fx-border-color: white;
-    -fx-border-width: 0 0 2 0;
+    -fx-background-color: #2c3a5151;
+    -fx-background-radius: 15;
 }
 
 .search_bar{
@@ -41,8 +45,8 @@
 
 .menu-button{
     -fx-background-color: transparent;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
+    -fx-text-fill: rgba(255, 255, 255, 0.5);
+    -fx-font-size: 12px;
     -fx-font-weight: bold;
 }
 
@@ -140,25 +144,41 @@
     -fx-background-color: white;
 }
 
-.employee-button-remove {
-    -fx-background-color: #ff5c5c;
-    -fx-background-radius: 15px;
-    -fx-text-fill: white;
-}
-
-.employee-button-add {
+.employee-add-button{
     -fx-background-color: #5c95ff;
     -fx-background-radius: 15px;
     -fx-text-fill: white;
+} 
+.employee-remove-button{
+    -fx-text-fill: #ff5c5c;
+    -fx-background-color: white;
 }
 
-.employee-button-add:hover{
+.employee-pay-button{
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-text-fill: black;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0, 0, 2);
+}
+
+.employee-pay-button:hover{
+    -fx-background-color: rgb(200, 198, 198);
+    -fx-cursor: hand;
+}
+
+.employee-add-button:hover{
     -fx-background-color: #3e71cf;
-
+    -fx-text-fill: white;
+    -fx-cursor: hand;
 }
 
-.employee-button-remove:hover{
-    -fx-background-color: #9d1c1c;
+.employee-remove-button:hover{
+    -fx-text-fill: #a72727;
+    -fx-cursor: hand;
+    -fx-background-color: rgb(223, 223, 223);
+    -fx-background-radius: 15;
 }
 
 /* storage-page */
@@ -212,6 +232,27 @@
     -fx-padding: 4 10 4 10;
 }
 
+.order-button-remove {
+    -fx-background-color: #ff5c5c;
+    -fx-background-radius: 15px;
+    -fx-text-fill: white;
+}
+
+.order-button-add {
+    -fx-background-color: #5c95ff;
+    -fx-background-radius: 15px;
+    -fx-text-fill: white;
+}
+
+.order-button-add:hover{
+    -fx-background-color: #3e71cf;
+
+}
+
+.order-button-remove:hover{
+    -fx-background-color: #9d1c1c;
+}
+
 /* dashboard */
 .card-pane {
     -fx-background-color: white;
@@ -249,13 +290,13 @@
 
 /* dashboard */
 .chart {
-    -fx-background-color: #f5f5f5;
+    -fx-background-color: transparent;
     -fx-padding: 10;
     -fx-border-color: transparent;
 }
 
 .chart-title {
-    -fx-font-size: 14px;
+    -fx-font-size: 16px;
     -fx-text-fill: #3e70faaf;
     -fx-padding: 10 0 0 10;
 }
@@ -291,7 +332,7 @@
 }
 
 .axis-label {
-    -fx-text-fill: #1a30f2;
+    -fx-text-fill: #3e70faaf;
     -fx-font-size: 12px;
     -fx-font-weight: bold;
 }
@@ -382,3 +423,49 @@
 }
 
 
+/* settings */
+.setting-title{
+    -fx-text-fill: linear-gradient(to bottom right, #3e70fa, #1a30f2);
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+}
+
+.user-name{
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+}
+
+.user-position{
+    -fx-text-fill: gray;
+    -fx-font-size: 12;
+}
+
+/* The wrapper is what gets hovered */
+.profile-image-wrapper:hover .profile-image-edit-bg {
+    -fx-opacity: 1;
+}
+
+.profile-image-wrapper:hover .profile-image-edit-icon {
+    -fx-opacity: 1;
+}
+
+.profile-image-edit-bg {
+    -fx-background-color: rgba(128, 128, 128, 0.3);
+    -fx-background-radius: 40px;
+    -fx-opacity: 0; /* Hidden by default */
+    -fx-alignment: center;
+    -fx-cursor: hand;
+}
+
+.profile-image-edit-icon {
+    -fx-opacity: 0; /* Hidden by default */
+    -fx-cursor: hand;
+}
+
+.profile-image-wrapper {
+    -fx-background-radius: 50%;
+    -fx-background-color: black;
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
