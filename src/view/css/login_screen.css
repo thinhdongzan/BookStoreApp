@@ -498,3 +498,29 @@
     -fx-background-size: cover;
     -fx-background-position: center;
 }
+
+.profile-card{
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);
+}
+
+.profile-card:hover{
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+}
+
+.profile-title-label{
+    -fx-text-fill: gray;
+    -fx-font-size: 12;
+}
+
+.profile-edit-field{
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: gray;
+}
+
+.profile-edit-field:hover{
+    -fx-cursor: hand;
+}

@@ -131,7 +131,7 @@
    <center>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="770.0" stylesheets="@../css/login_screen.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="dashboard_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="dashboard_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
                <children>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                      <children>
@@ -838,7 +838,7 @@
                   </HBox>
                   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0">
                      <children>
-                        <VBox fx:id="employee_table_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0" visible="false">
+                        <VBox fx:id="employee_table_page" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="470.0" prefWidth="770.0">
                            <children>
                               <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="170.0" prefWidth="770.0">
                                  <children>
@@ -948,6 +948,7 @@
                                     <TableColumn fx:id="dob_col" maxWidth="240.0" minWidth="126.66665649414062" prefWidth="164.00003051757812" text="D.O.B" />
                                     <TableColumn fx:id="address_col" maxWidth="257.3333740234375" minWidth="120.0" prefWidth="236.66656494140625" text="Address" />
                                     <TableColumn fx:id="salary_col" maxWidth="212.0" minWidth="120.0" prefWidth="141.3333740234375" text="Salary" />
+                                    <TableColumn fx:id="status_col" maxWidth="212.0" minWidth="120.0" prefWidth="141.3333740234375" text="Status" />
                                  </columns>
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -2249,7 +2250,7 @@
                   </StackPane>
                </children>
             </VBox>
-            <VBox fx:id="setting_page" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" visible="false">
+            <VBox fx:id="setting_page" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="770.0">
                      <children>
@@ -2284,203 +2285,206 @@
                         </HBox>
                      </children>
                   </AnchorPane>
-                  <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="470.0" prefWidth="770.0">
-                     <content>
-                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="770.0">
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="332.0" prefWidth="770.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="770.0">
                            <children>
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="360.0" prefWidth="770.0">
+                              <Label prefHeight="35.0" prefWidth="140.0" styleClass="setting-title" text="Your Profile">
+                                 <HBox.margin>
+                                    <Insets left="16.0" right="40.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Line endX="552.0" startX="18.0" stroke="#ffffff87" strokeWidth="0.5">
+                                 <HBox.margin>
+                                    <Insets right="32.0" />
+                                 </HBox.margin>
+                              </Line>
+                           </children>
+                        </HBox>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="280.0" prefWidth="722.0">
+                           <VBox.margin>
+                              <Insets left="16.0" right="32.0" />
+                           </VBox.margin>
+                           <children>
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="280.0" prefWidth="200.0" styleClass="profile-card">
                                  <children>
-                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="770.0">
+                                    <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" styleClass="profile-image-wrapper">
                                        <children>
-                                          <Label prefHeight="35.0" prefWidth="140.0" styleClass="setting-title" text="Your Profile">
-                                             <HBox.margin>
-                                                <Insets left="16.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="setting-title">
+                                          <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" styleClass="profile-image-edit-bg">
+                                             <children>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="profile-image-edit-icon">
+                                                   <image>
+                                                      <Image url="@../images/Logo/edit-text.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </StackPane>
+                                    <Label fx:id="user_name_settings" styleClass="user-name" text="Name" />
+                                    <Label fx:id="user_position_setting" layoutX="65.0" layoutY="188.0" styleClass="user-position" text="Position" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="16.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="500.0" styleClass="profile-card">
+                                 <children>
+                                    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="500.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User profile">
+                                             <VBox.margin>
+                                                <Insets left="16.0" top="16.0" />
+                                             </VBox.margin>
                                              <font>
-                                                <Font name="Calibri Bold" size="24.0" />
+                                                <Font name="System Bold" size="16.0" />
                                              </font>
-                                             <HBox.margin>
-                                                <Insets left="16.0" right="32.0" />
-                                             </HBox.margin>
                                           </Text>
-                                          <Line endX="552.0" startX="18.0" stroke="#4a628786" strokeWidth="0.5">
-                                             <HBox.margin>
-                                                <Insets right="32.0" />
-                                             </HBox.margin>
-                                          </Line>
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="522.0">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0">
+                                                   <children>
+                                                      <Label styleClass="profile-title-label" text="Gender:">
+                                                         <HBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <Label text="Label">
+                                                         <HBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets right="16.0" />
+                                                   </HBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0">
+                                                   <children>
+                                                      <Label styleClass="profile-title-label" text="D.O.B:">
+                                                         <HBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <Label text="Label">
+                                                         <HBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets right="16.0" />
+                                                   </HBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" layoutX="170.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="220.0">
+                                                   <children>
+                                                      <Label styleClass="profile-title-label" text="Phone number:">
+                                                         <HBox.margin>
+                                                            <Insets />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <Label text="Label">
+                                                         <HBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets right="16.0" />
+                                                   </HBox.margin>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
                                        </children>
-                                    </HBox>
-                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="320.0" prefWidth="722.0">
-                                       <VBox.margin>
-                                          <Insets left="16.0" right="32.0" />
-                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0">
                                        <children>
-                                          <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="320.0" prefWidth="200.0">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile settings">
+                                             <VBox.margin>
+                                                <Insets left="16.0" top="16.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="500.0">
                                              <children>
-                                                <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" styleClass="profile-image-wrapper">
+                                                <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="240.0">
                                                    <children>
-                                                      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" styleClass="profile-image-edit-bg">
-                                                         <children>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="profile-image-edit-icon">
-                                                               <image>
-                                                                  <Image url="@../images/Logo/edit-text.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </children>
-                                                      </Pane>
-                                                   </children></StackPane>
-                                                <Label fx:id="user_name_settings" styleClass="user-name" text="Name" />
-                                                <Label fx:id="user_position_setting" layoutX="65.0" layoutY="188.0" styleClass="user-position" text="Position" />
-                                             </children>
-                                          </VBox>
-                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="522.0">
-                                             <children>
-                                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="522.0">
-                                                   <children>
-                                                      <Label text="User profile">
-                                                         <padding>
-                                                            <Insets left="16.0" top="16.0" />
-                                                         </padding>
-                                                         <font>
-                                                            <Font size="16.0" />
-                                                         </font>
+                                                      <Label styleClass="profile-title-label" text="First name">
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </VBox.margin>
                                                       </Label>
-                                                      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="522.0">
-                                                         <children>
-                                                            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0">
-                                                               <children>
-                                                                  <Label text="Gender:">
-                                                                     <HBox.margin>
-                                                                        <Insets left="16.0" />
-                                                                     </HBox.margin>
-                                                                  </Label>
-                                                                  <Label text="Label">
-                                                                     <HBox.margin>
-                                                                        <Insets left="16.0" />
-                                                                     </HBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                               <HBox.margin>
-                                                                  <Insets right="16.0" />
-                                                               </HBox.margin>
-                                                            </HBox>
-                                                            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0">
-                                                               <children>
-                                                                  <Label text="D.O.B:">
-                                                                     <HBox.margin>
-                                                                        <Insets left="16.0" />
-                                                                     </HBox.margin>
-                                                                  </Label>
-                                                                  <Label text="Label">
-                                                                     <HBox.margin>
-                                                                        <Insets left="16.0" />
-                                                                     </HBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                               <HBox.margin>
-                                                                  <Insets right="16.0" />
-                                                               </HBox.margin>
-                                                            </HBox>
-                                                            <HBox alignment="CENTER_LEFT" layoutX="170.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="240.0">
-                                                               <children>
-                                                                  <Label text="Phone number:">
-                                                                     <HBox.margin>
-                                                                        <Insets left="16.0" />
-                                                                     </HBox.margin>
-                                                                  </Label>
-                                                                  <Label text="Label">
-                                                                     <HBox.margin>
-                                                                        <Insets left="16.0" />
-                                                                     </HBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                               <HBox.margin>
-                                                                  <Insets right="16.0" />
-                                                               </HBox.margin>
-                                                            </HBox>
-                                                         </children>
-                                                      </HBox>
+                                                      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="200.0" styleClass="profile-edit-field">
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </TextField>
                                                    </children>
+                                                   <HBox.margin>
+                                                      <Insets right="16.0" />
+                                                   </HBox.margin>
                                                 </VBox>
-                                                <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="522.0">
+                                                <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="240.0">
                                                    <children>
-                                                      <Label text="Profile settings">
-                                                         <padding>
-                                                            <Insets left="16.0" top="16.0" />
-                                                         </padding>
-                                                         <font>
-                                                            <Font size="16.0" />
-                                                         </font>
+                                                      <Label styleClass="profile-title-label" text="Last name">
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </VBox.margin>
                                                       </Label>
-                                                      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="522.0">
-                                                         <children>
-                                                            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0">
-                                                               <children>
-                                                                  <Label text="Name:">
-                                                                     <HBox.margin>
-                                                                        <Insets left="16.0" />
-                                                                     </HBox.margin>
-                                                                  </Label>
-                                                                  <Label text="Label">
-                                                                     <HBox.margin>
-                                                                        <Insets left="16.0" />
-                                                                     </HBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                               <HBox.margin>
-                                                                  <Insets right="16.0" />
-                                                               </HBox.margin>
-                                                            </HBox>
-                                                            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0">
-                                                               <children>
-                                                                  <Label text="D.O.B:">
-                                                                     <HBox.margin>
-                                                                        <Insets left="16.0" />
-                                                                     </HBox.margin>
-                                                                  </Label>
-                                                                  <Label text="Label">
-                                                                     <HBox.margin>
-                                                                        <Insets left="16.0" />
-                                                                     </HBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                               <HBox.margin>
-                                                                  <Insets right="16.0" />
-                                                               </HBox.margin>
-                                                            </HBox>
-                                                            <HBox alignment="CENTER_LEFT" layoutX="170.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="240.0">
-                                                               <children>
-                                                                  <Label text="Phone number:">
-                                                                     <HBox.margin>
-                                                                        <Insets left="16.0" />
-                                                                     </HBox.margin>
-                                                                  </Label>
-                                                                  <Label text="Label">
-                                                                     <HBox.margin>
-                                                                        <Insets left="16.0" />
-                                                                     </HBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                               <HBox.margin>
-                                                                  <Insets right="16.0" />
-                                                               </HBox.margin>
-                                                            </HBox>
-                                                         </children>
-                                                      </HBox>
+                                                      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="200.0" styleClass="profile-edit-field">
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </TextField>
                                                    </children>
                                                 </VBox>
                                              </children>
-                                          </VBox>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="48.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="522.0">
+                                             <children>
+                                                <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="240.0">
+                                                   <children>
+                                                      <Label styleClass="profile-title-label" text="D.O.B">
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="200.0" styleClass="profile-edit-field">
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </TextField>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets right="16.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                                <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="240.0">
+                                                   <children>
+                                                      <Label styleClass="profile-title-label" text="Phone number">
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="200.0" styleClass="profile-edit-field">
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </TextField>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
                                        </children>
-                                    </HBox>
+                                    </VBox>
                                  </children>
                               </VBox>
                            </children>
-                        </VBox>
-                     </content>
-                  </ScrollPane>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </VBox>
          </children>
