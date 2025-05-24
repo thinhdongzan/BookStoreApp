@@ -780,6 +780,76 @@
                                           </ScrollPane>
                                        </children>
                                     </Pane>
+                                    <Pane id="Main-Book" fx:id="adventurePane" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css">
+                                       <children>
+                                          <ScrollPane prefHeight="628.0" prefWidth="1100.0">
+                                             <content>
+                                                <VBox prefHeight="2500.0" prefWidth="1084.0" spacing="10.0">
+                                                   <children>
+                                                      <Pane prefHeight="430.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ImageView fitHeight="444.0" fitWidth="1281.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../../BookStoreApp/src/view/images/Books/AdventurePane.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                            <HBox id="Book_Category" fx:id="bookGenres7" alignment="CENTER" prefHeight="63.0" prefWidth="1086.0" spacing="60.0">
+                                                               <children>
+                                                                  <Button mnemonicParsing="false" onAction="#sortSelfHelpBook" prefWidth="80.0" styleClass="button-category" text="Self-help">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                                  <Button mnemonicParsing="false" onAction="#sortHorrorBook" prefWidth="80.0" styleClass="button-category" text="Horror">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                                  <Button mnemonicParsing="false" onAction="#sortAdventureBook" prefHeight="25.0" prefWidth="80.0" styleClass="button-category" text="Adventure">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                                  <Button mnemonicParsing="false" onAction="#sortRomanceBook" prefWidth="80.0" styleClass="button-category" text="Romance">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                                  <Button mnemonicParsing="false" onAction="#sortComicBook" prefWidth="80.0" styleClass="button-category" text="Comic">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Novel">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Fairy Tale">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane prefHeight="79.0" prefWidth="1084.0">
+                                                         <children>
+                                                            <Label layoutX="108.0" layoutY="14.0" text="Trending Now">
+                                                               <font>
+                                                                  <Font name="System Bold" size="40.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                      <FlowPane fx:id="adventureLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" vgap="10.0" />
+                                                   </children>
+                                                </VBox>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </Pane>
                                  </children>
                               </StackPane>
                            </children>
