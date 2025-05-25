@@ -315,14 +315,27 @@ public class Admin_Menu_Controller implements Initializable  {
 
 
     //OTHER COST
-    List<OtherCost> costs = List.of(
-    new OtherCost("Điện", 3200000),
-    new OtherCost("Nước", 3500000),
-    new OtherCost("Thuê mặt bằng", 8000000),
-    new OtherCost("Khác", 4800000)
-);
+    public List<OtherCost> buildCosts() {
+        return new ArrayList<>(List.of(
+            new OtherCost("Điện", 3200000),
+            new OtherCost("Nước", 3500000),
+            new OtherCost("Thuê mặt bằng", 8000000),
+            new OtherCost("Lương nhân viên", getTotalSalary())
+        ));
+    }
 
+    public double getTotalSalary() {
+        double total = 0;
+        List<Employee> employees = EmployeeDAO.getPaymentDataList();
 
+        for (Employee emp : employees) {
+            if ("UNPAID".equalsIgnoreCase(emp.getSalaryStatus())) {
+                total += emp.getSalary();
+            }
+        }
+
+        return total;
+    }
 
 
     @FXML
@@ -339,6 +352,7 @@ public class Admin_Menu_Controller implements Initializable  {
     @FXML private Label cost4;
 
     @FXML private Label total_otherCostLabel;
+    @FXML private Label totalCost_BigLabel;
 
 
     private String formatCurrency(double amount) {
@@ -355,6 +369,7 @@ public class Admin_Menu_Controller implements Initializable  {
 
     // Gán vào label
     total_otherCostLabel.setText(total + " VND");
+    totalCost_BigLabel.setText(total + " VND");
 
     // Đặt chiều rộng tối đa cho bar (bạn điều chỉnh nếu cần)
     double maxWidth = 200;
@@ -495,6 +510,7 @@ public class Admin_Menu_Controller implements Initializable  {
         }
 
         total_paymentLabel.setText(total + " VND");
+        
             //totalEmployee_label_menu.setText(""+listEmployees.size());
         }
     public void selectEmployee() {
@@ -669,6 +685,8 @@ public class Admin_Menu_Controller implements Initializable  {
             alert.showAndWait();
         }
     }
+    showPayment();
+    showOtherCosts(buildCosts()); 
 }
 
 
@@ -726,6 +744,7 @@ public class Admin_Menu_Controller implements Initializable  {
         alert.showAndWait();
 
         showPayment();
+        showOtherCosts(buildCosts());
 
         }
     }
@@ -1342,7 +1361,7 @@ public void clearToyData() {
 
         showPayment();
 
-        showOtherCosts(costs);
+        showOtherCosts(buildCosts());
     }
 
 }
