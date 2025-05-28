@@ -1,0 +1,21 @@
+-- ORDER --
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT,
+    order_date DATETIME NOT NULL default current_timestamp,
+    total_amount DECIMAL(10,2) NOT NULL,
+    payment_method VARCHAR(50),
+    shipping_address TEXT,
+    status VARCHAR(20) DEFAULT 'Pending',
+    FOREIGN KEY (customer_id) REFERENCES customer(id)
+);
+
+-- ORDER INFORMATION --
+CREATE TABLE order_items (
+    order_id INT,
+    product_id INT,
+    product_type ENUM('BOOK', 'STATIONERY', 'TOY'),
+    quantity INT NOT NULL CHECK (quantity > 0),
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    PRIMARY KEY (order_id, product_id, product_type)
+);

@@ -5,6 +5,7 @@ public class Customer {
     private String username;
     private String password;
     private String name;
+    private String dateOfBirth;
     private String phoneNumber;
     private String address;
 
@@ -74,5 +75,14 @@ public class Customer {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    // Getter và Setter cho dateOfBirth
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 }

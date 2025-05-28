@@ -146,29 +146,13 @@
                                  </HBox.margin>
                               </Text>
                               <Region maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="428.0" />
-                              <Pane fx:id="search_bar112" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" styleClass="search_bar">
-                                 <children>
-                                    <TextField fx:id="serach_field112" layoutX="14.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="search" styleClass="search_field" />
-                                    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="search_icon">
-                                       <image>
-                                          <Image url="@../images/Logo/search.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <HBox.margin>
-                                    <Insets right="16.0" />
-                                 </HBox.margin>
-                              </Pane>
                            </children>
                         </HBox>
                      </children>
                   </AnchorPane>
                   <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="470.0" prefWidth="770.0">
                      <content>
-                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="770.0">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="472.0" prefWidth="770.0">
                            <children>
                               <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="770.0">
                                  <children>
@@ -206,7 +190,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label styleClass="card-value" text="Label" textFill="#1c1c1c">
+                                          <Label fx:id="totalRevenueLabel" styleClass="card-value" text="Label" textFill="#1c1c1c">
                                              <font>
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
@@ -252,7 +236,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label styleClass="card-value" text="Label" textFill="#1c1c1c">
+                                          <Label fx:id="totalProfitLabel" styleClass="card-value" text="Label" textFill="#1c1c1c">
                                              <font>
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
@@ -288,12 +272,12 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Label>
-                                          <BarChart fx:id="bar_chart_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="400.0" styleClass="chart">
+                                          <BarChart fx:id="revenueChart" prefHeight="300.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
                                             <xAxis>
-                                              <CategoryAxis label="date" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="320.0" side="BOTTOM" />
+                                              <CategoryAxis fx:id="dateAxis" label="date" />
                                             </xAxis>
                                             <yAxis>
-                                              <NumberAxis prefHeight="125.0" prefWidth="24.0" side="LEFT" />
+                                              <NumberAxis fx:id="revenueAxis" />
                                             </yAxis>
                                           </BarChart>
                                        </children>
@@ -404,213 +388,6 @@
                                     </VBox>
                                  </children>
                               </HBox>
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="360.0" prefWidth="770.0">
-                                 <VBox.margin>
-                                    <Insets left="52.0" right="32.0" top="16.0" />
-                                 </VBox.margin>
-                                 <children>
-                                    <Label fx:id="table_title_dashboard" text="Top products">
-                                       <VBox.margin>
-                                          <Insets left="12.0" top="8.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font name="System Bold" size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="680.0" styleClass="product-pane">
-                                       <VBox.margin>
-                                          <Insets top="8.0" />
-                                       </VBox.margin>
-                                       <children>
-                                          <ImageView fx:id="product_imgae_dashboard" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                                             <HBox.margin>
-                                                <Insets left="16.0" />
-                                             </HBox.margin>
-                                          </ImageView>
-                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="120.0">
-                                             <HBox.margin>
-                                                <Insets left="24.0" />
-                                             </HBox.margin>
-                                             <children>
-                                                <Label fx:id="product_title_dashboard" styleClass="product-title" text="Product title" />
-                                                <Label fx:id="product_price_dashboard" styleClass="product-price" text="Price">
-                                                   <VBox.margin>
-                                                      <Insets top="2.0" />
-                                                   </VBox.margin>
-                                                </Label>
-                                             </children>
-                                          </VBox>
-                                          <VBox layoutX="118.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="92.0">
-                                             <children>
-                                                <Label fx:id="product_title_dashboard1" styleClass="product-info-title" text="Inventory" />
-                                                <Label fx:id="product_price_dashboard1" styleClass="product-info" text="Number">
-                                                   <VBox.margin>
-                                                      <Insets top="2.0" />
-                                                   </VBox.margin>
-                                                </Label>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets left="48.0" />
-                                             </HBox.margin>
-                                          </VBox>
-                                          <VBox layoutX="278.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="48.0">
-                                             <children>
-                                                <Label fx:id="product_title_dashboard11" styleClass="product-info-title" text="Sales" />
-                                                <Label fx:id="product_price_dashboard11" styleClass="product-info" text="Price">
-                                                   <VBox.margin>
-                                                      <Insets top="2.0" />
-                                                   </VBox.margin>
-                                                </Label>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets left="48.0" />
-                                             </HBox.margin>
-                                          </VBox>
-                                          <VBox layoutX="527.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="108.0">
-                                             <children>
-                                                <Label fx:id="product_title_dashboard111" styleClass="product-info-title" text="Today sales" />
-                                                <Label fx:id="product_price_dashboard111" styleClass="product-info" text="Price">
-                                                   <VBox.margin>
-                                                      <Insets top="2.0" />
-                                                   </VBox.margin>
-                                                </Label>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets left="48.0" />
-                                             </HBox.margin>
-                                          </VBox>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="44.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="680.0" styleClass="product-pane">
-                                       <children>
-                                          <ImageView fx:id="product_imgae_dashboard1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                                             <HBox.margin>
-                                                <Insets left="16.0" />
-                                             </HBox.margin>
-                                          </ImageView>
-                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="120.0">
-                                             <HBox.margin>
-                                                <Insets left="24.0" />
-                                             </HBox.margin>
-                                             <children>
-                                                <Label fx:id="product_title_dashboard1" styleClass="product-title" text="Product title" />
-                                                <Label fx:id="product_price_dashboard1" styleClass="product-price" text="Price">
-                                                   <VBox.margin>
-                                                      <Insets top="2.0" />
-                                                   </VBox.margin>
-                                                </Label>
-                                             </children>
-                                          </VBox>
-                                          <VBox layoutX="118.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="92.0">
-                                             <children>
-                                                <Label fx:id="product_title_dashboard11" styleClass="product-info-title" text="Inventory" />
-                                                <Label fx:id="product_price_dashboard11" styleClass="product-info" text="Number">
-                                                   <VBox.margin>
-                                                      <Insets top="2.0" />
-                                                   </VBox.margin>
-                                                </Label>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets left="48.0" />
-                                             </HBox.margin>
-                                          </VBox>
-                                          <VBox layoutX="278.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="48.0">
-                                             <children>
-                                                <Label fx:id="product_title_dashboard111" styleClass="product-info-title" text="Sales" />
-                                                <Label fx:id="product_price_dashboard111" styleClass="product-info" text="Price">
-                                                   <VBox.margin>
-                                                      <Insets top="2.0" />
-                                                   </VBox.margin>
-                                                </Label>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets left="48.0" />
-                                             </HBox.margin>
-                                          </VBox>
-                                          <VBox layoutX="527.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="108.0">
-                                             <children>
-                                                <Label fx:id="product_title_dashboard1111" styleClass="product-info-title" text="Today sales" />
-                                                <Label fx:id="product_price_dashboard1111" styleClass="product-info" text="Price">
-                                                   <VBox.margin>
-                                                      <Insets top="2.0" />
-                                                   </VBox.margin>
-                                                </Label>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets left="48.0" />
-                                             </HBox.margin>
-                                          </VBox>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets top="12.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="144.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="680.0" styleClass="product-pane">
-                                       <children>
-                                          <ImageView fx:id="product_imgae_dashboard11" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                                             <HBox.margin>
-                                                <Insets left="16.0" />
-                                             </HBox.margin>
-                                          </ImageView>
-                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="120.0">
-                                             <HBox.margin>
-                                                <Insets left="24.0" />
-                                             </HBox.margin>
-                                             <children>
-                                                <Label fx:id="product_title_dashboard11" styleClass="product-title" text="Product title" />
-                                                <Label fx:id="product_price_dashboard11" styleClass="product-price" text="Price">
-                                                   <VBox.margin>
-                                                      <Insets top="2.0" />
-                                                   </VBox.margin>
-                                                </Label>
-                                             </children>
-                                          </VBox>
-                                          <VBox layoutX="118.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="92.0">
-                                             <children>
-                                                <Label fx:id="product_title_dashboard111" styleClass="product-info-title" text="Inventory" />
-                                                <Label fx:id="product_price_dashboard111" styleClass="product-info" text="Number">
-                                                   <VBox.margin>
-                                                      <Insets top="2.0" />
-                                                   </VBox.margin>
-                                                </Label>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets left="48.0" />
-                                             </HBox.margin>
-                                          </VBox>
-                                          <VBox layoutX="278.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="48.0">
-                                             <children>
-                                                <Label fx:id="product_title_dashboard1111" styleClass="product-info-title" text="Sales" />
-                                                <Label fx:id="product_price_dashboard1111" styleClass="product-info" text="Price">
-                                                   <VBox.margin>
-                                                      <Insets top="2.0" />
-                                                   </VBox.margin>
-                                                </Label>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets left="48.0" />
-                                             </HBox.margin>
-                                          </VBox>
-                                          <VBox layoutX="527.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="108.0">
-                                             <children>
-                                                <Label fx:id="product_title_dashboard11111" styleClass="product-info-title" text="Today sales" />
-                                                <Label fx:id="product_price_dashboard11111" styleClass="product-info" text="Price">
-                                                   <VBox.margin>
-                                                      <Insets top="2.0" />
-                                                   </VBox.margin>
-                                                </Label>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets left="48.0" />
-                                             </HBox.margin>
-                                          </VBox>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets top="12.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                 </children>
-                              </VBox>
                            </children>
                         </VBox>
                      </content>
@@ -659,7 +436,7 @@
                               </Pane>
                               <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="120.0">
                                  <children>
-                                    <Label fx:id="order_label_order" text="50">
+                                    <Label fx:id="totalOrderLabel" text="50">
                                        <VBox.margin>
                                           <Insets left="12.0" />
                                        </VBox.margin>
@@ -691,7 +468,7 @@
                               </Pane>
                               <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="120.0">
                                  <children>
-                                    <Label fx:id="pending_label_order" text="24">
+                                    <Label fx:id="totalOrderPendingLabel" text="24">
                                        <font>
                                           <Font name="System Bold" size="24.0" />
                                        </font>
@@ -723,7 +500,7 @@
                               </Pane>
                               <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="120.0">
                                  <children>
-                                    <Label fx:id="dispatch_label_order" text="30">
+                                    <Label fx:id="totalOrderDispatchedLabel" text="30">
                                        <font>
                                           <Font name="System Bold" size="24.0" />
                                        </font>
@@ -767,15 +544,15 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <TableView fx:id="order_table" maxWidth="-Infinity" prefHeight="220.0" prefWidth="770.0" styleClass="order-table">
+                  <TableView fx:id="orderTable" maxWidth="-Infinity" prefHeight="271.0" prefWidth="738.0" styleClass="order-table">
                     <columns>
-                      <TableColumn maxWidth="50.0" minWidth="50.0" prefWidth="56.000059485435486" text="Id" />
-                      <TableColumn prefWidth="192.79993438720703" text="Name" />
-                        <TableColumn prefWidth="61.5999755859375" text="Payment" />
-                        <TableColumn prefWidth="147.20004272460938" text="Time Remaining" />
-                        <TableColumn prefWidth="72.79995727539062" text="Type" />
-                        <TableColumn prefWidth="70.39990234375" text="Status" />
-                        <TableColumn prefWidth="83.199951171875" text="Total" />
+                      <TableColumn fx:id="orderId_col" maxWidth="50.0" minWidth="50.0" prefWidth="56.000059485435486" text="Id" />
+                      <TableColumn fx:id="customerName_col" prefWidth="164.0" text="Name" />
+                        <TableColumn fx:id="orderDate_col" prefWidth="113.0" text="Date" />
+                        <TableColumn fx:id="totalAmount_col" prefWidth="125.0" text="Total" />
+                        <TableColumn fx:id="paymentMethod_col" prefWidth="86.0" text="Payment " />
+                        <TableColumn fx:id="address_col2" prefWidth="99.0" text="Address" />
+                        <TableColumn fx:id="order_status_col" prefWidth="83.199951171875" text="Status" />
                     </columns>
                      <VBox.margin>
                         <Insets left="16.0" right="16.0" />
@@ -784,25 +561,6 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="770.0">
-                     <children>
-                        <Button fx:id="remove_order_button" mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" styleClass="order-button-remove" text="Remove">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets right="8.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="add_order_button" mnemonicParsing="false" prefHeight="29.0" prefWidth="71.0" styleClass="order-button-add" text="Add">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets right="16.0" top="10.0" />
-                     </VBox.margin></HBox>
                </children>
             </VBox>
             <VBox fx:id="employee_page" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">

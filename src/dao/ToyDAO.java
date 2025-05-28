@@ -98,47 +98,46 @@ public class ToyDAO {
         }
     }
 
- public static boolean deleteToyById(int id, int quantityToRemove) {
-    String selectSql = "SELECT quantity FROM toy WHERE id = ?";
-    String updateSql = "UPDATE toy SET quantity = ? WHERE id = ?";
-    String deleteSql = "DELETE FROM toy WHERE id = ?";
+    public static boolean deleteToyById(int id, int quantityToRemove) {
+        String selectSql = "SELECT quantity FROM toy WHERE id = ?";
+        String updateSql = "UPDATE toy SET quantity = ? WHERE id = ?";
+        String deleteSql = "DELETE FROM toy WHERE id = ?";
 
-    try (Connection conn = DBConnection.getConnection();
-         PreparedStatement selectStmt = conn.prepareStatement(selectSql)) {
+        try (Connection conn = DBConnection.getConnection();
+                PreparedStatement selectStmt = conn.prepareStatement(selectSql)) {
 
-        selectStmt.setInt(1, id);
-        ResultSet rs = selectStmt.executeQuery();
+            selectStmt.setInt(1, id);
+            ResultSet rs = selectStmt.executeQuery();
 
-        if (rs.next()) {
-            int currentQty = rs.getInt("quantity");
+            if (rs.next()) {
+                int currentQty = rs.getInt("quantity");
 
-            if (quantityToRemove > currentQty) {
-                throw new IllegalArgumentException("Số lượng xoá lớn hơn số lượng hiện có.");
-            }
+                if (quantityToRemove > currentQty) {
+                    throw new IllegalArgumentException("Số lượng xoá lớn hơn số lượng hiện có.");
+                }
 
-            if (quantityToRemove == currentQty) {
-                try (PreparedStatement deleteStmt = conn.prepareStatement(deleteSql)) {
-                    deleteStmt.setInt(1, id);
-                    return deleteStmt.executeUpdate() > 0;
+                if (quantityToRemove == currentQty) {
+                    try (PreparedStatement deleteStmt = conn.prepareStatement(deleteSql)) {
+                        deleteStmt.setInt(1, id);
+                        return deleteStmt.executeUpdate() > 0;
+                    }
+                } else {
+                    int newQty = currentQty - quantityToRemove;
+                    try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
+                        updateStmt.setInt(1, newQty);
+                        updateStmt.setInt(2, id);
+                        return updateStmt.executeUpdate() > 0;
+                    }
                 }
             } else {
-                int newQty = currentQty - quantityToRemove;
-                try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
-                    updateStmt.setInt(1, newQty);
-                    updateStmt.setInt(2, id);
-                    return updateStmt.executeUpdate() > 0;
-                }
+                throw new IllegalArgumentException("Không tìm thấy đồ chơi với ID này.");
             }
-        } else {
-            throw new IllegalArgumentException("Không tìm thấy đồ chơi với ID này.");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Lỗi khi xoá đồ chơi.");
         }
-
-    } catch (SQLException e) {
-        e.printStackTrace();
-        throw new RuntimeException("Lỗi khi xoá đồ chơi.");
     }
-}
-
 
     public static List<Toy> getAllToy() {
         List<Toy> toys = new ArrayList<>();
@@ -148,6 +147,7 @@ public class ToyDAO {
                 ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
                 Toy toy = new Toy();
+                toy.setId(rs.getInt("id"));
                 toy.setName(rs.getString("name"));
                 toy.setBrand(rs.getString("brand"));
                 toy.setImageSrc(rs.getString("ImageSrc"));

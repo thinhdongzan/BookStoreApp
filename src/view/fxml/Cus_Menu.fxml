@@ -18,9 +18,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cus_Menu">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/StyleTungDZ.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cus_Menu">
    <left>
-      <VBox prefHeight="720.0" prefWidth="180.0" styleClass="anchor-pane-background1" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" BorderPane.alignment="CENTER">
+      <VBox prefHeight="720.0" prefWidth="180.0" styleClass="anchor-pane-background1" stylesheets="@../css/StyleTungDZ.css" BorderPane.alignment="CENTER">
          <children>
             <Label prefHeight="43.0" prefWidth="155.0" text="Hust" textFill="WHITE">
                <font>
@@ -42,7 +42,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../BookStoreApp/src/view/images/Button/open-book.png" />
+                        <Image url="@../images/Button/open-book.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="40.0" prefWidth="71.0" text="Book" textFill="WHITE">
@@ -56,7 +56,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../BookStoreApp/src/view/images/Button/stationery.png" />
+                        <Image url="@../images/Button/stationery.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="40.0" prefWidth="71.0" text="Stationery" textFill="WHITE">
@@ -70,7 +70,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../BookStoreApp/src/view/images/Button/teddy-bear%20(1).png" />
+                        <Image url="@../images/Button/teddy-bear%20(1).png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="40.0" prefWidth="71.0" text="Toy" textFill="WHITE">
@@ -89,7 +89,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../BookStoreApp/src/view/images/Button/grocery-store.png" />
+                        <Image url="@../images/Button/grocery-store.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="40.0" prefWidth="71.0" text="Cart" textFill="WHITE">
@@ -103,7 +103,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../BookStoreApp/src/view/images/Button/user.png" />
+                        <Image url="@../images/Button/user.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="40.0" prefWidth="71.0" text="Account" textFill="WHITE">
@@ -117,7 +117,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../BookStoreApp/src/view/images/Button/question-sign.png" />
+                        <Image url="@../images/Button/question-sign.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="40.0" prefWidth="71.0" text="Help" textFill="WHITE">
@@ -132,7 +132,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../BookStoreApp/src/view/images/Button/logout.png" />
+                        <Image url="@../images/Button/logout.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="40.0" prefWidth="71.0" text="Log Out" textFill="WHITE">
@@ -163,13 +163,13 @@
                         <TextField fx:id="searchBar" onAction="#searchOnAction" prefHeight="25.0" prefWidth="325.0" promptText="Search" style="-fx-background-color: rgba(0,0,0,0);" />
                         <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" styleClass="White-background">
                            <image>
-                              <Image url="@../../BookStoreApp/src/view/images/Button/loupe.png" />
+                              <Image url="@../images/Button/loupe.png" />
                            </image>
                         </ImageView>
                      </children>
                   </HBox>
                   <Pane prefHeight="47.0" prefWidth="286.0" />
-                  <Label prefHeight="25.0" prefWidth="215.0" text="Chào mừng khách hàng123" textFill="WHITE">
+                  <Label fx:id="welcomeLabel" prefHeight="25.0" prefWidth="215.0" text="Chào mừng khách hàng123" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -177,14 +177,14 @@
                   <Pane prefHeight="47.0" prefWidth="9.0" />
                   <ImageView fitHeight="38.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../BookStoreApp/src/view/images/Button/user.png" />
+                        <Image url="@../images/Button/user.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <StackPane id="Main-Stack" prefHeight="673.0" prefWidth="1100.0">
                <children>
-                  <Pane id="Toy_Pane" fx:id="toyPane" prefHeight="715.0" prefWidth="1100.0">
+                  <Pane id="Toy_Pane" fx:id="toyPane" disable="true" prefHeight="715.0" prefWidth="1100.0" visible="false">
                      <children>
                         <ScrollPane prefHeight="674.0" prefWidth="1100.0">
                            <content>
@@ -192,7 +192,7 @@
                                  <children>
                                     <ImageView fitHeight="504.0" fitWidth="1082.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../BookStoreApp/src/view/images/Toys/Ảnh%20chụp%20màn%20hình%202025-05-18%20145912.png" />
+                                          <Image url="@../images/Toys/Ảnh%20chụp%20màn%20hình%202025-05-18%20145912.png" />
                                        </image>
                                     </ImageView>
                                     <Pane prefHeight="86.0" prefWidth="1084.0">
@@ -223,7 +223,7 @@
                                  <children>
                                     <ImageView fitHeight="504.0" fitWidth="1082.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../BookStoreApp/src/view/images/Stationery/Ảnh%20chụp%20màn%20hình%202025-05-18%20154047.png" />
+                                          <Image url="@../images/Stationery/Ảnh%20chụp%20màn%20hình%202025-05-18%20154047.png" />
                                        </image>
                                     </ImageView>
                                     <Pane prefHeight="86.0" prefWidth="1084.0">
@@ -252,7 +252,7 @@
                            <children>
                               <StackPane prefHeight="711.0" prefWidth="1104.0">
                                  <children>
-                                    <Pane id="Main-Book" fx:id="mainPane" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css">
+                                    <Pane id="Main-Book" fx:id="mainPane" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../css/StyleTungDZ.css">
                                        <children>
                                           <ScrollPane prefHeight="628.0" prefWidth="1100.0">
                                              <content>
@@ -262,7 +262,7 @@
                                                          <children>
                                                             <ImageView fitHeight="444.0" fitWidth="1281.0" pickOnBounds="true" preserveRatio="true">
                                                                <image>
-                                                                  <Image url="@../../BookStoreApp/src/view/images/Books/MainPane.png" />
+                                                                  <Image url="@../images/Books/MainPane.png" />
                                                                </image>
                                                             </ImageView>
                                                             <HBox id="Book_Category" fx:id="bookGenres" alignment="CENTER" prefHeight="63.0" prefWidth="1086.0" spacing="60.0">
@@ -292,12 +292,12 @@
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Novel">
+                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Novel">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Fairy Tale">
+                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Fairy Tale">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
@@ -306,7 +306,7 @@
                                                             </HBox>
                                                          </children>
                                                       </Pane>
-                                                      <VBox prefHeight="344.0" prefWidth="1099.0" style="-fx-border-color: rgb(255,255,255);">
+                                                      <VBox prefHeight="466.0" prefWidth="1084.0" style="-fx-border-color: rgb(255,255,255);">
                                                          <children>
                                                             <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1097.0" styleClass="best-seller-section">
                                                                <children>
@@ -319,7 +319,7 @@
                                                                         </Label>
                                                                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
                                                                            <image>
-                                                                              <Image url="@../../BookStoreApp/src/view/images/Button/fire.png" />
+                                                                              <Image url="@../images/Button/fire.png" />
                                                                            </image>
                                                                         </ImageView>
                                                                         <Label text="ST SELLER">
@@ -337,9 +337,9 @@
                                                                   <Insets />
                                                                </VBox.margin>
                                                             </HBox>
-                                                            <ScrollPane fitToHeight="true" hbarPolicy="ALWAYS" prefHeight="267.0" prefWidth="1097.0" styleClass="best-seller-section" vbarPolicy="NEVER">
+                                                            <ScrollPane fitToHeight="true" hbarPolicy="ALWAYS" prefHeight="383.0" prefWidth="1082.0" styleClass="best-seller-section" vbarPolicy="NEVER">
                                                                <content>
-                                                                  <HBox fx:id="bookBestSellersLayout" prefHeight="214.0" prefWidth="1041.0" styleClass="viewport" />
+                                                                  <HBox fx:id="bookBestSellersLayout" prefHeight="214.0" prefWidth="1041.0" spacing="10.0" styleClass="viewport" />
                                                                </content>
                                                             </ScrollPane>
                                                          </children>
@@ -353,14 +353,14 @@
                                                             </Label>
                                                          </children>
                                                       </Pane>
-                                                      <FlowPane fx:id="bookRecommendedForYouLayout" hgap="20.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" vgap="20.0" />
+                                                      <FlowPane fx:id="bookRecommendedForYouLayout" hgap="20.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="20.0" />
                                                    </children>
                                                 </VBox>
                                              </content>
                                           </ScrollPane>
                                        </children>
                                     </Pane>
-                                    <Pane id="Main-Book" fx:id="selfHelpPane" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css">
+                                    <Pane id="Main-Book" fx:id="selfHelpPane" disable="true" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../css/StyleTungDZ.css" visible="false">
                                        <children>
                                           <ScrollPane prefHeight="628.0" prefWidth="1100.0">
                                              <content>
@@ -370,7 +370,7 @@
                                                          <children>
                                                             <ImageView fitHeight="444.0" fitWidth="1281.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
                                                                <image>
-                                                                  <Image url="@../../BookStoreApp/src/view/images/Books/SelfHelpPane.png" />
+                                                                  <Image url="@../images/Books/SelfHelpPane.png" />
                                                                </image>
                                                             </ImageView>
                                                             <HBox id="Book_Category" fx:id="bookGenres1" alignment="CENTER" prefHeight="63.0" prefWidth="1086.0" spacing="60.0">
@@ -400,12 +400,12 @@
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Novel">
+                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Novel">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Fairy Tale">
+                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Fairy Tale">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
@@ -423,14 +423,14 @@
                                                             </Label>
                                                          </children>
                                                       </Pane>
-                                                      <FlowPane fx:id="selfHelpLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" vgap="10.0" />
+                                                      <FlowPane fx:id="selfHelpLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0" />
                                                    </children>
                                                 </VBox>
                                              </content>
                                           </ScrollPane>
                                        </children>
                                     </Pane>
-                                    <Pane id="Main-Book" fx:id="fairyTailePane" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css">
+                                    <Pane id="Main-Book" fx:id="fairyTailePane" disable="true" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../css/StyleTungDZ.css" visible="false">
                                        <children>
                                           <ScrollPane prefHeight="628.0" prefWidth="1100.0">
                                              <content>
@@ -440,7 +440,7 @@
                                                          <children>
                                                             <ImageView fitHeight="444.0" fitWidth="1281.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
                                                                <image>
-                                                                  <Image url="@../../BookStoreApp/src/view/images/Books/FairyTalePane.png" />
+                                                                  <Image url="@../images/Books/FairyTalePane.png" />
                                                                </image>
                                                             </ImageView>
                                                             <HBox id="Book_Category" fx:id="bookGenres2" alignment="CENTER" prefHeight="63.0" prefWidth="1086.0" spacing="60.0">
@@ -470,12 +470,12 @@
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Novel">
+                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Novel">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Fairy Tale">
+                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Fairy Tale">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
@@ -493,14 +493,14 @@
                                                             </Label>
                                                          </children>
                                                       </Pane>
-                                                      <FlowPane fx:id="fairyTaleLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" vgap="10.0" />
+                                                      <FlowPane fx:id="fairyTaleLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0" />
                                                    </children>
                                                 </VBox>
                                              </content>
                                           </ScrollPane>
                                        </children>
                                     </Pane>
-                                    <Pane id="Main-Book" fx:id="comicPane" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css">
+                                    <Pane id="Main-Book" fx:id="comicPane" disable="true" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../css/StyleTungDZ.css" visible="false">
                                        <children>
                                           <ScrollPane prefHeight="628.0" prefWidth="1100.0">
                                              <content>
@@ -510,7 +510,7 @@
                                                          <children>
                                                             <ImageView fitHeight="444.0" fitWidth="1281.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
                                                                <image>
-                                                                  <Image url="@../../BookStoreApp/src/view/images/Books/ComicPane.png" />
+                                                                  <Image url="@../images/Books/ComicPane.png" />
                                                                </image>
                                                             </ImageView>
                                                             <HBox id="Book_Category" fx:id="bookGenres3" alignment="CENTER" prefHeight="63.0" prefWidth="1086.0" spacing="60.0">
@@ -540,12 +540,12 @@
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Novel">
+                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Novel">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Fairy Tale">
+                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Fairy Tale">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
@@ -563,14 +563,14 @@
                                                             </Label>
                                                          </children>
                                                       </Pane>
-                                                      <FlowPane fx:id="comicLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" vgap="10.0" />
+                                                      <FlowPane fx:id="comicLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0" />
                                                    </children>
                                                 </VBox>
                                              </content>
                                           </ScrollPane>
                                        </children>
                                     </Pane>
-                                    <Pane id="Main-Book" fx:id="novelPane" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css">
+                                    <Pane id="Main-Book" fx:id="novelPane" disable="true" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../css/StyleTungDZ.css" visible="false">
                                        <children>
                                           <ScrollPane prefHeight="628.0" prefWidth="1100.0">
                                              <content>
@@ -580,7 +580,7 @@
                                                          <children>
                                                             <ImageView fitHeight="444.0" fitWidth="1281.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
                                                                <image>
-                                                                  <Image url="@../../BookStoreApp/src/view/images/Books/NovelPane.png" />
+                                                                  <Image url="@../images/Books/NovelPane.png" />
                                                                </image>
                                                             </ImageView>
                                                             <HBox id="Book_Category" fx:id="bookGenres4" alignment="CENTER" prefHeight="63.0" prefWidth="1086.0" spacing="60.0">
@@ -610,12 +610,12 @@
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Novel">
+                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Novel">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Fairy Tale">
+                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Fairy Tale">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
@@ -633,14 +633,14 @@
                                                             </Label>
                                                          </children>
                                                       </Pane>
-                                                      <FlowPane fx:id="novelLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" vgap="10.0" />
+                                                      <FlowPane fx:id="novelLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0" />
                                                    </children>
                                                 </VBox>
                                              </content>
                                           </ScrollPane>
                                        </children>
                                     </Pane>
-                                    <Pane id="Main-Book" fx:id="romancePane" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css">
+                                    <Pane id="Main-Book" fx:id="romancePane" disable="true" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../css/StyleTungDZ.css" visible="false">
                                        <children>
                                           <ScrollPane prefHeight="628.0" prefWidth="1100.0">
                                              <content>
@@ -650,7 +650,7 @@
                                                          <children>
                                                             <ImageView fitHeight="444.0" fitWidth="1281.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
                                                                <image>
-                                                                  <Image url="@../../BookStoreApp/src/view/images/Books/RomancePane.png" />
+                                                                  <Image url="@../images/Books/RomancePane.png" />
                                                                </image>
                                                             </ImageView>
                                                             <HBox id="Book_Category" fx:id="bookGenres5" alignment="CENTER" prefHeight="63.0" prefWidth="1086.0" spacing="60.0">
@@ -680,12 +680,12 @@
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Novel">
+                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Novel">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Fairy Tale">
+                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Fairy Tale">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
@@ -703,14 +703,14 @@
                                                             </Label>
                                                          </children>
                                                       </Pane>
-                                                      <FlowPane fx:id="romanceLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" vgap="10.0" />
+                                                      <FlowPane fx:id="romanceLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0" />
                                                    </children>
                                                 </VBox>
                                              </content>
                                           </ScrollPane>
                                        </children>
                                     </Pane>
-                                    <Pane id="Main-Book" fx:id="horrorPane" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css">
+                                    <Pane id="Main-Book" fx:id="horrorPane" disable="true" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../css/StyleTungDZ.css" visible="false">
                                        <children>
                                           <ScrollPane prefHeight="628.0" prefWidth="1100.0">
                                              <content>
@@ -720,7 +720,7 @@
                                                          <children>
                                                             <ImageView fitHeight="444.0" fitWidth="1281.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
                                                                <image>
-                                                                  <Image url="@../../BookStoreApp/src/view/images/Books/HorrorPane.png" />
+                                                                  <Image url="@../images/Books/HorrorPane.png" />
                                                                </image>
                                                             </ImageView>
                                                             <HBox id="Book_Category" fx:id="bookGenres6" alignment="CENTER" prefHeight="63.0" prefWidth="1086.0" spacing="60.0">
@@ -750,12 +750,12 @@
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" style="-fx-text-fill: white;" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Novel" textFill="WHITE">
+                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" style="-fx-text-fill: white;" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Novel" textFill="WHITE">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" style="-fx-text-fill: white;" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Fairy Tale" textFill="WHITE">
+                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" style="-fx-text-fill: white;" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Fairy Tale" textFill="WHITE">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
@@ -773,14 +773,14 @@
                                                             </Label>
                                                          </children>
                                                       </Pane>
-                                                      <FlowPane fx:id="horrorLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" vgap="10.0" />
+                                                      <FlowPane fx:id="horrorLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0" />
                                                    </children>
                                                 </VBox>
                                              </content>
                                           </ScrollPane>
                                        </children>
                                     </Pane>
-                                    <Pane id="Main-Book" fx:id="adventurePane" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css">
+                                    <Pane id="Main-Book" fx:id="adventurePane" disable="true" prefHeight="628.0" prefWidth="1100.0" stylesheets="@../css/StyleTungDZ.css" visible="false">
                                        <children>
                                           <ScrollPane prefHeight="628.0" prefWidth="1100.0">
                                              <content>
@@ -790,7 +790,7 @@
                                                          <children>
                                                             <ImageView fitHeight="444.0" fitWidth="1281.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
                                                                <image>
-                                                                  <Image url="@../../BookStoreApp/src/view/images/Books/AdventurePane.png" />
+                                                                  <Image url="@../images/Books/AdventurePane.png" />
                                                                </image>
                                                             </ImageView>
                                                             <HBox id="Book_Category" fx:id="bookGenres7" alignment="CENTER" prefHeight="63.0" prefWidth="1086.0" spacing="60.0">
@@ -820,12 +820,12 @@
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Novel">
+                                                                  <Button mnemonicParsing="false" onAction="#sortNovelBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Novel">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
                                                                   </Button>
-                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" text="Fairy Tale">
+                                                                  <Button mnemonicParsing="false" onAction="#sortFairyTaleBook" prefWidth="80.0" styleClass="button-category" stylesheets="@../css/StyleTungDZ.css" text="Fairy Tale">
                                                                      <font>
                                                                         <Font name="System Bold" size="12.0" />
                                                                      </font>
@@ -843,7 +843,7 @@
                                                             </Label>
                                                          </children>
                                                       </Pane>
-                                                      <FlowPane fx:id="adventureLayout" hgap="10.0" prefHeight="439.0" prefWidth="1084.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" vgap="10.0" />
+                                                      <FlowPane fx:id="adventureLayout" hgap="10.0" prefHeight="667.0" prefWidth="1084.0" stylesheets="@../css/StyleTungDZ.css" vgap="10.0" />
                                                    </children>
                                                 </VBox>
                                              </content>
@@ -856,11 +856,11 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane id="Accout_Pane" fx:id="accountPane" disable="true" prefHeight="661.0" prefWidth="1100.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css" visible="false">
+                  <Pane id="Accout_Pane" fx:id="accountPane" disable="true" prefHeight="661.0" prefWidth="1100.0" stylesheets="@../css/StyleTungDZ.css" visible="false">
                      <children>
                         <StackPane prefHeight="678.0" prefWidth="1103.0">
                            <children>
-                              <ScrollPane id="Edit_Pane" prefHeight="675.0" prefWidth="1100.0">
+                              <ScrollPane id="Edit_Pane" fx:id="updateInformationPane" disable="true" prefHeight="675.0" prefWidth="1100.0" visible="false">
                                  <content>
                                     <VBox prefHeight="813.0" prefWidth="1084.0" style="-fx-background-color: #f9f9f9;">
                                        <children>
@@ -903,23 +903,17 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <TextField layoutY="33.0" prefHeight="33.0" prefWidth="403.0" styleClass="text-field-account" />
-                                                                  <Label layoutX="429.0" layoutY="8.0" prefHeight="29.0" prefWidth="127.0" text="Date of Birth">
-                                                                     <font>
-                                                                        <Font name="System Bold" size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <TextField layoutX="429.0" layoutY="33.0" prefHeight="33.0" prefWidth="174.0" styleClass="text-field-account" />
+                                                                  <TextField fx:id="newName" layoutY="33.0" prefHeight="33.0" prefWidth="604.0" styleClass="text-field-account" />
                                                                </children>
                                                             </Pane>
                                                             <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
                                                                <children>
-                                                                  <Label layoutY="8.0" prefHeight="29.0" prefWidth="66.0" text="Username">
+                                                                  <Label prefHeight="29.0" prefWidth="127.0" text="Date of Birth">
                                                                      <font>
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                                  <TextField fx:id="newDateOfBirth" layoutY="37.0" prefHeight="33.0" prefWidth="174.0" styleClass="text-field-account" />
                                                                </children>
                                                             </Pane>
                                                             <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
@@ -929,7 +923,7 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                                  <TextField fx:id="newPhoneNumber" layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
                                                                </children>
                                                             </Pane>
                                                             <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
@@ -939,7 +933,7 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                                  <TextField fx:id="newAddress" layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
                                                                </children>
                                                             </Pane>
                                                          </children>
@@ -949,12 +943,12 @@
                                                       </VBox>
                                                    </children>
                                                 </Pane>
-                                                <Label alignment="CENTER" layoutX="887.0" layoutY="321.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #90D5FF; -fx-background-radius: 15;" text="Save" textAlignment="CENTER" textFill="WHITE">
+                                                <Label alignment="CENTER" layoutX="887.0" layoutY="321.0" onMouseClicked="#saveUpdateInfo" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #90D5FF; -fx-background-radius: 15;" text="Save" textAlignment="CENTER" textFill="WHITE">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" layoutX="796.0" layoutY="321.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: white; -fx-background-radius: 15;" text="Cancel" textAlignment="CENTER" textFill="#040404de">
+                                                <Label alignment="CENTER" layoutX="796.0" layoutY="321.0" onMouseClicked="#cancelUpdateInfo" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: white; -fx-background-radius: 15;" text="Cancel" textAlignment="CENTER" textFill="#040404de">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
@@ -983,7 +977,7 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                                  <TextField fx:id="currentPasswordField" layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
                                                                </children>
                                                             </Pane>
                                                             <Pane layoutX="30.0" layoutY="10.0" prefHeight="53.0" prefWidth="641.0">
@@ -993,7 +987,7 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <TextField layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
+                                                                  <TextField fx:id="newPasswordField" layoutY="33.0" prefHeight="33.0" prefWidth="605.0" styleClass="text-field-account" />
                                                                </children>
                                                             </Pane>
                                                          </children>
@@ -1003,12 +997,12 @@
                                                       </VBox>
                                                    </children>
                                                 </Pane>
-                                                <Label alignment="CENTER" layoutX="887.0" layoutY="192.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #90D5FF; -fx-background-radius: 15;" text="Save" textAlignment="CENTER" textFill="WHITE">
+                                                <Label alignment="CENTER" layoutX="887.0" layoutY="192.0" onMouseClicked="#updatePassword" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #90D5FF; -fx-background-radius: 15;" text="Save" textAlignment="CENTER" textFill="WHITE">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" layoutX="796.0" layoutY="192.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: white; -fx-background-radius: 15;" text="Cancel" textAlignment="CENTER" textFill="#040404de">
+                                                <Label alignment="CENTER" layoutX="796.0" layoutY="192.0" onMouseClicked="#cancelUpdatePassword" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: white; -fx-background-radius: 15;" text="Cancel" textAlignment="CENTER" textFill="#040404de">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
@@ -1022,7 +1016,7 @@
                                     </VBox>
                                  </content>
                               </ScrollPane>
-                              <Pane id="Info_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1100.0" stylesheets="@../../BookStoreApp/src/view/css/StyleTungDZ.css">
+                              <Pane id="Info_Pane" fx:id="informationPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1100.0" stylesheets="@../css/StyleTungDZ.css">
                                  <children>
                                     <VBox layoutX="75.0" layoutY="75.0" prefHeight="510.0" prefWidth="950.0" style="-fx-background-color: linear-gradient(to right, #2a3439, #1C1C1C); -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.5, 2, 2);;">
                                        <children>
@@ -1048,7 +1042,7 @@
                                                             <Font name="Segoe UI Italic" size="24.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label layoutX="281.0" layoutY="11.0" prefHeight="29.0" prefWidth="609.0" text="Donald" textFill="WHITE">
+                                                      <Label fx:id="fullName" layoutX="281.0" layoutY="11.0" prefHeight="29.0" prefWidth="609.0" text="Donald" textFill="WHITE">
                                                          <font>
                                                             <Font name="Segoe UI" size="24.0" />
                                                          </font>
@@ -1066,7 +1060,7 @@
                                                             <Font name="Segoe UI Italic" size="24.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label layoutX="281.0" layoutY="11.0" prefHeight="29.0" prefWidth="609.0" text="DonDonald123" textFill="WHITE">
+                                                      <Label fx:id="username" layoutX="281.0" layoutY="11.0" prefHeight="29.0" prefWidth="609.0" text="DonDonald123" textFill="WHITE">
                                                          <font>
                                                             <Font name="Segoe UI" size="24.0" />
                                                          </font>
@@ -1084,7 +1078,7 @@
                                                             <Font name="Segoe UI Italic" size="24.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label layoutX="281.0" layoutY="11.0" prefHeight="29.0" prefWidth="609.0" text="04/04/1997" textFill="WHITE">
+                                                      <Label fx:id="dateOfBirth" layoutX="281.0" layoutY="11.0" prefHeight="29.0" prefWidth="609.0" text="04/04/1997" textFill="WHITE">
                                                          <font>
                                                             <Font name="Segoe UI" size="24.0" />
                                                          </font>
@@ -1102,7 +1096,7 @@
                                                             <Font name="Segoe UI Italic" size="24.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label layoutX="281.0" layoutY="11.0" prefHeight="29.0" prefWidth="609.0" text="037876532543" textFill="WHITE">
+                                                      <Label fx:id="phoneNumber" layoutX="281.0" layoutY="11.0" prefHeight="29.0" prefWidth="609.0" text="037876532543" textFill="WHITE">
                                                          <font>
                                                             <Font name="Segoe UI" size="24.0" />
                                                          </font>
@@ -1120,7 +1114,7 @@
                                                             <Font name="Segoe UI Italic" size="24.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label alignment="TOP_LEFT" layoutX="281.0" layoutY="11.0" prefHeight="115.0" prefWidth="609.0" text="The White House, 1600 Pennsylvania Avenue NW, Washington, DC 20500, United States" textFill="WHITE" wrapText="true">
+                                                      <Label fx:id="address" alignment="TOP_LEFT" layoutX="281.0" layoutY="11.0" prefHeight="115.0" prefWidth="609.0" text="The White House, 1600 Pennsylvania Avenue NW, Washington, DC 20500, United States" textFill="WHITE" wrapText="true">
                                                          <font>
                                                             <Font name="Segoe UI" size="24.0" />
                                                          </font>
@@ -1131,7 +1125,7 @@
                                           </HBox>
                                           <Pane prefHeight="77.0" prefWidth="950.0">
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="630.0" layoutY="17.0" prefHeight="43.0" prefWidth="256.0" style="-fx-font-size: 24;" text="Update your profile" textAlignment="CENTER" textFill="#212121">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="630.0" layoutY="17.0" onMouseClicked="#gotoUpdateInformation" prefHeight="43.0" prefWidth="256.0" style="-fx-font-size: 24;" text="Update your profile" textAlignment="CENTER" textFill="#212121">
                                                    <font>
                                                       <Font name="Segoe UI Bold Italic" size="24.0" />
                                                    </font>
@@ -1153,11 +1147,11 @@
                         </StackPane>
                      </children>
                   </Pane>
-                  <Pane fx:id="helpPane" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="helpPane" disable="true" prefHeight="200.0" prefWidth="200.0" visible="false">
                      <children>
                         <ImageView fitHeight="674.0" fitWidth="1100.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../../BookStoreApp/src/view/images/Help/HelpPane_White.png" />
+                              <Image url="@../images/Help/HelpPane_White.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="620.0" layoutY="44.0" text="About Us">
@@ -1182,7 +1176,7 @@
                         </Label>
                         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="618.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../BookStoreApp/src/view/images/Button/telephone.png" />
+                              <Image url="@../images/Button/telephone.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="659.0" layoutY="542.0" text="+1 202-456-7041">
@@ -1197,12 +1191,12 @@
                         </Label>
                         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="618.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../BookStoreApp/src/view/images/Button/gmail.png" />
+                              <Image url="@../images/Button/gmail.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="618.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../BookStoreApp/src/view/images/Button/location-pin.png" />
+                              <Image url="@../images/Button/location-pin.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="659.0" layoutY="571.0" text="HUSTbookstore@gmail.com ">
@@ -1212,7 +1206,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="Cart_Pane" fx:id="cartPane" disable="true" prefHeight="200.0" prefWidth="200.0" styleClass="White-background1" visible="false">
+                  <Pane id="Cart_Pane" fx:id="cartPane" prefHeight="200.0" prefWidth="200.0" styleClass="White-background1">
                      <children>
                         <HBox layoutX="-2.0" layoutY="-1.0" prefHeight="673.0" prefWidth="1102.0">
                            <children>
@@ -1347,7 +1341,7 @@
                                              <children>
                                                 <ImageView fitHeight="28.0" fitWidth="24.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../../BookStoreApp/src/view/images/Button/credit-card.png" />
+                                                      <Image url="@../images/Button/credit-card.png" />
                                                    </image>
                                                 </ImageView>
                                                 <Label alignment="CENTER" layoutX="53.0" layoutY="8.0" prefHeight="36.0" prefWidth="50.0" text="Credit Card" textFill="#ede7ff" wrapText="true">
@@ -1366,7 +1360,7 @@
                                              <children>
                                                 <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="24.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../../BookStoreApp/src/view/images/Button/money.png" />
+                                                      <Image url="@../images/Button/money.png" />
                                                    </image>
                                                 </ImageView>
                                                 <Label alignment="CENTER" layoutX="45.0" layoutY="8.0" prefHeight="36.0" prefWidth="63.0" text="Cash" textFill="#ede7ff" wrapText="true">
@@ -1582,7 +1576,7 @@
                                           </Pane>
                                        </children>
                                     </StackPane>
-                                    <Pane prefHeight="64.0" prefWidth="219.0">
+                                    <Pane onMouseClicked="#handleCheckout" prefHeight="64.0" prefWidth="219.0">
                                        <VBox.margin>
                                           <Insets left="50.0" right="50.0" />
                                        </VBox.margin>

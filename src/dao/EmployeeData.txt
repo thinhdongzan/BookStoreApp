@@ -15,6 +15,8 @@ CREATE TABLE Employee (
 );
 
 
+
+
 INSERT INTO Employee (id, name, dob, address, salary, image, phone, email) VALUES
 (1, 'Elon Musk', '1971-06-28', 'Texas, USA', 120000, 'src\\view\\images\\profileImage\\elon_musk_royal_society.jpg', '0905123456', 'elon.musk@tesla.com'),
 (2, 'Taylor Swift', '1989-12-13', 'Nashville, Tennessee, USA', 95000, 'src/view/images/profileImage/TayLor.jpg', '0916234567', 'taylor.swift@musicworld.com'),
