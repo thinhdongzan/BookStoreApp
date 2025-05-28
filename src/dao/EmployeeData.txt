@@ -10,8 +10,12 @@ CREATE TABLE Employee (
     salary DOUBLE,
     image VARCHAR(255),
     phone VARCHAR(15),
-    email VARCHAR(100)
+    email VARCHAR(100),
+    status VARCHAR(10) DEFAULT 'UNPAID'
 );
+
+
+
 
 INSERT INTO Employee (id, name, dob, address, salary, image, phone, email) VALUES
 (1, 'Elon Musk', '1971-06-28', 'Texas, USA', 120000, 'src\\view\\images\\profileImage\\elon_musk_royal_society.jpg', '0905123456', 'elon.musk@tesla.com'),

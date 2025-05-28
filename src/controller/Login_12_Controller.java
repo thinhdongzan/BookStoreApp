@@ -5,11 +5,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.Customer;
 import utils.PopUpNoti;
 
 public class Login_12_Controller {
@@ -32,6 +34,8 @@ public class Login_12_Controller {
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
+    @FXML
+    private Label welcomeLabel;
 
     @FXML
     private void handleLoginBtnAction() {
@@ -42,12 +46,17 @@ public class Login_12_Controller {
             boolean isValidUser = dao.CustomerDAO.checkLogin(username, password);
 
             if (isValidUser) {
+                // Load the customer menu FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Cus_Menu.fxml"));
-                root = loader.load();
+                Parent root = loader.load();
+                Cus_Menu cusMenuController = loader.getController();
 
-                // Get the current stage and set the new scene
+                // Get the current customer
+                Customer customer = dao.CustomerDAO.getCustomerByUsername(username);
+                cusMenuController.setCustomer(customer);
+
+                Scene scene = new Scene(root);
                 stage = (Stage) usernameField.getScene().getWindow();
-                scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
                 stage.centerOnScreen();

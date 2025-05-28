@@ -69,7 +69,7 @@
 }
 
 .shadow-effect1 {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.3, 0, 3);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 20, 0.3, 0, 3);
 }
 
 .shadow-effect2{
@@ -167,9 +167,8 @@
 
 .best-seller-section {
 /* Gradient nền với màu salmon */
--fx-background-color: linear-gradient(to right,   #6d6ddf,  #c0c0f1)
-;
-	    ;  /* đỏ nổi bật */
+-fx-background-color: linear-gradient(to bottom right, #81D8B8, #A8E6CF);
+
     -fx-padding: 20px;
     -fx-spacing: 10px;
 }
@@ -183,9 +182,10 @@
 }
 
 .button-self-help{
-	-fx-background-color: #fff176	;
-	
+	-fx-background-color: #D4C540;
 }
+	
+
 
 .size-item-image{
 	 -fx-fit-width: 140;
@@ -199,7 +199,7 @@
 }
 
 .button-adventure{
-		-fx-background-color: #4fc3f7;
+		-fx-background-color: #73D0F9;
 	
 }
 
@@ -221,6 +221,21 @@
 .button-fairy-tale{
 		-fx-background-color: #c5e1a5;
 	
+}
+
+.button-category {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    
+    -fx-font-size: 12px;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.button-category:hover {
+    -fx-underline: true;
 }
 
 .mouse-selfhelp:hover{
@@ -255,13 +270,13 @@
     -fx-fit-height: 290;
 }
 
-.button-quantity-left:hover  {
+.button-quantity-l:hover  {
 	-fx-background-radius: 15 0 0 15;
     -fx-background-color: gray;
     -fx-text-fill: white;
 }
 
-.button-quantity-right:hover {
+.button-quantity:hover {
 	-fx-background-radius: 0 15 15 0;
     -fx-background-color: gray;
     -fx-text-fill: white;
@@ -326,8 +341,83 @@
 	
 }
 
+
 .text-field-account{
 	-fx-border-color: gray;
 	-fx-border-radius: 10;
 	-fx-background-color: transparent;
+	}
+
+
+.italic-bold-font{
+	    -fx-font-weight: bold;
+    -fx-font-style: italic;
+}
+.setting-button {
+    -fx-background-color: #ECECEC ; 
+    -fx-text-fill: #1C1C1C;
+
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.3, 0, 2);
+    -fx-cursor: hand;
+}
+
+.shadow-effect{
+	    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.3, 0, 2);
+	
+}
+
+.setting-button:hover {
+    -fx-background-color: #C0C0C0;
+}
+	
+
+.best-seller-scroll .scroll-bar:vertical {
+    -fx-pref-width: 8px;
+    -fx-background-color: transparent;
+}
+
+.best-seller-scroll .scroll-bar:horizontal {
+    -fx-pref-height: 8px;
+    -fx-background-color: transparent;
+}
+
+.best-seller-scroll .scroll-bar .thumb {
+    -fx-background-color: #61C9A8; /* Mint đậm */
+    -fx-background-radius: 6px;
+}
+
+.best-seller-scroll .scroll-bar .track {
+    -fx-background-color: gray; /* Mint nhạt */
+    -fx-background-radius: 6px;
+}
+
+.best-seller-scroll .increment-button,
+.best-seller-scroll .decrement-button {
+    -fx-opacity: 0;
+}
+
+.main-scroll .scroll-bar:vertical {
+    -fx-pref-width: 8px;
+    -fx-background-color: transparent;
+}
+
+.main-scroll .scroll-bar:horizontal {
+    -fx-pref-height: 8px;
+    -fx-background-color: transparent;
+}
+
+.main-scroll .scroll-bar .thumb {
+    -fx-background-color: #CCCCCC; /* Xám nhẹ */
+    -fx-background-radius: 6px;
+}
+
+.main-scroll .scroll-bar .track {
+    -fx-background-color: #F2F2F2; /* Xám rất nhạt */
+    -fx-background-radius: 6px;
+}
+
+.main-scroll .increment-button,
+.main-scroll .decrement-button {
+    -fx-opacity: 0;
 }

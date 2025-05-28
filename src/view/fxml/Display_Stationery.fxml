@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="stationeryBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#showInfo" prefHeight="227.0" prefWidth="160.0" style="-fx-border-color: gray; -fx-border-radius: 0; -fx-background-color: white;" styleClass="White-background" stylesheets="@../css/StyleTungDZ.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StationeryController">
+<VBox fx:id="stationeryBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#showInfo" prefHeight="227.0" prefWidth="160.0" style="-fx-background-color: white;" styleClass="White-background" stylesheets="@../css/StyleTungDZ.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StationeryController">
    <children>
       <HBox prefHeight="135.0" prefWidth="135.0">
          <children>
@@ -30,7 +30,7 @@
          </font>
       </Label>
       <Label fx:id="stationeryBrand" text="Name brand" />
-      <Label fx:id="stationeryPrice" text="1.09$">
+      <Label fx:id="stationeryPrice" onMouseClicked="#showInfo" text="1.09$">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

@@ -10,4 +10,8 @@ public class PopUpNoti {
     public static void showConfirmation(String message) {
         JOptionPane.showMessageDialog(null, message, "Confirmation", JOptionPane.QUESTION_MESSAGE);
     }
+
+    public static void showSuccess(String message) {
+        JOptionPane.showMessageDialog(null, message, "Success", JOptionPane.INFORMATION_MESSAGE);
+    }
 }

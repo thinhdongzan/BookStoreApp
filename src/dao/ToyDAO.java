@@ -98,12 +98,44 @@ public class ToyDAO {
         }
     }
 
-    public static void deleteToyById(int id) throws SQLException {
-        String sql = "DELETE FROM toy WHERE id = ?";
+    public static boolean deleteToyById(int id, int quantityToRemove) {
+        String selectSql = "SELECT quantity FROM toy WHERE id = ?";
+        String updateSql = "UPDATE toy SET quantity = ? WHERE id = ?";
+        String deleteSql = "DELETE FROM toy WHERE id = ?";
+
         try (Connection conn = DBConnection.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
+                PreparedStatement selectStmt = conn.prepareStatement(selectSql)) {
+
+            selectStmt.setInt(1, id);
+            ResultSet rs = selectStmt.executeQuery();
+
+            if (rs.next()) {
+                int currentQty = rs.getInt("quantity");
+
+                if (quantityToRemove > currentQty) {
+                    throw new IllegalArgumentException("Số lượng xoá lớn hơn số lượng hiện có.");
+                }
+
+                if (quantityToRemove == currentQty) {
+                    try (PreparedStatement deleteStmt = conn.prepareStatement(deleteSql)) {
+                        deleteStmt.setInt(1, id);
+                        return deleteStmt.executeUpdate() > 0;
+                    }
+                } else {
+                    int newQty = currentQty - quantityToRemove;
+                    try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
+                        updateStmt.setInt(1, newQty);
+                        updateStmt.setInt(2, id);
+                        return updateStmt.executeUpdate() > 0;
+                    }
+                }
+            } else {
+                throw new IllegalArgumentException("Không tìm thấy đồ chơi với ID này.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Lỗi khi xoá đồ chơi.");
         }
     }
 
@@ -115,6 +147,7 @@ public class ToyDAO {
                 ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
                 Toy toy = new Toy();
+                toy.setId(rs.getInt("id"));
                 toy.setName(rs.getString("name"));
                 toy.setBrand(rs.getString("brand"));
                 toy.setImageSrc(rs.getString("ImageSrc"));

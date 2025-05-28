@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import dao.BookDAO;
+import dao.CustomerDAO;
 import dao.StationeryDAO;
 import dao.ToyDAO;
 import javafx.event.ActionEvent;
@@ -21,7 +22,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -29,9 +32,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Book;
 import model.Cart;
+import model.Customer;
 import model.Product;
 import model.Stationery;
 import model.Toy;
+import utils.OrderService;
 import utils.PopUpNoti;
 
 public class Cus_Menu implements Initializable {
@@ -110,6 +115,9 @@ public class Cus_Menu implements Initializable {
 
     @FXML
     private FlowPane comicLayout;
+
+    @FXML
+    private Label welcomeLabel;
 
     public void choosePane(Pane pane) {
         bookPane.setVisible(false);
@@ -239,11 +247,7 @@ public class Cus_Menu implements Initializable {
         choosePane(cartPane);
         choosePayMethod(payCreditCardPane);
         updateCartView();
-    }
-
-    public void accountChoose() throws IOException {
-        setSelectedNav(accountNav);
-        choosePane(accountPane);
+        paymentMethod = "Credit Card";
     }
 
     public void helpChoose() throws IOException {
@@ -442,6 +446,8 @@ public class Cus_Menu implements Initializable {
     @FXML
     private Label totalCost;
 
+    private String paymentMethod;
+
     public void choosePayMethod(Pane pane) {
         payCreditCardPane.setVisible(false);
         payCashPane.setVisible(false);
@@ -455,10 +461,12 @@ public class Cus_Menu implements Initializable {
 
     public void switchToPayCreditCard() throws IOException {
         choosePayMethod(payCreditCardPane);
+        paymentMethod = "Credit Card";
     }
 
     public void switchToPayCash() throws IOException {
         choosePayMethod(payCashPane);
+        paymentMethod = "Cash";
     }
 
     public void updateCartView() {
@@ -479,6 +487,17 @@ public class Cus_Menu implements Initializable {
         totalCost.setText(String.format("$%.2f", Cart.getInstance().getTotalCostWithShipping()));
     }
 
+    public void handleCheckout(MouseEvent event) {
+        // Gọi service để tạo đơn hàng
+        boolean success = OrderService.createOrderFromCart(currentCustomer, Cart.getInstance(), paymentMethod,
+                currentCustomer.getAddress());
+        if (success) {
+            PopUpNoti.showSuccess("Order created successfully");
+        } else {
+            PopUpNoti.showAlert("Order creation failed");
+        }
+    }
+
     // Stationery
     @FXML
     private FlowPane stationeryLayout;
@@ -487,4 +506,120 @@ public class Cus_Menu implements Initializable {
     @FXML
     private FlowPane toyLayout;
 
+    // Account
+    @FXML
+    private ScrollPane updateInformationPane;
+
+    @FXML
+    private Pane informationPane;
+
+    @FXML
+    private Label fullName;
+
+    @FXML
+    private Label username;
+
+    @FXML
+    private Label dateOfBirth;
+
+    @FXML
+    private Label address;
+
+    @FXML
+    private Label phoneNumber;
+
+    @FXML
+    private TextField newName;
+
+    @FXML
+    private TextField newDateOfBirth;
+
+    @FXML
+    private TextField newAddress;
+
+    @FXML
+    private TextField newPhoneNumber;
+
+    @FXML
+    private TextField newPasswordField;
+
+    @FXML
+    private TextField currentPasswordField;
+
+    public static Customer currentCustomer;
+
+    public void setCustomer(Customer customer) {
+        currentCustomer = customer;
+        welcomeLabel.setText("Welcome, " + customer.getName());
+    }
+
+    public void accountChoose() throws IOException {
+        setSelectedNav(accountNav);
+        choosePane(accountPane);
+        updateInformationPane.setVisible(false);
+        informationPane.setVisible(true);
+
+        updateInformationPane.setDisable(true);
+        informationPane.setDisable(false);
+
+        Customer customer = CustomerDAO.getCustomerByUsername(currentCustomer.getUsername());
+        setAccountInfo(customer);
+    }
+
+    public void gotoUpdateInformation(MouseEvent event) {
+        updateInformationPane.setVisible(true);
+        informationPane.setVisible(false);
+
+        updateInformationPane.setDisable(false);
+        informationPane.setDisable(true);
+    }
+
+    public void setAccountInfo(Customer customer) {
+        fullName.setText(customer.getName());
+        username.setText(customer.getUsername());
+        dateOfBirth.setText(customer.getDateOfBirth());
+        address.setText(customer.getAddress());
+        phoneNumber.setText(customer.getPhoneNumber());
+    }
+
+    public void saveUpdateInfo(MouseEvent event) {
+        Customer customer = Cus_Menu.currentCustomer;
+
+        customer.setName(newName.getText());
+        customer.setDateOfBirth(newDateOfBirth.getText());
+        customer.setPhoneNumber(newPhoneNumber.getText());
+        customer.setAddress(newAddress.getText());
+
+        boolean success = CustomerDAO.updateCustomer(customer);
+        if (success) {
+            PopUpNoti.showSuccess("Update information successfully");
+            setAccountInfo(customer);
+        } else {
+            PopUpNoti.showAlert("Update information failed");
+        }
+    }
+
+    public void cancelUpdateInfo(MouseEvent event) {
+        newName.clear();
+        newDateOfBirth.clear();
+        newAddress.clear();
+        newPhoneNumber.clear();
+    }
+
+    public void cancelUpdatePassword(MouseEvent event) {
+        newPasswordField.clear();
+        currentPasswordField.clear();
+    }
+
+    public void updatePassword(MouseEvent event) {
+        String newPassword = newPasswordField.getText();
+        String currentPassword = currentPasswordField.getText();
+        if (currentPassword.equals(currentCustomer.getPassword())) {
+            currentCustomer.setPassword(newPassword);
+            CustomerDAO.updatePassword(currentCustomer.getUsername(), newPassword);
+            PopUpNoti.showSuccess("Update password successfully");
+        } else {
+            PopUpNoti.showAlert("Current password is incorrect");
+        }
+    }
 }
