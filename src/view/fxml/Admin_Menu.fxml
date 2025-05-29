@@ -154,30 +154,6 @@
                      <content>
                         <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="472.0" prefWidth="770.0">
                            <children>
-                              <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="770.0">
-                                 <children>
-                                    <Button fx:id="d_day_button" mnemonicParsing="false" styleClass="date-button" text="Day">
-                                       <HBox.margin>
-                                          <Insets right="16.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <Button fx:id="d_week_button" mnemonicParsing="false" styleClass="date-button" text="Week">
-                                       <HBox.margin>
-                                          <Insets right="16.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <Button fx:id="d_month_button" mnemonicParsing="false" styleClass="date-button" text="Month">
-                                       <HBox.margin>
-                                          <Insets right="16.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <Button fx:id="d_year_button" mnemonicParsing="false" styleClass="date-button" text="Year">
-                                       <HBox.margin>
-                                          <Insets right="24.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                 </children>
-                              </HBox>
                               <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="770.0">
                                  <children>
                                     <VBox fx:id="revenue_buton" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="208.0" styleClass="card-pane">
@@ -251,7 +227,7 @@
                                     </VBox>
                                  </children>
                                  <VBox.margin>
-                                    <Insets />
+                                    <Insets top="16.0" />
                                  </VBox.margin>
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="770.0">
