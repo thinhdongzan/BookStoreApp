@@ -2079,14 +2079,14 @@
                                           </Pane>
                                        </children>
                                     </StackPane>
-                                    <Label fx:id="user_name_settings" styleClass="user-name" text="Name" />
-                                    <Label fx:id="user_position_setting" layoutX="65.0" layoutY="188.0" styleClass="user-position" text="Position" />
+                                    <Label fx:id="user_name_setting" styleClass="user-name" text="Name" />
+                                    <Label fx:id="user_position_setting" layoutX="65.0" layoutY="188.0" styleClass="user-position" text="Manager" />
                                  </children>
                                  <HBox.margin>
                                     <Insets right="16.0" />
                                  </HBox.margin>
                               </VBox>
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="500.0" styleClass="profile-card">
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="311.0" prefWidth="500.0" styleClass="profile-card">
                                  <children>
                                     <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="500.0">
                                        <children>
@@ -2100,31 +2100,14 @@
                                           </Text>
                                           <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="522.0">
                                              <children>
-                                                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0">
-                                                   <children>
-                                                      <Label styleClass="profile-title-label" text="Gender:">
-                                                         <HBox.margin>
-                                                            <Insets left="16.0" />
-                                                         </HBox.margin>
-                                                      </Label>
-                                                      <Label text="Label">
-                                                         <HBox.margin>
-                                                            <Insets left="16.0" />
-                                                         </HBox.margin>
-                                                      </Label>
-                                                   </children>
-                                                   <HBox.margin>
-                                                      <Insets right="16.0" />
-                                                   </HBox.margin>
-                                                </HBox>
-                                                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0">
+                                                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="193.0">
                                                    <children>
                                                       <Label styleClass="profile-title-label" text="D.O.B:">
                                                          <HBox.margin>
                                                             <Insets left="16.0" />
                                                          </HBox.margin>
                                                       </Label>
-                                                      <Label text="Label">
+                                                      <Label fx:id="dob_setting" text="Label">
                                                          <HBox.margin>
                                                             <Insets left="16.0" />
                                                          </HBox.margin>
@@ -2141,7 +2124,7 @@
                                                             <Insets />
                                                          </HBox.margin>
                                                       </Label>
-                                                      <Label text="Label">
+                                                      <Label fx:id="phonenumber_setting" text="Label">
                                                          <HBox.margin>
                                                             <Insets left="16.0" />
                                                          </HBox.margin>
@@ -2157,6 +2140,20 @@
                                     </VBox>
                                     <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0">
                                        <children>
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="364.0">
+                                             <children>
+                                                <Label styleClass="profile-title-label" text="Email">
+                                                   <HBox.margin>
+                                                      <Insets left="16.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Label fx:id="email_setting" text="Label">
+                                                   <HBox.margin>
+                                                      <Insets left="16.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                          </HBox>
                                           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile settings">
                                              <VBox.margin>
                                                 <Insets left="16.0" top="16.0" />
@@ -2202,7 +2199,7 @@
                                           </HBox>
                                           <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="48.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="522.0">
                                              <children>
-                                                <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="240.0">
+                                                <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="241.0">
                                                    <children>
                                                       <Label styleClass="profile-title-label" text="D.O.B">
                                                          <VBox.margin>

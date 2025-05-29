@@ -47,6 +47,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Book;
 import model.Employee;
+import model.Manager;
 import model.Order;
 import model.OtherCost;
 import model.Stationery;
@@ -1354,6 +1355,37 @@ public class Admin_Menu_Controller implements Initializable {
         }
     }
 
+        Manager manager = new Manager(
+        1,
+        "Dong Van Thinh",
+        "1990-05-20",
+        "123 Nguyen Trai, Hanoi",
+        2500.0,
+        "image.jpg",
+        "0987654321",
+        "dongbantinh@example.com",
+        "Approved", // salaryStatus
+        "admin",     // username
+        "password123" // password
+    );
+
+
+    @FXML
+    private Label user_name_setting;
+    @FXML
+    private Label email_setting;
+    @FXML
+    private Label dob_setting;
+    @FXML
+    private Label phonenumber_setting;
+
+    public void setManagerInfo(Manager manager) {
+    user_name_setting.setText(manager.getName());
+    email_setting.setText(manager.getEmail());
+    dob_setting.setText(manager.getDob());
+    phonenumber_setting.setText(manager.getPhone());
+}
+
     // @override
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -1374,6 +1406,9 @@ public class Admin_Menu_Controller implements Initializable {
         showOtherCosts(buildCosts());
 
         showOrder();
+
+        setManagerInfo(manager);
+        
 
         totalOrderLabel.setText(String.valueOf(OrderDAO.getTotalOrder()));
         totalOrderPendingLabel.setText(String.valueOf(OrderDAO.getTotalOrderPending()));
@@ -1448,5 +1483,9 @@ public class Admin_Menu_Controller implements Initializable {
         series.getData().add(new XYChart.Data<>("2025-05-28", 128.11));
         revenueChart.getData().add(series);
     }
+
+
+
+
 
 }
