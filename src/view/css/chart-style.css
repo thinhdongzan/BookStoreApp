@@ -1,4 +1,78 @@
+.chart {
+    -fx-background-color: white;
+    -fx-padding: 10;
+    -fx-border-color: transparent;
+}
+
+.chart-title {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333;
+    -fx-padding: 10 0 0 10;
+}
+
+.chart-plot-background {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: #e0e0e0;
+    -fx-stroke-width: 0.5px;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #e0e0e0;
+    -fx-stroke-width: 0.5px;
+}
+
+.default-color0.chart-bar {
+    -fx-bar-fill: #4a90e2;  /* Solid blue color */
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+}
+
 .chart-bar {
-    -fx-bar-fill: #1976D2;
-    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-bar-width: 40px;
+}
+
+.axis {
+    -fx-tick-label-fill: #333333;
+    -fx-tick-length: 8;
+    -fx-minor-tick-length: 4;
+}
+
+.axis-label {
+    -fx-text-fill: #333333;
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+}
+
+.axis-tick-mark {
+    -fx-stroke: #666666;
+    -fx-stroke-width: 0.5px;
+}
+
+.axis-minor-tick-mark {
+    -fx-stroke: #e0e0e0;
+}
+
+/* Làm nổi bật các nhãn trục */
+.axis .text {
+    -fx-font-size: 11px;
+    -fx-font-weight: normal;
+}
+
+/* Định dạng trục Y để hiển thị các giá trị từ 0 đến max với khoảng cách đều */
+.axis:left {
+    -fx-tick-unit: 2;  /* Khoảng cách giữa các giá trị trên trục Y */
+    -fx-auto-ranging: false;  /* Tắt tự động điều chỉnh khoảng */
+}
+
+/* Thêm hiệu ứng hover cho cột */
+.chart-bar:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0.5, 0, 3);
+    -fx-cursor: hand;
 }

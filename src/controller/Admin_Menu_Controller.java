@@ -1477,11 +1477,32 @@ public class Admin_Menu_Controller implements Initializable {
     private void showRevenueChart() {
         revenueChart.getData().clear();
         List<Map<String, Object>> revenueData = OrderDAO.getRevenueByDate();
-        System.out.println("Revenue data: " + revenueData);
+        
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Revenue");
-        series.getData().add(new XYChart.Data<>("2025-05-28", 128.11));
+        
+        // Ensure proper date formatting and sorting
+        for (Map<String, Object> data : revenueData) {
+            String date = (String) data.get("day");
+            Double revenue = (Double) data.get("revenue");
+            series.getData().add(new XYChart.Data<>(date, revenue));
+        }
+        
         revenueChart.getData().add(series);
+        
+        // Configure the CategoryAxis (X-axis)
+        dateAxis.setTickLabelRotation(45); // Rotate labels for better readability
+        dateAxis.setTickLabelGap(10);
+        dateAxis.setCategories(FXCollections.observableArrayList(
+            revenueData.stream()
+                      .map(data -> (String)data.get("day"))
+                      .toList()
+        ));
+        
+        // Configure the NumberAxis (Y-axis)
+        revenueAxis.setLabel("Revenue ($)");
+        revenueAxis.setTickUnit(50); // Set tick unit to 50
+        revenueAxis.setMinorTickCount(4); // Show minor ticks
     }
 
 

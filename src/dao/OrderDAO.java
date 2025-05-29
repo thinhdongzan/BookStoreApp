@@ -146,7 +146,8 @@ public class OrderDAO {
     public static List<Map<String, Object>> getRevenueByDate() {
         String sql = "SELECT DATE(order_date) AS day, SUM(total_amount) AS revenue " +
                 "FROM orders " +
-                "GROUP BY DATE(order_date)";
+                "GROUP BY DATE(order_date) " +
+                "ORDER BY DATE(order_date) ASC";
         try (Connection conn = DBConnection.getConnection();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             ResultSet rs = pstmt.executeQuery();
